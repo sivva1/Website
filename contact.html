@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — CIWeb</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root { --bg:#f5f3ee; --ink:#1a1814; --muted:#7a7570; --accent:#e8401c; --card:#fff; --border:#e2ddd6; }
+    body { font-family:'Outfit',sans-serif; background:var(--bg); color:var(--ink); }
+    nav { position:sticky; top:0; z-index:100; background:var(--bg); border-bottom:1px solid var(--border); padding:0 6%; display:flex; align-items:center; justify-content:space-between; height:64px; }
+    .logo { font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:900; color:var(--ink); text-decoration:none; }
+    .logo em { color:var(--accent); font-style:normal; }
+    .nav-links { display:flex; gap:2rem; list-style:none; align-items:center; }
+    .nav-links a { color:var(--muted); text-decoration:none; font-size:0.88rem; font-weight:500; transition:color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color:var(--ink); }
+    .nav-cta { background:var(--ink)!important; color:var(--bg)!important; padding:8px 20px; border-radius:100px; font-weight:600!important; }
+    .page-hero { max-width:1300px; margin:0 auto; padding:70px 6% 50px; border-bottom:1px solid var(--border); }
+    .page-label { font-size:0.75rem; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--accent); margin-bottom:1rem; display:flex; align-items:center; gap:8px; }
+    .page-label::before { content:''; display:block; width:24px; height:2px; background:var(--accent); }
+    .page-hero h1 { font-family:'Playfair Display',serif; font-size:clamp(2.5rem,5vw,4rem); font-weight:900; letter-spacing:-2px; line-height:1.1; margin-bottom:1rem; }
+    .page-hero p { color:var(--muted); font-size:1.05rem; line-height:1.75; max-width:500px; font-weight:300; }
+    .contact-layout { max-width:1300px; margin:0 auto; padding:60px 6%; display:grid; grid-template-columns:1fr 1.4fr; gap:4rem; align-items:start; }
+    .contact-info h3 { font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:700; margin-bottom:0.8rem; }
+    .contact-info p { color:var(--muted); font-size:0.9rem; line-height:1.7; margin-bottom:2rem; }
+    .info-item { display:flex; align-items:flex-start; gap:1rem; margin-bottom:1.2rem; }
+    .info-icon { font-size:1.2rem; margin-top:2px; }
+    .info-text strong { display:block; font-size:0.85rem; font-weight:600; margin-bottom:2px; }
+    .info-text span { font-size:0.85rem; color:var(--muted); }
+    .contact-form { background:var(--card); border:1px solid var(--border); border-radius:20px; padding:2.5rem; }
+    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem; }
+    .form-group { display:flex; flex-direction:column; gap:0.4rem; margin-bottom:1rem; }
+    .form-group label { font-size:0.82rem; font-weight:600; color:var(--ink); }
+    .form-group input, .form-group textarea, .form-group select {
+      background:var(--bg); border:1.5px solid var(--border); border-radius:10px;
+      padding:12px 16px; color:var(--ink); font-family:'Outfit',sans-serif; font-size:0.9rem;
+      outline:none; transition:border-color 0.2s; width:100%;
+    }
+    .form-group input:focus, .form-group textarea:focus { border-color:var(--accent); }
+    .form-group textarea { height:120px; resize:vertical; }
+    .submit-btn { width:100%; background:var(--accent); color:#fff; border:none; padding:14px; border-radius:100px; font-weight:600; font-size:1rem; cursor:pointer; font-family:'Outfit',sans-serif; transition:all 0.2s; }
+    .submit-btn:hover { background:#c73516; transform:translateY(-1px); }
+    .success-msg { display:none; background:#f0fff4; border:1px solid #86efac; border-radius:10px; padding:1rem; text-align:center; color:#166534; font-size:0.9rem; margin-top:1rem; }
+    footer { border-top:1px solid var(--border); padding:2rem 6%; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; max-width:1300px; margin:0 auto; }
+    footer p { font-size:0.82rem; color:var(--muted); }
+    @media(max-width:768px) { .contact-layout { grid-template-columns:1fr; } .form-row { grid-template-columns:1fr; } .nav-links { display:none; } }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">CI<em>Web</em></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="blogs.html">Blogs</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+    <li><a href="terms.html">Terms</a></li>
+    <li><a href="blogs.html" class="nav-cta">Read Blogs →</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="page-label">Contact Us</div>
+  <h1>Baat Karo Humse!</h1>
+  <p>Sawaal ho, suggestion ho, ya collaboration — hum hamesha available hain. Message karo!</p>
+</div>
+
+<div class="contact-layout">
+  <div class="contact-info">
+    <h3>Hum Yahan Hain</h3>
+    <p>Kisi bhi cheez mein help chahiye? Form fill karo ya direct email karo. Hum 24-48 ghante mein reply karte hain.</p>
+    <div class="info-item">
+      <div class="info-icon">📧</div>
+      <div class="info-text"><strong>Email</strong><span>hello@ciweb.in</span></div>
+    </div>
+    <div class="info-item">
+      <div class="info-icon">🌐</div>
+      <div class="info-text"><strong>Website</strong><span>ciweb.in</span></div>
+    </div>
+    <div class="info-item">
+      <div class="info-icon">⏰</div>
+      <div class="info-text"><strong>Response Time</strong><span>24-48 hours</span></div>
+    </div>
+  </div>
+
+  <div class="contact-form">
+    <div class="form-row">
+      <div class="form-group"><label>Aapka Naam</label><input type="text" placeholder="e.g. Rahul Kumar"/></div>
+      <div class="form-group"><label>Email Address</label><input type="email" placeholder="aap@email.com"/></div>
+    </div>
+    <div class="form-group"><label>Subject</label><input type="text" placeholder="Kya baat karni hai?"/></div>
+    <div class="form-group"><label>Message</label><textarea placeholder="Aapka poora message yahan likho..."></textarea></div>
+    <button class="submit-btn" onclick="sendMsg()">Message Bhejo →</button>
+    <div class="success-msg" id="success">✅ Message bhej diya! Hum jald reply karenge.</div>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html" class="logo">CI<em>Web</em></a>
+  <p>© 2026 CIWeb. All rights reserved.</p>
+  <p>Made with ❤️ for Tech Lovers</p>
+</footer>
+<script>
+function sendMsg() {
+  document.getElementById('success').style.display = 'block';
+}
+</script>
+</body>
+</html>
