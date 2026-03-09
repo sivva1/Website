@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About — CIWeb</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg:#f5f3ee; --ink:#1a1814; --muted:#7a7570; --accent:#e8401c; --card:#fff; --border:#e2ddd6; }
+    body { font-family:'Outfit',sans-serif; background:var(--bg); color:var(--ink); }
+    nav { position:sticky; top:0; z-index:100; background:var(--bg); border-bottom:1px solid var(--border); padding:0 6%; display:flex; align-items:center; justify-content:space-between; height:64px; }
+    .logo { font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:900; color:var(--ink); text-decoration:none; }
+    .logo em { color:var(--accent); font-style:normal; }
+    .nav-links { display:flex; gap:2rem; list-style:none; align-items:center; }
+    .nav-links a { color:var(--muted); text-decoration:none; font-size:0.88rem; font-weight:500; transition:color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color:var(--ink); }
+    .nav-cta { background:var(--ink)!important; color:var(--bg)!important; padding:8px 20px; border-radius:100px; font-weight:600!important; }
+    .page-hero { max-width:1300px; margin:0 auto; padding:70px 6% 50px; border-bottom:1px solid var(--border); }
+    .page-label { font-size:0.75rem; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--accent); margin-bottom:1rem; display:flex; align-items:center; gap:8px; }
+    .page-label::before { content:''; display:block; width:24px; height:2px; background:var(--accent); }
+    .page-hero h1 { font-family:'Playfair Display',serif; font-size:clamp(2.5rem,5vw,4rem); font-weight:900; letter-spacing:-2px; line-height:1.1; margin-bottom:1rem; }
+    .page-hero p { color:var(--muted); font-size:1.05rem; line-height:1.75; max-width:550px; font-weight:300; }
+    .content { max-width:1300px; margin:0 auto; padding:60px 6%; display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
+    .content-text h2 { font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:900; letter-spacing:-0.5px; margin-bottom:1rem; }
+    .content-text p { color:var(--muted); font-size:0.95rem; line-height:1.8; margin-bottom:1.2rem; }
+    .values { display:flex; flex-direction:column; gap:1.2rem; }
+    .value-card { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:1.4rem; }
+    .value-card .icon { font-size:1.5rem; margin-bottom:0.5rem; }
+    .value-card h4 { font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; margin-bottom:0.3rem; }
+    .value-card p { color:var(--muted); font-size:0.85rem; line-height:1.6; }
+    .cta-bar { background:var(--ink); padding:50px 6%; text-align:center; }
+    .cta-bar h3 { font-family:'Playfair Display',serif; font-size:2rem; color:#fff; margin-bottom:0.8rem; }
+    .cta-bar p { color:rgba(255,255,255,0.6); margin-bottom:1.5rem; }
+    .btn-primary { background:var(--accent); color:#fff; padding:12px 28px; border-radius:100px; font-weight:600; font-size:0.9rem; text-decoration:none; }
+    footer { border-top:1px solid var(--border); padding:2rem 6%; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; max-width:1300px; margin:0 auto; }
+    footer p { font-size:0.82rem; color:var(--muted); }
+    @media(max-width:768px) { .content { grid-template-columns:1fr; } .nav-links { display:none; } }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">CI<em>Web</em></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="blogs.html">Blogs</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="terms.html">Terms</a></li>
+    <li><a href="blogs.html" class="nav-cta">Read Blogs →</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="page-label">About Us</div>
+  <h1>Hum Kaun Hain?</h1>
+  <p>CIWeb ek Hindi tech blog hai jahan technology ko simple, clear aur accessible banaya jaata hai — har kisi ke liye.</p>
+</div>
+
+<div class="content">
+  <div class="content-text">
+    <h2>Hamari Kahani</h2>
+    <p>CIWeb ki shuruaat ek simple idea se hui — ki tech knowledge sirf English mein nahi, balki Hindi mein bhi milni chahiye. Bahut saare talented log sirf isliye peeche reh jaate hain kyunki resources unki bhasha mein nahi hote.</p>
+    <p>Isliye humne CIWeb banaya — ek aisi jagah jahan AI, coding, aur digital world ke baare mein sab kuch seedha aur simple language mein milega.</p>
+    <p>Hamare blogs regular update hote hain aur hamesha free rahenge. Kyunki knowledge par sabka haq hai.</p>
+  </div>
+  <div class="values">
+    <div class="value-card"><div class="icon">🎯</div><h4>Simplicity First</h4><p>Mushkil cheezein bhi simple tarike se samjhana — yahi hamara style hai.</p></div>
+    <div class="value-card"><div class="icon">🌍</div><h4>Hindi Mein Tech</h4><p>Apni bhasha mein seekhna sabse zyada asar karta hai. Isliye hum Hindi mein likhte hain.</p></div>
+    <div class="value-card"><div class="icon">🆓</div><h4>Always Free</h4><p>CIWeb ka saara content kabhi bhi paid nahi hoga. Knowledge free hona chahiye.</p></div>
+  </div>
+</div>
+
+<div class="cta-bar">
+  <h3>Blogs explore karo!</h3>
+  <p>Humari latest posts padho aur tech ki duniya mein aage badho.</p>
+  <a href="blogs.html" class="btn-primary">Blogs Dekho →</a>
+</div>
+
+<footer>
+  <a href="index.html" class="logo">CI<em>Web</em></a>
+  <p>© 2026 CIWeb. All rights reserved.</p>
+  <p>Made with ❤️ for Tech Lovers</p>
+</footer>
+</body>
+</html>
