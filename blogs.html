@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blogs — CIWeb</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root { --bg:#f5f3ee; --ink:#1a1814; --muted:#7a7570; --accent:#e8401c; --card:#fff; --border:#e2ddd6; --tag-bg:#fff0ec; }
+    body { font-family:'Outfit',sans-serif; background:var(--bg); color:var(--ink); }
+
+    /* NAV */
+    nav { position:sticky; top:0; z-index:100; background:var(--bg); border-bottom:1px solid var(--border); padding:0 6%; display:flex; align-items:center; justify-content:space-between; height:64px; }
+    .logo { font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:900; color:var(--ink); text-decoration:none; }
+    .logo em { color:var(--accent); font-style:normal; }
+    .nav-links { display:flex; gap:2rem; list-style:none; align-items:center; }
+    .nav-links a { color:var(--muted); text-decoration:none; font-size:0.88rem; font-weight:500; transition:color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color:var(--ink); }
+    .nav-cta { background:var(--ink)!important; color:var(--bg)!important; padding:8px 20px; border-radius:100px; font-weight:600!important; }
+
+    /* PAGE HERO */
+    .page-hero { max-width:1300px; margin:0 auto; padding:70px 6% 50px; border-bottom:1px solid var(--border); }
+    .page-label { font-size:0.75rem; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--accent); margin-bottom:1rem; display:flex; align-items:center; gap:8px; }
+    .page-label::before { content:''; display:block; width:24px; height:2px; background:var(--accent); }
+    .page-hero h1 { font-family:'Playfair Display',serif; font-size:clamp(2.5rem,5vw,4rem); font-weight:900; letter-spacing:-2px; line-height:1.1; margin-bottom:1rem; }
+    .page-hero p { color:var(--muted); font-size:1.05rem; line-height:1.75; max-width:500px; font-weight:300; }
+
+    /* SEARCH BAR */
+    .search-bar-wrap {
+      max-width:1300px; margin:0 auto;
+      padding:30px 6% 0;
+      display:flex; gap:1rem; align-items:center; flex-wrap:wrap;
+    }
+    .search-box {
+      flex:1; min-width:220px;
+      display:flex; align-items:center; gap:0.6rem;
+      background:var(--card); border:1.5px solid var(--border);
+      border-radius:100px; padding:10px 20px;
+      transition:border-color 0.2s;
+    }
+    .search-box:focus-within { border-color:var(--accent); }
+    .search-box span { font-size:1rem; color:var(--muted); }
+    .search-box input {
+      border:none; outline:none; background:transparent;
+      font-family:'Outfit',sans-serif; font-size:0.92rem;
+      color:var(--ink); width:100%;
+    }
+    .search-box input::placeholder { color:var(--muted); }
+    .clear-btn {
+      background:none; border:none; cursor:pointer;
+      color:var(--muted); font-size:1rem; padding:0;
+      display:none; transition:color 0.2s;
+    }
+    .clear-btn:hover { color:var(--accent); }
+    .clear-btn.visible { display:block; }
+
+    /* TAG FILTERS */
+    .tag-filters {
+      max-width:1300px; margin:0 auto;
+      padding:16px 6% 0;
+      display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center;
+    }
+    .filter-label { font-size:0.78rem; color:var(--muted); font-weight:500; margin-right:0.3rem; }
+    .tag-btn {
+      background:var(--card); border:1.5px solid var(--border);
+      color:var(--muted); font-size:0.75rem; font-weight:600;
+      padding:5px 14px; border-radius:100px; cursor:pointer;
+      font-family:'Outfit',sans-serif; letter-spacing:0.5px;
+      text-transform:uppercase; transition:all 0.2s;
+    }
+    .tag-btn:hover { border-color:var(--accent); color:var(--accent); }
+    .tag-btn.active { background:var(--accent); border-color:var(--accent); color:#fff; }
+
+    /* RESULTS INFO */
+    .results-info {
+      max-width:1300px; margin:0 auto;
+      padding:20px 6% 0;
+      font-size:0.85rem; color:var(--muted);
+      min-height:28px;
+    }
+    .results-info strong { color:var(--ink); }
+
+    /* BLOG GRID */
+    .blogs-section { max-width:1300px; margin:0 auto; padding:24px 6% 60px; }
+    .blog-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:1.5rem; }
+    .blog-card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:1.6rem; text-decoration:none; color:var(--ink); transition:all 0.25s ease; display:flex; flex-direction:column; animation:fadeUp 0.4s ease both; }
+    .blog-card:hover { transform:translateY(-3px); box-shadow:0 12px 40px rgba(0,0,0,0.08); border-color:#ccc; }
+    .card-tag { background:var(--tag-bg); color:var(--accent); font-size:0.7rem; font-weight:600; padding:4px 10px; border-radius:100px; letter-spacing:0.5px; text-transform:uppercase; margin-bottom:0.9rem; width:fit-content; }
+    .blog-card h3 { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:700; line-height:1.4; margin-bottom:0.6rem; flex:1; }
+    .blog-card p { color:var(--muted); font-size:0.85rem; line-height:1.6; margin-bottom:1.2rem; }
+    .card-footer { display:flex; align-items:center; justify-content:space-between; font-size:0.78rem; color:var(--muted); border-top:1px solid var(--border); padding-top:0.9rem; margin-top:auto; }
+    .read-arrow { color:var(--accent); font-weight:600; font-size:0.85rem; }
+
+    /* Highlight matching text */
+    mark { background:rgba(232,64,28,0.15); color:var(--accent); border-radius:3px; padding:0 2px; font-style:normal; }
+
+    /* EMPTY / NO RESULTS */
+    .empty-state { grid-column:1/-1; text-align:center; padding:5rem 2rem; color:var(--muted); }
+    .empty-state h3 { font-family:'Playfair Display',serif; font-size:1.8rem; margin-bottom:0.6rem; color:var(--ink); }
+    .empty-state p { font-size:0.9rem; }
+
+    footer { border-top:1px solid var(--border); padding:2rem 6%; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; max-width:1300px; margin:0 auto; }
+    footer p { font-size:0.82rem; color:var(--muted); }
+
+    @keyframes fadeUp { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+
+    @media(max-width:768px) { .nav-links { display:none; } .search-bar-wrap { flex-direction:column; align-items:stretch; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">CI<em>Web</em></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="blogs.html" class="active">Blogs</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="terms.html">Terms</a></li>
+    <li><a href="blogs.html" class="nav-cta">Read Blogs →</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="page-label">All Blogs</div>
+  <h1>Saare Blogs</h1>
+  <p>AI, coding, aur digital world ke baare mein sabse latest aur helpful articles — sirf tumhare liye.</p>
+</div>
+
+<!-- SEARCH -->
+<div class="search-bar-wrap">
+  <div class="search-box">
+    <span>🔍</span>
+    <input type="text" id="search-input" placeholder="Blog search karo... (e.g. AI, coding, tools)" oninput="onSearch()"/>
+    <button class="clear-btn" id="clear-btn" onclick="clearSearch()" title="Clear">✕</button>
+  </div>
+</div>
+
+<!-- TAG FILTERS -->
+<div class="tag-filters" id="tag-filters">
+  <span class="filter-label">Filter:</span>
+  <button class="tag-btn active" onclick="filterTag('all', this)">All</button>
+</div>
+
+<!-- RESULTS COUNT -->
+<div class="results-info" id="results-info"></div>
+
+<!-- GRID -->
+<div class="blogs-section">
+  <div class="blog-grid" id="blog-grid"></div>
+</div>
+
+<footer>
+  <a href="index.html" class="logo">CI<em>Web</em></a>
+  <p>© 2026 CIWeb. All rights reserved.</p>
+  <p>Made with ❤️ for Tech Lovers</p>
+</footer>
+
+<script>
+  let allBlogs = [];
+  let activeTag = 'all';
+
+  async function loadBlogs() {
+    const grid = document.getElementById('blog-grid');
+    try {
+      const res = await fetch('blogs.json');
+      allBlogs = await res.json();
+      if (!allBlogs.length) throw new Error();
+      buildTagFilters();
+      renderBlogs(allBlogs, '');
+    } catch {
+      grid.innerHTML = `<div class="empty-state"><h3>🚀 Blogs Coming Soon!</h3><p>Pehla blog bahut jaldi publish hoga!</p></div>`;
+    }
+  }
+
+  function buildTagFilters() {
+    const tags = [...new Set(allBlogs.map(b => b.tag || 'Tech'))];
+    const container = document.getElementById('tag-filters');
+    tags.forEach(tag => {
+      const btn = document.createElement('button');
+      btn.className = 'tag-btn';
+      btn.textContent = tag;
+      btn.onclick = () => filterTag(tag, btn);
+      container.appendChild(btn);
+    });
+  }
+
+  function filterTag(tag, btn) {
+    activeTag = tag;
+    document.querySelectorAll('.tag-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    applyFilters();
+  }
+
+  function onSearch() {
+    const val = document.getElementById('search-input').value;
+    document.getElementById('clear-btn').classList.toggle('visible', val.length > 0);
+    applyFilters();
+  }
+
+  function clearSearch() {
+    document.getElementById('search-input').value = '';
+    document.getElementById('clear-btn').classList.remove('visible');
+    applyFilters();
+  }
+
+  function applyFilters() {
+    const query = document.getElementById('search-input').value.trim().toLowerCase();
+    let filtered = allBlogs;
+
+    // Tag filter
+    if (activeTag !== 'all') {
+      filtered = filtered.filter(b => (b.tag || 'Tech') === activeTag);
+    }
+
+    // Keyword search — title + desc + tag
+    if (query) {
+      filtered = filtered.filter(b =>
+        b.title.toLowerCase().includes(query) ||
+        (b.desc || '').toLowerCase().includes(query) ||
+        (b.tag || '').toLowerCase().includes(query)
+      );
+    }
+
+    renderBlogs(filtered, query);
+  }
+
+  function highlight(text, query) {
+    if (!query) return text;
+    const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return text.replace(new RegExp(`(${escaped})`, 'gi'), '<mark>$1</mark>');
+  }
+
+  function renderBlogs(blogs, query) {
+    const grid = document.getElementById('blog-grid');
+    const info = document.getElementById('results-info');
+
+    if (!blogs.length) {
+      info.innerHTML = '';
+      grid.innerHTML = `
+        <div class="empty-state">
+          <h3>😕 Koi result nahi mila</h3>
+          <p>Doosra keyword try karo ya tag filter change karo.</p>
+        </div>`;
+      return;
+    }
+
+    const q = document.getElementById('search-input').value.trim();
+    if (q) {
+      info.innerHTML = `<strong>${blogs.length}</strong> result${blogs.length > 1 ? 's' : ''} mila "<strong>${q}</strong>" ke liye`;
+    } else {
+      info.innerHTML = `<strong>${blogs.length}</strong> blog${blogs.length > 1 ? 's' : ''} available`;
+    }
+
+    grid.innerHTML = blogs.map((b, i) => `
+      <a class="blog-card" href="${b.link}" style="animation-delay:${i * 0.05}s">
+        <span class="card-tag">${b.tag || 'Tech'}</span>
+        <h3>${highlight(b.title, query)}</h3>
+        <p>${highlight(b.desc || '', query)}</p>
+        <div class="card-footer">
+          <span>📅 ${b.date}</span>
+          <span class="read-arrow">Read →</span>
+        </div>
+      </a>`).join('');
+  }
+
+  loadBlogs();
+</script>
+</body>
+</html>
