@@ -9,8 +9,8 @@
     :root{--bg:#f5f3ee;--ink:#1a1814;--muted:#7a7570;--accent:#e8401c;--card:#fff;--border:#e2ddd6;--tag-bg:#fff0ec}
     body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--ink)}
     nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);padding:0 6%;display:flex;align-items:center;justify-content:space-between;height:64px}
-    .logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--ink);text-decoration:none!important;letter-spacing:-0.5px;font-style:normal!important}
-    .logo em{color:var(--accent);font-style:normal;font-weight:900}.logo-accent{color:var(--accent)!important;font-style:normal!important;font-weight:900!important}
+    .logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--ink);text-decoration:none;letter-spacing:-0.5px}
+    .logo-accent{color:var(--accent);font-style:normal;font-weight:900}
     .nav-links{display:flex;gap:1.4rem;list-style:none;align-items:center}
     .nav-links a{color:var(--muted);text-decoration:none;font-size:0.88rem;font-weight:500;transition:color 0.2s}
     .nav-links a:hover,.nav-links a.active{color:var(--ink)}
@@ -21,9 +21,6 @@
     .page-label::before{content:'';display:block;width:24px;height:2px;background:var(--accent)}
     .page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:900;letter-spacing:-2px;line-height:1.1;margin-bottom:1rem}
     .page-hero p{color:var(--muted);font-size:1.05rem;line-height:1.75;max-width:500px;font-weight:300}
-    footer{border-top:1px solid var(--border);padding:2rem 6%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;max-width:1300px;margin:0 auto}
-    footer p{font-size:0.82rem;color:var(--muted)}
-    @media(max-width:768px){.nav-links{display:none}}
     .search-wrap{max-width:1300px;margin:0 auto;padding:30px 6% 0;display:flex;gap:1rem;align-items:center}
     .search-box{flex:1;display:flex;align-items:center;gap:0.6rem;background:var(--card);border:1.5px solid var(--border);border-radius:100px;padding:10px 20px;transition:border-color 0.2s}
     .search-box:focus-within{border-color:var(--accent)}
@@ -50,27 +47,35 @@
     mark{background:rgba(232,64,28,0.15);color:var(--accent);border-radius:3px;padding:0 2px}
     .empty-state{grid-column:1/-1;text-align:center;padding:5rem 2rem;color:var(--muted)}
     .empty-state h3{font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:0.6rem;color:var(--ink)}
+    footer{border-top:1px solid var(--border);padding:2rem 6%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;max-width:1300px;margin:0 auto}
+    footer p{font-size:0.82rem;color:var(--muted)}
     @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+    @media(max-width:768px){.nav-links{display:none}}
+    #cw-toggle{position:fixed;bottom:28px;right:28px;z-index:10000;display:flex;align-items:center;background:rgba(20,18,15,0.92);backdrop-filter:blur(16px);border-radius:100px;padding:5px;box-shadow:0 8px 32px rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.1)}
+    .cw-opt{padding:9px 20px;border-radius:100px;font-size:0.75rem;font-weight:700;cursor:pointer;border:none;background:transparent;color:rgba(255,255,255,0.38);font-family:'Outfit',sans-serif;letter-spacing:0.8px;transition:all 0.28s}
+    .cw-opt.on{background:linear-gradient(135deg,#e8401c,#c73516);color:#fff;box-shadow:0 3px 14px rgba(232,64,28,0.45)}
+    .cw-sep{width:1px;height:14px;background:rgba(255,255,255,0.1)}
   </style>
 </head>
 <body>
+
 <nav>
   <a href="index.html" class="logo">CI<span class="logo-accent">Web</span></a>
   <ul class="nav-links">
-    <li><a href="index.html" >Home</a></li>
+    <li><a href="index.html">Home</a></li>
     <li><a href="blogs.html" class="active">Blogs</a></li>
-    <li><a href="about.html" >About</a></li>
-    <li><a href="contact.html" >Contact</a></li>
-    <li><a href="terms.html" >Terms</a></li>
-    <li><a href="blogs.html" class="nav-cta" data-en="Read Blogs →" data-hi="Blogs Padho →">Blogs Padho →</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="terms.html">Terms</a></li>
   </ul>
 </nav>
 
 <div class="page-hero">
   <div class="page-label" data-en="All Blogs" data-hi="Saare Blogs">Saare Blogs</div>
   <h1 data-en="All Blogs" data-hi="Saare Blogs">Saare Blogs</h1>
-  <p data-en="Latest articles on AI, coding and digital world." data-hi="AI, coding, aur digital world ke baare mein sabse latest articles — sirf tumhare liye.">AI, coding, aur digital world ke baare mein sabse latest articles — sirf tumhare liye.</p>
+  <p data-en="Latest articles on AI, coding and digital world." data-hi="AI, coding, aur digital world ke baare mein sabse latest articles.">AI, coding, aur digital world ke baare mein sabse latest articles.</p>
 </div>
+
 <div class="search-wrap">
   <div class="search-box">
     <span>🔍</span>
@@ -78,209 +83,187 @@
     <button class="clear-btn" id="clear-btn" onclick="clearSearch()">✕</button>
   </div>
 </div>
+
 <div class="tag-filters" id="tag-filters">
-  <span class="filter-label" data-en="Filter:" data-hi="Filter:">Filter:</span>
+  <span class="filter-label">Filter:</span>
   <button class="tag-btn active" id="tag-all" onclick="filterTag('all',this)" data-en="All" data-hi="Sab">Sab</button>
 </div>
+
 <div class="results-info" id="results-info"></div>
-<div class="blogs-section"><div class="blog-grid" id="blog-grid"></div></div>
-<script src="blogs.js"></script>
-<script>
-let aB=[], aT='all';
+<div class="blogs-section">
+  <div class="blog-grid" id="blog-grid">
+    <div class="empty-state"><h3>⏳ Load ho raha hai...</h3></div>
+  </div>
+</div>
 
-function getLang(){return localStorage.getItem('ciweb_lang')||'hi';}
-function getTitle(b){return getLang()==='en'?b.title_en:b.title_hi;}
-function getDesc(b){return getLang()==='en'?b.desc_en:b.desc_hi;}
-
-function buildTags(){
-  const existing = document.querySelectorAll('.tag-btn[data-dynamic]');
-  existing.forEach(b=>b.remove());
-  const tags = [...new Set(aB.map(b=>b.tag||'Tech'))];
-  const c = document.getElementById('tag-filters');
-  tags.forEach(t=>{
-    const btn = document.createElement('button');
-    btn.className = 'tag-btn';
-    btn.textContent = t;
-    btn.setAttribute('data-dynamic','1');
-    btn.onclick = ()=>filterTag(t, btn);
-    c.appendChild(btn);
-  });
-}
-
-function filterTag(tag, btn){
-  aT = tag;
-  document.querySelectorAll('.tag-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  applyFilters();
-}
-
-function onSearch(){
-  const v = document.getElementById('search-input').value;
-  document.getElementById('clear-btn').classList.toggle('v', v.length>0);
-  applyFilters();
-}
-
-function clearSearch(){
-  document.getElementById('search-input').value='';
-  document.getElementById('clear-btn').classList.remove('v');
-  applyFilters();
-}
-
-function applyFilters(){
-  const q = document.getElementById('search-input').value.trim().toLowerCase();
-  let f = aB;
-  if(aT!=='all') f = f.filter(b=>(b.tag||'Tech')===aT);
-  if(q) f = f.filter(b=>getTitle(b).toLowerCase().includes(q)||getDesc(b).toLowerCase().includes(q)||(b.tag||'').toLowerCase().includes(q));
-  renderBlogs(f, q);
-}
-
-function hl(t,q){
-  if(!q)return t;
-  try{var e=q.replace(/[.*+?^${}()|\[\]\\]/g,'\$&');return t.replace(new RegExp('('+e+')','gi'),'<mark>$1</mark>');}
-  catch(err){return t;}
-}
-
-function renderBlogs(blogs, query){
-  const g = document.getElementById('blog-grid');
-  const info = document.getElementById('results-info');
-  const q = document.getElementById('search-input').value.trim();
-  const lang = getLang();
-  if(!blogs.length){
-    info.innerHTML='';
-    g.innerHTML='<div class="empty-state"><h3>😕 Koi result nahi</h3><p>Doosra keyword try karo.</p></div>';
-    return;
-  }
-  info.innerHTML = q ? `<strong>${blogs.length}</strong> result mila` : `<strong>${blogs.length}</strong> blogs`;
-  g.innerHTML = blogs.map((b,i)=>
-    `<a class="blog-card" href="${b.link}" style="animation-delay:${i*0.05}s">
-      <span class="card-tag">${b.tag||'Tech'}</span>
-      <h3>${hl(getTitle(b),query)}</h3>
-      <p>${hl(getDesc(b),query)}</p>
-      <div class="card-footer">
-        <span>📅 ${b.date}</span>
-        <span class="read-arrow">${lang==='en'?'Read →':'Padho →'}</span>
-      </div>
-    </a>`
-  ).join('');
-}
-
-// ── Load from blogs-data.js ──
-function loadBlogs(){
-  aB = window.BLOGS_DATA || [];
-  buildTags();
-  renderBlogs(aB, '');
-}
-
-window.addEventListener('langChanged', ()=>applyFilters());
-document.addEventListener('DOMContentLoaded', loadBlogs);
-</script>
 <footer>
   <a href="index.html" class="logo">CI<span class="logo-accent">Web</span></a>
   <p data-en="© 2026 CIWeb. All rights reserved." data-hi="© 2026 CIWeb. Sare adhikar surakshit.">© 2026 CIWeb. Sare adhikar surakshit.</p>
   <p data-en="Made with ❤️ for Tech Lovers" data-hi="Tech Lovers ke liye ❤️ se banaya">Tech Lovers ke liye ❤️ se banaya</p>
 </footer>
 
-  <!-- ═══ STYLISH LANG TOGGLE + ANALYTICS WIDGET ═══ -->
-  <style>
-    /* Floating pill toggle */
-    #cw-toggle{position:fixed;bottom:28px;right:28px;z-index:10000;display:flex;align-items:center;background:rgba(20,18,15,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-radius:100px;padding:5px;box-shadow:0 8px 32px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);transition:all 0.3s}
-    #cw-toggle:hover{box-shadow:0 12px 48px rgba(232,64,28,0.2),inset 0 1px 0 rgba(255,255,255,0.06)}
-    .cw-opt{padding:9px 20px;border-radius:100px;font-size:0.75rem;font-weight:700;cursor:pointer;border:none;background:transparent;color:rgba(255,255,255,0.38);font-family:'Outfit',sans-serif;letter-spacing:0.8px;transition:all 0.28s cubic-bezier(.4,0,.2,1);white-space:nowrap;position:relative}
-    .cw-opt.on{background:linear-gradient(135deg,#e8401c,#c73516);color:#fff;box-shadow:0 3px 14px rgba(232,64,28,0.45)}
-    .cw-opt:hover:not(.on){color:rgba(255,255,255,0.7)}
-    .cw-sep{width:1px;height:14px;background:rgba(255,255,255,0.1)}
-    /* Analytics btn */
-    #cw-ana-btn{position:fixed;bottom:28px;right:200px;z-index:10000;background:rgba(20,18,15,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.1);border-radius:100px;padding:9px 16px;font-size:0.75rem;color:rgba(255,255,255,0.45);cursor:pointer;font-family:'Outfit',sans-serif;font-weight:700;box-shadow:0 8px 32px rgba(0,0,0,0.2);transition:all 0.3s;letter-spacing:0.5px;white-space:nowrap}
-    #cw-ana-btn:hover{color:#fff;border-color:rgba(255,255,255,0.25);box-shadow:0 8px 32px rgba(232,64,28,0.15)}
-    #cw-ana-btn.open{background:rgba(232,64,28,0.15);border-color:rgba(232,64,28,0.4);color:#e8401c}
-    /* Analytics panel */
-    #cw-ana-panel{position:fixed;bottom:82px;right:200px;z-index:9999;background:rgba(20,18,15,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.1);border-radius:18px;padding:16px 18px 12px;min-width:190px;box-shadow:0 20px 60px rgba(0,0,0,0.35);transform:translateY(10px) scale(0.96);opacity:0;pointer-events:none;transition:all 0.25s cubic-bezier(.4,0,.2,1)}
-    #cw-ana-panel.show{transform:translateY(0) scale(1);opacity:1;pointer-events:all}
-    #cw-ana-panel .ap-title{font-size:0.65rem;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-bottom:10px;font-family:'Outfit',sans-serif;font-weight:700;display:flex;align-items:center;gap:6px}
-    #cw-ana-panel .ap-title::before{content:'';display:block;width:6px;height:6px;border-radius:50%;background:#e8401c;box-shadow:0 0 6px #e8401c;animation:blink 1.5s infinite}
-    @keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
-    .ap-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.05)}
-    .ap-row:last-child{border-bottom:none;padding-bottom:0}
-    .ap-lbl{font-size:0.72rem;color:rgba(255,255,255,0.4);font-family:'Outfit',sans-serif;display:flex;align-items:center;gap:5px}
-    .ap-val{font-size:0.78rem;color:#fff;font-weight:700;font-family:'Outfit',sans-serif}
-    .ap-val.accent{color:#e8401c}
-    .ap-divider{height:1px;background:rgba(255,255,255,0.06);margin:6px 0}
-    .ap-bar-wrap{margin-top:3px}
-    .ap-bar-label{display:flex;justify-content:space-between;font-size:0.65rem;color:rgba(255,255,255,0.3);font-family:'Outfit',sans-serif;margin-bottom:3px}
-    .ap-bar{height:3px;background:rgba(255,255,255,0.08);border-radius:100px;overflow:hidden}
-    .ap-bar-fill{height:100%;background:linear-gradient(90deg,#e8401c,#ff6b4a);border-radius:100px;transition:width 1s cubic-bezier(.4,0,.2,1);width:0%}
-    @media(max-width:600px){#cw-ana-btn{right:auto;left:28px;bottom:28px}#cw-ana-panel{right:auto;left:28px}}
-  </style>
+<div id="cw-toggle">
+  <button class="cw-opt" id="cw-hi" onclick="setLang('hi')">🇮🇳 Hinglish</button>
+  <div class="cw-sep"></div>
+  <button class="cw-opt" id="cw-en" onclick="setLang('en')">🇬🇧 English</button>
+</div>
 
-  <!-- Lang Toggle Pill -->
-  <div id="cw-toggle">
-    <button class="cw-opt" id="cw-hi" onclick="_cwLang('hi')">🇮🇳 Hinglish</button>
-    <div class="cw-sep"></div>
-    <button class="cw-opt" id="cw-en" onclick="_cwLang('en')">🇬🇧 English</button>
-  </div>
+<!-- Load blog data FIRST -->
+<script src="blogs.js"></script>
 
-  <!-- Analytics Button -->
-  <button id="cw-ana-btn" onclick="_cwToggleAna()">📊 Stats</button>
+<!-- Then run blog logic -->
+<script>
+  var aB = [];
+  var aT = 'all';
 
-  <!-- Analytics Panel -->
-  <div id="cw-ana-panel">
-    <div class="ap-title">Live Analytics</div>
-    <div class="ap-row"><span class="ap-lbl">👁 Page Views</span><span class="ap-val accent" id="ap-views">—</span></div>
-    <div class="ap-row"><span class="ap-lbl">⏱ Time Spent</span><span class="ap-val" id="ap-time">0s</span></div>
-    <div class="ap-row"><span class="ap-lbl">🌐 Language</span><span class="ap-val" id="ap-lang">—</span></div>
-    <div class="ap-row"><span class="ap-lbl">📄 Page</span><span class="ap-val" id="ap-page">—</span></div>
-    <div class="ap-divider"></div>
-    <div class="ap-bar-wrap">
-      <div class="ap-bar-label"><span>Read Progress</span><span id="ap-scroll-pct">0%</span></div>
-      <div class="ap-bar"><div class="ap-bar-fill" id="ap-bar-fill"></div></div>
-    </div>
-  </div>
+  function getLang() {
+    return localStorage.getItem('ciweb_lang') || 'hi';
+  }
 
-  <script>
-    (function(){
-      var K='ciweb_lang';
-      function _cwLang(l){
-        localStorage.setItem(K,l);
-        document.querySelectorAll('[data-en][data-hi]').forEach(function(el){el.textContent=l==='en'?el.dataset.en:el.dataset.hi;});
-        document.getElementById('cw-hi').classList.toggle('on',l==='hi');
-        document.getElementById('cw-en').classList.toggle('on',l==='en');
-        document.documentElement.lang=l==='en'?'en':'hi';
-        var al=document.getElementById('ap-lang');if(al)al.textContent=l==='en'?'English':'Hinglish';
-        window.dispatchEvent(new Event('langChanged'));
-        // update placeholders
-        document.querySelectorAll('[data-placeholder-en]').forEach(function(el){el.placeholder=l==='en'?el.dataset.placeholderEn:el.dataset.placeholderHi;});
-      }
-      window._cwLang=_cwLang;
-      // Init lang
-      _cwLang(localStorage.getItem(K)||'hi');
+  function getTitle(b) {
+    return getLang() === 'en' ? b.title_en : b.title_hi;
+  }
 
-      // Analytics
-      var pg=location.pathname.split('/').pop()||'index.html';
-      var vk='ciweb_views_'+pg;
-      var views=parseInt(localStorage.getItem(vk)||'0')+1;
-      localStorage.setItem(vk,views);
-      var vEl=document.getElementById('ap-views');if(vEl)vEl.textContent=views;
-      var pgEl=document.getElementById('ap-page');if(pgEl)pgEl.textContent=pg;
-      var secs=0;
-      setInterval(function(){secs++;var t=document.getElementById('ap-time');if(t)t.textContent=secs<60?secs+'s':Math.floor(secs/60)+'m '+( secs%60)+'s';},1000);
+  function getDesc(b) {
+    return getLang() === 'en' ? b.desc_en : b.desc_hi;
+  }
 
-      // Scroll progress
-      function updScroll(){
-        var h=document.documentElement;
-        var pct=Math.round((h.scrollTop||document.body.scrollTop)/(h.scrollHeight-h.clientHeight)*100)||0;
-        var pEl=document.getElementById('ap-scroll-pct');if(pEl)pEl.textContent=pct+'%';
-        var bEl=document.getElementById('ap-bar-fill');if(bEl)bEl.style.width=pct+'%';
-      }
-      window.addEventListener('scroll',updScroll,{passive:true});
-    })();
-
-    function _cwToggleAna(){
-      var p=document.getElementById('cw-ana-panel');
-      var b=document.getElementById('cw-ana-btn');
-      p.classList.toggle('show');
-      b.classList.toggle('open');
+  function safeHL(text, query) {
+    if (!query || !text) return text || '';
+    try {
+      var escaped = query.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&');
+      return text.replace(new RegExp('(' + escaped + ')', 'gi'), '<mark>$1</mark>');
+    } catch (e) {
+      return text;
     }
-  </script>
+  }
+
+  function buildTags() {
+    // Remove old dynamic tags
+    var old = document.querySelectorAll('.tag-btn[data-dyn]');
+    for (var i = 0; i < old.length; i++) old[i].remove();
+
+    // Get unique tags
+    var seen = {};
+    var tags = [];
+    for (var j = 0; j < aB.length; j++) {
+      var t = aB[j].tag || 'Tech';
+      if (!seen[t]) { seen[t] = true; tags.push(t); }
+    }
+
+    var container = document.getElementById('tag-filters');
+    tags.forEach(function(tag) {
+      var btn = document.createElement('button');
+      btn.className = 'tag-btn';
+      btn.textContent = tag;
+      btn.setAttribute('data-dyn', '1');
+      btn.onclick = function() { filterTag(tag, btn); };
+      container.appendChild(btn);
+    });
+  }
+
+  function filterTag(tag, btn) {
+    aT = tag;
+    var btns = document.querySelectorAll('.tag-btn');
+    for (var i = 0; i < btns.length; i++) btns[i].classList.remove('active');
+    btn.classList.add('active');
+    applyFilters();
+  }
+
+  function onSearch() {
+    var v = document.getElementById('search-input').value;
+    var cb = document.getElementById('clear-btn');
+    if (v.length > 0) cb.classList.add('v'); else cb.classList.remove('v');
+    applyFilters();
+  }
+
+  function clearSearch() {
+    document.getElementById('search-input').value = '';
+    document.getElementById('clear-btn').classList.remove('v');
+    applyFilters();
+  }
+
+  function applyFilters() {
+    var q = document.getElementById('search-input').value.trim().toLowerCase();
+    var filtered = aB.slice();
+
+    if (aT !== 'all') {
+      filtered = filtered.filter(function(b) { return (b.tag || 'Tech') === aT; });
+    }
+    if (q) {
+      filtered = filtered.filter(function(b) {
+        return getTitle(b).toLowerCase().indexOf(q) > -1 ||
+               getDesc(b).toLowerCase().indexOf(q) > -1 ||
+               (b.tag || '').toLowerCase().indexOf(q) > -1;
+      });
+    }
+    renderBlogs(filtered, q);
+  }
+
+  function renderBlogs(blogs, query) {
+    var grid = document.getElementById('blog-grid');
+    var info = document.getElementById('results-info');
+    var lang = getLang();
+    var q = query || '';
+
+    if (!blogs || blogs.length === 0) {
+      info.innerHTML = '';
+      grid.innerHTML = '<div class="empty-state"><h3>😕 Koi result nahi</h3><p>Doosra keyword try karo.</p></div>';
+      return;
+    }
+
+    info.innerHTML = q
+      ? '<strong>' + blogs.length + '</strong> result mila'
+      : '<strong>' + blogs.length + '</strong> blogs';
+
+    var html = '';
+    for (var i = 0; i < blogs.length; i++) {
+      var b = blogs[i];
+      var title = safeHL(getTitle(b), q);
+      var desc  = safeHL(getDesc(b), q);
+      var arrow = lang === 'en' ? 'Read &rarr;' : 'Padho &rarr;';
+      html += '<a class="blog-card" href="' + b.link + '" style="animation-delay:' + (i * 0.05) + 's">'
+            + '<span class="card-tag">' + (b.tag || 'Tech') + '</span>'
+            + '<h3>' + title + '</h3>'
+            + '<p>' + desc + '</p>'
+            + '<div class="card-footer"><span>&#128197; ' + b.date + '</span>'
+            + '<span class="read-arrow">' + arrow + '</span></div>'
+            + '</a>';
+    }
+    grid.innerHTML = html;
+  }
+
+  function setLang(l) {
+    localStorage.setItem('ciweb_lang', l);
+    var els = document.querySelectorAll('[data-en][data-hi]');
+    for (var i = 0; i < els.length; i++) {
+      els[i].textContent = l === 'en' ? els[i].dataset.en : els[i].dataset.hi;
+    }
+    document.getElementById('cw-hi').classList.toggle('on', l === 'hi');
+    document.getElementById('cw-en').classList.toggle('on', l === 'en');
+    applyFilters();
+  }
+
+  // ── INIT ──
+  function init() {
+    // Load data from blogs.js (BLOGS_DATA global)
+    aB = (typeof BLOGS_DATA !== 'undefined') ? BLOGS_DATA : [];
+
+    // Apply saved language
+    var savedLang = localStorage.getItem('ciweb_lang') || 'hi';
+    setLang(savedLang);
+
+    buildTags();
+    renderBlogs(aB, '');
+  }
+
+  // Run after page loads
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+</script>
 
 </body>
 </html>
