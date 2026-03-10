@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CIWeb — Tech Knowledge Hub</title>
-<meta name="google-adsense-account" content="ca-pub-1601519075440950">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -131,12 +130,31 @@
 <script>
 // Blog data hardcoded — no external file needed
 const BLOGS = [
-  {title:"Top 10 Free AI Tools Jo Aapki Zindagi Aasaan Kar Denge",desc:"2026 mein yeh AI tools bilkul free hain aur inse aapka kaam 10x fast ho jayega!",tag:"AI Tools",date:"10 March 2026",link:"blog1.html"}
+  {
+    title_hi:"Top 10 Free AI Tools Jo Aapki Zindagi Aasaan Kar Denge",
+    title_en:"Top 10 Free AI Tools That Will Make Your Life Easier",
+    desc_hi:"2026 mein yeh AI tools bilkul free hain aur inse aapka kaam 10x fast ho jayega!",
+    desc_en:"In 2026, these AI tools are completely free and will make your work 10x faster!",
+    tag:"AI Tools",date:"10 March 2026",link:"blog1.html"
+  },
+  {
+    title_hi:"Programming Seekhte Waqt Motivated Kaise Rahe — Python Ho Ya Koi Bhi Language",
+    title_en:"How to Stay Motivated While Learning Any Programming Language",
+    desc_hi:"Motivation kho raha hai? Yeh 7 proven tips tumhari coding journey badal denge. Har programmer ke liye zaroor padho!",
+    desc_en:"Losing motivation? These 7 proven tips will change your coding journey. A must-read for every programmer!",
+    tag:"Motivation",date:"10 March 2026",link:"blog2.html"
+  }
 ];
 (function loadBlogs(){
   const grid=document.getElementById('blog-grid'),cEl=document.getElementById('blog-count');
   cEl.textContent=BLOGS.length+'+';
-  grid.innerHTML=BLOGS.slice(0,3).map(x=>`<a class="blog-card" href="${x.link}"><span class="card-tag">${x.tag}</span><h3>${x.title}</h3><p>${x.desc}</p><div class="card-footer"><span>📅 ${x.date}</span><span class="read-arrow">Read →</span></div></a>`).join('');
+  function renderBlogs(){
+    const lang=localStorage.getItem('ciweb_lang')||'hi';
+    grid.innerHTML=BLOGS.slice(0,3).map(x=>`<a class="blog-card" href="${x.link}"><span class="card-tag">${x.tag}</span><h3>${lang==='en'?x.title_en:x.title_hi}</h3><p>${lang==='en'?x.desc_en:x.desc_hi}</p><div class="card-footer"><span>📅 ${x.date}</span><span class="read-arrow">${lang==='en'?'Read →':'Padho →'}</span></div></a>`).join('');
+  }
+  renderBlogs();
+  // Re-render when lang changes
+  window.addEventListener('langChanged', renderBlogs);
 })();
 </script>
 <footer>
@@ -211,6 +229,7 @@ const BLOGS = [
         document.getElementById('cw-en').classList.toggle('on',l==='en');
         document.documentElement.lang=l==='en'?'en':'hi';
         var al=document.getElementById('ap-lang');if(al)al.textContent=l==='en'?'English':'Hinglish';
+        window.dispatchEvent(new Event('langChanged'));
         // update placeholders
         document.querySelectorAll('[data-placeholder-en]').forEach(function(el){el.placeholder=l==='en'?el.dataset.placeholderEn:el.dataset.placeholderHi;});
       }
