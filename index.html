@@ -1,50 +1,191 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CIWeb — Tech Knowledge in Hindi</title>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CIWeb — Tech Knowledge Hub</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg: #f5f3ee;
-      --ink: #1a1814;
-      --muted: #7a7570;
-      --accent: #e8401c;
-      --card: #ffffff;
-      --border: #e2ddd6;
-      --tag-bg: #fff0ec;
-    }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--ink); min-height: 100vh; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#f5f3ee;--ink:#1a1814;--muted:#7a7570;--accent:#e8401c;--card:#fff;--border:#e2ddd6;--tag-bg:#fff0ec}
+    html{scroll-behavior:smooth}
+    body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
+    nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);padding:0 6%;display:flex;align-items:center;justify-content:space-between;height:64px}
+    .logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--ink);text-decoration:none;letter-spacing:-0.5px}
+    .logo em{color:var(--accent);font-style:normal}
+    .nav-links{display:flex;gap:1.4rem;list-style:none;align-items:center}
+    .nav-links a{color:var(--muted);text-decoration:none;font-size:0.88rem;font-weight:500;transition:color 0.2s}
+    .nav-links a:hover{color:var(--ink)}
+    .nav-cta{background:var(--ink)!important;color:var(--bg)!important;padding:8px 18px;border-radius:100px;font-weight:600!important}
+    .nav-cta:hover{background:var(--accent)!important;color:#fff!important}
+    .hero{padding:80px 6% 60px;border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;max-width:1300px;margin:0 auto;animation:fadeUp 0.7s ease both}
+    .hero-tag{display:inline-flex;align-items:center;gap:8px;font-size:0.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem}
+    .hero-tag::before{content:'';display:block;width:28px;height:2px;background:var(--accent)}
+    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,5vw,4.5rem);font-weight:900;line-height:1.08;letter-spacing:-2px;margin-bottom:1.5rem}
+    .hero h1 .line2{color:var(--accent);display:block}
+    .hero>div>p{font-size:1.05rem;color:var(--muted);line-height:1.75;max-width:440px;margin-bottom:2rem;font-weight:300}
+    .hero-btns{display:flex;gap:0.8rem;flex-wrap:wrap}
+    .btn-primary{background:var(--accent);color:#fff;padding:12px 28px;border-radius:100px;font-weight:600;font-size:0.9rem;text-decoration:none;transition:all 0.2s}
+    .btn-primary:hover{background:#c73516;transform:translateY(-1px)}
+    .btn-outline{border:1.5px solid var(--border);color:var(--ink);padding:12px 28px;border-radius:100px;font-weight:500;font-size:0.9rem;text-decoration:none;transition:all 0.2s}
+    .btn-outline:hover{border-color:var(--ink)}
+    .hero-visual{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2rem;box-shadow:0 4px 40px rgba(0,0,0,0.06);animation:fadeUp 0.7s 0.15s ease both}
+    .featured-label{font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:1rem;display:flex;align-items:center;gap:6px}
+    .featured-label::before{content:'★';color:var(--accent)}
+    .tag-pill{background:var(--tag-bg);color:var(--accent);padding:3px 10px;border-radius:100px;font-weight:600;font-size:0.72rem;display:inline-block;margin-bottom:0.6rem}
+    .featured-post h3{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;line-height:1.35;margin-bottom:0.5rem}
+    .featured-post p{color:var(--muted);font-size:0.85rem;line-height:1.6;margin-bottom:1rem}
+    .featured-meta{display:flex;gap:1rem;align-items:center;font-size:0.78rem;color:var(--muted)}
+    .divider{height:1px;background:var(--border);margin:1.2rem 0}
+    .mini-post{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:0.8rem}
+    .mini-post span{font-size:0.85rem;font-weight:500;color:var(--ink)}
+    .mini-post small{font-size:0.72rem;color:var(--muted);white-space:nowrap}
+    .stats-bar{display:flex;border-bottom:1px solid var(--border);max-width:1300px;margin:0 auto}
+    .stat-item{flex:1;text-align:center;padding:2rem 1rem;border-right:1px solid var(--border)}
+    .stat-item:last-child{border-right:none}
+    .stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--ink)}
+    .stat-label{font-size:0.8rem;color:var(--muted);margin-top:4px}
+    .blog-section{max-width:1300px;margin:0 auto;padding:60px 6%}
+    .section-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:2.5rem;border-bottom:1px solid var(--border);padding-bottom:1.2rem}
+    .section-header h2{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;letter-spacing:-1px}
+    .section-header a{font-size:0.85rem;color:var(--accent);text-decoration:none;font-weight:600}
+    .blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
+    .blog-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.6rem;text-decoration:none;color:var(--ink);transition:all 0.25s ease;display:flex;flex-direction:column}
+    .blog-card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,0.08);border-color:#ccc}
+    .card-tag{background:var(--tag-bg);color:var(--accent);font-size:0.7rem;font-weight:600;padding:4px 10px;border-radius:100px;text-transform:uppercase;margin-bottom:0.9rem;width:fit-content}
+    .blog-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;line-height:1.4;margin-bottom:0.6rem;flex:1}
+    .blog-card p{color:var(--muted);font-size:0.85rem;line-height:1.6;margin-bottom:1.2rem}
+    .card-footer{display:flex;align-items:center;justify-content:space-between;font-size:0.78rem;color:var(--muted);border-top:1px solid var(--border);padding-top:0.9rem;margin-top:auto}
+    .read-arrow{color:var(--accent);font-weight:600;font-size:0.85rem}
+    .empty-state{grid-column:1/-1;text-align:center;padding:5rem 2rem;color:var(--muted)}
+    .empty-state h3{font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:0.5rem;color:var(--ink)}
+    .brief-strip{border-top:1px solid var(--border);background:var(--card)}
+    .brief-inner{max-width:1300px;margin:0 auto;padding:50px 6%;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+    .brief-item{display:flex;flex-direction:column;gap:0.5rem}
+    .brief-icon{font-size:1.6rem;margin-bottom:0.3rem}
+    .brief-item h4{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700}
+    .brief-item p{font-size:0.85rem;color:var(--muted);line-height:1.6}
+    .brief-item a{font-size:0.82rem;color:var(--accent);text-decoration:none;font-weight:600;margin-top:0.4rem}
+    footer{border-top:1px solid var(--border);padding:2rem 6%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;max-width:1300px;margin:0 auto}
+    footer p{font-size:0.82rem;color:var(--muted)}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    @media(max-width:768px){.hero{grid-template-columns:1fr;gap:2.5rem;padding:50px 5% 40px}.hero-visual{display:none}.stats-bar{flex-wrap:wrap}.stat-item{min-width:50%;border-bottom:1px solid var(--border)}.brief-inner{grid-template-columns:1fr}.nav-links{display:none}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">CI<em>Web</em></a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-en="Home" data-hi="Home">Home</a></li>
+    <li><a href="blogs.html" data-en="Blogs" data-hi="Blogs">Blogs</a></li>
+    <li><a href="about.html" data-en="About" data-hi="About">About</a></li>
+    <li><a href="contact.html" data-en="Contact" data-hi="Contact">Contact</a></li>
+    <li><a href="terms.html" data-en="Terms" data-hi="Terms">Terms</a></li>
+    <li><a href="blogs.html" class="nav-cta" data-en="Read Blogs →" data-hi="Blogs Padho →">Blogs Padho →</a></li>
+  </ul>
+</nav>
 
-    /* NAV */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: var(--bg); border-bottom: 1px solid var(--border);
-      padding: 0 6%; display: flex; align-items: center; justify-content: space-between; height: 64px;
-    }
-    .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900; color: var(--ink); text-decoration: none; letter-spacing: -0.5px; }
-    .logo em { color: var(--accent); font-style: normal; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
-    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--ink); }
-    .nav-cta { background: var(--ink) !important; color: var(--bg) !important; padding: 8px 20px; border-radius: 100px; font-weight: 600 !important; }
-    .nav-cta:hover { background: var(--accent) !important; color: #fff !important; }
+<div class="hero">
+  <div>
+    <div class="hero-tag" data-en="Tech Knowledge Hub" data-hi="Tech Knowledge Hub">Tech Knowledge Hub</div>
+    <h1>
+      <span data-en="Learn Tech," data-hi="Seekho Tech,">Seekho Tech,</span>
+      <span class="line2" data-en="In Your Language." data-hi="Apni Bhasha Mein.">Apni Bhasha Mein.</span>
+    </h1>
+    <p data-en="AI, coding, and digital trends — all explained simply. New blogs every week, just for you." data-hi="AI, coding, aur digital trends — sab kuch simple Hindi mein. Har hafte naye blogs, sirf tumhare liye.">AI, coding, aur digital trends — sab kuch simple Hindi mein. Har hafte naye blogs, sirf tumhare liye.</p>
+    <div class="hero-btns">
+      <a href="blogs.html" class="btn-primary" data-en="Read Blogs →" data-hi="Blogs Padho →">Blogs Padho →</a>
+      <a href="about.html" class="btn-outline" data-en="About Us" data-hi="Hamare Baare Mein">Hamare Baare Mein</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="featured-label" data-en="Featured Post" data-hi="Featured Post">Featured Post</div>
+    <span class="tag-pill">AI Tools</span>
+    <div class="featured-post">
+      <h3 data-en="Top 10 Free AI Tools That Will Make Life Easier" data-hi="Top 10 Free AI Tools Jo Zindagi Aasaan Kar Denge">Top 10 Free AI Tools Jo Zindagi Aasaan Kar Denge</h3>
+      <p data-en="These tools are completely free and will make your work 10x faster..." data-hi="Yeh tools bilkul free hain aur inse aapka kaam 10x fast ho jayega...">Yeh tools bilkul free hain aur inse aapka kaam 10x fast ho jayega...</p>
+      <div class="featured-meta">
+        <span>📅 10 March 2026</span>
+        <a href="blog1.html" style="color:var(--accent);font-weight:600;font-size:0.82rem;text-decoration:none;" data-en="Read →" data-hi="Padho →">Padho →</a>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="mini-post">
+      <span data-en="More blogs coming soon 🚀" data-hi="Aur blogs aa rahe hain... 🚀">Aur blogs aa rahe hain... 🚀</span>
+      <small data-en="Coming Soon" data-hi="Coming Soon">Coming Soon</small>
+    </div>
+  </div>
+</div>
 
-    /* HERO */
-    .hero {
-      padding: 80px 6% 60px; border-bottom: 1px solid var(--border);
-      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
-      max-width: 1300px; margin: 0 auto; animation: fadeUp 0.7s ease both;
-    }
-    .hero-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 0.75rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; }
-    .hero-tag::before { content: ''; display: block; width: 28px; height: 2px; background: var(--accent); }
-    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 900; line-height: 1.08; letter-spacing: -2px; margin-bottom: 1.5rem; }
-    .hero h1 .line2 { color: var(--accent); display: block; }
-    .hero p { font-size: 1.05rem; color: var(--muted); line-height: 1.75; max-width: 440px; margin-bottom: 2rem; font-weight: 300; }
-    .hero-btns { display: flex; gap: 0.8rem; flex-wrap: wrap; }
-    .btn-primary { background: var(--accent); color: #fff; padding: 12px 28px; border-radius: 100px; font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: all 0.2s; }
-    .btn-primary:hover { background: #c73516; transform: translateY(-1px); }
-    .btn-outline { border: 1.5px solid var(--border); color: var(--ink); padding: 12px 28px; border-radius: 100px; font-weight: 500; font-size: 0.9rem; text-decoration: none; transition: all 0.2s; }
+<div class="stats-bar">
+  <div class="stat-item"><div class="stat-num" id="blog-count">1+</div><div class="stat-label" data-en="Blog Posts" data-hi="Blog Posts">Blog Posts</div></div>
+  <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label" data-en="Always Free" data-hi="Hamesha Free">Hamesha Free</div></div>
+  <div class="stat-item"><div class="stat-num">Hindi</div><div class="stat-label" data-en="Friendly Language" data-hi="Apni Bhasha">Apni Bhasha</div></div>
+  <div class="stat-item"><div class="stat-num">Weekly</div><div class="stat-label" data-en="New Content" data-hi="Naya Content">Naya Content</div></div>
+</div>
+
+<div class="blog-section">
+  <div class="section-header">
+    <h2 data-en="Latest Blogs" data-hi="Latest Blogs">Latest Blogs</h2>
+    <a href="blogs.html" data-en="See all →" data-hi="Sab dekho →">Sab dekho →</a>
+  </div>
+  <div class="blog-grid" id="blog-grid"></div>
+</div>
+
+<div class="brief-strip">
+  <div class="brief-inner">
+    <div class="brief-item">
+      <div class="brief-icon">👋</div>
+      <h4 data-en="About CIWeb" data-hi="About CIWeb">About CIWeb</h4>
+      <p data-en="A Hindi tech blog making AI, coding and digital knowledge simple for everyone." data-hi="Hum ek Hindi tech blog hain jo AI, coding aur digital knowledge ko simple banate hain.">Hum ek Hindi tech blog hain jo AI, coding aur digital knowledge ko simple banate hain.</p>
+      <a href="about.html" data-en="About us →" data-hi="Hamare baare mein →">Hamare baare mein →</a>
+    </div>
+    <div class="brief-item">
+      <div class="brief-icon">📬</div>
+      <h4 data-en="Contact Us" data-hi="Contact Us">Contact Us</h4>
+      <p data-en="Questions, suggestions or collaborations? We are always available." data-hi="Koi sawaal, suggestion ya collaboration? Hum hamesha available hain.">Koi sawaal, suggestion ya collaboration? Hum hamesha available hain.</p>
+      <a href="contact.html" data-en="Message us →" data-hi="Message karo →">Message karo →</a>
+    </div>
+    <div class="brief-item">
+      <div class="brief-icon">📄</div>
+      <h4 data-en="Terms & Conditions" data-hi="Terms & Conditions">Terms & Conditions</h4>
+      <p data-en="Read our simple and clear terms before using CIWeb." data-hi="CIWeb use karne se pehle hamare terms samjho — bilkul simple aur clear.">CIWeb use karne se pehle hamare terms samjho — bilkul simple aur clear.</p>
+      <a href="terms.html" data-en="Read terms →" data-hi="Terms padho →">Terms padho →</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html" class="logo">CI<em>Web</em></a>
+  <p data-en="© 2026 CIWeb. All rights reserved." data-hi="© 2026 CIWeb. Sare adhikar surakshit.">© 2026 CIWeb. Sare adhikar surakshit.</p>
+  <p data-en="Made with ❤️ for Tech Lovers" data-hi="Tech Lovers ke liye ❤️ se banaya">Tech Lovers ke liye ❤️ se banaya</p>
+</footer>
+
+<script src="lang.js"></script>
+<script>
+async function loadBlogs() {
+  const grid = document.getElementById('blog-grid');
+  const countEl = document.getElementById('blog-count');
+  try {
+    const res = await fetch('blogs.json');
+    const blogs = await res.json();
+    countEl.textContent = blogs.length + '+';
+    if (!blogs.length) throw new Error();
+    grid.innerHTML = blogs.slice(0,3).map(b=>`
+      <a class="blog-card" href="${b.link}">
+        <span class="card-tag">${b.tag||'Tech'}</span>
+        <h3>${b.title}</h3>
+        <p>${b.desc||''}</p>
+        <div class="card-footer">
+          <span>📅 ${b.date}</span>
+          <span class="read-arrow">Read →</span>
+        </div>
+      </a>`).join('');
+  } catch {
+    countEl.textContent = '0';
+    grid.innerHTML = `<div class="empty-state"><h3>🚀 Blogs Coming Soon!</h3><p data-en="First blog coming soon!" data-hi="Pehla blog jaldi aayega!">Pehla blog jaldi aayega!</p></div>`;
+  }
+}
+loadBlogs();
+</script>
+</body>
+</html>
