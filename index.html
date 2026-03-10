@@ -129,18 +129,10 @@
 </div>
 <script>
 // Blog data hardcoded — no external file needed
-(async function loadBlogs(){
+(function loadBlogs(){
   const grid = document.getElementById('blog-grid');
   const cEl  = document.getElementById('blog-count');
-  let BLOGS = [];
-
-  // ── Fetch from blogs.json ──
-  try {
-    const res = await fetch('blogs.json?v=' + Date.now());
-    BLOGS = await res.json();
-  } catch(e) {
-    console.warn('blogs.json load failed', e);
-  }
+  const BLOGS = window.BLOGS_DATA || [];
 
   window.BLOGS = BLOGS;
   cEl.textContent = BLOGS.length + '+';
@@ -297,5 +289,6 @@
     }
   </script>
 
+<script src="blogs.js"></script>
 </body>
 </html>
