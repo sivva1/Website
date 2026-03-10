@@ -129,32 +129,38 @@
 </div>
 <script>
 // Blog data hardcoded — no external file needed
-const BLOGS = [
-  {
-    title_hi:"Programming Seekhte Waqt Motivated Kaise Rahe — Python Ho Ya Koi Bhi Language",
-    title_en:"How to Stay Motivated While Learning Any Programming Language",
-    desc_hi:"Motivation kho raha hai? Yeh 7 proven tips tumhari coding journey badal denge. Har programmer ke liye zaroor padho!",
-    desc_en:"Losing motivation? These 7 proven tips will change your coding journey. A must-read for every programmer!",
-    tag:"Motivation",date:"10 March 2026",link:"blog2.html"
-  },
-  {
-    title_hi:"Top 10 Free AI Tools Jo Aapki Zindagi Aasaan Kar Denge",
-    title_en:"Top 10 Free AI Tools That Will Make Your Life Easier",
-    desc_hi:"2026 mein yeh AI tools bilkul free hain aur inse aapka kaam 10x fast ho jayega!",
-    desc_en:"In 2026, these AI tools are completely free and will make your work 10x faster!",
-    tag:"AI Tools",date:"10 March 2026",link:"blog1.html"
+(async function loadBlogs(){
+  const grid = document.getElementById('blog-grid');
+  const cEl  = document.getElementById('blog-count');
+  let BLOGS = [];
+
+  // ── Fetch from blogs.json ──
+  try {
+    const res = await fetch('blogs.json?v=' + Date.now());
+    BLOGS = await res.json();
+  } catch(e) {
+    console.warn('blogs.json load failed', e);
   }
-];
+
   window.BLOGS = BLOGS;
-(function loadBlogs(){
-  const grid=document.getElementById('blog-grid'),cEl=document.getElementById('blog-count');
-  cEl.textContent=BLOGS.length+'+';
+  cEl.textContent = BLOGS.length + '+';
+
   function renderBlogs(){
-    const lang=localStorage.getItem('ciweb_lang')||'hi';
-    grid.innerHTML=BLOGS.slice(0,3).map(x=>`<a class="blog-card" href="${x.link}"><span class="card-tag">${x.tag}</span><h3>${lang==='en'?x.title_en:x.title_hi}</h3><p>${lang==='en'?x.desc_en:x.desc_hi}</p><div class="card-footer"><span>📅 ${x.date}</span><span class="read-arrow">${lang==='en'?'Read →':'Padho →'}</span></div></a>`).join('');
+    const lang = localStorage.getItem('ciweb_lang') || 'hi';
+    grid.innerHTML = BLOGS.slice(0,3).map(x =>
+      `<a class="blog-card" href="${x.link}">
+        <span class="card-tag">${x.tag}</span>
+        <h3>${lang==='en' ? x.title_en : x.title_hi}</h3>
+        <p>${lang==='en' ? x.desc_en : x.desc_hi}</p>
+        <div class="card-footer">
+          <span>📅 ${x.date}</span>
+          <span class="read-arrow">${lang==='en'?'Read →':'Padho →'}</span>
+        </div>
+      </a>`
+    ).join('');
   }
+
   renderBlogs();
-  // Re-render when lang changes
   window.addEventListener('langChanged', renderBlogs);
 })();
 </script>
@@ -290,18 +296,6 @@ const BLOGS = [
       b.classList.toggle('open');
     }
   </script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1601519075440950"
-     crossorigin="anonymous"></script>
-<!-- 3 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1601519075440950"
-     data-ad-slot="7594588674"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 
 </body>
 </html>
