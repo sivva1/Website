@@ -163,15 +163,9 @@ function renderBlogs(blogs, query){
   ).join('');
 }
 
-// ── Fetch from blogs.json ──
-async function loadBlogs(){
-  try{
-    const res = await fetch('blogs.json?v=' + Date.now());
-    aB = await res.json();
-  } catch(e){
-    console.warn('blogs.json load failed', e);
-    aB = [];
-  }
+// ── Load from blogs-data.js ──
+function loadBlogs(){
+  aB = window.BLOGS_DATA || [];
   buildTags();
   renderBlogs(aB, '');
 }
@@ -287,5 +281,6 @@ loadBlogs();
     }
   </script>
 
+<script src="blogs.js"></script>
 </body>
 </html>
