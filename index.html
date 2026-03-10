@@ -131,20 +131,21 @@
 // Blog data hardcoded — no external file needed
 const BLOGS = [
   {
-    title_hi:"Top 10 Free AI Tools Jo Aapki Zindagi Aasaan Kar Denge",
-    title_en:"Top 10 Free AI Tools That Will Make Your Life Easier",
-    desc_hi:"2026 mein yeh AI tools bilkul free hain aur inse aapka kaam 10x fast ho jayega!",
-    desc_en:"In 2026, these AI tools are completely free and will make your work 10x faster!",
-    tag:"AI Tools",date:"10 March 2026",link:"blog1.html"
-  },
-  {
     title_hi:"Programming Seekhte Waqt Motivated Kaise Rahe — Python Ho Ya Koi Bhi Language",
     title_en:"How to Stay Motivated While Learning Any Programming Language",
     desc_hi:"Motivation kho raha hai? Yeh 7 proven tips tumhari coding journey badal denge. Har programmer ke liye zaroor padho!",
     desc_en:"Losing motivation? These 7 proven tips will change your coding journey. A must-read for every programmer!",
     tag:"Motivation",date:"10 March 2026",link:"blog2.html"
+  },
+  {
+    title_hi:"Top 10 Free AI Tools Jo Aapki Zindagi Aasaan Kar Denge",
+    title_en:"Top 10 Free AI Tools That Will Make Your Life Easier",
+    desc_hi:"2026 mein yeh AI tools bilkul free hain aur inse aapka kaam 10x fast ho jayega!",
+    desc_en:"In 2026, these AI tools are completely free and will make your work 10x faster!",
+    tag:"AI Tools",date:"10 March 2026",link:"blog1.html"
   }
 ];
+  window.BLOGS = BLOGS;
 (function loadBlogs(){
   const grid=document.getElementById('blog-grid'),cEl=document.getElementById('blog-count');
   cEl.textContent=BLOGS.length+'+';
@@ -236,6 +237,31 @@ const BLOGS = [
       window._cwLang=_cwLang;
       // Init lang
       _cwLang(localStorage.getItem(K)||'hi');
+
+      // ── ANALYTICS STRIP (inline) ──
+      (function(){
+        var pg='index.html';
+        var vk='ciweb_views_'+pg;
+        var views=parseInt(localStorage.getItem(vk)||'0')+1;
+        localStorage.setItem(vk,views);
+        var asv=document.getElementById('as-views');if(asv)asv.textContent=views;
+        // blogs count
+        var asb=document.getElementById('as-blogs');if(asb&&window.BLOGS)asb.textContent=window.BLOGS.length+'+';
+        // lang
+        function updAsLang(){var asl=document.getElementById('as-lang');if(asl)asl.textContent=(localStorage.getItem(K)||'hi')==='en'?'EN':'HI';}
+        updAsLang();
+        window.addEventListener('langChanged',updAsLang);
+        // time
+        var secs=0;
+        setInterval(function(){secs++;var t=document.getElementById('as-time');if(t)t.textContent=secs<60?secs+'s':Math.floor(secs/60)+'m '+(secs%60)+'s';},1000);
+        // scroll
+        window.addEventListener('scroll',function(){
+          var h=document.documentElement;
+          var pct=Math.round((h.scrollTop||document.body.scrollTop)/(h.scrollHeight-h.clientHeight)*100)||0;
+          var p=document.getElementById('as-pct');if(p)p.textContent=pct+'%';
+          var b=document.getElementById('as-bar');if(b)b.style.width=pct+'%';
+        },{passive:true});
+      })();
 
       // Analytics
       var pg=location.pathname.split('/').pop()||'index.html';
