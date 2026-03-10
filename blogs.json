@@ -1,41 +1,49 @@
-[
+// ═══════════════════════════════════════════
+//  CIWeb — Blogs Data
+//  Nayi blog add karne ke liye:
+//  1. Is array ke UPAR ek naya object add karo
+//  2. blog4.html file banao
+//  3. sitemap.xml mein URL add karo
+// ═══════════════════════════════════════════
+
+const BLOGS_DATA = [
   {
-    "id": "blog3",
-    "title_hi": "Google Gemini Kya Hai Aur 2026 Mein Free Mein Kaise Use Kare",
-    "title_en": "Google Gemini — What Is It And How To Use It For Free in 2026",
-    "desc_hi": "Google ka sabse powerful AI tool bilkul free hai! Shuruat se lekar advanced features tak — poori guide simple Hindi mein.",
-    "desc_en": "Google's most powerful AI tool is completely free! From basics to advanced features — complete guide in simple language.",
-    "tag": "AI Tools",
-    "date": "10 March 2026",
-    "link": "blog3.html",
-    "image": "https://images.unsplash.com/photo-1706548261149-a0cf426c3b8e?w=600&q=80",
-    "readTime_hi": "7 min mein padho",
-    "readTime_en": "7 min read"
+    id: "blog3",
+    title_hi: "Google Gemini Kya Hai Aur 2026 Mein Free Mein Kaise Use Kare",
+    title_en: "Google Gemini — What Is It And How To Use It For Free in 2026",
+    desc_hi: "Google ka sabse powerful AI tool bilkul free hai! Shuruat se lekar advanced features tak — poori guide simple Hindi mein.",
+    desc_en: "Google's most powerful AI tool is completely free! From basics to advanced features — complete guide in simple language.",
+    tag: "AI Tools",
+    date: "10 March 2026",
+    link: "blog3.html",
+    image: "https://images.unsplash.com/photo-1706548261149-a0cf426c3b8e?w=600&q=80",
+    readTime_hi: "7 min mein padho",
+    readTime_en: "7 min read"
   },
   {
-    "id": "blog2",
-    "title_hi": "Programming Seekhte Waqt Motivated Kaise Rahe — Python Ho Ya Koi Bhi Language",
-    "title_en": "How to Stay Motivated While Learning Any Programming Language",
-    "desc_hi": "Motivation kho raha hai? Yeh 7 proven tips tumhari coding journey badal denge. Har programmer ke liye zaroor padho!",
-    "desc_en": "Losing motivation? These 7 proven tips will change your coding journey. A must-read for every programmer!",
-    "tag": "Motivation",
-    "date": "10 March 2026",
-    "link": "blog2.html",
-    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&q=80",
-    "readTime_hi": "6 min mein padho",
-    "readTime_en": "6 min read"
+    id: "blog2",
+    title_hi: "Programming Seekhte Waqt Motivated Kaise Rahe — Python Ho Ya Koi Bhi Language",
+    title_en: "How to Stay Motivated While Learning Any Programming Language",
+    desc_hi: "Motivation kho raha hai? Yeh 7 proven tips tumhari coding journey badal denge. Har programmer ke liye zaroor padho!",
+    desc_en: "Losing motivation? These 7 proven tips will change your coding journey. A must-read for every programmer!",
+    tag: "Motivation",
+    date: "10 March 2026",
+    link: "blog2.html",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&q=80",
+    readTime_hi: "6 min mein padho",
+    readTime_en: "6 min read"
   },
   {
-    "id": "blog1",
-    "title_hi": "Top 10 Free AI Tools Jo Aapki Zindagi Aasaan Kar Denge",
-    "title_en": "Top 10 Free AI Tools That Will Make Your Life Easier",
-    "desc_hi": "2026 mein yeh AI tools bilkul free hain aur inse aapka kaam 10x fast ho jayega!",
-    "desc_en": "In 2026, these AI tools are completely free and will make your work 10x faster!",
-    "tag": "AI Tools",
-    "date": "10 March 2026",
-    "link": "blog1.html",
-    "image": "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80",
-    "readTime_hi": "8 min mein padho",
-    "readTime_en": "8 min read"
+    id: "blog1",
+    title_hi: "Top 10 Free AI Tools Jo Aapki Zindagi Aasaan Kar Denge",
+    title_en: "Top 10 Free AI Tools That Will Make Your Life Easier",
+    desc_hi: "2026 mein yeh AI tools bilkul free hain aur inse aapka kaam 10x fast ho jayega!",
+    desc_en: "In 2026, these AI tools are completely free and will make your work 10x faster!",
+    tag: "AI Tools",
+    date: "10 March 2026",
+    link: "blog1.html",
+    image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80",
+    readTime_hi: "8 min mein padho",
+    readTime_en: "8 min read"
   }
-]
+];
