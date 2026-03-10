@@ -85,34 +85,98 @@
 <div class="results-info" id="results-info"></div>
 <div class="blogs-section"><div class="blog-grid" id="blog-grid"></div></div>
 <script>
-let aB=[
-  {
-    title_hi:"Programming Seekhte Waqt Motivated Kaise Rahe — Python Ho Ya Koi Bhi Language",
-    title_en:"How to Stay Motivated While Learning Any Programming Language",
-    desc_hi:"Motivation kho raha hai? Yeh 7 proven tips tumhari coding journey badal denge. Har programmer ke liye zaroor padho!",
-    desc_en:"Losing motivation? These 7 proven tips will change your coding journey. A must-read for every programmer!",
-    tag:"Motivation",date:"10 March 2026",link:"blog2.html"
-  },
-  {
-    title_hi:"Top 10 Free AI Tools Jo Aapki Zindagi Aasaan Kar Denge",
-    title_en:"Top 10 Free AI Tools That Will Make Your Life Easier",
-    desc_hi:"2026 mein yeh AI tools bilkul free hain aur inse aapka kaam 10x fast ho jayega!",
-    desc_en:"In 2026, these AI tools are completely free and will make your work 10x faster!",
-    tag:"AI Tools",date:"10 March 2026",link:"blog1.html"
-  }
-],aT='all';
+let aB=[], aT='all';
+
 function getLang(){return localStorage.getItem('ciweb_lang')||'hi';}
 function getTitle(b){return getLang()==='en'?b.title_en:b.title_hi;}
 function getDesc(b){return getLang()==='en'?b.desc_en:b.desc_hi;}
-function loadBlogs(){buildTags();renderBlogs(aB,'');}
-window.addEventListener('langChanged',()=>applyFilters());
-function buildTags(){const tags=[...new Set(aB.map(b=>b.tag||'Tech'))];const c=document.getElementById('tag-filters');tags.forEach(t=>{const btn=document.createElement('button');btn.className='tag-btn';btn.textContent=t;btn.onclick=()=>filterTag(t,btn);c.appendChild(btn);});}
-function filterTag(tag,btn){aT=tag;document.querySelectorAll('.tag-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');applyFilters();}
-function onSearch(){const v=document.getElementById('search-input').value;document.getElementById('clear-btn').classList.toggle('v',v.length>0);applyFilters();}
-function clearSearch(){document.getElementById('search-input').value='';document.getElementById('clear-btn').classList.remove('v');applyFilters();}
-function applyFilters(){const q=document.getElementById('search-input').value.trim().toLowerCase();let f=aB;if(aT!=='all')f=f.filter(b=>(b.tag||'Tech')===aT);if(q)f=f.filter(b=>getTitle(b).toLowerCase().includes(q)||getDesc(b).toLowerCase().includes(q)||(b.tag||'').toLowerCase().includes(q));renderBlogs(f,q);}
-function hl(t,q){if(!q)return t;try{var e=q.replace(/[.*+?^${}()|\[\]\\]/g,'\\$&');return t.replace(new RegExp('('+e+')','gi'),'<mark>$1</mark>');}catch(err){return t;}}
-function renderBlogs(blogs,query){const g=document.getElementById('blog-grid'),info=document.getElementById('results-info'),q=document.getElementById('search-input').value.trim();if(!blogs.length){info.innerHTML='';g.innerHTML='<div class="empty-state"><h3>😕 Koi result nahi</h3><p>Doosra keyword try karo.</p></div>';return;}info.innerHTML=q?`<strong>${blogs.length}</strong> result mila`:`<strong>${blogs.length}</strong> blogs`;const lang=getLang();g.innerHTML=blogs.map((b,i)=>`<a class="blog-card" href="${b.link}" style="animation-delay:${i*0.05}s"><span class="card-tag">${b.tag||'Tech'}</span><h3>${hl(getTitle(b),query)}</h3><p>${hl(getDesc(b),query)}</p><div class="card-footer"><span>📅 ${b.date}</span><span class="read-arrow">${lang==='en'?'Read →':'Padho →'}</span></div></a>`).join('');}
+
+function buildTags(){
+  const existing = document.querySelectorAll('.tag-btn[data-dynamic]');
+  existing.forEach(b=>b.remove());
+  const tags = [...new Set(aB.map(b=>b.tag||'Tech'))];
+  const c = document.getElementById('tag-filters');
+  tags.forEach(t=>{
+    const btn = document.createElement('button');
+    btn.className = 'tag-btn';
+    btn.textContent = t;
+    btn.setAttribute('data-dynamic','1');
+    btn.onclick = ()=>filterTag(t, btn);
+    c.appendChild(btn);
+  });
+}
+
+function filterTag(tag, btn){
+  aT = tag;
+  document.querySelectorAll('.tag-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  applyFilters();
+}
+
+function onSearch(){
+  const v = document.getElementById('search-input').value;
+  document.getElementById('clear-btn').classList.toggle('v', v.length>0);
+  applyFilters();
+}
+
+function clearSearch(){
+  document.getElementById('search-input').value='';
+  document.getElementById('clear-btn').classList.remove('v');
+  applyFilters();
+}
+
+function applyFilters(){
+  const q = document.getElementById('search-input').value.trim().toLowerCase();
+  let f = aB;
+  if(aT!=='all') f = f.filter(b=>(b.tag||'Tech')===aT);
+  if(q) f = f.filter(b=>getTitle(b).toLowerCase().includes(q)||getDesc(b).toLowerCase().includes(q)||(b.tag||'').toLowerCase().includes(q));
+  renderBlogs(f, q);
+}
+
+function hl(t,q){
+  if(!q)return t;
+  try{var e=q.replace(/[.*+?^${}()|[\]\]/g,'\$&');return t.replace(new RegExp('('+e+')','gi'),'<mark>$1</mark>');}
+  catch(err){return t;}
+}
+
+function renderBlogs(blogs, query){
+  const g = document.getElementById('blog-grid');
+  const info = document.getElementById('results-info');
+  const q = document.getElementById('search-input').value.trim();
+  const lang = getLang();
+  if(!blogs.length){
+    info.innerHTML='';
+    g.innerHTML='<div class="empty-state"><h3>😕 Koi result nahi</h3><p>Doosra keyword try karo.</p></div>';
+    return;
+  }
+  info.innerHTML = q ? `<strong>${blogs.length}</strong> result mila` : `<strong>${blogs.length}</strong> blogs`;
+  g.innerHTML = blogs.map((b,i)=>
+    `<a class="blog-card" href="${b.link}" style="animation-delay:${i*0.05}s">
+      <span class="card-tag">${b.tag||'Tech'}</span>
+      <h3>${hl(getTitle(b),query)}</h3>
+      <p>${hl(getDesc(b),query)}</p>
+      <div class="card-footer">
+        <span>📅 ${b.date}</span>
+        <span class="read-arrow">${lang==='en'?'Read →':'Padho →'}</span>
+      </div>
+    </a>`
+  ).join('');
+}
+
+// ── Fetch from blogs.json ──
+async function loadBlogs(){
+  try{
+    const res = await fetch('blogs.json?v=' + Date.now());
+    aB = await res.json();
+  } catch(e){
+    console.warn('blogs.json load failed', e);
+    aB = [];
+  }
+  buildTags();
+  renderBlogs(aB, '');
+}
+
+window.addEventListener('langChanged', ()=>applyFilters());
 loadBlogs();
 </script>
 <footer>
