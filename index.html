@@ -130,7 +130,7 @@
 <script src="blogs.js"></script>
 <script>
 // Blog data loaded from blogs.js
-(function loadBlogs(){
+function loadBlogs(){
   const grid = document.getElementById('blog-grid');
   const cEl  = document.getElementById('blog-count');
   const BLOGS = window.BLOGS_DATA || [];
@@ -155,7 +155,13 @@
 
   renderBlogs();
   window.addEventListener('langChanged', renderBlogs);
-})();
+}
+
+if(document.readyState==='loading'){
+  document.addEventListener('DOMContentLoaded', loadBlogs);
+} else {
+  loadBlogs();
+}
 </script>
 <footer>
   <a href="index.html" class="logo">CI<span class="logo-accent">Web</span></a>
