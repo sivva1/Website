@@ -78,9 +78,9 @@
 
 <div class="search-wrap">
   <div class="search-box">
-    <span>🔍</span>
+    <span>&#128269;</span>
     <input type="text" id="search-input" placeholder="Blog search karo..." oninput="onSearch()"/>
-    <button class="clear-btn" id="clear-btn" onclick="clearSearch()">✕</button>
+    <button class="clear-btn" id="clear-btn" onclick="clearSearch()">&#10005;</button>
   </div>
 </div>
 
@@ -92,177 +92,180 @@
 <div class="results-info" id="results-info"></div>
 <div class="blogs-section">
   <div class="blog-grid" id="blog-grid">
-    <div class="empty-state"><h3>⏳ Load ho raha hai...</h3></div>
+    <div class="empty-state"><h3>&#9203; Load ho raha hai...</h3></div>
   </div>
 </div>
 
 <footer>
   <a href="index.html" class="logo">CI<span class="logo-accent">Web</span></a>
-  <p data-en="© 2026 CIWeb. All rights reserved." data-hi="© 2026 CIWeb. Sare adhikar surakshit.">© 2026 CIWeb. Sare adhikar surakshit.</p>
-  <p data-en="Made with ❤️ for Tech Lovers" data-hi="Tech Lovers ke liye ❤️ se banaya">Tech Lovers ke liye ❤️ se banaya</p>
+  <p data-en="2026 CIWeb. All rights reserved." data-hi="2026 CIWeb. Sare adhikar surakshit.">2026 CIWeb. Sare adhikar surakshit.</p>
+  <p data-en="Made with love for Tech Lovers" data-hi="Tech Lovers ke liye banaya">Tech Lovers ke liye banaya</p>
 </footer>
 
 <div id="cw-toggle">
-  <button class="cw-opt" id="cw-hi" onclick="setLang('hi')">🇮🇳 Hinglish</button>
+  <button class="cw-opt" id="cw-hi" onclick="setLang('hi')">&#127470;&#127475; Hinglish</button>
   <div class="cw-sep"></div>
-  <button class="cw-opt" id="cw-en" onclick="setLang('en')">🇬🇧 English</button>
+  <button class="cw-opt" id="cw-en" onclick="setLang('en')">&#127468;&#127463; English</button>
 </div>
 
-<!-- Load blog data FIRST -->
-<script src="blogs.js"></script>
-
-<!-- Then run blog logic -->
 <script>
-  var aB = [];
-  var aT = 'all';
-
-  function getLang() {
-    return localStorage.getItem('ciweb_lang') || 'hi';
+// ── BLOGS DATA — seedha yahan hai, koi external file nahi ──
+var BLOGS_DATA = [
+  {
+    title_hi:"Google Gemini Kya Hai Aur 2026 Mein Free Mein Kaise Use Kare",
+    title_en:"Google Gemini — What Is It And How To Use It For Free in 2026",
+    desc_hi:"Google ka sabse powerful AI tool bilkul free hai! Poori guide simple Hindi mein.",
+    desc_en:"Google most powerful AI tool is completely free! Complete guide in simple language.",
+    tag:"AI Tools", date:"10 March 2026", link:"blog3.html"
+  },
+  {
+    title_hi:"Programming Seekhte Waqt Motivated Kaise Rahe",
+    title_en:"How to Stay Motivated While Learning Programming",
+    desc_hi:"Motivation kho raha hai? Yeh 7 proven tips tumhari coding journey badal denge!",
+    desc_en:"Losing motivation? These 7 proven tips will change your coding journey!",
+    tag:"Motivation", date:"10 March 2026", link:"blog2.html"
+  },
+  {
+    title_hi:"Top 10 Free AI Tools Jo Aapki Zindagi Aasaan Kar Denge",
+    title_en:"Top 10 Free AI Tools That Will Make Your Life Easier",
+    desc_hi:"2026 mein yeh AI tools bilkul free hain aur inse aapka kaam 10x fast ho jayega!",
+    desc_en:"In 2026, these AI tools are completely free and will make your work 10x faster!",
+    tag:"AI Tools", date:"10 March 2026", link:"blog1.html"
   }
+];
+</script>
+<script>
+var aB = [];
+var aT = 'all';
 
-  function getTitle(b) {
-    return getLang() === 'en' ? b.title_en : b.title_hi;
+function getLang(){
+  return localStorage.getItem('ciweb_lang') || 'hi';
+}
+function getTitle(b){
+  return getLang()==='en' ? b.title_en : b.title_hi;
+}
+function getDesc(b){
+  return getLang()==='en' ? b.desc_en : b.desc_hi;
+}
+
+function safeHL(text, query){
+  if(!query || !text) return text || '';
+  try{
+    var esc = query.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&');
+    return text.replace(new RegExp('('+esc+')', 'gi'), '<mark>$1</mark>');
+  }catch(e){ return text; }
+}
+
+function buildTags(){
+  var old = document.querySelectorAll('.tag-btn[data-dyn]');
+  for(var i=0;i<old.length;i++) old[i].remove();
+  var seen={}, tags=[];
+  for(var j=0;j<aB.length;j++){
+    var t = aB[j].tag||'Tech';
+    if(!seen[t]){seen[t]=true;tags.push(t);}
   }
+  var container = document.getElementById('tag-filters');
+  tags.forEach(function(tag){
+    var btn = document.createElement('button');
+    btn.className = 'tag-btn';
+    btn.textContent = tag;
+    btn.setAttribute('data-dyn','1');
+    btn.onclick = (function(tg,bt){ return function(){ filterTag(tg,bt); }; })(tag, btn);
+    container.appendChild(btn);
+  });
+}
 
-  function getDesc(b) {
-    return getLang() === 'en' ? b.desc_en : b.desc_hi;
+function filterTag(tag, btn){
+  aT = tag;
+  var btns = document.querySelectorAll('.tag-btn');
+  for(var i=0;i<btns.length;i++) btns[i].classList.remove('active');
+  btn.classList.add('active');
+  applyFilters();
+}
+
+function onSearch(){
+  var v = document.getElementById('search-input').value;
+  var cb = document.getElementById('clear-btn');
+  if(v.length>0) cb.classList.add('v'); else cb.classList.remove('v');
+  applyFilters();
+}
+
+function clearSearch(){
+  document.getElementById('search-input').value='';
+  document.getElementById('clear-btn').classList.remove('v');
+  applyFilters();
+}
+
+function applyFilters(){
+  var q = document.getElementById('search-input').value.trim().toLowerCase();
+  var filtered = aB.slice();
+  if(aT!=='all'){
+    filtered = filtered.filter(function(b){ return (b.tag||'Tech')===aT; });
   }
-
-  function safeHL(text, query) {
-    if (!query || !text) return text || '';
-    try {
-      var escaped = query.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&');
-      return text.replace(new RegExp('(' + escaped + ')', 'gi'), '<mark>$1</mark>');
-    } catch (e) {
-      return text;
-    }
-  }
-
-  function buildTags() {
-    // Remove old dynamic tags
-    var old = document.querySelectorAll('.tag-btn[data-dyn]');
-    for (var i = 0; i < old.length; i++) old[i].remove();
-
-    // Get unique tags
-    var seen = {};
-    var tags = [];
-    for (var j = 0; j < aB.length; j++) {
-      var t = aB[j].tag || 'Tech';
-      if (!seen[t]) { seen[t] = true; tags.push(t); }
-    }
-
-    var container = document.getElementById('tag-filters');
-    tags.forEach(function(tag) {
-      var btn = document.createElement('button');
-      btn.className = 'tag-btn';
-      btn.textContent = tag;
-      btn.setAttribute('data-dyn', '1');
-      btn.onclick = function() { filterTag(tag, btn); };
-      container.appendChild(btn);
+  if(q){
+    filtered = filtered.filter(function(b){
+      return getTitle(b).toLowerCase().indexOf(q)>-1 ||
+             getDesc(b).toLowerCase().indexOf(q)>-1 ||
+             (b.tag||'').toLowerCase().indexOf(q)>-1;
     });
   }
+  renderBlogs(filtered, q);
+}
 
-  function filterTag(tag, btn) {
-    aT = tag;
-    var btns = document.querySelectorAll('.tag-btn');
-    for (var i = 0; i < btns.length; i++) btns[i].classList.remove('active');
-    btn.classList.add('active');
-    applyFilters();
+function renderBlogs(blogs, query){
+  var grid = document.getElementById('blog-grid');
+  var info = document.getElementById('results-info');
+  var lang = getLang();
+  var q = query || '';
+  if(!blogs || blogs.length===0){
+    info.innerHTML='';
+    grid.innerHTML='<div class="empty-state"><h3>Koi result nahi</h3><p>Doosra keyword try karo.</p></div>';
+    return;
   }
-
-  function onSearch() {
-    var v = document.getElementById('search-input').value;
-    var cb = document.getElementById('clear-btn');
-    if (v.length > 0) cb.classList.add('v'); else cb.classList.remove('v');
-    applyFilters();
+  info.innerHTML = q
+    ? '<strong>'+blogs.length+'</strong> result mila'
+    : '<strong>'+blogs.length+'</strong> blogs';
+  var html='';
+  for(var i=0;i<blogs.length;i++){
+    var b=blogs[i];
+    var title=safeHL(getTitle(b),q);
+    var desc=safeHL(getDesc(b),q);
+    var arrow=lang==='en'?'Read &rarr;':'Padho &rarr;';
+    html+='<a class="blog-card" href="'+b.link+'" style="animation-delay:'+(i*0.05)+'s">'
+        +'<span class="card-tag">'+(b.tag||'Tech')+'</span>'
+        +'<h3>'+title+'</h3>'
+        +'<p>'+desc+'</p>'
+        +'<div class="card-footer"><span>'+b.date+'</span>'
+        +'<span class="read-arrow">'+arrow+'</span></div>'
+        +'</a>';
   }
+  grid.innerHTML=html;
+}
 
-  function clearSearch() {
-    document.getElementById('search-input').value = '';
-    document.getElementById('clear-btn').classList.remove('v');
-    applyFilters();
+function setLang(l){
+  localStorage.setItem('ciweb_lang',l);
+  var els=document.querySelectorAll('[data-en][data-hi]');
+  for(var i=0;i<els.length;i++){
+    els[i].textContent=l==='en'?els[i].dataset.en:els[i].dataset.hi;
   }
+  document.getElementById('cw-hi').classList.toggle('on',l==='hi');
+  document.getElementById('cw-en').classList.toggle('on',l==='en');
+  applyFilters();
+}
 
-  function applyFilters() {
-    var q = document.getElementById('search-input').value.trim().toLowerCase();
-    var filtered = aB.slice();
+function init(){
+  aB = (typeof BLOGS_DATA !== 'undefined') ? BLOGS_DATA : [];
+  var lang = localStorage.getItem('ciweb_lang')||'hi';
+  setLang(lang);
+  buildTags();
+  renderBlogs(aB,'');
+}
 
-    if (aT !== 'all') {
-      filtered = filtered.filter(function(b) { return (b.tag || 'Tech') === aT; });
-    }
-    if (q) {
-      filtered = filtered.filter(function(b) {
-        return getTitle(b).toLowerCase().indexOf(q) > -1 ||
-               getDesc(b).toLowerCase().indexOf(q) > -1 ||
-               (b.tag || '').toLowerCase().indexOf(q) > -1;
-      });
-    }
-    renderBlogs(filtered, q);
-  }
-
-  function renderBlogs(blogs, query) {
-    var grid = document.getElementById('blog-grid');
-    var info = document.getElementById('results-info');
-    var lang = getLang();
-    var q = query || '';
-
-    if (!blogs || blogs.length === 0) {
-      info.innerHTML = '';
-      grid.innerHTML = '<div class="empty-state"><h3>😕 Koi result nahi</h3><p>Doosra keyword try karo.</p></div>';
-      return;
-    }
-
-    info.innerHTML = q
-      ? '<strong>' + blogs.length + '</strong> result mila'
-      : '<strong>' + blogs.length + '</strong> blogs';
-
-    var html = '';
-    for (var i = 0; i < blogs.length; i++) {
-      var b = blogs[i];
-      var title = safeHL(getTitle(b), q);
-      var desc  = safeHL(getDesc(b), q);
-      var arrow = lang === 'en' ? 'Read &rarr;' : 'Padho &rarr;';
-      html += '<a class="blog-card" href="' + b.link + '" style="animation-delay:' + (i * 0.05) + 's">'
-            + '<span class="card-tag">' + (b.tag || 'Tech') + '</span>'
-            + '<h3>' + title + '</h3>'
-            + '<p>' + desc + '</p>'
-            + '<div class="card-footer"><span>&#128197; ' + b.date + '</span>'
-            + '<span class="read-arrow">' + arrow + '</span></div>'
-            + '</a>';
-    }
-    grid.innerHTML = html;
-  }
-
-  function setLang(l) {
-    localStorage.setItem('ciweb_lang', l);
-    var els = document.querySelectorAll('[data-en][data-hi]');
-    for (var i = 0; i < els.length; i++) {
-      els[i].textContent = l === 'en' ? els[i].dataset.en : els[i].dataset.hi;
-    }
-    document.getElementById('cw-hi').classList.toggle('on', l === 'hi');
-    document.getElementById('cw-en').classList.toggle('on', l === 'en');
-    applyFilters();
-  }
-
-  // ── INIT ──
-  function init() {
-    // Load data from blogs.js (BLOGS_DATA global)
-    aB = (typeof BLOGS_DATA !== 'undefined') ? BLOGS_DATA : [];
-
-    // Apply saved language
-    var savedLang = localStorage.getItem('ciweb_lang') || 'hi';
-    setLang(savedLang);
-
-    buildTags();
-    renderBlogs(aB, '');
-  }
-
-  // Run after page loads
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+if(document.readyState==='loading'){
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
 </script>
 
 </body>
