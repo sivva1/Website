@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="google-adsense-account" content="ca-pub-1601519075440950">
   <title>Blogs — CIWeb</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
@@ -21,13 +23,12 @@
     .page-label::before{content:'';display:block;width:24px;height:2px;background:var(--accent)}
     .page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:900;letter-spacing:-2px;line-height:1.1;margin-bottom:1rem}
     .page-hero p{color:var(--muted);font-size:1.05rem;line-height:1.75;max-width:500px;font-weight:300}
-    .search-wrap{max-width:1300px;margin:0 auto;padding:30px 6% 0;display:flex;gap:1rem;align-items:center}
-    .search-box{flex:1;display:flex;align-items:center;gap:0.6rem;background:var(--card);border:1.5px solid var(--border);border-radius:100px;padding:10px 20px;transition:border-color 0.2s}
+    .search-wrap{max-width:1300px;margin:0 auto;padding:30px 6% 0}
+    .search-box{display:flex;align-items:center;gap:0.6rem;background:var(--card);border:1.5px solid var(--border);border-radius:100px;padding:10px 20px;transition:border-color 0.2s}
     .search-box:focus-within{border-color:var(--accent)}
     .search-box input{border:none;outline:none;background:transparent;font-family:'Outfit',sans-serif;font-size:0.92rem;color:var(--ink);width:100%}
     .search-box input::placeholder{color:var(--muted)}
-    .clear-btn{background:none;border:none;cursor:pointer;color:var(--muted);font-size:1rem;padding:0;display:none}
-    .clear-btn.v{display:block}
+    #clear-btn{background:none;border:none;cursor:pointer;color:var(--muted);font-size:1rem;padding:0;display:none}
     .tag-filters{max-width:1300px;margin:0 auto;padding:16px 6% 0;display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center}
     .filter-label{font-size:0.78rem;color:var(--muted);font-weight:500;margin-right:0.3rem}
     .tag-btn{background:var(--card);border:1.5px solid var(--border);color:var(--muted);font-size:0.75rem;font-weight:600;padding:5px 14px;border-radius:100px;cursor:pointer;font-family:'Outfit',sans-serif;text-transform:uppercase;transition:all 0.2s}
@@ -38,13 +39,12 @@
     .blogs-section{max-width:1300px;margin:0 auto;padding:20px 6% 80px}
     .blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem}
     .blog-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.6rem;text-decoration:none;color:var(--ink);transition:all 0.25s ease;display:flex;flex-direction:column;animation:fadeUp 0.4s ease both}
-    .blog-card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,0.08);border-color:#ccc}
+    .blog-card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,0.08)}
     .card-tag{background:var(--tag-bg);color:var(--accent);font-size:0.7rem;font-weight:600;padding:4px 10px;border-radius:100px;text-transform:uppercase;margin-bottom:0.9rem;width:fit-content}
     .blog-card h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;line-height:1.4;margin-bottom:0.6rem;flex:1}
     .blog-card p{color:var(--muted);font-size:0.85rem;line-height:1.6;margin-bottom:1.2rem}
     .card-footer{display:flex;align-items:center;justify-content:space-between;font-size:0.78rem;color:var(--muted);border-top:1px solid var(--border);padding-top:0.9rem;margin-top:auto}
     .read-arrow{color:var(--accent);font-weight:600}
-    mark{background:rgba(232,64,28,0.15);color:var(--accent);border-radius:3px;padding:0 2px}
     .empty-state{grid-column:1/-1;text-align:center;padding:5rem 2rem;color:var(--muted)}
     .empty-state h3{font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:0.6rem;color:var(--ink)}
     footer{border-top:1px solid var(--border);padding:2rem 6%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;max-width:1300px;margin:0 auto}
@@ -62,11 +62,11 @@
 <nav>
   <a href="index.html" class="logo">CI<span class="logo-accent">Web</span></a>
   <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="blogs.html" class="active">Blogs</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="terms.html">Terms</a></li>
+    <li><a href="index.html" data-en="Home" data-hi="Home">Home</a></li>
+    <li><a href="blogs.html" class="active" data-en="Blogs" data-hi="Blogs">Blogs</a></li>
+    <li><a href="about.html" data-en="About" data-hi="About">About</a></li>
+    <li><a href="contact.html" data-en="Contact" data-hi="Contact">Contact</a></li>
+    <li><a href="terms.html" data-en="Terms" data-hi="Terms">Terms</a></li>
   </ul>
 </nav>
 
@@ -79,193 +79,40 @@
 <div class="search-wrap">
   <div class="search-box">
     <span>&#128269;</span>
-    <input type="text" id="search-input" placeholder="Blog search karo..." oninput="onSearch()"/>
-    <button class="clear-btn" id="clear-btn" onclick="clearSearch()">&#10005;</button>
+    <input type="text" id="search-input" placeholder="Blog search karo..."/>
+    <button id="clear-btn">&#10005;</button>
   </div>
 </div>
 
 <div class="tag-filters" id="tag-filters">
   <span class="filter-label">Filter:</span>
-  <button class="tag-btn active" id="tag-all" onclick="filterTag('all',this)" data-en="All" data-hi="Sab">Sab</button>
+  <button class="tag-btn active" id="tag-all" data-en="All" data-hi="Sab">Sab</button>
 </div>
 
 <div class="results-info" id="results-info"></div>
 <div class="blogs-section">
   <div class="blog-grid" id="blog-grid">
-    <div class="empty-state"><h3>&#9203; Load ho raha hai...</h3></div>
+    <div style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--muted)">&#9203; Load ho raha hai...</div>
   </div>
 </div>
 
 <footer>
   <a href="index.html" class="logo">CI<span class="logo-accent">Web</span></a>
   <p data-en="2026 CIWeb. All rights reserved." data-hi="2026 CIWeb. Sare adhikar surakshit.">2026 CIWeb. Sare adhikar surakshit.</p>
-  <p data-en="Made with love for Tech Lovers" data-hi="Tech Lovers ke liye banaya">Tech Lovers ke liye banaya</p>
+  <p data-en="Made with love for Tech Lovers" data-hi="Tech Lovers ke liye banaya">Tech Lovers ke liye banaya &#10084;</p>
 </footer>
 
 <div id="cw-toggle">
-  <button class="cw-opt" id="cw-hi" onclick="setLang('hi')">&#127470;&#127475; Hinglish</button>
+  <button class="cw-opt" id="cw-hi" onclick="cwSetLang('hi')">&#127470;&#127475; Hinglish</button>
   <div class="cw-sep"></div>
-  <button class="cw-opt" id="cw-en" onclick="setLang('en')">&#127468;&#127463; English</button>
+  <button class="cw-opt" id="cw-en" onclick="cwSetLang('en')">&#127468;&#127463; English</button>
 </div>
 
+<script src="ciweb.js"></script>
 <script>
-// ── BLOGS DATA — seedha yahan hai, koi external file nahi ──
-var BLOGS_DATA = [
-  {
-    title_hi:"Google Gemini Kya Hai Aur 2026 Mein Free Mein Kaise Use Kare",
-    title_en:"Google Gemini — What Is It And How To Use It For Free in 2026",
-    desc_hi:"Google ka sabse powerful AI tool bilkul free hai! Poori guide simple Hindi mein.",
-    desc_en:"Google most powerful AI tool is completely free! Complete guide in simple language.",
-    tag:"AI Tools", date:"10 March 2026", link:"blog3.html"
-  },
-  {
-    title_hi:"Programming Seekhte Waqt Motivated Kaise Rahe",
-    title_en:"How to Stay Motivated While Learning Programming",
-    desc_hi:"Motivation kho raha hai? Yeh 7 proven tips tumhari coding journey badal denge!",
-    desc_en:"Losing motivation? These 7 proven tips will change your coding journey!",
-    tag:"Motivation", date:"10 March 2026", link:"blog2.html"
-  },
-  {
-    title_hi:"Top 10 Free AI Tools Jo Aapki Zindagi Aasaan Kar Denge",
-    title_en:"Top 10 Free AI Tools That Will Make Your Life Easier",
-    desc_hi:"2026 mein yeh AI tools bilkul free hain aur inse aapka kaam 10x fast ho jayega!",
-    desc_en:"In 2026, these AI tools are completely free and will make your work 10x faster!",
-    tag:"AI Tools", date:"10 March 2026", link:"blog1.html"
-  }
-];
-</script>
-<script>
-var aB = [];
-var aT = 'all';
-
-function getLang(){
-  return localStorage.getItem('ciweb_lang') || 'hi';
-}
-function getTitle(b){
-  return getLang()==='en' ? b.title_en : b.title_hi;
-}
-function getDesc(b){
-  return getLang()==='en' ? b.desc_en : b.desc_hi;
-}
-
-function safeHL(text, query){
-  if(!query || !text) return text || '';
-  try{
-    var esc = query.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&');
-    return text.replace(new RegExp('('+esc+')', 'gi'), '<mark>$1</mark>');
-  }catch(e){ return text; }
-}
-
-function buildTags(){
-  var old = document.querySelectorAll('.tag-btn[data-dyn]');
-  for(var i=0;i<old.length;i++) old[i].remove();
-  var seen={}, tags=[];
-  for(var j=0;j<aB.length;j++){
-    var t = aB[j].tag||'Tech';
-    if(!seen[t]){seen[t]=true;tags.push(t);}
-  }
-  var container = document.getElementById('tag-filters');
-  tags.forEach(function(tag){
-    var btn = document.createElement('button');
-    btn.className = 'tag-btn';
-    btn.textContent = tag;
-    btn.setAttribute('data-dyn','1');
-    btn.onclick = (function(tg,bt){ return function(){ filterTag(tg,bt); }; })(tag, btn);
-    container.appendChild(btn);
+  document.addEventListener('DOMContentLoaded', function() {
+    cwInitBlogs();
   });
-}
-
-function filterTag(tag, btn){
-  aT = tag;
-  var btns = document.querySelectorAll('.tag-btn');
-  for(var i=0;i<btns.length;i++) btns[i].classList.remove('active');
-  btn.classList.add('active');
-  applyFilters();
-}
-
-function onSearch(){
-  var v = document.getElementById('search-input').value;
-  var cb = document.getElementById('clear-btn');
-  if(v.length>0) cb.classList.add('v'); else cb.classList.remove('v');
-  applyFilters();
-}
-
-function clearSearch(){
-  document.getElementById('search-input').value='';
-  document.getElementById('clear-btn').classList.remove('v');
-  applyFilters();
-}
-
-function applyFilters(){
-  var q = document.getElementById('search-input').value.trim().toLowerCase();
-  var filtered = aB.slice();
-  if(aT!=='all'){
-    filtered = filtered.filter(function(b){ return (b.tag||'Tech')===aT; });
-  }
-  if(q){
-    filtered = filtered.filter(function(b){
-      return getTitle(b).toLowerCase().indexOf(q)>-1 ||
-             getDesc(b).toLowerCase().indexOf(q)>-1 ||
-             (b.tag||'').toLowerCase().indexOf(q)>-1;
-    });
-  }
-  renderBlogs(filtered, q);
-}
-
-function renderBlogs(blogs, query){
-  var grid = document.getElementById('blog-grid');
-  var info = document.getElementById('results-info');
-  var lang = getLang();
-  var q = query || '';
-  if(!blogs || blogs.length===0){
-    info.innerHTML='';
-    grid.innerHTML='<div class="empty-state"><h3>Koi result nahi</h3><p>Doosra keyword try karo.</p></div>';
-    return;
-  }
-  info.innerHTML = q
-    ? '<strong>'+blogs.length+'</strong> result mila'
-    : '<strong>'+blogs.length+'</strong> blogs';
-  var html='';
-  for(var i=0;i<blogs.length;i++){
-    var b=blogs[i];
-    var title=safeHL(getTitle(b),q);
-    var desc=safeHL(getDesc(b),q);
-    var arrow=lang==='en'?'Read &rarr;':'Padho &rarr;';
-    html+='<a class="blog-card" href="'+b.link+'" style="animation-delay:'+(i*0.05)+'s">'
-        +'<span class="card-tag">'+(b.tag||'Tech')+'</span>'
-        +'<h3>'+title+'</h3>'
-        +'<p>'+desc+'</p>'
-        +'<div class="card-footer"><span>'+b.date+'</span>'
-        +'<span class="read-arrow">'+arrow+'</span></div>'
-        +'</a>';
-  }
-  grid.innerHTML=html;
-}
-
-function setLang(l){
-  localStorage.setItem('ciweb_lang',l);
-  var els=document.querySelectorAll('[data-en][data-hi]');
-  for(var i=0;i<els.length;i++){
-    els[i].textContent=l==='en'?els[i].dataset.en:els[i].dataset.hi;
-  }
-  document.getElementById('cw-hi').classList.toggle('on',l==='hi');
-  document.getElementById('cw-en').classList.toggle('on',l==='en');
-  applyFilters();
-}
-
-function init(){
-  aB = (typeof BLOGS_DATA !== 'undefined') ? BLOGS_DATA : [];
-  var lang = localStorage.getItem('ciweb_lang')||'hi';
-  setLang(lang);
-  buildTags();
-  renderBlogs(aB,'');
-}
-
-if(document.readyState==='loading'){
-  document.addEventListener('DOMContentLoaded', init);
-} else {
-  init();
-}
 </script>
 
 </body>
