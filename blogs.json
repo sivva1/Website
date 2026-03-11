@@ -6,7 +6,7 @@
     "desc_en": "Google's most powerful AI tool is completely free! Complete guide in simple language.",
     "tag": "AI Tools",
     "date": "10 March 2026",
-    "link": "blog/blog3.html"
+    "link": "blogs/blog3.html"
   },
   {
     "title_hi": "Programming Seekhte Waqt Motivated Kaise Rahe",
@@ -15,7 +15,7 @@
     "desc_en": "Losing motivation? These 7 proven tips will change your coding journey!",
     "tag": "Motivation",
     "date": "10 March 2026",
-    "link": "blog/blog2.html"
+    "link": "blogs/blog2.html"
   },
   {
     "title_hi": "Top 10 Free AI Tools Jo Aapki Zindagi Aasaan Kar Denge",
@@ -24,6 +24,6 @@
     "desc_en": "In 2026, these AI tools are completely free and will make your work 10x faster!",
     "tag": "AI Tools",
     "date": "10 March 2026",
-    "link": "blog/blog1.html"
+    "link": "blogs/blog1.html"
   }
 ]
