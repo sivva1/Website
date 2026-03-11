@@ -375,103 +375,101 @@ var QS = [
     opts_hi:['<div> block element hai, <span> inline element hai','Dono same hain — sirf naam alag hai','<span> block element hai, <div> inline element hai','<div> sirf CSS ke liye hai'],
     opts_en:['<div> is block element, <span> is inline element','Both are the same — just different names','<span> is block, <div> is inline','<div> is only for CSS'],
     ans:0,
-    exp_hi:'<div> ek block-level element hai — naye line pe start hota hai aur poori width leta hai. <span> inline element hai — sirf apne content ki width leta hai aur same line pe rehta hai.',
-    exp_en:'<div> is a block-level element — starts on a new line and takes full width. <span> is inline — takes only its content width and stays on the same line.'
+    exp_hi:'<div> block-level element hai — full width leta hai. <span> inline element hai — sirf content ki width leta hai, same line pe rehta hai.',
+    exp_en:'<div> is block-level — takes full width. <span> is inline — takes only content width and stays on the same line.'
   },
   {
-    cat_hi:'Tricky Code', cat_en:'Tricky Code',
-    q_hi:'Neeche diye code ka output kya hoga?',
-    q_en:'What will be the output of the code below?',
-    code:'<p>Hello &amp;nbsp;&amp;nbsp; World</p>',
-    opts_hi:['Hello World (ek hi space ke saath)','Hello&nbsp;&nbsp;World (do extra spaces ke saath)','Error aayega','Hello &amp;nbsp;&amp;nbsp; World literally dikhega'],
-    opts_en:['Hello World (with single space)','Hello&nbsp;&nbsp;World (with two extra spaces)','It will throw an error','Hello &amp;nbsp;&amp;nbsp; World will show literally'],
+    cat_hi:'HTML5 Features', cat_en:'HTML5 Features',
+    q_hi:'HTML5 mein naya <article> tag kyun introduce kiya gaya?',
+    q_en:'Why was the <article> tag introduced in HTML5?',
+    opts_hi:['CSS styling ko aasaan karne ke liye','Content ko semantically independent section batane ke liye','JavaScript ke liye ek naya container provide karne ke liye','Images ko wrap karne ke liye'],
+    opts_en:['To make CSS styling easier','To mark content as a semantically independent section','To provide a new container for JavaScript','To wrap images'],
     ans:1,
-    exp_hi:'&amp;nbsp; ek non-breaking space character entity hai. Yeh normal HTML whitespace collapse nahi hota. Toh &amp;nbsp;&amp;nbsp; do visible spaces create karega.',
-    exp_en:'&amp;nbsp; is a non-breaking space character entity. Unlike regular HTML whitespace, it does not collapse. So &amp;nbsp;&amp;nbsp; creates two visible spaces.'
+    exp_hi:'<article> screen readers aur search engines ko batata hai ki yeh ek independent, self-contained content hai — jaise blog post ya news article. Yeh SEO improve karta hai.',
+    exp_en:'<article> tells screen readers and search engines this is independent, self-contained content — like a blog post or news article. It improves SEO and accessibility.'
   },
   {
     cat_hi:'Forms', cat_en:'Forms',
-    q_hi:'<input type="password"> ka kya kaam hai?',
-    q_en:'What does <input type="password"> do?',
-    opts_hi:['Input automatically encrypt hota hai aur server ko secure bheja jaata hai','Text dots/asterisks se mask hota hai — security server side handle karni padti hai','Form automatically submit hota hai','Password strength check hoti hai automatically'],
-    opts_en:['Input is automatically encrypted and sent securely to the server','Text is masked with dots/asterisks — actual security must be handled server-side','The form submits automatically','It automatically checks password strength'],
+    q_hi:'Form submit hone se rokne ke liye konsa sahi tarika hai?',
+    q_en:'What is the correct way to prevent a form from submitting?',
+    opts_hi:['<form action="none"> use karo','event.preventDefault() use karo form ke submit event mein','<form type="stop"> use karo','CSS se form hide kar do'],
+    opts_en:['Use <form action="none">','Use event.preventDefault() in the form submit event','Use <form type="stop">','Hide the form with CSS'],
     ans:1,
-    exp_hi:'type="password" sirf characters ko screen pe mask karta hai (dots ya asterisks). Yeh koi encryption nahi karta. Real security ke liye HTTPS aur server-side hashing zaroori hai.',
-    exp_en:'type="password" only masks characters on screen (dots or asterisks). It does NOT encrypt anything. Real security requires HTTPS and server-side password hashing.'
+    exp_hi:'event.preventDefault() browser ke default submit behavior ko rok deta hai. Yeh method form validation ya AJAX submit ke liye use hota hai.',
+    exp_en:'event.preventDefault() stops the browser's default submit behavior. It is used for form validation or AJAX submission.'
   },
   {
-    cat_hi:'Semantic HTML', cat_en:'Semantic HTML',
-    q_hi:'<b> aur <strong> dono text ko bold karte hain — toh fark kya hai?',
-    q_en:'Both <b> and <strong> make text bold — what is the difference?',
-    opts_hi:['Koi fark nahi, dono same hain','<strong> semantic importance deta hai (screen readers bold bolenge), <b> sirf visual styling hai','<b> zyada modern tag hai','<strong> sirf CSS ke saath kaam karta hai'],
-    opts_en:['No difference, they are the same','<strong> conveys semantic importance (screen readers announce it), <b> is purely visual','<b> is the more modern tag','<strong> only works with CSS'],
+    cat_hi:'Tricky Code', cat_en:'Tricky Code',
+    q_hi:'Is code ka kya output hoga? <p hidden>Hello</p>',
+    q_en:'What is the output of this code? <p hidden>Hello</p>',
+    opts_hi:['Hello dikh jayega','Kuch nahi dikhega — paragraph hidden rahega','Error aayega','Hello grey color mein dikhega'],
+    opts_en:['Hello will be visible','Nothing will show — paragraph stays hidden','An error will occur','Hello will appear in grey color'],
     ans:1,
-    exp_hi:'<strong> screen readers ko batata hai ki yeh content important hai — wo ise alag tone mein bolenge. <b> sirf visual bold hai, koi semantic meaning nahi. HTML5 mein <strong> prefer karo.',
-    exp_en:'<strong> tells screen readers the content is important — they may announce it differently. <b> is purely visual styling with no semantic meaning. Prefer <strong> in HTML5.'
+    exp_hi:'HTML5 ka hidden attribute element ko visually hide karta hai aur screen readers se bhi chhupata hai. Yeh CSS ke display:none jaisa kaam karta hai.',
+    exp_en:'HTML5's hidden attribute visually hides the element and also hides it from screen readers. It works like CSS display:none.'
+  },
+  {
+    cat_hi:'SEO & Meta', cat_en:'SEO & Meta',
+    q_hi:'Google search result mein page ka description kahan se aata hai?',
+    q_en:'Where does Google get the page description shown in search results?',
+    opts_hi:['Pehle <p> tag se','<meta name="description" content="..."> se','<title> tag se','<h1> tag se'],
+    opts_en:['From the first <p> tag','From <meta name="description" content="...">','From the <title> tag','From the <h1> tag'],
+    ans:1,
+    exp_hi:'<meta name="description"> tag search engines ko page ka summary batata hai. Yeh Google ke search results mein snippet ke roop mein dikhta hai aur CTR improve karta hai.',
+    exp_en:'The <meta name="description"> tag gives search engines a summary of the page. It appears as the snippet in Google results and improves click-through rate.'
   },
   {
     cat_hi:'Tricky Bug', cat_en:'Tricky Bug',
-    q_hi:'Is code mein kya galat hai?',
-    q_en:'What is wrong with this code?',
-    code:'<img src="photo.jpg" width="300">',
+    q_hi:'Is code mein kya galat hai? <img src="photo.jpg" width="300">',
+    q_en:'What is wrong with this code? <img src="photo.jpg" width="300">',
     opts_hi:['Kuch galat nahi — bilkul sahi hai','alt attribute missing hai — accessibility aur SEO ke liye zaroori hai','width attribute galat jagah hai','src ko href hona chahiye'],
     opts_en:['Nothing wrong — it is perfectly correct','alt attribute is missing — required for accessibility and SEO','The width attribute is in the wrong place','src should be href'],
     ans:1,
-    exp_hi:'alt attribute missing hai! Yeh SEO ke liye zaroori hai (Google images alt padh kar rank karta hai) aur accessibility ke liye bhi — screen readers alt text padhte hain. Hamesha alt daalo.',
-    exp_en:'The alt attribute is missing! It is required for SEO (Google reads alt text to rank images) and accessibility — screen readers read alt text for visually impaired users. Always include alt.'
+    exp_hi:'alt attribute missing hai! Google images ko alt text se rank karta hai aur screen readers visually impaired users ke liye alt padhte hain. Hamesha alt daalo.',
+    exp_en:'The alt attribute is missing! Google ranks images using alt text and screen readers read alt for visually impaired users. Always include alt.'
   },
   {
     cat_hi:'Advanced Nesting', cat_en:'Advanced Nesting',
-    q_hi:'Kaunsa nesting HTML mein invalid hai?',
-    q_en:'Which nesting is invalid in HTML?',
-    opts_hi:['<ul><li>Item</li></ul>','<a href="#"><button>Click</button></a>','<p><em>Text</em></p>','<table><tr><td>Data</td></tr></table>'],
-    opts_en:['<ul><li>Item</li></ul>','<a href="#"><button>Click</button></a>','<p><em>Text</em></p>','<table><tr><td>Data</td></tr></table>'],
-    ans:1,
-    exp_hi:'W3C spec ke mutabiq interactive elements (<a>, <button>, <input>) ke andar doosra interactive element nahi aa sakta. <a> ke andar <button> — ya <button> ke andar <a> — dono invalid hain.',
-    exp_en:'According to W3C spec, interactive elements (<a>, <button>, <input>) cannot be nested inside each other. <a> inside <button> or <button> inside <a> are both invalid HTML.'
-  },
-  {
-    cat_hi:'Meta Tags', cat_en:'Meta Tags',
-    q_hi:'Kaunsa meta tag mobile pe page sahi size mein dikhane ke liye zaroori hai?',
-    q_en:'Which meta tag is essential for displaying a page correctly on mobile devices?',
-    opts_hi:['<meta name="mobile" content="true">','<meta name="viewport" content="width=device-width, initial-scale=1">','<meta name="responsive" content="yes">','<meta name="screen" content="mobile">'],
-    opts_en:['<meta name="mobile" content="true">','<meta name="viewport" content="width=device-width, initial-scale=1">','<meta name="responsive" content="yes">','<meta name="screen" content="mobile">'],
-    ans:1,
-    exp_hi:'Viewport meta tag bina mobile browser page ko desktop ke jaisa render karta hai aur zoom out kar deta hai. Yeh tag responsive design ka sabse pehla step hai.',
-    exp_en:'Without the viewport meta tag, mobile browsers render the page like a desktop and zoom it out. This tag is the very first step to responsive web design.'
-  },
-  {
-    cat_hi:'Tables', cat_en:'Tables',
-    q_hi:'HTML table mein <th> aur <td> mein kya fark hai?',
-    q_en:'What is the difference between <th> and <td> in an HTML table?',
-    opts_hi:['Koi fark nahi — dono table cell hain','<th> header cell hai (bold, centered, semantic), <td> data cell hai','<td> header ke liye hai, <th> data ke liye','<th> sirf pehli row mein aa sakta hai'],
-    opts_en:['No difference — both are table cells','<th> is a header cell (bold, centered, semantic), <td> is a data cell','<td> is for headers, <th> is for data','<th> can only appear in the first row'],
-    ans:1,
-    exp_hi:'<th> (table header) automatically bold aur center align hota hai. Semantic meaning bhi hai — screen readers column/row ko header se associate karte hain. <td> sirf data cell hai.',
-    exp_en:'<th> (table header) is automatically bold and center-aligned. It also has semantic meaning — screen readers associate columns/rows with their headers. <td> is just a data cell.'
+    q_hi:'Kaunsa nesting HTML mein VALID hai?',
+    q_en:'Which nesting is VALID in HTML?',
+    opts_hi:['<button><a href="#">Link</a></button>','<p><div>Text</div></p>','<ul><li><span>Item</span></li></ul>','<a href="#"><button>Click</button></a>'],
+    opts_en:['<button><a href="#">Link</a></button>','<p><div>Text</div></p>','<ul><li><span>Item</span></li></ul>','<a href="#"><button>Click</button></a>'],
+    ans:2,
+    exp_hi:'<ul><li><span> bilkul valid hai — list item ke andar inline element allowed hai. Baaki teeno invalid hain: <p> ke andar block element, aur interactive elements ek doosre ke andar nahi aa sakte.',
+    exp_en:'<ul><li><span> is perfectly valid — inline elements are allowed inside list items. The other three are invalid: block inside <p>, and interactive elements cannot nest inside each other.'
   },
   {
     cat_hi:'HTML5 APIs', cat_en:'HTML5 APIs',
-    q_hi:'HTML5 mein <canvas> element ka kya use hai?',
-    q_en:'What is the use of the <canvas> element in HTML5?',
-    opts_hi:['Sirf images display karne ke liye','JavaScript se 2D/3D graphics, animations aur games banane ke liye','CSS animations ke liye','Video embed karne ke liye'],
-    opts_en:['Only for displaying images','For drawing 2D/3D graphics, animations and games using JavaScript','For CSS animations','For embedding videos'],
+    q_hi:'localStorage aur sessionStorage mein main fark kya hai?',
+    q_en:'What is the main difference between localStorage and sessionStorage?',
+    opts_hi:['Koi fark nahi — dono same hain','localStorage data permanently save karta hai, sessionStorage tab band hone pe delete ho jaata hai','sessionStorage zyada secure hai','localStorage sirf numbers store kar sakta hai'],
+    opts_en:['No difference — both are the same','localStorage saves data permanently, sessionStorage deletes data when tab closes','sessionStorage is more secure','localStorage can only store numbers'],
     ans:1,
-    exp_hi:'<canvas> ek drawing surface hai. JavaScript (Canvas API ya WebGL) use karke tum graphs, animations, image editors, aur poore games bana sakte ho. Yahi is page pe certificate banta hai!',
-    exp_en:'<canvas> is a drawing surface. Using JavaScript (Canvas API or WebGL) you can draw graphs, animations, image editors, and even full games. That\'s how this page generates the certificate!'
+    exp_hi:'localStorage ka data tab/browser band karne ke baad bhi rehta hai. sessionStorage ka data sirf current tab session tak rehta hai — tab band ki toh data gone!',
+    exp_en:'localStorage data persists even after closing the tab/browser. sessionStorage data lasts only for the current tab session — close the tab and the data is gone!'
   },
   {
-    cat_hi:'Final Boss &#128293;', cat_en:'Final Boss &#128293;',
-    q_hi:'Yeh code browser mein kaisa render hoga?',
-    q_en:'How will this code render in the browser?',
-    code:'<p>1 &lt; 2 &amp;&amp; 3 &gt; 2</p>',
-    opts_hi:['1 < 2 && 3 > 2 (actual symbols dikhenge)','Error aayega kyunki < aur > HTML mein allowed nahi','Blank page dikhega','1 &lt; 2 &amp;&amp; 3 &gt; 2 literally dikhega'],
-    opts_en:['1 < 2 && 3 > 2 (actual symbols will appear)','Error because < and > are not allowed in HTML','A blank page will appear','1 &lt; 2 &amp;&amp; 3 &gt; 2 will show literally'],
-    ans:0,
-    exp_hi:'HTML character entities browser mein actual characters mein convert hote hain. &amp;lt; → <, &amp;gt; → >, &amp;amp; → &. Toh output hoga: 1 < 2 && 3 > 2',
-    exp_en:'HTML character entities are converted to actual characters by the browser. &amp;lt; → <, &amp;gt; → >, &amp;amp; → &. So the output will be: 1 < 2 && 3 > 2'
+    cat_hi:'Semantic HTML', cat_en:'Semantic HTML',
+    q_hi:'<header> tag page mein kitni baar use ho sakta hai?',
+    q_en:'How many times can the <header> tag be used on a page?',
+    opts_hi:['Sirf ek baar — page ke top pe only','Ek se zyada baar — har section ka apna header ho sakta hai','Sirf <body> ke direct child ke roop mein','Maximum teen baar'],
+    opts_en:['Only once — at the top of the page only','Multiple times — each section can have its own header','Only as a direct child of <body>','Maximum three times'],
+    ans:1,
+    exp_hi:'<header> element ek page pe multiple baar use ho sakta hai — page ka main header bhi, aur har <article> ya <section> ka apna <header> bhi ho sakta hai. Yeh semantic HTML hai.',
+    exp_en:'The <header> element can be used multiple times — the page can have a main header, and each <article> or <section> can also have its own <header>. This is semantic HTML.'
+  },
+  {
+    cat_hi:'Final Boss 🔥', cat_en:'Final Boss 🔥',
+    q_hi:'DOCTYPE declaration ka kya kaam hai?',
+    q_en:'What is the purpose of the DOCTYPE declaration?',
+    opts_hi:['HTML file ka title set karta hai','Browser ko batata hai ki konsa HTML version use karna hai aur standards mode mein render karo','CSS reset karta hai','JavaScript enable karta hai page mein'],
+    opts_en:['Sets the title of the HTML file','Tells the browser which HTML version to use and to render in standards mode','Resets CSS','Enables JavaScript on the page'],
+    ans:1,
+    exp_hi:'<!DOCTYPE html> browser ko HTML5 standards mode mein render karne ko kehta hai. Iske bina browser "quirks mode" mein jaata hai jahan old IE bugs replicate hote hain — layout bigad jaata hai!',
+    exp_en:'<!DOCTYPE html> tells the browser to render in HTML5 standards mode. Without it, the browser enters "quirks mode" which replicates old IE bugs — layouts break!'
   }
 ];
+
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 //  LANG SYSTEM
@@ -530,9 +528,10 @@ function setLang(l) {
 //  QUIZ LOGIC
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 var cur = 0, score = 0, answered = false, tmr = null, timeLeft = 30, finalScore = 0;
+var quizStartTime = 0, quizTimeTaken = 0;
 
 function startQuiz() {
-  cur = 0; score = 0; answered = false;
+  cur = 0; score = 0; answered = false; quizStartTime = Date.now();
   document.getElementById('intro-card').style.display = 'none';
   document.getElementById('result-card').classList.remove('show');
   document.getElementById('quiz-card').classList.add('show');
@@ -683,6 +682,7 @@ function showResult() {
   var rc = document.getElementById('result-card');
   rc.classList.add('show');
   finalScore = score;
+  quizTimeTaken = Math.round((Date.now() - quizStartTime)/1000);
 
   var t   = T[LANG];
   var pct = score / 10;
@@ -727,238 +727,212 @@ function dlCert() {
     document.getElementById('lb-name').focus();
     return;
   }
-
-  var SIGN_URL = 'https://i.ibb.co/FkSg7chp/1000016058-removebg-preview-1.png';
-  var signImg  = new Image();
+  var signImg = new Image();
   signImg.crossOrigin = 'anonymous';
   signImg.onload  = function(){ drawCert(name, signImg); };
   signImg.onerror = function(){ drawCert(name, null); };
-  signImg.src = SIGN_URL;
+  signImg.src = 'https://i.ibb.co/FkSg7chp/1000016058-removebg-preview-1.png?' + Date.now();
 }
 
 function drawCert(name, signImg) {
   var cv  = document.getElementById('cert-cv');
   var ctx = cv.getContext('2d');
-  var W = 1600, H = 1100;
+  var W = 2000, H = 1414; // A4 landscape ratio, HD
   cv.width = W; cv.height = H;
   ctx.clearRect(0,0,W,H);
 
-  // ── BACKGROUND: Cream/Ivory light ──
-  ctx.fillStyle = '#fffdf7';
+  // ── WHITE BACKGROUND ──
+  ctx.fillStyle = '#ffffff';
   ctx.fillRect(0,0,W,H);
 
-  // ── SUBTLE TEXTURE (dots pattern) ──
-  ctx.save();
-  ctx.fillStyle = 'rgba(232,64,28,0.03)';
-  for(var xi=0; xi<W; xi+=40) {
-    for(var yi=0; yi<H; yi+=40) {
-      ctx.beginPath(); ctx.arc(xi,yi,1.5,0,Math.PI*2); ctx.fill();
-    }
-  }
-  ctx.restore();
+  // ── OUTER GOLD BORDER (triple lines like image) ──
+  var golds = ['#c8a84b','#e8d48a','#c8a84b'];
+  var offsets = [12, 22, 32];
+  golds.forEach(function(color, i) {
+    ctx.strokeStyle = color;
+    ctx.lineWidth = i===1 ? 6 : 3;
+    var o = offsets[i];
+    ctx.strokeRect(o, o, W-o*2, H-o*2);
+  });
 
-  // ── OUTER BORDER (thick accent) ──
-  ctx.strokeStyle = '#e8401c';
-  ctx.lineWidth   = 18;
-  ctx.strokeRect(20,20,W-40,H-40);
-
-  // ── INNER BORDER (thin dark) ──
-  ctx.strokeStyle = '#1a1814';
-  ctx.lineWidth   = 2;
-  ctx.strokeRect(44,44,W-88,H-88);
-
-  // ── CORNER ORNAMENTS ──
-  function corner(x,y,sx,sy) {
+  // ── CORNER ORNAMENTS (L-brackets, gold) ──
+  function goldCorner(x, y, dx, dy) {
     ctx.save();
-    ctx.strokeStyle = '#e8401c';
-    ctx.lineWidth   = 3;
-    ctx.lineCap     = 'round';
+    ctx.strokeStyle = '#c8a84b';
+    ctx.lineWidth = 3;
+    ctx.lineCap = 'round';
+    var len = 90;
+    // outer L
     ctx.beginPath();
-    ctx.moveTo(x,y+sy*40); ctx.lineTo(x,y); ctx.lineTo(x+sx*40,y);
+    ctx.moveTo(x+dx*len, y+dy*8); ctx.lineTo(x+dx*8, y+dy*8); ctx.lineTo(x+dx*8, y+dy*len);
     ctx.stroke();
-    ctx.fillStyle = '#e8401c';
-    ctx.beginPath(); ctx.arc(x,y,6,0,Math.PI*2); ctx.fill();
+    // inner L
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(x+dx*len, y+dy*18); ctx.lineTo(x+dx*18, y+dy*18); ctx.lineTo(x+dx*18, y+dy*len);
+    ctx.stroke();
+    // third L
+    ctx.beginPath();
+    ctx.moveTo(x+dx*len, y+dy*26); ctx.lineTo(x+dx*26, y+dy*26); ctx.lineTo(x+dx*26, y+dy*len);
+    ctx.stroke();
     ctx.restore();
   }
-  corner(60,60, 1, 1);  corner(W-60,60, -1, 1);
-  corner(60,H-60, 1,-1); corner(W-60,H-60,-1,-1);
+  goldCorner(50, 50,  1,  1);
+  goldCorner(W-50, 50, -1,  1);
+  goldCorner(50, H-50,  1, -1);
+  goldCorner(W-50, H-50,-1, -1);
 
-  // ── TOP RIBBON ──
+  // ── BOTTOM GREEN + GOLD WAVES (like image) ──
+  // Green wave left
   ctx.save();
-  var ribGrad = ctx.createLinearGradient(W/2-200,0,W/2+200,0);
-  ribGrad.addColorStop(0,'transparent');
-  ribGrad.addColorStop(0.2,'#e8401c');
-  ribGrad.addColorStop(0.8,'#e8401c');
-  ribGrad.addColorStop(1,'transparent');
-  ctx.fillStyle = ribGrad;
-  ctx.fillRect(0,80,W,52);
+  ctx.beginPath();
+  ctx.moveTo(0, H);
+  ctx.lineTo(0, H*0.72);
+  ctx.bezierCurveTo(W*0.08, H*0.62, W*0.18, H*0.68, W*0.28, H*0.72);
+  ctx.bezierCurveTo(W*0.38, H*0.76, W*0.42, H*0.78, W*0.48, H*0.82);
+  ctx.lineTo(W*0.48, H);
+  ctx.closePath();
+  ctx.fillStyle = '#1a5c3a';
+  ctx.fill();
   ctx.restore();
-  ctx.textAlign  = 'center';
-  ctx.fillStyle  = '#fff';
-  ctx.font       = '600 17px sans-serif';
-  ctx.letterSpacing = '4px';
-  ctx.fillText('C E R T I F I C A T E   O F   A C H I E V E M E N T', W/2, 113);
+
+  // Gold diagonal stripe over green (left)
+  ctx.save();
+  ctx.beginPath();
+  ctx.moveTo(0, H*0.86);
+  ctx.lineTo(W*0.32, H*0.68);
+  ctx.lineTo(W*0.36, H*0.72);
+  ctx.lineTo(0, H*0.92);
+  ctx.closePath();
+  var goldGrad = ctx.createLinearGradient(0, H*0.8, W*0.36, H*0.7);
+  goldGrad.addColorStop(0, '#e8d48a');
+  goldGrad.addColorStop(0.5, '#c8a84b');
+  goldGrad.addColorStop(1, '#f0e4a0');
+  ctx.fillStyle = goldGrad;
+  ctx.fill();
+  ctx.restore();
+
+  // Green wave right
+  ctx.save();
+  ctx.beginPath();
+  ctx.moveTo(W, H);
+  ctx.lineTo(W, H*0.72);
+  ctx.bezierCurveTo(W*0.92, H*0.62, W*0.82, H*0.68, W*0.72, H*0.72);
+  ctx.bezierCurveTo(W*0.62, H*0.76, W*0.58, H*0.78, W*0.52, H*0.82);
+  ctx.lineTo(W*0.52, H);
+  ctx.closePath();
+  ctx.fillStyle = '#1a5c3a';
+  ctx.fill();
+  ctx.restore();
+
+  // Gold diagonal stripe over green (right)
+  ctx.save();
+  ctx.beginPath();
+  ctx.moveTo(W, H*0.86);
+  ctx.lineTo(W*0.68, H*0.68);
+  ctx.lineTo(W*0.64, H*0.72);
+  ctx.lineTo(W, H*0.92);
+  ctx.closePath();
+  ctx.fillStyle = goldGrad;
+  ctx.fill();
+  ctx.restore();
+
+  ctx.textAlign = 'center';
+
+  // ── TOP: CODING INFINITE ──
+  ctx.font = '600 26px sans-serif';
+  ctx.fillStyle = '#5c4a1e';
+  ctx.letterSpacing = '6px';
+  ctx.fillText('CODING INFINITE', W/2, 110);
   ctx.letterSpacing = '0px';
 
-  // ── LOGO ──
-  ctx.font      = 'bold 60px serif';
-  ctx.fillStyle = '#1a1814';
-  ctx.fillText('CI', W/2-34,190);
-  ctx.fillStyle = '#e8401c';
-  ctx.fillText('Web', W/2+52,190);
+  // ── CERTIFICATE (Big serif) ──
+  ctx.font = '900 148px serif';
+  ctx.fillStyle = '#3a3020';
+  ctx.fillText('CERTIFICATE', W/2, 300);
 
-  // ── TAGLINE ──
-  ctx.font      = '300 16px sans-serif';
-  ctx.fillStyle = '#7a7570';
-  ctx.fillText('Coding Infinite × CIWeb', W/2, 218);
+  // ── OF APPRECIATION ──
+  ctx.font = '300 52px sans-serif';
+  ctx.fillStyle = '#6b5a2e';
+  ctx.letterSpacing = '10px';
+  ctx.fillText('OF   APPRECIATION', W/2, 368);
+  ctx.letterSpacing = '0px';
 
-  // ── DIVIDER WITH ORNAMENT ──
-  ctx.strokeStyle = '#e2ddd6';
-  ctx.lineWidth   = 1;
-  ctx.beginPath(); ctx.moveTo(W/2-320,242); ctx.lineTo(W/2+320,242); ctx.stroke();
-  ctx.fillStyle = '#e8401c';
-  ctx.font = '20px sans-serif';
-  ctx.fillText('✦', W/2, 248);
+  // ── GOLD DIVIDER LINE ──
+  var divGrad = ctx.createLinearGradient(W/2-500,0,W/2+500,0);
+  divGrad.addColorStop(0,'transparent'); divGrad.addColorStop(0.2,'#c8a84b');
+  divGrad.addColorStop(0.8,'#c8a84b'); divGrad.addColorStop(1,'transparent');
+  ctx.strokeStyle = divGrad;
+  ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(W/2-500,408); ctx.lineTo(W/2+500,408); ctx.stroke();
 
-  // ── PRESENTED TO ──
-  ctx.font      = '300 20px sans-serif';
-  ctx.fillStyle = '#7a7570';
-  ctx.fillText('This certificate is proudly presented to', W/2, 304);
+  // ── THIS CERTIFICATE IS PROUDLY PRESENTED TO ──
+  ctx.font = '400 28px sans-serif';
+  ctx.fillStyle = '#8a7a5a';
+  ctx.letterSpacing = '5px';
+  ctx.fillText('THIS CERTIFICATE IS PROUDLY PRESENTED TO', W/2, 480);
+  ctx.letterSpacing = '0px';
 
-  // ── NAME (Big, elegant) ──
-  ctx.save();
-  ctx.font      = 'bold 80px serif';
-  ctx.fillStyle = '#1a1814';
-  ctx.shadowColor = 'rgba(0,0,0,0.08)';
-  ctx.shadowBlur  = 12;
-  ctx.fillText(name, W/2, 410);
-  ctx.restore();
+  // ── NAME (big elegant) ──
+  ctx.font = 'bold 110px serif';
+  ctx.fillStyle = '#2a2010';
+  ctx.fillText(name, W/2, 610);
 
-  // Name underline — double line elegant
-  var nw = ctx.measureText(name).width * 0.72; // approx at 80px
-  // measure properly
-  ctx.save();
-  ctx.font = 'bold 80px serif';
-  nw = ctx.measureText(name).width;
-  ctx.restore();
-  ctx.strokeStyle = '#e8401c';
-  ctx.lineWidth   = 3;
-  ctx.beginPath(); ctx.moveTo(W/2-nw/2,428); ctx.lineTo(W/2+nw/2,428); ctx.stroke();
-  ctx.strokeStyle = 'rgba(232,64,28,0.25)';
-  ctx.lineWidth   = 1;
-  ctx.beginPath(); ctx.moveTo(W/2-nw/2,434); ctx.lineTo(W/2+nw/2,434); ctx.stroke();
+  // ── DIVIDER UNDER NAME ──
+  ctx.strokeStyle = divGrad;
+  ctx.lineWidth = 1.5;
+  ctx.beginPath(); ctx.moveTo(W/2-400,642); ctx.lineTo(W/2+400,642); ctx.stroke();
 
-  // ── BODY TEXT ──
-  ctx.font      = '300 22px sans-serif';
-  ctx.fillStyle = '#7a7570';
-  ctx.fillText('has successfully completed', W/2, 492);
+  // ── HAS SUCCESSFULLY COMPLETED ──
+  ctx.font = '300 32px serif';
+  ctx.fillStyle = '#6b5a2e';
+  ctx.fillText('has successfully completed', W/2, 710);
 
-  ctx.font      = 'bold 34px serif';
-  ctx.fillStyle = '#1a1814';
-  ctx.fillText('HTML Knowledge Quiz Challenge', W/2, 540);
+  // ── QUIZ NAME ──
+  ctx.font = 'bold 44px serif';
+  ctx.fillStyle = '#2a2010';
+  ctx.fillText('HTML Knowledge Quiz Challenge', W/2, 768);
 
-  // ── SCORE BADGE ──
-  ctx.save();
-  ctx.shadowColor = 'rgba(232,64,28,0.25)';
-  ctx.shadowBlur  = 20;
-  ctx.fillStyle   = '#e8401c';
-  ctx.beginPath(); ctx.roundRect(W/2-140,576,280,70,35); ctx.fill();
-  ctx.restore();
-  ctx.font      = 'bold 30px sans-serif';
-  ctx.fillStyle = '#fff';
-  ctx.fillText('Score: ' + finalScore + ' / 10', W/2, 619);
-
-  // ── GRADE BADGE ──
-  var grade, gradeColor;
-  if(finalScore>=9){grade='🏆 Gold — HTML Master';gradeColor='#b45309';}
-  else if(finalScore>=7){grade='🥈 Silver — HTML Pro';gradeColor='#1e40af';}
-  else if(finalScore>=5){grade='🥉 Bronze — HTML Learner';gradeColor='#c05621';}
-  else{grade='📚 Keep Learning';gradeColor='#374151';}
-  ctx.save();
-  ctx.fillStyle = 'rgba(0,0,0,0.06)';
-  ctx.beginPath(); ctx.roundRect(W/2-110,660,220,40,20); ctx.fill();
-  ctx.restore();
-  ctx.font      = '600 17px sans-serif';
-  ctx.fillStyle = gradeColor;
-  ctx.fillText(grade, W/2, 686);
-
-  // ── DATE ──
-  var today = new Date().toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'});
-  ctx.font      = '300 17px sans-serif';
-  ctx.fillStyle = '#aaa';
-  ctx.fillText(today, W/2, 730);
-
-  // ── BOTTOM DIVIDER ──
-  ctx.strokeStyle = '#e2ddd6';
-  ctx.lineWidth   = 1;
-  ctx.beginPath(); ctx.moveTo(200,776); ctx.lineTo(W-200,776); ctx.stroke();
+  // ── SCORE ──
+  ctx.font = '400 28px sans-serif';
+  ctx.fillStyle = '#8a7a5a';
+  ctx.fillText('with a score of  ' + finalScore + ' / 10', W/2, 820);
 
   // ── SIGNATURE SECTION ──
-  // Left: Signature image
-  var sigX = W/2 - 220, sigW = 280, sigH = 110;
+  var sigCX = W/2;
   if (signImg) {
-    // Draw signature image
-    ctx.save();
-    ctx.drawImage(signImg, sigX, 790, sigW, sigH);
-    ctx.restore();
+    var sh = 140, sw = sh * (signImg.width/signImg.height);
+    ctx.drawImage(signImg, sigCX - sw/2, 860, sw, sh);
   }
+
   // Signature line
-  ctx.strokeStyle = '#1a1814';
-  ctx.lineWidth   = 1.5;
-  ctx.beginPath();
-  ctx.moveTo(sigX-20, 912); ctx.lineTo(sigX+sigW+20, 912);
-  ctx.stroke();
-  ctx.font      = 'bold 20px sans-serif';
-  ctx.fillStyle = '#1a1814';
-  ctx.textAlign = 'left';
-  ctx.fillText('Coding Infinite', sigX + sigW/2 - 60, 938);
-  ctx.font      = '300 14px sans-serif';
-  ctx.fillStyle = '#7a7570';
-  ctx.fillText('Founder, CIWeb', sigX + sigW/2 - 50, 958);
-
-  // Right: Issued by / QR-look box
-  var rx = W/2 + 80;
-  ctx.save();
-  ctx.fillStyle = '#fff8f5';
-  ctx.strokeStyle = '#e8401c';
+  ctx.strokeStyle = '#5c4a1e';
   ctx.lineWidth = 1.5;
-  ctx.beginPath(); ctx.roundRect(rx, 800, 220, 100, 10); ctx.fill(); ctx.stroke();
-  ctx.restore();
-  ctx.textAlign  = 'center';
-  ctx.font      = '600 13px sans-serif';
-  ctx.fillStyle = '#e8401c';
-  ctx.fillText('ISSUED BY', rx+110, 828);
-  ctx.font      = 'bold 18px serif';
-  ctx.fillStyle = '#1a1814';
-  ctx.fillText('CIWeb', rx+110, 854);
-  ctx.font      = '300 12px sans-serif';
-  ctx.fillStyle = '#7a7570';
-  ctx.fillText('ciweb.in', rx+110, 874);
-  ctx.font      = '300 11px sans-serif';
-  ctx.fillText('Coding Infinite', rx+110, 892);
+  ctx.beginPath(); ctx.moveTo(sigCX-180,1020); ctx.lineTo(sigCX+180,1020); ctx.stroke();
 
-  // ── WATERMARK ──
-  ctx.save();
-  ctx.globalAlpha = 0.035;
-  ctx.font        = 'bold 200px serif';
-  ctx.fillStyle   = '#e8401c';
-  ctx.textAlign   = 'center';
-  ctx.translate(W/2, H/2+60);
-  ctx.rotate(-0.2);
-  ctx.fillText('CIWeb', 0, 0);
-  ctx.restore();
+  // Name below line
+  ctx.font = 'bold 30px sans-serif';
+  ctx.fillStyle = '#2a2010';
+  ctx.letterSpacing = '3px';
+  ctx.fillText('SHIVA', W/2, 1054);
+  ctx.letterSpacing = '0px';
+  ctx.font = '300 24px sans-serif';
+  ctx.fillStyle = '#8a7a5a';
+  ctx.fillText('Creator of Coding Infinite', W/2, 1086);
+
+  // ── DATE (bottom center) ──
+  var today = new Date().toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'});
+  ctx.font = '300 22px sans-serif';
+  ctx.fillStyle = 'rgba(255,255,255,0.9)';
+  ctx.fillText(today, W/2, H-40);
 
   // ── DOWNLOAD ──
-  ctx.textAlign = 'center';
   var link = document.createElement('a');
-  link.download = 'CIWeb_HTML_Certificate_' + name.replace(/\s+/g,'_') + '.png';
+  link.download = 'CIWeb_Certificate_' + name.replace(/\s+/g,'_') + '.png';
   link.href = cv.toDataURL('image/png', 1.0);
   link.click();
 }
 
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-//  FIREBASE SAVE + LEADERBOARD
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 function saveScore() {
   var name  = document.getElementById('lb-name').value.trim();
   var msgEl = document.getElementById('save-msg');
@@ -975,7 +949,10 @@ function saveScore() {
   fetch(DB_URL, {
     method:'POST',
     headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({name:name, score:finalScore, total:10, percent:Math.round(finalScore/10*100), timestamp:new Date().toISOString()})
+    body:JSON.stringify({name:name, score:finalScore, total:10,
+      percent:Math.round(finalScore/10*100),
+      timestamp:new Date().toISOString(),
+      timeTaken: quizTimeTaken})
   })
   .then(function(r){ return r.json(); })
   .then(function(){
@@ -1002,7 +979,11 @@ function loadLB() {
       return;
     }
     var rows = Object.values(data);
-    rows.sort(function(a,b){ return b.score !== a.score ? b.score - a.score : new Date(b.timestamp)-new Date(a.timestamp); });
+    // Same score = jo PEHLE kiya uska rank upar (timestamp ascending)
+    rows.sort(function(a,b){
+      if (b.score !== a.score) return b.score - a.score;
+      return new Date(a.timestamp) - new Date(b.timestamp);
+    });
     var html = '';
     rows.slice(0,20).forEach(function(e,i){
       var r = i+1;
