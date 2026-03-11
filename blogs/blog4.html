@@ -3,173 +3,140 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HTML Quiz — Apna Knowledge Test Karo | CIWeb</title>
-  <meta name="description" content="HTML ka knowledge test karo 10 tricky questions ke saath! Certificate pao aur leaderboard mein apna naam daalo."/>
-  <meta name="author" content="CIWeb"/>
-  <meta name="robots" content="index, follow"/>
-  <link rel="canonical" href="https://ciweb.in/blog/blog4.html"/>
+  <title>HTML Quiz — CIWeb</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--bg:#f5f3ee;--ink:#1a1814;--muted:#7a7570;--accent:#e8401c;--card:#fff;--border:#e2ddd6;--tag-bg:#fff0ec;--green:#16a34a;--green-bg:#f0fff4}
     body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--ink)}
-
-    /* NAV */
     nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);padding:0 6%;display:flex;align-items:center;justify-content:space-between;height:64px}
-    .logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--ink);text-decoration:none;letter-spacing:-0.5px}
-    .logo-accent{color:var(--accent);font-style:normal}
+    .logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--ink);text-decoration:none}
+    .logo-accent{color:var(--accent)}
     .nav-links{display:flex;gap:1.4rem;list-style:none;align-items:center}
-    .nav-links a{color:var(--muted);text-decoration:none;font-size:.88rem;font-weight:500;transition:color .2s}
+    .nav-links a{color:var(--muted);text-decoration:none;font-size:.88rem;font-weight:500}
     .nav-links a:hover{color:var(--ink)}
     .nav-cta{background:var(--ink)!important;color:var(--bg)!important;padding:8px 18px;border-radius:100px;font-weight:600!important}
     @media(max-width:768px){.nav-links{display:none}}
-
-    /* HERO */
-    .blog-hero{max-width:860px;margin:0 auto;padding:50px 5% 30px}
-    .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:.85rem;text-decoration:none;font-weight:500;margin-bottom:1.5rem;transition:color .2s}
-    .back-link:hover{color:var(--accent)}
-    .hero-tags{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.2rem}
+    .blog-hero{max-width:860px;margin:0 auto;padding:40px 5% 20px}
+    .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:.85rem;text-decoration:none;font-weight:500;margin-bottom:1.2rem}
+    .hero-tags{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1rem}
     .tag{padding:4px 14px;border-radius:100px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
     .tag-html{background:var(--tag-bg);color:var(--accent)}
     .tag-quiz{background:#e8f4ff;color:#2563eb}
-    .tag-cert{background:#f0fff4;color:#16a34a}
-    .blog-hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;line-height:1.15;letter-spacing:-1px;margin-bottom:1rem}
-    .blog-hero .sub{font-size:1rem;color:var(--muted);line-height:1.7;font-weight:300}
-
-    /* QUIZ WRAPPER */
+    .blog-hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;line-height:1.15;margin-bottom:.8rem}
+    .blog-hero .sub{font-size:.95rem;color:var(--muted);line-height:1.7}
     .quiz-wrap{max-width:860px;margin:2rem auto;padding:0 5% 80px}
-
-    /* INTRO CARD */
-    .intro-card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:3rem 2rem;text-align:center}
-    .intro-icon{font-size:3.5rem;display:block;margin-bottom:1.2rem}
-    .intro-card h2{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;margin-bottom:.7rem}
-    .intro-card p{color:var(--muted);font-size:.95rem;line-height:1.7;max-width:460px;margin:0 auto 2rem}
-    .intro-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2.5rem}
+    .intro-card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:2.5rem 2rem;text-align:center}
+    .intro-icon{font-size:3rem;display:block;margin-bottom:1rem}
+    .intro-card h2{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:900;margin-bottom:.6rem}
+    .intro-card p{color:var(--muted);font-size:.93rem;line-height:1.7;max-width:440px;margin:0 auto 2rem}
+    .intro-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;margin-bottom:2rem}
     @media(max-width:500px){.intro-grid{grid-template-columns:repeat(2,1fr)}}
-    .ibox{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:1rem .5rem}
-    .ibox-num{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:var(--accent);line-height:1}
-    .ibox-lbl{font-size:.72rem;color:var(--muted);margin-top:4px;font-weight:500}
-    .start-btn{background:var(--accent);color:#fff;border:none;padding:15px 44px;border-radius:100px;font-size:1rem;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:all .25s;letter-spacing:.3px}
-    .start-btn:hover{background:#c73516;transform:translateY(-2px);box-shadow:0 10px 28px rgba(232,64,28,.3)}
-
-    /* QUIZ CARD */
-    .quiz-card{background:var(--card);border:1px solid var(--border);border-radius:24px;overflow:hidden;display:none;animation:fadeUp .4s ease}
-    .quiz-card.show{display:block}
-    @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-
-    /* TOPBAR */
-    .topbar{background:var(--ink);padding:1rem 1.8rem;display:flex;align-items:center;gap:1rem}
-    .qnum{color:rgba(255,255,255,.5);font-size:.78rem;font-weight:600;white-space:nowrap;min-width:70px}
-    .qnum b{color:#fff;font-size:.95rem}
+    .ibox{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:.9rem .5rem}
+    .ibox-num{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--accent)}
+    .ibox-lbl{font-size:.7rem;color:var(--muted);margin-top:4px;font-weight:500}
+    .start-btn{background:var(--accent);color:#fff;border:none;padding:14px 40px;border-radius:100px;font-size:1rem;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:all .25s}
+    .start-btn:hover{background:#c73516;transform:translateY(-2px)}
+    .quiz-card{background:var(--card);border:1px solid var(--border);border-radius:24px;overflow:hidden;display:none}
+    .quiz-card.show{display:block;animation:fadeUp .4s ease}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+    .topbar{background:var(--ink);padding:.9rem 1.5rem;display:flex;align-items:center;gap:1rem}
+    .qnum{color:rgba(255,255,255,.5);font-size:.78rem;font-weight:600;white-space:nowrap}
+    .qnum b{color:#fff}
     .prog-bar{flex:1;height:5px;background:rgba(255,255,255,.15);border-radius:100px;overflow:hidden}
-    .prog-fill{height:100%;background:var(--accent);border-radius:100px;transition:width .5s ease}
-    .timer{background:rgba(255,255,255,.1);color:#fca99a;border-radius:100px;padding:5px 14px;font-size:.78rem;font-weight:700;min-width:58px;text-align:center;transition:background .3s}
+    .prog-fill{height:100%;background:var(--accent);border-radius:100px;transition:width .5s}
+    .timer{background:rgba(255,255,255,.1);color:#fca99a;border-radius:100px;padding:5px 12px;font-size:.78rem;font-weight:700;min-width:54px;text-align:center}
     .timer.hot{background:rgba(232,64,28,.5);color:#fff;animation:blink .5s infinite alternate}
     @keyframes blink{from{opacity:1}to{opacity:.4}}
-
-    /* QUESTION BODY */
-    .qbody{padding:2rem 2rem 1rem}
-    .qcat{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent);margin-bottom:.8rem}
-    .qtext{font-family:'Playfair Display',serif;font-size:1.18rem;font-weight:700;line-height:1.45;color:var(--ink);margin-bottom:1.2rem}
-    .qcode{background:#1e1c18;color:#e8d5a8;padding:.9rem 1.1rem;border-radius:12px;font-family:'Courier New',monospace;font-size:.84rem;line-height:1.7;margin-bottom:1.4rem;white-space:pre;overflow-x:auto;border:1px solid #333}
-
-    /* OPTIONS GRID */
-    .opts{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1rem}
+    .qbody{padding:1.8rem 1.8rem 1rem}
+    .qcat{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent);margin-bottom:.7rem}
+    .qtext{font-family:'Playfair Display',serif;font-size:1.12rem;font-weight:700;line-height:1.45;margin-bottom:1.1rem}
+    .qcode{background:#1e1c18;color:#e8d5a8;padding:.8rem 1rem;border-radius:10px;font-family:'Courier New',monospace;font-size:.82rem;line-height:1.6;margin-bottom:1.2rem;white-space:pre;overflow-x:auto}
+    .opts{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-bottom:1rem}
     @media(max-width:560px){.opts{grid-template-columns:1fr}}
-    .opt{background:var(--bg);border:2px solid var(--border);border-radius:14px;padding:.9rem 1rem;font-size:.9rem;font-weight:500;text-align:left;cursor:pointer;font-family:'Outfit',sans-serif;color:var(--ink);transition:all .2s;display:flex;align-items:flex-start;gap:.7rem;line-height:1.4}
-    .opt:hover:not([disabled]){border-color:var(--accent);background:var(--tag-bg);transform:translateY(-2px);box-shadow:0 4px 16px rgba(232,64,28,.1)}
-    .opt-key{width:26px;height:26px;border-radius:8px;background:var(--border);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800;flex-shrink:0;margin-top:1px;transition:all .2s;font-family:'Outfit',sans-serif}
-    .opt-text{flex:1}
+    .opt{background:var(--bg);border:2px solid var(--border);border-radius:12px;padding:.85rem 1rem;font-size:.88rem;font-weight:500;text-align:left;cursor:pointer;font-family:'Outfit',sans-serif;color:var(--ink);transition:all .2s;display:flex;align-items:flex-start;gap:.65rem;line-height:1.4}
+    .opt:hover:not([disabled]){border-color:var(--accent);background:var(--tag-bg);transform:translateY(-2px)}
+    .opt-key{width:26px;height:26px;border-radius:8px;background:var(--border);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800;flex-shrink:0;margin-top:1px;transition:all .2s}
     .opt.correct{border-color:var(--green);background:var(--green-bg)}
     .opt.correct .opt-key{background:var(--green);color:#fff}
     .opt.wrong{border-color:#ef4444;background:#fff0f0}
     .opt.wrong .opt-key{background:#ef4444;color:#fff}
     .opt.show-ans{border-color:var(--green);background:var(--green-bg);opacity:.7}
     .opt.show-ans .opt-key{background:var(--green);color:#fff}
-    .opt[disabled]{cursor:not-allowed;transform:none!important;box-shadow:none!important}
-
-    /* EXPLAIN */
-    .explain{background:linear-gradient(135deg,#fff8f6,#fff);border:1px solid #f5cdc5;border-radius:12px;padding:1rem 1.2rem;font-size:.87rem;color:var(--ink);line-height:1.65;display:none;margin:0 2rem 1.5rem;border-left:4px solid var(--accent)}
+    .opt[disabled]{cursor:not-allowed;transform:none!important}
+    .explain{background:linear-gradient(135deg,#fff8f6,#fff);border:1px solid #f5cdc5;border-radius:12px;padding:.9rem 1.1rem;font-size:.86rem;color:var(--ink);line-height:1.65;display:none;margin:0 1.8rem 1.2rem;border-left:4px solid var(--accent)}
     .explain.show{display:block}
     .explain strong{color:var(--accent)}
-
-    /* FOOTER BAR */
-    .qfooter{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.8rem;border-top:1px solid var(--border);background:#faf9f7}
+    .qfooter{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.5rem;border-top:1px solid var(--border);background:#faf9f7}
     .live-score{font-size:.82rem;color:var(--muted);font-weight:600}
-    .live-score b{color:var(--green);font-size:.95rem}
-    .next-btn{background:var(--ink);color:#fff;border:none;padding:9px 26px;border-radius:100px;font-size:.88rem;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;transition:all .2s;display:none;align-items:center;gap:6px}
+    .live-score b{color:var(--green)}
+    .next-btn{background:var(--ink);color:#fff;border:none;padding:9px 24px;border-radius:100px;font-size:.86rem;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;transition:all .2s;display:none;align-items:center;gap:6px}
     .next-btn.show{display:flex}
     .next-btn:hover{background:var(--accent)}
-
-    /* RESULT */
-    .result-card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:2.5rem 2rem;text-align:center;display:none;animation:fadeUp .5s ease}
-    .result-card.show{display:block}
-    .res-emoji{font-size:4rem;display:block;margin-bottom:.8rem}
-    .res-title{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:900;margin-bottom:.4rem}
-    .res-score{font-family:'Playfair Display',serif;font-size:4rem;font-weight:900;color:var(--accent);line-height:1;margin:.6rem 0}
-    .res-score span{font-size:1.3rem;color:var(--muted);font-weight:400}
-    .res-grade{display:inline-block;padding:7px 20px;border-radius:100px;font-weight:700;font-size:.88rem;margin-bottom:1.2rem}
+    .result-card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:2.5rem 2rem;text-align:center;display:none}
+    .result-card.show{display:block;animation:fadeUp .5s ease}
+    .res-emoji{font-size:3.5rem;display:block;margin-bottom:.7rem}
+    .res-title{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;margin-bottom:.3rem}
+    .res-score{font-family:'Playfair Display',serif;font-size:3.8rem;font-weight:900;color:var(--accent);line-height:1;margin:.5rem 0}
+    .res-grade{display:inline-block;padding:6px 18px;border-radius:100px;font-weight:700;font-size:.85rem;margin-bottom:1rem}
     .g-gold{background:#fef3c7;color:#92400e}
     .g-silver{background:#f0f9ff;color:#1e40af}
     .g-bronze{background:var(--tag-bg);color:var(--accent)}
     .g-try{background:#fff0f0;color:#991b1b}
-    .res-msg{color:var(--muted);font-size:.93rem;line-height:1.7;max-width:440px;margin:0 auto 1.8rem}
-    .res-btns{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem}
-    .btn-dl{background:linear-gradient(135deg,#e8401c,#c73516);color:#fff;border:none;padding:12px 26px;border-radius:100px;font-size:.88rem;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:all .2s}
-    .btn-dl:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(232,64,28,.35)}
-    .btn-retry{background:var(--card);color:var(--ink);border:2px solid var(--border);padding:12px 26px;border-radius:100px;font-size:.88rem;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;transition:all .2s}
+    .res-msg{color:var(--muted);font-size:.9rem;line-height:1.7;max-width:420px;margin:0 auto .5rem}
+    .rating-wrap{margin:1.2rem 0 .8rem;display:flex;flex-direction:column;align-items:center;gap:.5rem}
+    .stars-row{display:flex;gap:8px;font-size:2rem;cursor:pointer}
+    .star{transition:transform .15s;display:inline-block;opacity:.3;color:#f59e0b}
+    .star.lit,.star.hover{opacity:1;transform:scale(1.2)}
+    .rating-label{font-size:.8rem;color:var(--muted);font-weight:500;min-height:1.2rem}
+    .rating-thanks{font-size:.82rem;color:var(--green);font-weight:600;display:none}
+    .dl-progress{display:none;flex-direction:column;align-items:center;gap:.5rem;margin:.8rem 0}
+    .dl-progress.show{display:flex}
+    .dl-bar-wrap{width:240px;height:7px;background:var(--border);border-radius:100px;overflow:hidden}
+    .dl-bar-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),#ff6b3d);border-radius:100px;transition:width .15s}
+    .dl-text{font-size:.76rem;color:var(--muted);font-weight:500}
+    .res-btns{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;margin:1.2rem 0}
+    .btn-dl{background:linear-gradient(135deg,#e8401c,#c73516);color:#fff;border:none;padding:11px 24px;border-radius:100px;font-size:.86rem;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:all .2s}
+    .btn-dl:hover:not([disabled]){transform:translateY(-2px);box-shadow:0 8px 24px rgba(232,64,28,.3)}
+    .btn-retry{background:var(--card);color:var(--ink);border:2px solid var(--border);padding:11px 24px;border-radius:100px;font-size:.86rem;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif}
     .btn-retry:hover{border-color:var(--ink)}
-
-    /* SAVE SCORE */
-    .save-box{background:var(--bg);border:2px dashed var(--border);border-radius:16px;padding:1.6rem;margin-top:1.2rem;text-align:left}
-    .save-box h4{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;margin-bottom:.4rem}
-    .save-box p{font-size:.83rem;color:var(--muted);margin-bottom:1rem;line-height:1.6}
-    .save-row{display:flex;gap:.7rem;flex-wrap:wrap}
-    .name-inp{flex:1;min-width:160px;background:#fff;border:1.5px solid var(--border);border-radius:100px;padding:9px 18px;font-family:'Outfit',sans-serif;font-size:.88rem;color:var(--ink);outline:none;transition:border-color .2s}
+    .save-box{background:var(--bg);border:2px dashed var(--border);border-radius:14px;padding:1.4rem;margin-top:.8rem;text-align:left}
+    .save-box h4{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;margin-bottom:.3rem}
+    .save-box p{font-size:.82rem;color:var(--muted);margin-bottom:.8rem;line-height:1.6}
+    .save-row{display:flex;gap:.6rem;flex-wrap:wrap}
+    .name-inp{flex:1;min-width:140px;background:#fff;border:1.5px solid var(--border);border-radius:100px;padding:9px 16px;font-family:'Outfit',sans-serif;font-size:.86rem;color:var(--ink);outline:none}
     .name-inp:focus{border-color:var(--accent)}
-    .save-btn{background:var(--accent);color:#fff;border:none;padding:9px 22px;border-radius:100px;font-weight:600;font-size:.85rem;cursor:pointer;font-family:'Outfit',sans-serif;white-space:nowrap;transition:background .2s}
+    .save-btn{background:var(--accent);color:#fff;border:none;padding:9px 20px;border-radius:100px;font-weight:600;font-size:.83rem;cursor:pointer;font-family:'Outfit',sans-serif;white-space:nowrap}
     .save-btn:hover:not([disabled]){background:#c73516}
     .save-btn[disabled]{opacity:.6;cursor:not-allowed}
-    .save-msg{font-size:.82rem;margin-top:.6rem;padding:.45rem 1rem;border-radius:8px;display:none}
+    .save-msg{font-size:.8rem;margin-top:.5rem;padding:.4rem .9rem;border-radius:8px;display:none}
     .save-msg.ok{background:var(--green-bg);color:var(--green);display:block}
     .save-msg.err{background:#fff0f0;color:#991b1b;display:block}
-
-    /* LEADERBOARD */
     .lb-wrap{margin-top:3rem}
-    .lb-heading{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;margin-bottom:.3rem}
-    .lb-sub{font-size:.83rem;color:var(--muted);margin-bottom:1.3rem}
-    .lb-table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;font-size:.88rem}
-    .lb-table th{background:var(--ink);color:#fff;padding:.85rem 1.1rem;text-align:left;font-size:.75rem;font-weight:600;letter-spacing:.3px}
-    .lb-table td{padding:.85rem 1.1rem;border-bottom:1px solid var(--border);vertical-align:middle}
+    .lb-heading{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;margin-bottom:.3rem}
+    .lb-sub{font-size:.82rem;color:var(--muted);margin-bottom:1.2rem}
+    .lb-table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;font-size:.86rem}
+    .lb-table th{background:var(--ink);color:#fff;padding:.8rem 1rem;text-align:left;font-size:.73rem;font-weight:600}
+    .lb-table td{padding:.8rem 1rem;border-bottom:1px solid var(--border);vertical-align:middle}
     .lb-table tr:last-child td{border-bottom:none}
     .lb-table tr.top1 td{background:#fffbeb}
     .lb-table tr.top2 td{background:#f0f9ff}
     .lb-table tr.top3 td{background:#fff7ed}
-    .medal{display:inline-flex;width:26px;height:26px;border-radius:50%;align-items:center;justify-content:center;font-size:.78rem;font-weight:700}
-    .m1{background:#fbbf24;color:#78350f}
-    .m2{background:#94a3b8;color:#1e293b}
-    .m3{background:#f97316;color:#fff}
-    .mn{background:#e5e7eb;color:#6b7280;font-size:.72rem}
+    .medal{display:inline-flex;width:24px;height:24px;border-radius:50%;align-items:center;justify-content:center;font-size:.75rem;font-weight:700}
+    .m1{background:#fbbf24;color:#78350f}.m2{background:#94a3b8;color:#1e293b}.m3{background:#f97316;color:#fff}.mn{background:#e5e7eb;color:#6b7280;font-size:.7rem}
     .sbar{display:flex;align-items:center;gap:.5rem}
     .sbar-track{flex:1;height:5px;background:var(--border);border-radius:100px;overflow:hidden}
     .sbar-fill{height:100%;background:var(--accent);border-radius:100px}
-    .lb-empty{text-align:center;padding:2.5rem;color:var(--muted);font-size:.88rem}
-
-    /* FOOTER */
-    footer{border-top:1px solid var(--border);padding:1.8rem 6%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;max-width:1200px;margin:0 auto}
+    .lb-empty{text-align:center;padding:2rem;color:var(--muted);font-size:.86rem}
+    footer{border-top:1px solid var(--border);padding:1.5rem 6%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
     footer p{font-size:.8rem;color:var(--muted)}
-
-    /* LANG TOGGLE */
-    #cw-toggle{position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;align-items:center;background:rgba(20,18,15,.94);backdrop-filter:blur(16px);border-radius:100px;padding:4px;box-shadow:0 6px 28px rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.08)}
-    .cw-opt{padding:8px 18px;border-radius:100px;font-size:.72rem;font-weight:700;cursor:pointer;border:none;background:transparent;color:rgba(255,255,255,.35);font-family:'Outfit',sans-serif;letter-spacing:.8px;transition:all .25s}
-    .cw-opt.on{background:linear-gradient(135deg,#e8401c,#c73516);color:#fff;box-shadow:0 2px 12px rgba(232,64,28,.4)}
-    .cw-div{width:1px;height:12px;background:rgba(255,255,255,.1)}
-
+    #cw-toggle{position:fixed;bottom:22px;right:22px;z-index:9999;display:flex;align-items:center;background:rgba(20,18,15,.94);border-radius:100px;padding:4px;box-shadow:0 6px 28px rgba(0,0,0,.28)}
+    .cw-opt{padding:8px 16px;border-radius:100px;font-size:.72rem;font-weight:700;cursor:pointer;border:none;background:transparent;color:rgba(255,255,255,.35);font-family:'Outfit',sans-serif;transition:all .25s}
+    .cw-opt.on{background:linear-gradient(135deg,#e8401c,#c73516);color:#fff}
     canvas{display:none}
   </style>
 </head>
 <body>
-
 <nav>
   <a href="../index.html" class="logo">CI<span class="logo-accent">Web</span></a>
   <ul class="nav-links">
@@ -186,20 +153,17 @@
   <div class="hero-tags">
     <span class="tag tag-html">HTML</span>
     <span class="tag tag-quiz">Quiz</span>
-    <span class="tag tag-cert">Certificate</span>
-    <span class="tag tag-quiz" style="background:#f0fff4;color:#16a34a">Free</span>
+    <span class="tag tag-html" style="background:#f0fff4;color:#16a34a">Certificate</span>
   </div>
   <h1 id="pg-title">HTML Knowledge Test &#128187;</h1>
-  <p class="sub" id="pg-sub">Socho tum HTML jaante ho? Yeh 10 tricky questions tumhari asli knowledge test karenge. Sahi jawab do, certificate pao!</p>
+  <p class="sub" id="pg-sub">10 tricky questions — beginners se advanced tak. Sahi jawab do, certificate pao!</p>
 </div>
 
 <div class="quiz-wrap">
-
-  <!-- INTRO -->
   <div class="intro-card" id="intro-card">
     <span class="intro-icon">&#9889;</span>
     <h2 id="ic-title">HTML Quiz Challenge</h2>
-    <p id="ic-desc">10 real-world questions — beginners se advanced tak. Har answer ke baad explanation. Top score karo aur certificate download karo!</p>
+    <p id="ic-desc">10 real-world questions. Har answer ke baad explanation. Certificate bhi milega!</p>
     <div class="intro-grid">
       <div class="ibox"><div class="ibox-num">10</div><div class="ibox-lbl" id="ib-q">Sawaal</div></div>
       <div class="ibox"><div class="ibox-num">30s</div><div class="ibox-lbl" id="ib-t">Har Sawaal</div></div>
@@ -209,12 +173,11 @@
     <button class="start-btn" id="start-btn" onclick="startQuiz()">Quiz Shuru Karo &#9654;</button>
   </div>
 
-  <!-- QUIZ CARD -->
   <div class="quiz-card" id="quiz-card">
     <div class="topbar">
-      <div class="qnum"><span id="tb-q">Sawaal</span> <b id="q-num">1</b>/10</div>
+      <div class="qnum"><span id="tb-q">Q</span> <b id="q-num">1</b>/10</div>
       <div class="prog-bar"><div class="prog-fill" id="prog" style="width:10%"></div></div>
-      <div class="timer" id="timer">&#9200; 30s</div>
+      <div class="timer" id="timer">&#9201; 30s</div>
     </div>
     <div class="qbody">
       <div class="qcat" id="q-cat"></div>
@@ -229,17 +192,33 @@
     </div>
   </div>
 
-  <!-- RESULT -->
   <div class="result-card" id="result-card">
     <span class="res-emoji" id="r-emoji">&#127881;</span>
     <div class="res-title" id="r-title">Zabardast!</div>
-    <div class="res-score"><span id="r-sc">0</span> <span>/10</span></div>
+    <div class="res-score"><span id="r-sc">0</span><span>/10</span></div>
     <div class="res-grade" id="r-grade"></div>
     <p class="res-msg" id="r-msg"></p>
+    <div class="rating-wrap">
+      <div class="stars-row" id="stars-row">
+        <span class="star" onclick="rateStar(1)" onmouseover="hoverStar(1)" onmouseout="unhoverStar()">&#9733;</span>
+        <span class="star" onclick="rateStar(2)" onmouseover="hoverStar(2)" onmouseout="unhoverStar()">&#9733;</span>
+        <span class="star" onclick="rateStar(3)" onmouseover="hoverStar(3)" onmouseout="unhoverStar()">&#9733;</span>
+        <span class="star" onclick="rateStar(4)" onmouseover="hoverStar(4)" onmouseout="unhoverStar()">&#9733;</span>
+        <span class="star" onclick="rateStar(5)" onmouseover="hoverStar(5)" onmouseout="unhoverStar()">&#9733;</span>
+      </div>
+      <div class="rating-label" id="rating-label">Quiz ko rate karo &#128071;</div>
+      <div class="rating-thanks" id="rating-thanks">Shukriya! Rating mil gayi &#127942;</div>
+    </div>
+    <div class="dl-progress" id="dl-progress">
+      <div class="dl-bar-wrap"><div class="dl-bar-fill" id="dl-bar"></div></div>
+      <div class="dl-text" id="dl-text">Certificate ban raha hai...</div>
+    </div>
     <div class="save-box">
       <h4>&#128100; <span id="save-title">Apna Naam Daalo</span></h4>
       <p id="save-desc">Certificate aur Leaderboard dono mein yahi naam aayega!</p>
-      <input type="text" class="name-inp" id="lb-name" maxlength="40" placeholder="Apna naam likho..." style="width:100%;margin-bottom:.5rem"/>
+      <div class="save-row">
+        <input type="text" class="name-inp" id="lb-name" maxlength="40" placeholder="Apna naam likho..."/>
+      </div>
     </div>
     <div class="res-btns">
       <button class="btn-dl" id="cert-btn" onclick="dlCert()">&#127942; <span id="cert-lbl">Certificate Download Karo</span></button>
@@ -249,28 +228,20 @@
     <div class="save-msg" id="save-msg"></div>
   </div>
 
-  <!-- LEADERBOARD -->
   <div class="lb-wrap">
     <div class="lb-heading">&#127942; Leaderboard</div>
     <div class="lb-sub" id="lb-sub">Top Scorers — Coding Infinite HTML Quiz</div>
     <table class="lb-table">
-      <thead>
-        <tr>
-          <th id="th-r">Rank</th>
-          <th id="th-n">Naam</th>
-          <th id="th-s">Score</th>
-          <th id="th-p">Progress</th>
-          <th id="th-d">Tarikh</th>
-        </tr>
-      </thead>
-      <tbody id="lb-body">
-        <tr><td colspan="5"><div class="lb-empty">&#9203; Load ho raha hai...</div></td></tr>
-      </tbody>
+      <thead><tr>
+        <th id="th-r">Rank</th><th id="th-n">Naam</th><th id="th-s">Score</th>
+        <th id="th-p">Progress</th><th id="th-d">Tarikh</th>
+      </tr></thead>
+      <tbody id="lb-body"><tr><td colspan="5"><div class="lb-empty">&#9203; Load ho raha hai...</div></td></tr></tbody>
     </table>
   </div>
 </div>
 
-<canvas id="cert-cv" width="1200" height="850"></canvas>
+<canvas id="cert-cv"></canvas>
 
 <footer>
   <a href="../index.html" class="logo">CI<span class="logo-accent">Web</span></a>
@@ -279,201 +250,195 @@
 </footer>
 
 <div id="cw-toggle">
-  <button class="cw-opt" id="btn-hi" onclick="setLang('hi')">&#127470;&#127475; Hinglish</button>
-  <div class="cw-div"></div>
+  <button class="cw-opt on" id="btn-hi" onclick="setLang('hi')">&#127470;&#127475; Hindi</button>
   <button class="cw-opt" id="btn-en" onclick="setLang('en')">&#127468;&#127463; English</button>
 </div>
 
 <script>
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-//  FIREBASE REST
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 var DB_URL = 'https://testingdata-2ae22-default-rtdb.firebaseio.com/quiz_scores/html.json';
 
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-//  BILINGUAL STRINGS  (double quotes for strings with apostrophes)
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 var T = {
-  hi: {
+  hi:{
     navAll:'Saare Blogs', back:'&#8592; Blogs pe wapas',
     pgTitle:'HTML Knowledge Test &#128187;',
-    pgSub:'Socho tum HTML jaante ho? Yeh 10 tricky questions tumhari asli knowledge test karenge. Sahi jawab do, certificate pao!',
+    pgSub:'10 tricky questions — beginners se advanced tak. Sahi jawab do, certificate pao!',
     icTitle:'HTML Quiz Challenge',
-    icDesc:'10 real-world questions — beginners se advanced tak. Har answer ke baad explanation. Top score karo aur certificate download karo!',
+    icDesc:'10 real-world questions. Har answer ke baad explanation. Certificate bhi milega!',
     ibQ:'Sawaal', ibT:'Har Sawaal', ibS:'Max Score', ibC:'Certificate',
     startBtn:'Quiz Shuru Karo &#9654;',
-    tbQ:'Sawaal', nextLbl:'Agla Sawaal', scLbl:'Score:',
+    tbQ:'Q', nextLbl:'Agla Sawaal', scLbl:'Score:',
     certLbl:'Certificate Download Karo', retryLbl:'Dobara Try Karo',
     saveTitle:'Apna Naam Daalo',
     saveDesc:'Certificate aur Leaderboard dono mein yahi naam aayega!',
-    saveLbl:'Save & Ranking Dekho',
+    saveLbl:'Leaderboard mein Save Karo',
     placeholder:'Apna naam likho...',
     lbSub:'Top Scorers — Coding Infinite HTML Quiz',
     thR:'Rank', thN:'Naam', thS:'Score', thP:'Progress', thD:'Tarikh',
     ftCopy:'&#169; 2026 CIWeb. Sare adhikar surakshit.',
     ftLove:'Tech Lovers ke liye &#10084; se banaya',
     saving:'Save ho raha hai...', saved:'&#9989; Saved!',
-    saveOk:'Score save ho gaya! Neeche leaderboard mein dekho.',
+    saveOk:'Score save ho gaya! Neeche dekho.',
     saveErr:'Error aaya. Dobara try karo.',
-    nameErr:'Apna naam likho (kam se kam 2 characters)!',
-    noData:'Abhi koi score nahi. Pehle quiz do! &#127919;',
+    nameErr:'Apna naam daalo (kam se kam 2 characters)!',
+    noData:'Abhi koi score nahi. Pehle quiz do!',
     loadErr:'Load nahi hua. Refresh karo.',
     timeUp:'&#9200; Time up! ',
     correct:'&#9989; Sahi! ', wrong:'&#10060; Galat. ',
+    rateLabel:'Quiz ko rate karo &#128071;',
+    rateThanks:'Shukriya! Rating mil gayi &#127942;',
+    rateLabels:['','Bahut Bura','Theek Hai','Acha Tha','Bahut Acha','Zabardast!'],
+    dlLoading:'Signature load ho raha hai...',
+    dlBuilding:'Certificate ban raha hai...',
+    dlAlmost:'Almost ho gaya...',
+    dlDone:'&#9989; Download ho gaya!',
     grades:['&#129351; Gold — HTML Master','&#129352; Silver — HTML Pro','&#129353; Bronze — HTML Learner','&#128218; Keep Learning'],
-    msgs:[
-      'Kamaal! Tum sachche HTML expert ho. Coding Infinite proud hai!',
-      'Bahut acha! Solid knowledge hai. Thodi practice se expert ban jaoge!',
-      'Achha kiya! Basics clear hain. Weak areas pe aur focus karo.',
-      'Koi baat nahi — HTML seekhna time leta hai. Blogs padho, phir try karo!'
-    ]
+    msgs:['Kamaal! Tum sachche HTML expert ho!','Bahut acha! Thodi practice aur karo.','Achha kiya! Basics clear hain.','Koi baat nahi — blogs padho, phir try karo!']
   },
-  en: {
+  en:{
     navAll:'All Blogs', back:'&#8592; Back to Blogs',
     pgTitle:'HTML Knowledge Test &#128187;',
-    pgSub:'Think you know HTML? These 10 tricky questions will reveal your real knowledge. Answer correctly and get a certificate!',
+    pgSub:'10 tricky questions — beginner to advanced. Answer correctly and get a certificate!',
     icTitle:'HTML Quiz Challenge',
-    icDesc:'10 real-world questions — from beginner to advanced. Get an explanation after every answer. Score high and download your certificate!',
+    icDesc:'10 real-world questions. Explanation after every answer. Get a certificate!',
     ibQ:'Questions', ibT:'Per Question', ibS:'Max Score', ibC:'Certificate',
     startBtn:'Start Quiz &#9654;',
     tbQ:'Q', nextLbl:'Next Question', scLbl:'Score:',
     certLbl:'Download Certificate', retryLbl:'Try Again',
     saveTitle:'Enter Your Name',
     saveDesc:'This name will appear on your certificate and leaderboard!',
-    saveLbl:'Save & Show Ranking',
+    saveLbl:'Save to Leaderboard',
     placeholder:'Enter your name...',
     lbSub:'Top Scorers — Coding Infinite HTML Quiz',
     thR:'Rank', thN:'Name', thS:'Score', thP:'Progress', thD:'Date',
     ftCopy:'&#169; 2026 CIWeb. All rights reserved.',
     ftLove:'Made with &#10084; for Tech Lovers',
     saving:'Saving...', saved:'&#9989; Saved!',
-    saveOk:'Score saved! Check the leaderboard below.',
-    saveErr:'Error occurred. Please try again.',
+    saveOk:'Score saved! Check leaderboard below.',
+    saveErr:'Error. Please try again.',
     nameErr:'Enter your name (min 2 characters)!',
-    noData:'No scores yet. Take the quiz first! &#127919;',
+    noData:'No scores yet. Take the quiz first!',
     loadErr:'Failed to load. Please refresh.',
     timeUp:'&#9200; Time up! ',
     correct:'&#9989; Correct! ', wrong:'&#10060; Wrong. ',
+    rateLabel:'Rate the quiz &#128071;',
+    rateThanks:'Thank you! Rating received &#127942;',
+    rateLabels:['','Very Bad','Okay','Good','Very Good','Amazing!'],
+    dlLoading:'Loading signature...',
+    dlBuilding:'Building certificate...',
+    dlAlmost:'Almost done...',
+    dlDone:'&#9989; Downloaded!',
     grades:['&#129351; Gold — HTML Master','&#129352; Silver — HTML Pro','&#129353; Bronze — HTML Learner','&#128218; Keep Learning'],
-    msgs:[
-      'Amazing! You are a true HTML expert. Coding Infinite is proud of you!',
-      "Great job! Solid HTML knowledge. A little more practice and you'll be an expert!",
-      'Good effort! Basics are clear. Focus on weak areas and try again.',
-      "No worries — HTML takes time to learn. Read the blogs and try again!"
-    ]
+    msgs:['Amazing! You are a true HTML expert!','Great job! A bit more practice and you are an expert.','Good effort! Basics are clear.','No worries — read the blogs and try again!']
   }
 };
 
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-//  10 HTML QUESTIONS
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 var QS = [
   {
     cat_hi:'HTML Basics', cat_en:'HTML Basics',
-    q_hi:'HTML mein div aur span ka main fark kya hai?',
-    q_en:'What is the main difference between div and span in HTML?',
-    opts_hi:['div block element hai, span inline element hai','Dono same hain — sirf naam alag hai','span block element hai, div inline element hai','div sirf CSS ke liye hai'],
-    opts_en:['div is block element, span is inline element','Both are the same — just different names','span is block, div is inline','div is only for CSS'],
-    ans:0,
-    exp_hi:'div block-level element hai — full width leta hai. span inline element hai — sirf content ki width leta hai, same line pe rehta hai.',
-    exp_en:'div is a block-level element — starts on a new line and takes full width. span is inline — takes only content width and stays on the same line.'
+    q_hi:'HTML mein block-level element kaun sa hai?',
+    q_en:'Which of these is a block-level element in HTML?',
+    opts_hi:['<span>','<strong>','<div>','<a>'],
+    opts_en:['<span>','<strong>','<div>','<a>'],
+    ans:2,
+    exp_hi:'<div> block-level element hai — full width leta hai aur naye line pe start hota hai. <span>, <strong>, <a> sab inline elements hain.',
+    exp_en:'<div> is block-level — takes full width and starts on a new line. <span>, <strong>, <a> are all inline elements.'
   },
   {
-    cat_hi:'HTML5 Features', cat_en:'HTML5 Features',
-    q_hi:'HTML5 mein naya article tag kyun introduce kiya gaya?',
-    q_en:'Why was the article tag introduced in HTML5?',
-    opts_hi:['CSS styling ko aasaan karne ke liye','Content ko semantically independent section batane ke liye','JavaScript ke liye container provide karne ke liye','Images ko wrap karne ke liye'],
-    opts_en:['To make CSS styling easier','To mark content as a semantically independent section','To provide a new container for JavaScript','To wrap images'],
+    cat_hi:'Links & Navigation', cat_en:'Links & Navigation',
+    q_hi:'Nayi tab mein link kholne ke liye kaunsa attribute use hota hai?',
+    q_en:'Which attribute opens a link in a new tab?',
+    opts_hi:['target="_new"','target="_blank"','href="_tab"','rel="newtab"'],
+    opts_en:['target="_new"','target="_blank"','href="_tab"','rel="newtab"'],
     ans:1,
-    exp_hi:'article screen readers aur search engines ko batata hai ki yeh ek independent, self-contained content hai jaise blog post ya news article. Yeh SEO improve karta hai.',
-    exp_en:'The article tag tells search engines this is independent content like a blog post. It improves SEO and accessibility.'
+    exp_hi:'target="_blank" link ko nayi browser tab mein kholne ke liye use hota hai. Security ke liye rel="noopener noreferrer" bhi lagao.',
+    exp_en:'target="_blank" opens the link in a new browser tab. For security, always add rel="noopener noreferrer" with it.'
   },
   {
     cat_hi:'Forms', cat_en:'Forms',
-    q_hi:'Form submit hone se rokne ke liye konsa sahi tarika hai?',
-    q_en:'What is the correct way to prevent a form from submitting?',
-    opts_hi:['form action=none use karo','event.preventDefault() use karo submit event mein','form type=stop use karo','CSS se form hide kar do'],
-    opts_en:['Use form action=none','Use event.preventDefault() in the submit event','Use form type=stop','Hide the form with CSS'],
-    ans:1,
-    exp_hi:'event.preventDefault() browser ke default submit behavior ko rok deta hai. Yeh method form validation ya AJAX submit ke liye use hota hai.',
-    exp_en:"event.preventDefault() stops the browser default submit behavior. It is used for form validation or AJAX submission."
+    q_hi:'Kaunsa input type email validation automatically karta hai?',
+    q_en:'Which input type automatically validates an email address?',
+    opts_hi:['type="text"','type="validate"','type="email"','type="format"'],
+    opts_en:['type="text"','type="validate"','type="email"','type="format"'],
+    ans:2,
+    exp_hi:'type="email" browser ko batata hai ki email expected hai. Browser @ aur domain format automatically check karta hai.',
+    exp_en:'type="email" tells the browser an email is expected. The browser automatically checks for @ and domain format.'
   },
   {
     cat_hi:'Tricky Code', cat_en:'Tricky Code',
-    q_hi:'Is code ka kya output hoga?   p hidden > Hello < /p',
-    q_en:'What is the output of this code?   p hidden > Hello < /p',
-    opts_hi:['Hello dikh jayega','Kuch nahi dikhega — paragraph hidden rahega','Error aayega','Hello grey color mein dikhega'],
-    opts_en:['Hello will be visible','Nothing will show — paragraph stays hidden','An error will occur','Hello will appear in grey color'],
+    q_hi:'Is code ka output kya hoga? <p hidden>Hello World</p>',
+    q_en:'What will be the output of this? <p hidden>Hello World</p>',
+    opts_hi:['Hello World dikh jayega','Kuch nahi dikhega','Hello grey mein dikhega','Error aayega'],
+    opts_en:['Hello World will appear','Nothing will show','Hello in grey color','An error will occur'],
     ans:1,
-    exp_hi:"HTML5 ka hidden attribute element ko visually hide karta hai aur screen readers se bhi chhupata hai. Yeh CSS ke display:none jaisa kaam karta hai.",
-    exp_en:"The HTML5 hidden attribute visually hides the element and hides it from screen readers too. It works like CSS display:none."
+    exp_hi:'hidden attribute element ko completely hide karta hai — display:none jaisa. Screen readers bhi ise skip karte hain.',
+    exp_en:'The hidden attribute completely hides the element — like display:none. Screen readers skip it too.'
   },
   {
-    cat_hi:'SEO & Meta', cat_en:'SEO & Meta',
-    q_hi:'Google search result mein page ka description kahan se aata hai?',
-    q_en:'Where does Google get the page description shown in search results?',
-    opts_hi:['Pehle p tag se','meta name=description content=... se','title tag se','h1 tag se'],
-    opts_en:['From the first p tag','From meta name=description content=...','From the title tag','From the h1 tag'],
-    ans:1,
-    exp_hi:'meta name=description tag search engines ko page ka summary batata hai. Yeh Google ke search results mein snippet ke roop mein dikhta hai aur CTR improve karta hai.',
-    exp_en:'The meta description tag gives search engines a summary of the page. It appears as the snippet in Google results and improves click-through rate.'
-  },
-  {
-    cat_hi:'Tricky Bug', cat_en:'Tricky Bug',
-    q_hi:'Is code mein kya galat hai?   img src=photo.jpg width=300',
-    q_en:'What is wrong with this code?   img src=photo.jpg width=300',
-    opts_hi:['Kuch galat nahi — bilkul sahi hai','alt attribute missing hai — accessibility aur SEO ke liye zaroori hai','width attribute galat jagah hai','src ko href hona chahiye'],
-    opts_en:['Nothing wrong — it is perfectly correct','alt attribute is missing — required for accessibility and SEO','The width attribute is in the wrong place','src should be href'],
-    ans:1,
-    exp_hi:'alt attribute missing hai! Google images ko alt text se rank karta hai aur screen readers visually impaired users ke liye alt padhte hain. Hamesha alt daalo.',
-    exp_en:'The alt attribute is missing! Google ranks images using alt text and screen readers read alt for visually impaired users. Always include alt.'
-  },
-  {
-    cat_hi:'Nesting', cat_en:'Nesting',
-    q_hi:'Kaunsa nesting HTML mein VALID hai?',
-    q_en:'Which nesting is VALID in HTML?',
-    opts_hi:['button ke andar a tag','p ke andar div tag','ul ke andar li ke andar span tag','a ke andar button tag'],
-    opts_en:['a tag inside button','div tag inside p','span inside li inside ul','button inside a'],
-    ans:2,
-    exp_hi:'ul > li > span bilkul valid hai — list item ke andar inline element allowed hai. Baaki teeno invalid hain: p ke andar block element, aur interactive elements ek doosre ke andar nahi aa sakte.',
-    exp_en:'ul > li > span is perfectly valid — inline elements are allowed inside list items. The other three are invalid: block inside p, and interactive elements cannot nest inside each other.'
-  },
-  {
-    cat_hi:'HTML5 Storage', cat_en:'HTML5 Storage',
-    q_hi:'localStorage aur sessionStorage mein main fark kya hai?',
-    q_en:'What is the main difference between localStorage and sessionStorage?',
-    opts_hi:['Koi fark nahi — dono same hain','localStorage data permanently save karta hai, sessionStorage tab band hone pe delete ho jaata hai','sessionStorage zyada secure hai','localStorage sirf numbers store kar sakta hai'],
-    opts_en:['No difference — both are the same','localStorage saves data permanently, sessionStorage deletes when tab closes','sessionStorage is more secure','localStorage can only store numbers'],
-    ans:1,
-    exp_hi:'localStorage ka data tab band karne ke baad bhi rehta hai. sessionStorage ka data sirf current tab session tak rehta hai — tab band ki toh data gone!',
-    exp_en:'localStorage data persists even after closing the tab. sessionStorage data lasts only for the current tab session — close the tab and the data is gone!'
+    cat_hi:'HTML5 Features', cat_en:'HTML5 Features',
+    q_hi:'Video embed karne ka sahi HTML5 tarika kaun sa hai?',
+    q_en:'What is the correct HTML5 way to embed a video?',
+    opts_hi:['<media src="v.mp4">','<embed type="video">','<object data="v.mp4">','<video src="v.mp4" controls>'],
+    opts_en:['<media src="v.mp4">','<embed type="video">','<object data="v.mp4">','<video src="v.mp4" controls>'],
+    ans:3,
+    exp_hi:'HTML5 mein <video> tag video embed karne ke liye hai. controls attribute play/pause/volume buttons dikhata hai. Flash ki zaroorat nahi.',
+    exp_en:'HTML5 introduced the <video> tag. The controls attribute shows play/pause/volume buttons. No Flash needed.'
   },
   {
     cat_hi:'Semantic HTML', cat_en:'Semantic HTML',
-    q_hi:'header tag page mein kitni baar use ho sakta hai?',
-    q_en:'How many times can the header tag be used on a page?',
-    opts_hi:['Sirf ek baar — page ke top pe only','Ek se zyada baar — har section ka apna header ho sakta hai','Sirf body ke direct child ke roop mein','Maximum teen baar'],
-    opts_en:['Only once — at the top of the page only','Multiple times — each section can have its own header','Only as a direct child of body','Maximum three times'],
-    ans:1,
-    exp_hi:'header element ek page pe multiple baar use ho sakta hai — page ka main header bhi, aur har article ya section ka apna header bhi ho sakta hai.',
-    exp_en:'The header element can be used multiple times — the main page header plus each article or section can have its own header.'
+    q_hi:'Page ke main navigation ke liye kaun sa tag use karna chahiye?',
+    q_en:'Which tag should be used for the main navigation of a page?',
+    opts_hi:['<div class="nav">','<navigation>','<nav>','<menu type="nav">'],
+    opts_en:['<div class="nav">','<navigation>','<nav>','<menu type="nav">'],
+    ans:2,
+    exp_hi:'<nav> HTML5 semantic tag hai main navigation links ke liye. Screen readers aur search engines ise navigation ke roop mein identify karte hain.',
+    exp_en:'<nav> is the HTML5 semantic tag for main navigation. Screen readers and search engines identify it as navigation.'
+  },
+  {
+    cat_hi:'Attributes', cat_en:'Attributes',
+    q_hi:'Input field ko read-only banana hai lekin form submit mein include bhi karna hai — kaun sa attribute?',
+    q_en:'Which attribute makes input read-only but still includes its value in form submission?',
+    opts_hi:['disabled','locked','readonly','frozen'],
+    opts_en:['disabled','locked','readonly','frozen'],
+    ans:2,
+    exp_hi:'readonly user ko value change karne se rokta hai lekin form submit mein value include hoti hai. disabled field submit mein include nahi hoti.',
+    exp_en:'readonly prevents changing the value but it IS submitted. A disabled field is NOT included in form submission.'
+  },
+  {
+    cat_hi:'SEO & Meta', cat_en:'SEO & Meta',
+    q_hi:'Google search mein page ka title kahan se aata hai?',
+    q_en:'Where does Google get the page title for search results?',
+    opts_hi:['Pehle <h1> tag se','<meta name="title"> se','<header> tag se','<title> tag se'],
+    opts_en:['From the first <h1>','From <meta name="title">','From <header> tag','From the <title> tag'],
+    ans:3,
+    exp_hi:'<title> tag browser tab aur Google search results dono mein page ka naam dikhata hai. Yeh SEO ka sabse important element hai.',
+    exp_en:'The <title> tag shows the page name in browser tabs and Google results. It is the most important SEO element.'
+  },
+  {
+    cat_hi:'Tables', cat_en:'Tables',
+    q_hi:'Table cell ko multiple columns span karne ke liye kaun sa attribute?',
+    q_en:'Which attribute spans a table cell across multiple columns?',
+    opts_hi:['span="2"','width="2cols"','colspan="2"','merge="2"'],
+    opts_en:['span="2"','width="2cols"','colspan="2"','merge="2"'],
+    ans:2,
+    exp_hi:'colspan="2" ek cell ko 2 columns tak failata hai. rowspan rows ke liye use hota hai.',
+    exp_en:'colspan="2" stretches a cell across 2 columns. rowspan is used for rows in the same way.'
   },
   {
     cat_hi:'Final Boss &#128293;', cat_en:'Final Boss &#128293;',
     q_hi:'DOCTYPE declaration ka kya kaam hai?',
     q_en:'What is the purpose of the DOCTYPE declaration?',
-    opts_hi:['HTML file ka title set karta hai','Browser ko batata hai ki HTML5 standards mode mein render karo','CSS reset karta hai','JavaScript enable karta hai'],
-    opts_en:['Sets the title of the HTML file','Tells the browser to render in HTML5 standards mode','Resets CSS','Enables JavaScript on the page'],
-    ans:1,
-    exp_hi:'DOCTYPE html browser ko HTML5 standards mode mein render karne ko kehta hai. Iske bina browser quirks mode mein jaata hai jahan layout bigad jaata hai!',
-    exp_en:'DOCTYPE html tells the browser to render in HTML5 standards mode. Without it the browser enters quirks mode which replicates old bugs and breaks layouts!'
+    opts_hi:['HTML file ka title set karta hai','JavaScript enable karta hai','CSS reset karta hai','Browser ko HTML5 standards mode mein render karne ko kehta hai'],
+    opts_en:['Sets the HTML file title','Enables JavaScript','Resets CSS','Tells browser to render in HTML5 standards mode'],
+    ans:3,
+    exp_hi:'<!DOCTYPE html> browser ko HTML5 standards mode mein render karne ko kehta hai. Iske bina browser quirks mode mein jaata hai — layout bigad sakta hai.',
+    exp_en:'<!DOCTYPE html> tells the browser to use HTML5 standards mode. Without it, the browser enters quirks mode — layouts can break.'
   }
 ];
 
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-//  LANG SYSTEM
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 var LANG = 'hi';
+var cur = 0, score = 0, answered = false, tmr = null, timeLeft = 30, finalScore = 0;
+var quizStartTime = 0, quizTimeTaken = 0, lastPick;
+var userRating = 0;
 
 function setLang(l) {
   LANG = l;
@@ -497,6 +462,7 @@ function setLang(l) {
   document.getElementById('retry-lbl').innerHTML = t.retryLbl;
   document.getElementById('save-title').innerHTML= t.saveTitle;
   document.getElementById('save-desc').innerHTML = t.saveDesc;
+  document.getElementById('save-lbl').innerHTML  = t.saveLbl;
   document.getElementById('lb-sub').innerHTML    = t.lbSub;
   document.getElementById('th-r').innerHTML      = t.thR;
   document.getElementById('th-n').innerHTML      = t.thN;
@@ -507,18 +473,14 @@ function setLang(l) {
   document.getElementById('ft-love').innerHTML   = t.ftLove;
   var inp = document.getElementById('lb-name');
   if (inp) inp.placeholder = t.placeholder;
-  document.getElementById('btn-hi').classList.toggle('on', l === 'hi');
-  document.getElementById('btn-en').classList.toggle('on', l === 'en');
+  var rl = document.getElementById('rating-label');
+  if (rl && !userRating) rl.innerHTML = t.rateLabel;
+  document.getElementById('btn-hi').classList.toggle('on', l==='hi');
+  document.getElementById('btn-en').classList.toggle('on', l==='en');
   if (document.getElementById('quiz-card').classList.contains('show') && QS[cur]) {
     renderQ(cur, true);
   }
 }
-
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-//  QUIZ LOGIC
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-var cur = 0, score = 0, answered = false, tmr = null, timeLeft = 30, finalScore = 0;
-var quizStartTime = 0, quizTimeTaken = 0, lastPick;
 
 function startQuiz() {
   cur = 0; score = 0; answered = false; quizStartTime = Date.now();
@@ -529,8 +491,7 @@ function startQuiz() {
 }
 
 function loadQ(idx) {
-  answered = false;
-  timeLeft  = 30;
+  answered = false; timeLeft = 30;
   renderQ(idx, false);
   clearInterval(tmr);
   updateTimer();
@@ -543,39 +504,40 @@ function loadQ(idx) {
 
 function renderQ(idx, keepAnswered) {
   var q    = QS[idx];
-  var opts = LANG === 'en' ? q.opts_en : q.opts_hi;
-  var cat  = LANG === 'en' ? q.cat_en  : q.cat_hi;
-  var qtxt = LANG === 'en' ? q.q_en    : q.q_hi;
-  document.getElementById('q-num').textContent  = idx + 1;
-  document.getElementById('prog').style.width   = ((idx + 1) / 10 * 100) + '%';
+  var opts = LANG==='en' ? q.opts_en : q.opts_hi;
+  var cat  = LANG==='en' ? q.cat_en  : q.cat_hi;
+  var qtxt = LANG==='en' ? q.q_en    : q.q_hi;
+  document.getElementById('q-num').textContent  = idx+1;
+  document.getElementById('prog').style.width   = ((idx+1)/10*100)+'%';
   document.getElementById('q-cat').textContent  = cat;
   document.getElementById('q-text').textContent = qtxt;
   var cEl = document.getElementById('q-code');
-  if (q.code) { cEl.style.display = 'block'; cEl.textContent = q.code.replace(/&amp;/g,'&'); }
-  else { cEl.style.display = 'none'; }
-  var keys   = ['A','B','C','D'];
+  if (q.code) { cEl.style.display='block'; cEl.textContent=q.code.replace(/&amp;/g,'&'); }
+  else { cEl.style.display='none'; }
+  var keys = ['A','B','C','D'];
   var optsEl = document.getElementById('opts');
   optsEl.innerHTML = '';
-  for (var i = 0; i < opts.length; i++) {
+  for (var i=0; i<opts.length; i++) {
     (function(idx2) {
       var btn = document.createElement('button');
-      btn.className = 'opt'; btn.id = 'opt-' + idx2;
+      btn.className = 'opt'; btn.id = 'opt-'+idx2;
       btn.addEventListener('click', function(){ pick(idx2); });
-      var ks = document.createElement('span'); ks.className = 'opt-key'; ks.textContent = keys[idx2];
-      var ts = document.createElement('span'); ts.className = 'opt-text'; ts.textContent = opts[idx2];
-      btn.appendChild(ks); btn.appendChild(ts); optsEl.appendChild(btn);
+      var ks = document.createElement('span'); ks.className='opt-key'; ks.textContent=keys[idx2];
+      var ts = document.createElement('span'); ts.className='opt-text'; ts.textContent=opts[idx2];
+      btn.appendChild(ks); btn.appendChild(ts);
+      optsEl.appendChild(btn);
     })(i);
   }
   var exEl = document.getElementById('explain');
-  exEl.className = 'explain'; exEl.innerHTML = '';
+  exEl.className='explain'; exEl.innerHTML='';
   document.getElementById('live-sc').textContent  = score;
   document.getElementById('live-tot').textContent = idx;
   document.getElementById('next-btn').classList.remove('show');
   if (keepAnswered && answered) {
     var btns = document.querySelectorAll('.opt');
-    btns.forEach(function(b) { b.disabled = true; });
-    if (lastPick !== undefined && lastPick !== q.ans) btns[lastPick].classList.add('wrong');
-    btns[q.ans].classList.add(lastPick === q.ans ? 'correct' : 'show-ans');
+    btns.forEach(function(b){ b.disabled=true; });
+    if (lastPick!==undefined && lastPick!==q.ans) btns[lastPick].classList.add('wrong');
+    btns[q.ans].classList.add(lastPick===q.ans?'correct':'show-ans');
     showExplain(idx, false);
     document.getElementById('next-btn').classList.add('show');
   }
@@ -583,367 +545,275 @@ function renderQ(idx, keepAnswered) {
 
 function pick(idx) {
   if (answered) return;
-  answered = true; lastPick = idx;
+  answered=true; lastPick=idx;
   clearInterval(tmr);
   var q = QS[cur];
   var btns = document.querySelectorAll('.opt');
-  btns.forEach(function(b) { b.disabled = true; });
-  if (idx === q.ans) { btns[idx].classList.add('correct'); score++; }
+  btns.forEach(function(b){ b.disabled=true; });
+  if (idx===q.ans) { btns[idx].classList.add('correct'); score++; }
   else { btns[idx].classList.add('wrong'); btns[q.ans].classList.add('show-ans'); }
   showExplain(cur, false);
   document.getElementById('live-sc').textContent  = score;
-  document.getElementById('live-tot').textContent = cur + 1;
+  document.getElementById('live-tot').textContent = cur+1;
   document.getElementById('next-btn').classList.add('show');
 }
 
 function timeUp() {
-  answered = true; lastPick = -1;
+  answered=true; lastPick=-1;
   var btns = document.querySelectorAll('.opt');
-  btns.forEach(function(b) { b.disabled = true; });
+  btns.forEach(function(b){ b.disabled=true; });
   btns[QS[cur].ans].classList.add('show-ans');
   showExplain(cur, true);
-  document.getElementById('live-tot').textContent = cur + 1;
+  document.getElementById('live-tot').textContent = cur+1;
   document.getElementById('next-btn').classList.add('show');
 }
 
 function showExplain(idx, isTimeUp) {
-  var q    = QS[idx];
-  var t    = T[LANG];
-  var exp  = LANG === 'en' ? q.exp_en : q.exp_hi;
-  var pre  = isTimeUp ? t.timeUp : (lastPick === q.ans ? t.correct : t.wrong);
+  var q   = QS[idx];
+  var t   = T[LANG];
+  var exp = LANG==='en' ? q.exp_en : q.exp_hi;
+  var prefix = isTimeUp ? t.timeUp : (lastPick===q.ans ? t.correct : t.wrong);
   var exEl = document.getElementById('explain');
-  exEl.innerHTML = '<strong>' + pre + '</strong>' + exp;
+  exEl.innerHTML = '<strong>'+prefix+'</strong>'+exp;
   exEl.classList.add('show');
 }
 
 function updateTimer() {
   var el = document.getElementById('timer');
-  el.textContent = '⏱ ' + timeLeft + 's';
-  if (timeLeft <= 10) el.classList.add('hot'); else el.classList.remove('hot');
+  el.textContent = '\u23F1 '+timeLeft+'s';
+  if (timeLeft<=10) el.classList.add('hot'); else el.classList.remove('hot');
 }
 
 function nextQ() {
   cur++;
-  if (cur >= QS.length) showResult(); else loadQ(cur);
+  if (cur>=QS.length) showResult(); else loadQ(cur);
 }
 
 function showResult() {
   clearInterval(tmr);
-  quizTimeTaken = Math.round((Date.now() - quizStartTime) / 1000);
+  quizTimeTaken = Math.round((Date.now()-quizStartTime)/1000);
   document.getElementById('quiz-card').classList.remove('show');
   var rc = document.getElementById('result-card');
   rc.classList.add('show');
   finalScore = score;
   var t = T[LANG];
-  var gIdx = score >= 9 ? 0 : score >= 7 ? 1 : score >= 5 ? 2 : 3;
+  var gIdx = score>=9?0:score>=7?1:score>=5?2:3;
   var emojis = ['&#127942;','&#129352;','&#129353;','&#128218;'];
   var titles_hi = ['HTML Expert!','Bahut Acha!','Achha Kiya!','Aur Practice Karo!'];
   var titles_en = ['HTML Expert!','Great Job!','Good Effort!','Keep Practicing!'];
   document.getElementById('r-emoji').innerHTML   = emojis[gIdx];
-  document.getElementById('r-title').textContent = LANG === 'en' ? titles_en[gIdx] : titles_hi[gIdx];
+  document.getElementById('r-title').textContent = LANG==='en'?titles_en[gIdx]:titles_hi[gIdx];
   document.getElementById('r-sc').textContent    = score;
   document.getElementById('r-grade').innerHTML   = t.grades[gIdx];
-  document.getElementById('r-grade').className   = 'res-grade ' + ['g-gold','g-silver','g-bronze','g-try'][gIdx];
+  document.getElementById('r-grade').className   = 'res-grade '+['g-gold','g-silver','g-bronze','g-try'][gIdx];
   document.getElementById('r-msg').textContent   = t.msgs[gIdx];
-  document.getElementById('cert-btn').style.display = score >= 5 ? 'inline-block' : 'none';
+  document.getElementById('cert-btn').style.display = 'inline-block';
   document.getElementById('save-msg').className  = 'save-msg';
   document.getElementById('lb-name').value       = '';
   var sb = document.getElementById('save-btn');
-  sb.disabled  = false;
-  sb.innerHTML = '<span id="save-lbl">' + t.saveLbl + '</span> &#128200;';
+  sb.disabled=false;
+  sb.innerHTML = '<span id="save-lbl">'+t.saveLbl+'</span> &#128200;';
+  userRating=0;
+  document.querySelectorAll('.star').forEach(function(s){ s.classList.remove('lit','hover'); });
+  document.getElementById('rating-label').style.display='';
+  document.getElementById('rating-label').innerHTML=t.rateLabel;
+  document.getElementById('rating-thanks').style.display='none';
+  rc.scrollIntoView({behavior:'smooth',block:'start'});
 }
 
 function retry() {
-  cur = 0; score = 0; answered = false; lastPick = undefined;
+  cur=0; score=0; answered=false; lastPick=undefined; userRating=0;
+  document.querySelectorAll('.star').forEach(function(s){ s.classList.remove('lit','hover'); });
+  document.getElementById('rating-label').style.display='';
+  document.getElementById('rating-label').innerHTML=T[LANG].rateLabel;
+  document.getElementById('rating-thanks').style.display='none';
   document.getElementById('result-card').classList.remove('show');
-  document.getElementById('intro-card').style.display = 'block';
+  document.getElementById('intro-card').style.display='block';
 }
 
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-//  CERTIFICATE
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+var ratingLabels_hi=['','Bahut Bura','Theek Hai','Acha Tha','Bahut Acha','Zabardast!'];
+var ratingLabels_en=['','Very Bad','Okay','Good','Very Good','Amazing!'];
+function hoverStar(v) {
+  if (userRating) return;
+  document.querySelectorAll('.star').forEach(function(s,i){ s.classList.toggle('hover',i<v); });
+  var lbl = document.getElementById('rating-label');
+  lbl.textContent = (LANG==='en'?ratingLabels_en:ratingLabels_hi)[v];
+}
+function unhoverStar() {
+  if (userRating) return;
+  document.querySelectorAll('.star').forEach(function(s){ s.classList.remove('hover'); });
+  document.getElementById('rating-label').innerHTML = T[LANG].rateLabel;
+}
+function rateStar(v) {
+  if (userRating) return;
+  userRating=v;
+  document.querySelectorAll('.star').forEach(function(s,i){ s.classList.toggle('lit',i<v); s.classList.remove('hover'); });
+  document.getElementById('rating-label').style.display='none';
+  document.getElementById('rating-thanks').style.display='block';
+  document.getElementById('rating-thanks').innerHTML=T[LANG].rateThanks;
+}
+
 function dlCert() {
-  var name = (document.getElementById('lb-name').value || '').trim();
-  if (!name || name.length < 2) {
-    var msgEl = document.getElementById('save-msg');
-    msgEl.className = 'save-msg err';
-    msgEl.textContent = LANG === 'en' ? 'Please enter your name first!' : 'Pehle apna naam daalo!';
+  var name = (document.getElementById('lb-name').value||'').trim();
+  if (!name||name.length<2) {
+    var msgEl=document.getElementById('save-msg');
+    msgEl.className='save-msg err';
+    msgEl.textContent=LANG==='en'?'Please enter your name first!':'Pehle apna naam daalo!';
     document.getElementById('lb-name').focus();
     return;
   }
-  var signImg = new Image();
-  signImg.crossOrigin = 'anonymous';
-  signImg.onload  = function(){ drawCert(name, signImg); };
-  signImg.onerror = function(){ drawCert(name, null); };
-  signImg.src = 'https://i.ibb.co/FkSg7chp/1000016058-removebg-preview-1.png?' + Date.now();
+  var dlProg=document.getElementById('dl-progress');
+  var dlBar=document.getElementById('dl-bar');
+  var dlText=document.getElementById('dl-text');
+  var certBtn=document.getElementById('cert-btn');
+  dlProg.classList.add('show');
+  certBtn.disabled=true;
+  dlBar.style.width='0%';
+  dlText.innerHTML=T[LANG].dlLoading;
+  var prog=0;
+  var ticker=setInterval(function(){ prog=Math.min(prog+3,30); dlBar.style.width=prog+'%'; },40);
+  var signImg=new Image();
+  signImg.crossOrigin='anonymous';
+  signImg.onload=function(){
+    clearInterval(ticker); dlBar.style.width='60%';
+    dlText.innerHTML=T[LANG].dlBuilding;
+    setTimeout(function(){
+      dlBar.style.width='90%';
+      setTimeout(function(){
+        drawCert(name,signImg);
+        dlBar.style.width='100%';
+        dlText.innerHTML=T[LANG].dlDone;
+        certBtn.disabled=false;
+        setTimeout(function(){ dlProg.classList.remove('show'); dlBar.style.width='0%'; },3000);
+      },400);
+    },400);
+  };
+  signImg.onerror=function(){
+    clearInterval(ticker); dlBar.style.width='70%';
+    dlText.innerHTML=T[LANG].dlBuilding;
+    setTimeout(function(){
+      drawCert(name,null);
+      dlBar.style.width='100%';
+      dlText.innerHTML=T[LANG].dlDone;
+      certBtn.disabled=false;
+      setTimeout(function(){ dlProg.classList.remove('show'); dlBar.style.width='0%'; },3000);
+    },500);
+  };
+  signImg.src='https://i.ibb.co/FkSg7chp/1000016058-removebg-preview-1.png?'+Date.now();
 }
 
 function drawCert(name, signImg) {
-  var cv  = document.getElementById('cert-cv');
-  var ctx = cv.getContext('2d');
-  var W = 2000, H = 1414;
-  cv.width = W; cv.height = H;
+  var cv=document.getElementById('cert-cv');
+  var ctx=cv.getContext('2d');
+  var W=2000,H=1414;
+  cv.width=W; cv.height=H;
   ctx.clearRect(0,0,W,H);
-
-  // White background
-  ctx.fillStyle = '#ffffff';
-  ctx.fillRect(0,0,W,H);
-  ctx.fillStyle = '#fffbf7';
-  ctx.fillRect(70,70,W-140,H-140);
-
-  // Gold triple border
-  var golds = ['#c8a84b','#f0e4a0','#c8a84b'];
-  var lwidths = [4, 8, 3];
-  var offsets = [14, 24, 34];
-  for (var bi = 0; bi < 3; bi++) {
-    ctx.strokeStyle = golds[bi];
-    ctx.lineWidth   = lwidths[bi];
-    var o = offsets[bi];
-    ctx.strokeRect(o, o, W-o*2, H-o*2);
-  }
-
-  // Corner L-brackets
-  function goldCorner(x, y, dx, dy) {
-    ctx.save();
-    ctx.lineCap = 'round';
-    var lens = [100, 80, 60];
-    var lws  = [4, 2.5, 1.5];
-    for (var ci = 0; ci < 3; ci++) {
-      ctx.strokeStyle = '#c8a84b';
-      ctx.lineWidth   = lws[ci];
-      var pad = ci * 12 + (dx > 0 ? 14 : 14);
-      var xp  = dx > 0 ? x + pad : x - pad;
-      var yp  = dy > 0 ? y + pad : y - pad;
-      ctx.beginPath();
-      ctx.moveTo(xp + dx * lens[ci], yp);
-      ctx.lineTo(xp, yp);
-      ctx.lineTo(xp, yp + dy * lens[ci]);
-      ctx.stroke();
-    }
+  ctx.fillStyle='#ffffff'; ctx.fillRect(0,0,W,H);
+  var golds=['#c8a84b','#e8d48a','#c8a84b'];
+  var offs=[12,22,32];
+  golds.forEach(function(color,i){ ctx.strokeStyle=color; ctx.lineWidth=i===1?6:3; var o=offs[i]; ctx.strokeRect(o,o,W-o*2,H-o*2); });
+  function goldCorner(x,y,dx,dy){
+    ctx.save(); ctx.strokeStyle='#c8a84b'; ctx.lineWidth=3; ctx.lineCap='round';
+    ctx.beginPath(); ctx.moveTo(x+dx*90,y+dy*8); ctx.lineTo(x+dx*8,y+dy*8); ctx.lineTo(x+dx*8,y+dy*90); ctx.stroke();
+    ctx.lineWidth=1.5;
+    ctx.beginPath(); ctx.moveTo(x+dx*90,y+dy*18); ctx.lineTo(x+dx*18,y+dy*18); ctx.lineTo(x+dx*18,y+dy*90); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(x+dx*90,y+dy*26); ctx.lineTo(x+dx*26,y+dy*26); ctx.lineTo(x+dx*26,y+dy*90); ctx.stroke();
     ctx.restore();
   }
-  goldCorner(50, 50,  1,  1);
-  goldCorner(W-50, 50, -1,  1);
-  goldCorner(50, H-50,  1, -1);
-  goldCorner(W-50, H-50, -1, -1);
-
-  // Bottom green waves
+  goldCorner(50,50,1,1); goldCorner(W-50,50,-1,1); goldCorner(50,H-50,1,-1); goldCorner(W-50,H-50,-1,-1);
   ctx.save();
-  ctx.beginPath();
-  ctx.moveTo(0, H);
-  ctx.lineTo(0, H*0.74);
-  ctx.bezierCurveTo(W*0.06, H*0.64, W*0.16, H*0.70, W*0.26, H*0.74);
-  ctx.bezierCurveTo(W*0.36, H*0.78, W*0.42, H*0.80, W*0.46, H*0.84);
-  ctx.lineTo(W*0.46, H);
-  ctx.closePath();
-  ctx.fillStyle = '#1a5c3a';
-  ctx.fill();
-  ctx.restore();
-
+  ctx.beginPath(); ctx.moveTo(0,H); ctx.lineTo(0,H*0.72); ctx.bezierCurveTo(W*0.08,H*0.62,W*0.18,H*0.68,W*0.28,H*0.72); ctx.bezierCurveTo(W*0.38,H*0.76,W*0.42,H*0.78,W*0.48,H*0.82); ctx.lineTo(W*0.48,H); ctx.closePath();
+  ctx.fillStyle='#1a5c3a'; ctx.fill(); ctx.restore();
+  var goldGrad=ctx.createLinearGradient(0,H*0.8,W*0.36,H*0.7);
+  goldGrad.addColorStop(0,'#e8d48a'); goldGrad.addColorStop(0.5,'#c8a84b'); goldGrad.addColorStop(1,'#f0e4a0');
+  ctx.save(); ctx.beginPath(); ctx.moveTo(0,H*0.86); ctx.lineTo(W*0.32,H*0.68); ctx.lineTo(W*0.36,H*0.72); ctx.lineTo(0,H*0.92); ctx.closePath(); ctx.fillStyle=goldGrad; ctx.fill(); ctx.restore();
   ctx.save();
-  ctx.beginPath();
-  ctx.moveTo(W, H);
-  ctx.lineTo(W, H*0.74);
-  ctx.bezierCurveTo(W*0.94, H*0.64, W*0.84, H*0.70, W*0.74, H*0.74);
-  ctx.bezierCurveTo(W*0.64, H*0.78, W*0.58, H*0.80, W*0.54, H*0.84);
-  ctx.lineTo(W*0.54, H);
-  ctx.closePath();
-  ctx.fillStyle = '#1a5c3a';
-  ctx.fill();
-  ctx.restore();
-
-  // Gold diagonal stripes over green
-  var gg = ctx.createLinearGradient(0, H*0.85, W*0.36, H*0.68);
-  gg.addColorStop(0, '#f0e4a0'); gg.addColorStop(0.5, '#c8a84b'); gg.addColorStop(1, '#f0e4a0');
-  ctx.save();
-  ctx.beginPath();
-  ctx.moveTo(0, H*0.88); ctx.lineTo(W*0.30, H*0.70); ctx.lineTo(W*0.34, H*0.74); ctx.lineTo(0, H*0.94);
-  ctx.closePath(); ctx.fillStyle = gg; ctx.fill();
-  ctx.restore();
-  ctx.save();
-  ctx.beginPath();
-  ctx.moveTo(W, H*0.88); ctx.lineTo(W*0.70, H*0.70); ctx.lineTo(W*0.66, H*0.74); ctx.lineTo(W, H*0.94);
-  ctx.closePath(); ctx.fillStyle = gg; ctx.fill();
-  ctx.restore();
-
-  ctx.textAlign = 'center';
-
-  // CODING INFINITE
-  ctx.font = '600 28px sans-serif';
-  ctx.fillStyle = '#5c4a1e';
-  ctx.fillText('CODING INFINITE', W/2, 120);
-
-  // CERTIFICATE
-  ctx.font = '900 156px serif';
-  ctx.fillStyle = '#2a2010';
-  ctx.fillText('CERTIFICATE', W/2, 308);
-
-  // OF APPRECIATION
-  ctx.font = '300 50px sans-serif';
-  ctx.fillStyle = '#6b5a2e';
-  ctx.fillText('OF  APPRECIATION', W/2, 374);
-
-  // Gold divider
-  var dg = ctx.createLinearGradient(W/2-500,0,W/2+500,0);
-  dg.addColorStop(0,'rgba(200,168,75,0)'); dg.addColorStop(0.2,'#c8a84b');
-  dg.addColorStop(0.8,'#c8a84b'); dg.addColorStop(1,'rgba(200,168,75,0)');
-  ctx.strokeStyle = dg; ctx.lineWidth = 2;
-  ctx.beginPath(); ctx.moveTo(W/2-500,414); ctx.lineTo(W/2+500,414); ctx.stroke();
-
-  // THIS CERTIFICATE IS PROUDLY PRESENTED TO
-  ctx.font = '400 26px sans-serif';
-  ctx.fillStyle = '#8a7a5a';
-  ctx.fillText('THIS CERTIFICATE IS PROUDLY PRESENTED TO', W/2, 490);
-
-  // NAME
-  ctx.font = 'bold 108px serif';
-  ctx.fillStyle = '#1a1410';
-  ctx.fillText(name, W/2, 614);
-
-  // Name underline
-  ctx.save();
-  ctx.font = 'bold 108px serif';
-  var nw = ctx.measureText(name).width;
-  ctx.restore();
-  ctx.strokeStyle = '#c8a84b'; ctx.lineWidth = 3;
-  ctx.beginPath(); ctx.moveTo(W/2-nw/2, 634); ctx.lineTo(W/2+nw/2, 634); ctx.stroke();
-  ctx.strokeStyle = 'rgba(200,168,75,0.3)'; ctx.lineWidth = 1;
-  ctx.beginPath(); ctx.moveTo(W/2-nw/2, 641); ctx.lineTo(W/2+nw/2, 641); ctx.stroke();
-
-  // has successfully completed
-  ctx.font = '300 30px serif';
-  ctx.fillStyle = '#6b5a2e';
-  ctx.fillText('has successfully completed', W/2, 706);
-
-  // HTML Knowledge Quiz Challenge
-  ctx.font = 'bold 44px serif';
-  ctx.fillStyle = '#1a1410';
-  ctx.fillText('HTML Knowledge Quiz Challenge', W/2, 760);
-
-  // Score
-  ctx.font = '400 26px sans-serif';
-  ctx.fillStyle = '#8a7a5a';
-  ctx.fillText('with a score of  ' + finalScore + ' / 10', W/2, 808);
-
-  // Signature image
-  if (signImg) {
-    var sh = 130;
-    var sw = sh * (signImg.width / signImg.height);
-    ctx.drawImage(signImg, W/2 - sw/2, 838, sw, sh);
-  }
-
-  // Signature line
-  ctx.strokeStyle = '#5c4a1e'; ctx.lineWidth = 1.5;
-  ctx.beginPath(); ctx.moveTo(W/2-180, 988); ctx.lineTo(W/2+180, 988); ctx.stroke();
-
-  // SHIVA + title
-  ctx.font = 'bold 28px sans-serif';
-  ctx.fillStyle = '#1a1410';
-  ctx.fillText('SHIVA', W/2, 1018);
-  ctx.font = '300 22px sans-serif';
-  ctx.fillStyle = '#8a7a5a';
-  ctx.fillText('Creator of Coding Infinite', W/2, 1046);
-
-  // Date at bottom
-  var today = new Date().toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'});
-  ctx.font = '300 20px sans-serif';
-  ctx.fillStyle = '#c8a84b';
-  ctx.fillText(today, W/2, H - 48);
-
-  // Download
-  var link = document.createElement('a');
-  link.download = 'CIWeb_Certificate_' + name.replace(/\s+/g,'_') + '.png';
-  link.href = cv.toDataURL('image/png', 1.0);
+  ctx.beginPath(); ctx.moveTo(W,H); ctx.lineTo(W,H*0.72); ctx.bezierCurveTo(W*0.92,H*0.62,W*0.82,H*0.68,W*0.72,H*0.72); ctx.bezierCurveTo(W*0.62,H*0.76,W*0.58,H*0.78,W*0.52,H*0.82); ctx.lineTo(W*0.52,H); ctx.closePath();
+  ctx.fillStyle='#1a5c3a'; ctx.fill(); ctx.restore();
+  ctx.save(); ctx.beginPath(); ctx.moveTo(W,H*0.86); ctx.lineTo(W*0.68,H*0.68); ctx.lineTo(W*0.64,H*0.72); ctx.lineTo(W,H*0.92); ctx.closePath(); ctx.fillStyle=goldGrad; ctx.fill(); ctx.restore();
+  ctx.textAlign='center';
+  ctx.font='600 26px sans-serif'; ctx.fillStyle='#5c4a1e'; ctx.fillText('CODING INFINITE',W/2,110);
+  ctx.font='900 148px serif'; ctx.fillStyle='#3a3020'; ctx.fillText('CERTIFICATE',W/2,300);
+  ctx.font='300 52px sans-serif'; ctx.fillStyle='#6b5a2e'; ctx.fillText('OF   APPRECIATION',W/2,368);
+  var divGrad=ctx.createLinearGradient(W/2-500,0,W/2+500,0);
+  divGrad.addColorStop(0,'transparent'); divGrad.addColorStop(0.2,'#c8a84b'); divGrad.addColorStop(0.8,'#c8a84b'); divGrad.addColorStop(1,'transparent');
+  ctx.strokeStyle=divGrad; ctx.lineWidth=2;
+  ctx.beginPath(); ctx.moveTo(W/2-500,408); ctx.lineTo(W/2+500,408); ctx.stroke();
+  ctx.font='400 28px sans-serif'; ctx.fillStyle='#8a7a5a'; ctx.fillText('THIS CERTIFICATE IS PROUDLY PRESENTED TO',W/2,475);
+  ctx.font='bold 110px serif'; ctx.fillStyle='#2a2010'; ctx.fillText(name,W/2,600);
+  ctx.save(); ctx.font='bold 110px serif'; var nw=ctx.measureText(name).width; ctx.restore();
+  ctx.strokeStyle=divGrad; ctx.lineWidth=1.5;
+  ctx.beginPath(); ctx.moveTo(W/2-nw/2,625); ctx.lineTo(W/2+nw/2,625); ctx.stroke();
+  ctx.font='300 32px serif'; ctx.fillStyle='#6b5a2e'; ctx.fillText('has successfully completed',W/2,695);
+  ctx.font='bold 44px serif'; ctx.fillStyle='#2a2010'; ctx.fillText('HTML Knowledge Quiz Challenge',W/2,752);
+  ctx.font='400 28px sans-serif'; ctx.fillStyle='#8a7a5a'; ctx.fillText('Score: '+finalScore+' / 10',W/2,800);
+  var grade='';
+  if(finalScore>=9) grade='Gold — HTML Master';
+  else if(finalScore>=7) grade='Silver — HTML Pro';
+  else if(finalScore>=5) grade='Bronze — HTML Learner';
+  else grade='Keep Practicing';
+  ctx.font='300 24px sans-serif'; ctx.fillStyle='#c8a84b'; ctx.fillText(grade,W/2,838);
+  var sigCX=W/2;
+  if(signImg){ var sh=130,sw=sh*(signImg.width/signImg.height); ctx.drawImage(signImg,sigCX-sw/2,870,sw,sh); }
+  ctx.strokeStyle='#5c4a1e'; ctx.lineWidth=1.5;
+  ctx.beginPath(); ctx.moveTo(sigCX-180,1020); ctx.lineTo(sigCX+180,1020); ctx.stroke();
+  ctx.font='bold 28px sans-serif'; ctx.fillStyle='#2a2010'; ctx.fillText('SHIVA',W/2,1050);
+  ctx.font='300 22px sans-serif'; ctx.fillStyle='#8a7a5a'; ctx.fillText('Creator of Coding Infinite',W/2,1080);
+  var today=new Date().toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'});
+  ctx.font='300 20px sans-serif'; ctx.fillStyle='rgba(255,255,255,0.85)'; ctx.fillText(today,W/2,H-40);
+  var link=document.createElement('a');
+  link.download='CIWeb_Certificate_'+name.replace(/\s+/g,'_')+'.png';
+  link.href=cv.toDataURL('image/png',1.0);
   link.click();
 }
 
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-//  SAVE SCORE + LEADERBOARD
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 function saveScore() {
-  var name  = document.getElementById('lb-name').value.trim();
-  var msgEl = document.getElementById('save-msg');
-  var sBtn  = document.getElementById('save-btn');
-  var t     = T[LANG];
-  msgEl.className = 'save-msg';
-  if (!name || name.length < 2) {
-    msgEl.className = 'save-msg err';
-    msgEl.textContent = t.nameErr;
-    return;
-  }
-  sBtn.disabled  = true;
-  sBtn.innerHTML = t.saving;
-  fetch(DB_URL, {
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({name:name, score:finalScore, total:10,
-      percent:Math.round(finalScore/10*100),
-      timestamp:new Date().toISOString(),
-      timeTaken:quizTimeTaken})
-  })
-  .then(function(r){ return r.json(); })
+  var name=document.getElementById('lb-name').value.trim();
+  var msgEl=document.getElementById('save-msg');
+  var sBtn=document.getElementById('save-btn');
+  var t=T[LANG];
+  msgEl.className='save-msg';
+  if(!name||name.length<2){ msgEl.className='save-msg err'; msgEl.textContent=t.nameErr; return; }
+  sBtn.disabled=true; sBtn.innerHTML=t.saving;
+  fetch(DB_URL,{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({name:name,score:finalScore,total:10,percent:Math.round(finalScore/10*100),timestamp:new Date().toISOString(),timeTaken:quizTimeTaken})
+  }).then(function(r){ return r.json(); })
   .then(function(){
-    msgEl.className   = 'save-msg ok';
-    msgEl.textContent = t.saveOk;
-    sBtn.innerHTML    = t.saved;
-    loadLB();
-  })
-  .catch(function(){
-    msgEl.className   = 'save-msg err';
-    msgEl.textContent = t.saveErr;
-    sBtn.disabled     = false;
-    sBtn.innerHTML    = '<span id="save-lbl">' + t.saveLbl + '</span> &#128200;';
+    msgEl.className='save-msg ok'; msgEl.textContent=t.saveOk;
+    sBtn.innerHTML=t.saved; loadLB();
+  }).catch(function(){
+    msgEl.className='save-msg err'; msgEl.textContent=t.saveErr;
+    sBtn.disabled=false; sBtn.innerHTML='<span id="save-lbl">'+t.saveLbl+'</span> &#128200;';
   });
 }
 
 function loadLB() {
-  var tbody = document.getElementById('lb-body');
+  var tbody=document.getElementById('lb-body');
   fetch(DB_URL)
   .then(function(r){ return r.json(); })
   .then(function(data){
-    if (!data || typeof data !== 'object' || !Object.keys(data).length) {
-      tbody.innerHTML = '<tr><td colspan="5"><div class="lb-empty">' + T[LANG].noData + '</div></td></tr>';
-      return;
+    if(!data||typeof data!=='object'||!Object.keys(data).length){
+      tbody.innerHTML='<tr><td colspan="5"><div class="lb-empty">'+T[LANG].noData+'</div></td></tr>'; return;
     }
-    var rows = Object.values(data);
-    rows.sort(function(a,b){
-      if (b.score !== a.score) return b.score - a.score;
-      return new Date(a.timestamp) - new Date(b.timestamp);
-    });
-    var html = '';
+    var rows=Object.values(data);
+    rows.sort(function(a,b){ return b.score!==a.score?b.score-a.score:new Date(a.timestamp)-new Date(b.timestamp); });
+    var html='';
     rows.slice(0,20).forEach(function(e,i){
-      var r = i+1;
-      var badge = r===1 ? '<span class="medal m1">&#129351;</span>'
-                : r===2 ? '<span class="medal m2">&#129352;</span>'
-                : r===3 ? '<span class="medal m3">&#129353;</span>'
-                : '<span class="medal mn">'+r+'</span>';
-      var pct = Math.round((e.score/(e.total||10))*100);
-      var cls = r<=3 ? 'top'+r : '';
-      var dt  = '';
-      try { dt = new Date(e.timestamp).toLocaleDateString('en-IN',{day:'numeric',month:'short'}); } catch(x){}
-      html += '<tr class="'+cls+'">'
-        +'<td>'+badge+'</td>'
-        +'<td><strong>'+esc(e.name)+'</strong></td>'
-        +'<td><strong style="color:var(--accent)">'+e.score+'</strong>/'+(e.total||10)+'</td>'
-        +'<td><div class="sbar"><div class="sbar-track"><div class="sbar-fill" style="width:'+pct+'%"></div></div>'
-        +'<small style="color:var(--muted);min-width:32px;font-size:.78rem">'+pct+'%</small></div></td>'
-        +'<td style="color:var(--muted);font-size:.8rem">'+dt+'</td>'
-        +'</tr>';
+      var r=i+1;
+      var badge=r===1?'<span class="medal m1">&#129351;</span>':r===2?'<span class="medal m2">&#129352;</span>':r===3?'<span class="medal m3">&#129353;</span>':'<span class="medal mn">'+r+'</span>';
+      var pct=Math.round((e.score/(e.total||10))*100);
+      var cls=r===1?'top1':r===2?'top2':r===3?'top3':'';
+      var dt=''; try{ dt=new Date(e.timestamp).toLocaleDateString('en-IN',{day:'numeric',month:'short'}); }catch(x){}
+      html+='<tr class="'+cls+'"><td>'+badge+'</td><td><strong>'+esc(e.name)+'</strong></td><td><strong style="color:var(--accent)">'+e.score+'</strong>/'+(e.total||10)+'</td><td><div class="sbar"><div class="sbar-track"><div class="sbar-fill" style="width:'+pct+'%"></div></div><small style="color:var(--muted);min-width:30px;font-size:.76rem">'+pct+'%</small></div></td><td style="color:var(--muted);font-size:.78rem">'+dt+'</td></tr>';
     });
-    tbody.innerHTML = html;
-  })
-  .catch(function(){
-    tbody.innerHTML = '<tr><td colspan="5"><div class="lb-empty">'+T[LANG].loadErr+'</div></td></tr>';
-  });
+    tbody.innerHTML=html;
+  }).catch(function(){ tbody.innerHTML='<tr><td colspan="5"><div class="lb-empty">'+T[LANG].loadErr+'</div></td></tr>'; });
 }
 
 function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-//  INIT
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-document.addEventListener('DOMContentLoaded', function(){
-  LANG = localStorage.getItem('ciweb_lang') || 'hi';
+document.addEventListener('DOMContentLoaded',function(){
+  LANG=localStorage.getItem('ciweb_lang')||'hi';
   setLang(LANG);
   loadLB();
 });
