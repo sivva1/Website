@@ -100,19 +100,19 @@
     </div>
   </div>
   <div class="hero-visual">
-    <div class="featured-label" data-en="Featured Post" data-hi="Featured Post">Featured Post</div>
-    <span class="tag-pill">AI Tools</span>
+    <div class="featured-label" data-en="Latest Post" data-hi="Latest Post">Latest Post</div>
+    <span class="tag-pill" id="featured-tag">AI Tools</span>
     <div class="featured-post">
-      <h3 data-en="Top 10 Free AI Tools That Make Life Easier" data-hi="Top 10 Free AI Tools Jo Zindagi Aasaan Kar Denge">Top 10 Free AI Tools Jo Zindagi Aasaan Kar Denge</h3>
-      <p data-en="These tools are completely free and will 10x your productivity..." data-hi="Yeh tools bilkul free hain aur inse aapka kaam 10x fast ho jayega...">Yeh tools bilkul free hain aur inse aapka kaam 10x fast ho jayega...</p>
+      <h3 id="featured-title" data-en="" data-hi="">Load ho raha hai...</h3>
+      <p id="featured-desc" data-en="" data-hi=""></p>
       <div class="featured-meta">
-        <span>&#128197; 10 March 2026</span>
-        <a href="blog1.html" style="color:var(--accent);font-weight:600;font-size:0.82rem;text-decoration:none;" data-en="Read" data-hi="Padho">Padho</a>
+        <span id="featured-date">&#128197;</span>
+        <a id="featured-link" href="#" style="color:var(--accent);font-weight:600;font-size:0.82rem;text-decoration:none;" data-en="Read" data-hi="Padho">Padho</a>
       </div>
     </div>
     <div class="divider"></div>
     <div style="display:flex;justify-content:space-between;font-size:0.85rem;">
-      <span data-en="More blogs coming soon" data-hi="Aur blogs aa rahe hain">Aur blogs aa rahe hain &#128640;</span>
+      <span data-en="More blogs coming soon" data-hi="Aur blogs aa rahe hain &#128640;">Aur blogs aa rahe hain &#128640;</span>
       <small style="color:var(--muted)">Coming Soon</small>
     </div>
   </div>
@@ -120,7 +120,7 @@
 
 <div class="stats-bar">
   <div class="stat-item">
-    <div class="stat-num" id="blog-count">3+</div>
+    <div class="stat-num" id="blog-count">0+</div>
     <div class="stat-label" data-en="Blog Posts" data-hi="Blog Posts">Blog Posts</div>
   </div>
   <div class="stat-item">
@@ -143,7 +143,7 @@
     <a href="blogs.html" data-en="See all" data-hi="Sab dekho">Sab dekho &rarr;</a>
   </div>
   <div class="blog-grid" id="blog-grid">
-    <div style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--muted)">Loading...</div>
+    <div style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--muted)">&#9203; Load ho raha hai...</div>
   </div>
 </div>
 
@@ -177,71 +177,16 @@
 </footer>
 
 <div id="cw-toggle">
-  <button class="cw-opt" id="cw-hi" onclick="setLang('hi')">&#127470;&#127475; Hinglish</button>
+  <button class="cw-opt" id="cw-hi" onclick="cwSetLang('hi')">&#127470;&#127475; Hinglish</button>
   <div class="cw-sep"></div>
-  <button class="cw-opt" id="cw-en" onclick="setLang('en')">&#127468;&#127463; English</button>
+  <button class="cw-opt" id="cw-en" onclick="cwSetLang('en')">&#127468;&#127463; English</button>
 </div>
 
-<!-- blogs.js pehle load hogi -->
-<script src="blogs.js"></script>
-
+<script src="ciweb.js"></script>
 <script>
-function setLang(l) {
-  localStorage.setItem('ciweb_lang', l);
-  var els = document.querySelectorAll('[data-en][data-hi]');
-  for (var i = 0; i < els.length; i++) {
-    els[i].textContent = l === 'en' ? els[i].dataset.en : els[i].dataset.hi;
-  }
-  document.getElementById('cw-hi').classList.toggle('on', l === 'hi');
-  document.getElementById('cw-en').classList.toggle('on', l === 'en');
-  window.dispatchEvent(new Event('langChanged'));
-}
-
-function renderBlogs() {
-  var lang = localStorage.getItem('ciweb_lang') || 'hi';
-  var grid = document.getElementById('blog-grid');
-  var cEl = document.getElementById('blog-count');
-  var blogs = (typeof BLOGS_DATA !== 'undefined') ? BLOGS_DATA : [];
-
-  if (cEl) cEl.textContent = blogs.length + '+';
-
-  if (!blogs.length) {
-    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--muted)">Koi blog nahi mila.</div>';
-    return;
-  }
-
-  var html = '';
-  var show = Math.min(blogs.length, 3);
-  for (var i = 0; i < show; i++) {
-    var b = blogs[i];
-    var title = lang === 'en' ? b.title_en : b.title_hi;
-    var desc  = lang === 'en' ? b.desc_en  : b.desc_hi;
-    var arrow = lang === 'en' ? 'Read &rarr;' : 'Padho &rarr;';
-    html += '<a class="blog-card" href="' + b.link + '">'
-          + '<span class="card-tag">' + b.tag + '</span>'
-          + '<h3>' + title + '</h3>'
-          + '<p>' + desc + '</p>'
-          + '<div class="card-footer">'
-          + '<span>&#128197; ' + b.date + '</span>'
-          + '<span class="read-arrow">' + arrow + '</span>'
-          + '</div></a>';
-  }
-  grid.innerHTML = html;
-}
-
-window.addEventListener('langChanged', renderBlogs);
-
-function init() {
-  var lang = localStorage.getItem('ciweb_lang') || 'hi';
-  setLang(lang);
-  renderBlogs();
-}
-
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', init);
-} else {
-  init();
-}
+  document.addEventListener('DOMContentLoaded', function() {
+    cwInitIndex();
+  });
 </script>
 
 </body>
