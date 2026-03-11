@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HTML Quiz — Apna Knowledge Test Karo | CIWeb</title>
+  <meta name="description" content="HTML ka knowledge test karo 10 tricky questions ke saath! Certificate pao aur leaderboard mein apna naam daalo."/>
+  <meta name="author" content="CIWeb"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://ciweb.in/blog/blog4.html"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#f5f3ee;--ink:#1a1814;--muted:#7a7570;--accent:#e8401c;--card:#fff;--border:#e2ddd6;--tag-bg:#fff0ec;--green:#16a34a;--green-bg:#f0fff4}
+    body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--ink)}
+
+    /* NAV */
+    nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);padding:0 6%;display:flex;align-items:center;justify-content:space-between;height:64px}
+    .logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--ink);text-decoration:none;letter-spacing:-0.5px}
+    .logo-accent{color:var(--accent);font-style:normal}
+    .nav-links{display:flex;gap:1.4rem;list-style:none;align-items:center}
+    .nav-links a{color:var(--muted);text-decoration:none;font-size:.88rem;font-weight:500;transition:color .2s}
+    .nav-links a:hover{color:var(--ink)}
+    .nav-cta{background:var(--ink)!important;color:var(--bg)!important;padding:8px 18px;border-radius:100px;font-weight:600!important}
+    @media(max-width:768px){.nav-links{display:none}}
+
+    /* HERO */
+    .blog-hero{max-width:860px;margin:0 auto;padding:50px 5% 30px}
+    .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:.85rem;text-decoration:none;font-weight:500;margin-bottom:1.5rem;transition:color .2s}
+    .back-link:hover{color:var(--accent)}
+    .hero-tags{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.2rem}
+    .tag{padding:4px 14px;border-radius:100px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+    .tag-html{background:var(--tag-bg);color:var(--accent)}
+    .tag-quiz{background:#e8f4ff;color:#2563eb}
+    .tag-cert{background:#f0fff4;color:#16a34a}
+    .blog-hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;line-height:1.15;letter-spacing:-1px;margin-bottom:1rem}
+    .blog-hero .sub{font-size:1rem;color:var(--muted);line-height:1.7;font-weight:300}
+
+    /* QUIZ WRAPPER */
+    .quiz-wrap{max-width:860px;margin:2rem auto;padding:0 5% 80px}
+
+    /* INTRO CARD */
+    .intro-card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:3rem 2rem;text-align:center}
+    .intro-icon{font-size:3.5rem;display:block;margin-bottom:1.2rem}
+    .intro-card h2{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;margin-bottom:.7rem}
+    .intro-card p{color:var(--muted);font-size:.95rem;line-height:1.7;max-width:460px;margin:0 auto 2rem}
+    .intro-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2.5rem}
+    @media(max-width:500px){.intro-grid{grid-template-columns:repeat(2,1fr)}}
+    .ibox{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:1rem .5rem}
+    .ibox-num{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:var(--accent);line-height:1}
+    .ibox-lbl{font-size:.72rem;color:var(--muted);margin-top:4px;font-weight:500}
+    .start-btn{background:var(--accent);color:#fff;border:none;padding:15px 44px;border-radius:100px;font-size:1rem;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:all .25s;letter-spacing:.3px}
+    .start-btn:hover{background:#c73516;transform:translateY(-2px);box-shadow:0 10px 28px rgba(232,64,28,.3)}
+
+    /* QUIZ CARD */
+    .quiz-card{background:var(--card);border:1px solid var(--border);border-radius:24px;overflow:hidden;display:none;animation:fadeUp .4s ease}
+    .quiz-card.show{display:block}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+    /* TOPBAR */
+    .topbar{background:var(--ink);padding:1rem 1.8rem;display:flex;align-items:center;gap:1rem}
+    .qnum{color:rgba(255,255,255,.5);font-size:.78rem;font-weight:600;white-space:nowrap;min-width:70px}
+    .qnum b{color:#fff;font-size:.95rem}
+    .prog-bar{flex:1;height:5px;background:rgba(255,255,255,.15);border-radius:100px;overflow:hidden}
+    .prog-fill{height:100%;background:var(--accent);border-radius:100px;transition:width .5s ease}
+    .timer{background:rgba(255,255,255,.1);color:#fca99a;border-radius:100px;padding:5px 14px;font-size:.78rem;font-weight:700;min-width:58px;text-align:center;transition:background .3s}
+    .timer.hot{background:rgba(232,64,28,.5);color:#fff;animation:blink .5s infinite alternate}
+    @keyframes blink{from{opacity:1}to{opacity:.4}}
+
+    /* QUESTION BODY */
+    .qbody{padding:2rem 2rem 1rem}
+    .qcat{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent);margin-bottom:.8rem}
+    .qtext{font-family:'Playfair Display',serif;font-size:1.18rem;font-weight:700;line-height:1.45;color:var(--ink);margin-bottom:1.2rem}
+    .qcode{background:#1e1c18;color:#e8d5a8;padding:.9rem 1.1rem;border-radius:12px;font-family:'Courier New',monospace;font-size:.84rem;line-height:1.7;margin-bottom:1.4rem;white-space:pre;overflow-x:auto;border:1px solid #333}
+
+    /* OPTIONS GRID */
+    .opts{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1rem}
+    @media(max-width:560px){.opts{grid-template-columns:1fr}}
+    .opt{background:var(--bg);border:2px solid var(--border);border-radius:14px;padding:.9rem 1rem;font-size:.9rem;font-weight:500;text-align:left;cursor:pointer;font-family:'Outfit',sans-serif;color:var(--ink);transition:all .2s;display:flex;align-items:flex-start;gap:.7rem;line-height:1.4}
+    .opt:hover:not([disabled]){border-color:var(--accent);background:var(--tag-bg);transform:translateY(-2px);box-shadow:0 4px 16px rgba(232,64,28,.1)}
+    .opt-key{width:26px;height:26px;border-radius:8px;background:var(--border);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800;flex-shrink:0;margin-top:1px;transition:all .2s;font-family:'Outfit',sans-serif}
+    .opt-text{flex:1}
+    .opt.correct{border-color:var(--green);background:var(--green-bg)}
+    .opt.correct .opt-key{background:var(--green);color:#fff}
+    .opt.wrong{border-color:#ef4444;background:#fff0f0}
+    .opt.wrong .opt-key{background:#ef4444;color:#fff}
+    .opt.show-ans{border-color:var(--green);background:var(--green-bg);opacity:.7}
+    .opt.show-ans .opt-key{background:var(--green);color:#fff}
+    .opt[disabled]{cursor:not-allowed;transform:none!important;box-shadow:none!important}
+
+    /* EXPLAIN */
+    .explain{background:linear-gradient(135deg,#fff8f6,#fff);border:1px solid #f5cdc5;border-radius:12px;padding:1rem 1.2rem;font-size:.87rem;color:var(--ink);line-height:1.65;display:none;margin:0 2rem 1.5rem;border-left:4px solid var(--accent)}
+    .explain.show{display:block}
+    .explain strong{color:var(--accent)}
+
+    /* FOOTER BAR */
+    .qfooter{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.8rem;border-top:1px solid var(--border);background:#faf9f7}
+    .live-score{font-size:.82rem;color:var(--muted);font-weight:600}
+    .live-score b{color:var(--green);font-size:.95rem}
+    .next-btn{background:var(--ink);color:#fff;border:none;padding:9px 26px;border-radius:100px;font-size:.88rem;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;transition:all .2s;display:none;align-items:center;gap:6px}
+    .next-btn.show{display:flex}
+    .next-btn:hover{background:var(--accent)}
+
+    /* RESULT */
+    .result-card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:2.5rem 2rem;text-align:center;display:none;animation:fadeUp .5s ease}
+    .result-card.show{display:block}
+    .res-emoji{font-size:4rem;display:block;margin-bottom:.8rem}
+    .res-title{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:900;margin-bottom:.4rem}
+    .res-score{font-family:'Playfair Display',serif;font-size:4rem;font-weight:900;color:var(--accent);line-height:1;margin:.6rem 0}
+    .res-score span{font-size:1.3rem;color:var(--muted);font-weight:400}
+    .res-grade{display:inline-block;padding:7px 20px;border-radius:100px;font-weight:700;font-size:.88rem;margin-bottom:1.2rem}
+    .g-gold{background:#fef3c7;color:#92400e}
+    .g-silver{background:#f0f9ff;color:#1e40af}
+    .g-bronze{background:var(--tag-bg);color:var(--accent)}
+    .g-try{background:#fff0f0;color:#991b1b}
+    .res-msg{color:var(--muted);font-size:.93rem;line-height:1.7;max-width:440px;margin:0 auto 1.8rem}
+    .res-btns{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem}
+    .btn-dl{background:linear-gradient(135deg,#e8401c,#c73516);color:#fff;border:none;padding:12px 26px;border-radius:100px;font-size:.88rem;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:all .2s}
+    .btn-dl:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(232,64,28,.35)}
+    .btn-retry{background:var(--card);color:var(--ink);border:2px solid var(--border);padding:12px 26px;border-radius:100px;font-size:.88rem;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;transition:all .2s}
+    .btn-retry:hover{border-color:var(--ink)}
+
+    /* SAVE SCORE */
+    .save-box{background:var(--bg);border:2px dashed var(--border);border-radius:16px;padding:1.6rem;margin-top:1.2rem;text-align:left}
+    .save-box h4{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;margin-bottom:.4rem}
+    .save-box p{font-size:.83rem;color:var(--muted);margin-bottom:1rem;line-height:1.6}
+    .save-row{display:flex;gap:.7rem;flex-wrap:wrap}
+    .name-inp{flex:1;min-width:160px;background:#fff;border:1.5px solid var(--border);border-radius:100px;padding:9px 18px;font-family:'Outfit',sans-serif;font-size:.88rem;color:var(--ink);outline:none;transition:border-color .2s}
+    .name-inp:focus{border-color:var(--accent)}
+    .save-btn{background:var(--accent);color:#fff;border:none;padding:9px 22px;border-radius:100px;font-weight:600;font-size:.85rem;cursor:pointer;font-family:'Outfit',sans-serif;white-space:nowrap;transition:background .2s}
+    .save-btn:hover:not([disabled]){background:#c73516}
+    .save-btn[disabled]{opacity:.6;cursor:not-allowed}
+    .save-msg{font-size:.82rem;margin-top:.6rem;padding:.45rem 1rem;border-radius:8px;display:none}
+    .save-msg.ok{background:var(--green-bg);color:var(--green);display:block}
+    .save-msg.err{background:#fff0f0;color:#991b1b;display:block}
+
+    /* LEADERBOARD */
+    .lb-wrap{margin-top:3rem}
+    .lb-heading{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;margin-bottom:.3rem}
+    .lb-sub{font-size:.83rem;color:var(--muted);margin-bottom:1.3rem}
+    .lb-table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;font-size:.88rem}
+    .lb-table th{background:var(--ink);color:#fff;padding:.85rem 1.1rem;text-align:left;font-size:.75rem;font-weight:600;letter-spacing:.3px}
+    .lb-table td{padding:.85rem 1.1rem;border-bottom:1px solid var(--border);vertical-align:middle}
+    .lb-table tr:last-child td{border-bottom:none}
+    .lb-table tr.top1 td{background:#fffbeb}
+    .lb-table tr.top2 td{background:#f0f9ff}
+    .lb-table tr.top3 td{background:#fff7ed}
+    .medal{display:inline-flex;width:26px;height:26px;border-radius:50%;align-items:center;justify-content:center;font-size:.78rem;font-weight:700}
+    .m1{background:#fbbf24;color:#78350f}
+    .m2{background:#94a3b8;color:#1e293b}
+    .m3{background:#f97316;color:#fff}
+    .mn{background:#e5e7eb;color:#6b7280;font-size:.72rem}
+    .sbar{display:flex;align-items:center;gap:.5rem}
+    .sbar-track{flex:1;height:5px;background:var(--border);border-radius:100px;overflow:hidden}
+    .sbar-fill{height:100%;background:var(--accent);border-radius:100px}
+    .lb-empty{text-align:center;padding:2.5rem;color:var(--muted);font-size:.88rem}
+
+    /* FOOTER */
+    footer{border-top:1px solid var(--border);padding:1.8rem 6%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;max-width:1200px;margin:0 auto}
+    footer p{font-size:.8rem;color:var(--muted)}
+
+    /* LANG TOGGLE */
+    #cw-toggle{position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;align-items:center;background:rgba(20,18,15,.94);backdrop-filter:blur(16px);border-radius:100px;padding:4px;box-shadow:0 6px 28px rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.08)}
+    .cw-opt{padding:8px 18px;border-radius:100px;font-size:.72rem;font-weight:700;cursor:pointer;border:none;background:transparent;color:rgba(255,255,255,.35);font-family:'Outfit',sans-serif;letter-spacing:.8px;transition:all .25s}
+    .cw-opt.on{background:linear-gradient(135deg,#e8401c,#c73516);color:#fff;box-shadow:0 2px 12px rgba(232,64,28,.4)}
+    .cw-div{width:1px;height:12px;background:rgba(255,255,255,.1)}
+
+    canvas{display:none}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="logo">CI<span class="logo-accent">Web</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../blogs.html">Blogs</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+    <li><a href="../blogs.html" class="nav-cta" id="nav-all">Saare Blogs</a></li>
+  </ul>
+</nav>
+
+<div class="blog-hero">
+  <a href="../blogs.html" class="back-link" id="back-lnk">&#8592; Blogs pe wapas</a>
+  <div class="hero-tags">
+    <span class="tag tag-html">HTML</span>
+    <span class="tag tag-quiz">Quiz</span>
+    <span class="tag tag-cert">Certificate</span>
+    <span class="tag tag-quiz" style="background:#f0fff4;color:#16a34a">Free</span>
+  </div>
+  <h1 id="pg-title">HTML Knowledge Test &#128187;</h1>
+  <p class="sub" id="pg-sub">Socho tum HTML jaante ho? Yeh 10 tricky questions tumhari asli knowledge test karenge. Sahi jawab do, certificate pao!</p>
+</div>
+
+<div class="quiz-wrap">
+
+  <!-- INTRO -->
+  <div class="intro-card" id="intro-card">
+    <span class="intro-icon">&#9889;</span>
+    <h2 id="ic-title">HTML Quiz Challenge</h2>
+    <p id="ic-desc">10 real-world questions — beginners se advanced tak. Har answer ke baad explanation. Top score karo aur certificate download karo!</p>
+    <div class="intro-grid">
+      <div class="ibox"><div class="ibox-num">10</div><div class="ibox-lbl" id="ib-q">Sawaal</div></div>
+      <div class="ibox"><div class="ibox-num">30s</div><div class="ibox-lbl" id="ib-t">Har Sawaal</div></div>
+      <div class="ibox"><div class="ibox-num">50</div><div class="ibox-lbl" id="ib-s">Max Score</div></div>
+      <div class="ibox"><div class="ibox-num">&#127942;</div><div class="ibox-lbl" id="ib-c">Certificate</div></div>
+    </div>
+    <button class="start-btn" id="start-btn" onclick="startQuiz()">Quiz Shuru Karo &#9654;</button>
+  </div>
+
+  <!-- QUIZ CARD -->
+  <div class="quiz-card" id="quiz-card">
+    <div class="topbar">
+      <div class="qnum"><span id="tb-q">Sawaal</span> <b id="q-num">1</b>/10</div>
+      <div class="prog-bar"><div class="prog-fill" id="prog" style="width:10%"></div></div>
+      <div class="timer" id="timer">&#9200; 30s</div>
+    </div>
+    <div class="qbody">
+      <div class="qcat" id="q-cat"></div>
+      <div class="qtext" id="q-text"></div>
+      <pre class="qcode" id="q-code" style="display:none"></pre>
+      <div class="opts" id="opts"></div>
+    </div>
+    <div class="explain" id="explain"></div>
+    <div class="qfooter">
+      <div class="live-score"><span id="sc-lbl">Score:</span> <b id="live-sc">0</b>/<span id="live-tot">0</span></div>
+      <button class="next-btn" id="next-btn" onclick="nextQ()"><span id="next-lbl">Agla Sawaal</span> &#8594;</button>
+    </div>
+  </div>
+
+  <!-- RESULT -->
+  <div class="result-card" id="result-card">
+    <span class="res-emoji" id="r-emoji">&#127881;</span>
+    <div class="res-title" id="r-title">Zabardast!</div>
+    <div class="res-score"><span id="r-sc">0</span> <span>/10</span></div>
+    <div class="res-grade" id="r-grade"></div>
+    <p class="res-msg" id="r-msg"></p>
+    <div class="res-btns">
+      <button class="btn-dl" id="cert-btn" onclick="dlCert()">&#127942; <span id="cert-lbl">Certificate Download Karo</span></button>
+      <button class="btn-retry" onclick="retry()">&#128260; <span id="retry-lbl">Dobara Try Karo</span></button>
+    </div>
+    <div class="save-box">
+      <h4>&#127942; <span id="save-title">Apna Score Save Karo!</span></h4>
+      <p id="save-desc">Leaderboard mein apna naam daalo — sirf naam chahiye, koi email nahi.</p>
+      <div class="save-row">
+        <input type="text" class="name-inp" id="lb-name" maxlength="40" placeholder="Apna naam likho..."/>
+        <button class="save-btn" id="save-btn" onclick="saveScore()"><span id="save-lbl">Save &amp; Ranking Dekho</span> &#128200;</button>
+      </div>
+      <div class="save-msg" id="save-msg"></div>
+    </div>
+  </div>
+
+  <!-- LEADERBOARD -->
+  <div class="lb-wrap">
+    <div class="lb-heading">&#127942; Leaderboard</div>
+    <div class="lb-sub" id="lb-sub">Top Scorers — Coding Infinite HTML Quiz</div>
+    <table class="lb-table">
+      <thead>
+        <tr>
+          <th id="th-r">Rank</th>
+          <th id="th-n">Naam</th>
+          <th id="th-s">Score</th>
+          <th id="th-p">Progress</th>
+          <th id="th-d">Tarikh</th>
+        </tr>
+      </thead>
+      <tbody id="lb-body">
+        <tr><td colspan="5"><div class="lb-empty">&#9203; Load ho raha hai...</div></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<canvas id="cert-cv" width="1200" height="850"></canvas>
+
+<footer>
+  <a href="../index.html" class="logo">CI<span class="logo-accent">Web</span></a>
+  <p id="ft-copy">&#169; 2026 CIWeb. Sare adhikar surakshit.</p>
+  <p id="ft-love">Tech Lovers ke liye &#10084; se banaya</p>
+</footer>
+
+<div id="cw-toggle">
+  <button class="cw-opt" id="btn-hi" onclick="setLang('hi')">&#127470;&#127475; Hinglish</button>
+  <div class="cw-div"></div>
+  <button class="cw-opt" id="btn-en" onclick="setLang('en')">&#127468;&#127463; English</button>
+</div>
+
+<script>
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//  FIREBASE REST
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+var DB_URL = 'https://testingdata-2ae22-default-rtdb.firebaseio.com/quiz_scores/html.json';
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//  BILINGUAL STRINGS
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+var T = {
+  hi: {
+    navAll:'Saare Blogs', back:'&#8592; Blogs pe wapas',
+    pgTitle:'HTML Knowledge Test &#128187;',
+    pgSub:'Socho tum HTML jaante ho? Yeh 10 tricky questions tumhari asli knowledge test karenge. Sahi jawab do, certificate pao!',
+    icTitle:'HTML Quiz Challenge',
+    icDesc:'10 real-world questions — beginners se advanced tak. Har answer ke baad explanation. Top score karo aur certificate download karo!',
+    ibQ:'Sawaal', ibT:'Har Sawaal', ibS:'Max Score', ibC:'Certificate',
+    startBtn:'Quiz Shuru Karo &#9654;',
+    tbQ:'Sawaal', nextLbl:'Agla Sawaal', scLbl:'Score:',
+    certLbl:'Certificate Download Karo', retryLbl:'Dobara Try Karo',
+    saveTitle:'Apna Score Save Karo!',
+    saveDesc:'Leaderboard mein apna naam daalo — sirf naam chahiye, koi email nahi.',
+    saveLbl:'Save &amp; Ranking Dekho',
+    placeholder:'Apna naam likho...',
+    lbSub:'Top Scorers — Coding Infinite HTML Quiz',
+    thR:'Rank', thN:'Naam', thS:'Score', thP:'Progress', thD:'Tarikh',
+    ftCopy:'&#169; 2026 CIWeb. Sare adhikar surakshit.',
+    ftLove:'Tech Lovers ke liye &#10084; se banaya',
+    saving:'Save ho raha hai...', saved:'&#9989; Saved!',
+    saveOk:'Score save ho gaya! Neeche leaderboard mein dekho.',
+    saveErr:'Error aaya. Dobara try karo.',
+    nameErr:'Apna naam likho (kam se kam 2 characters)!',
+    noData:'Abhi koi score nahi. Pehle quiz do! &#127919;',
+    loadErr:'Load nahi hua. Refresh karo.',
+    timeUp:'&#9200; Time up! ',
+    correct:'&#9989; Sahi! ', wrong:'&#10060; Galat. ',
+    grades:['&#129351; Gold — HTML Master','&#129352; Silver — HTML Pro','&#129353; Bronze — HTML Learner','&#128218; Keep Learning'],
+    msgs:[
+      'Kamaal! Tum sachche HTML expert ho. Coding Infinite proud hai!',
+      'Bahut acha! Solid knowledge hai. Thodi practice se expert ban jaoge!',
+      'Achha kiya! Basics clear hain. Weak areas pe aur focus karo.',
+      'Koi baat nahi — HTML seekhna time leta hai. Blogs padho, phir try karo!'
+    ]
+  },
+  en: {
+    navAll:'All Blogs', back:'&#8592; Back to Blogs',
+    pgTitle:'HTML Knowledge Test &#128187;',
+    pgSub:'Think you know HTML? These 10 tricky questions will reveal your real knowledge. Answer correctly and get a certificate!',
+    icTitle:'HTML Quiz Challenge',
+    icDesc:'10 real-world questions — from beginner to advanced. Get an explanation after every answer. Score high and download your certificate!',
+    ibQ:'Questions', ibT:'Per Question', ibS:'Max Score', ibC:'Certificate',
+    startBtn:'Start Quiz &#9654;',
+    tbQ:'Q', nextLbl:'Next Question', scLbl:'Score:',
+    certLbl:'Download Certificate', retryLbl:'Try Again',
+    saveTitle:'Save Your Score!',
+    saveDesc:'Add your name to the leaderboard — only your name needed, no email.',
+    saveLbl:'Save &amp; Show Ranking',
+    placeholder:'Enter your name...',
+    lbSub:'Top Scorers — Coding Infinite HTML Quiz',
+    thR:'Rank', thN:'Name', thS:'Score', thP:'Progress', thD:'Date',
+    ftCopy:'&#169; 2026 CIWeb. All rights reserved.',
+    ftLove:'Made with &#10084; for Tech Lovers',
+    saving:'Saving...', saved:'&#9989; Saved!',
+    saveOk:'Score saved! Check the leaderboard below.',
+    saveErr:'Error occurred. Please try again.',
+    nameErr:'Enter your name (min 2 characters)!',
+    noData:'No scores yet. Take the quiz first! &#127919;',
+    loadErr:'Failed to load. Please refresh.',
+    timeUp:'&#9200; Time up! ',
+    correct:'&#9989; Correct! ', wrong:'&#10060; Wrong. ',
+    grades:['&#129351; Gold — HTML Master','&#129352; Silver — HTML Pro','&#129353; Bronze — HTML Learner','&#128218; Keep Learning'],
+    msgs:[
+      'Amazing! You are a true HTML expert. Coding Infinite is proud of you!',
+      'Great job! Solid HTML knowledge. A little more practice and you\'ll be an expert!',
+      'Good effort! Basics are clear. Focus on weak areas and try again.',
+      'No worries — HTML takes time to learn. Read the blogs and try again!'
+    ]
+  }
+};
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//  10 HTML QUESTIONS (bilingual)
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+var QS = [
+  {
+    cat_hi:'HTML Basics', cat_en:'HTML Basics',
+    q_hi:'HTML mein <div> aur <span> ka main fark kya hai?',
+    q_en:'What is the main difference between <div> and <span> in HTML?',
+    opts_hi:['<div> block element hai, <span> inline element hai','Dono same hain — sirf naam alag hai','<span> block element hai, <div> inline element hai','<div> sirf CSS ke liye hai'],
+    opts_en:['<div> is block element, <span> is inline element','Both are the same — just different names','<span> is block, <div> is inline','<div> is only for CSS'],
+    ans:0,
+    exp_hi:'<div> ek block-level element hai — naye line pe start hota hai aur poori width leta hai. <span> inline element hai — sirf apne content ki width leta hai aur same line pe rehta hai.',
+    exp_en:'<div> is a block-level element — starts on a new line and takes full width. <span> is inline — takes only its content width and stays on the same line.'
+  },
+  {
+    cat_hi:'Tricky Code', cat_en:'Tricky Code',
+    q_hi:'Neeche diye code ka output kya hoga?',
+    q_en:'What will be the output of the code below?',
+    code:'<p>Hello &amp;nbsp;&amp;nbsp; World</p>',
+    opts_hi:['Hello World (ek hi space ke saath)','Hello&nbsp;&nbsp;World (do extra spaces ke saath)','Error aayega','Hello &amp;nbsp;&amp;nbsp; World literally dikhega'],
+    opts_en:['Hello World (with single space)','Hello&nbsp;&nbsp;World (with two extra spaces)','It will throw an error','Hello &amp;nbsp;&amp;nbsp; World will show literally'],
+    ans:1,
+    exp_hi:'&amp;nbsp; ek non-breaking space character entity hai. Yeh normal HTML whitespace collapse nahi hota. Toh &amp;nbsp;&amp;nbsp; do visible spaces create karega.',
+    exp_en:'&amp;nbsp; is a non-breaking space character entity. Unlike regular HTML whitespace, it does not collapse. So &amp;nbsp;&amp;nbsp; creates two visible spaces.'
+  },
+  {
+    cat_hi:'Forms', cat_en:'Forms',
+    q_hi:'<input type="password"> ka kya kaam hai?',
+    q_en:'What does <input type="password"> do?',
+    opts_hi:['Input automatically encrypt hota hai aur server ko secure bheja jaata hai','Text dots/asterisks se mask hota hai — security server side handle karni padti hai','Form automatically submit hota hai','Password strength check hoti hai automatically'],
+    opts_en:['Input is automatically encrypted and sent securely to the server','Text is masked with dots/asterisks — actual security must be handled server-side','The form submits automatically','It automatically checks password strength'],
+    ans:1,
+    exp_hi:'type="password" sirf characters ko screen pe mask karta hai (dots ya asterisks). Yeh koi encryption nahi karta. Real security ke liye HTTPS aur server-side hashing zaroori hai.',
+    exp_en:'type="password" only masks characters on screen (dots or asterisks). It does NOT encrypt anything. Real security requires HTTPS and server-side password hashing.'
+  },
+  {
+    cat_hi:'Semantic HTML', cat_en:'Semantic HTML',
+    q_hi:'<b> aur <strong> dono text ko bold karte hain — toh fark kya hai?',
+    q_en:'Both <b> and <strong> make text bold — what is the difference?',
+    opts_hi:['Koi fark nahi, dono same hain','<strong> semantic importance deta hai (screen readers bold bolenge), <b> sirf visual styling hai','<b> zyada modern tag hai','<strong> sirf CSS ke saath kaam karta hai'],
+    opts_en:['No difference, they are the same','<strong> conveys semantic importance (screen readers announce it), <b> is purely visual','<b> is the more modern tag','<strong> only works with CSS'],
+    ans:1,
+    exp_hi:'<strong> screen readers ko batata hai ki yeh content important hai — wo ise alag tone mein bolenge. <b> sirf visual bold hai, koi semantic meaning nahi. HTML5 mein <strong> prefer karo.',
+    exp_en:'<strong> tells screen readers the content is important — they may announce it differently. <b> is purely visual styling with no semantic meaning. Prefer <strong> in HTML5.'
+  },
+  {
+    cat_hi:'Tricky Bug', cat_en:'Tricky Bug',
+    q_hi:'Is code mein kya galat hai?',
+    q_en:'What is wrong with this code?',
+    code:'<img src="photo.jpg" width="300">',
+    opts_hi:['Kuch galat nahi — bilkul sahi hai','alt attribute missing hai — accessibility aur SEO ke liye zaroori hai','width attribute galat jagah hai','src ko href hona chahiye'],
+    opts_en:['Nothing wrong — it is perfectly correct','alt attribute is missing — required for accessibility and SEO','The width attribute is in the wrong place','src should be href'],
+    ans:1,
+    exp_hi:'alt attribute missing hai! Yeh SEO ke liye zaroori hai (Google images alt padh kar rank karta hai) aur accessibility ke liye bhi — screen readers alt text padhte hain. Hamesha alt daalo.',
+    exp_en:'The alt attribute is missing! It is required for SEO (Google reads alt text to rank images) and accessibility — screen readers read alt text for visually impaired users. Always include alt.'
+  },
+  {
+    cat_hi:'Advanced Nesting', cat_en:'Advanced Nesting',
+    q_hi:'Kaunsa nesting HTML mein invalid hai?',
+    q_en:'Which nesting is invalid in HTML?',
+    opts_hi:['<ul><li>Item</li></ul>','<a href="#"><button>Click</button></a>','<p><em>Text</em></p>','<table><tr><td>Data</td></tr></table>'],
+    opts_en:['<ul><li>Item</li></ul>','<a href="#"><button>Click</button></a>','<p><em>Text</em></p>','<table><tr><td>Data</td></tr></table>'],
+    ans:1,
+    exp_hi:'W3C spec ke mutabiq interactive elements (<a>, <button>, <input>) ke andar doosra interactive element nahi aa sakta. <a> ke andar <button> — ya <button> ke andar <a> — dono invalid hain.',
+    exp_en:'According to W3C spec, interactive elements (<a>, <button>, <input>) cannot be nested inside each other. <a> inside <button> or <button> inside <a> are both invalid HTML.'
+  },
+  {
+    cat_hi:'Meta Tags', cat_en:'Meta Tags',
+    q_hi:'Kaunsa meta tag mobile pe page sahi size mein dikhane ke liye zaroori hai?',
+    q_en:'Which meta tag is essential for displaying a page correctly on mobile devices?',
+    opts_hi:['<meta name="mobile" content="true">','<meta name="viewport" content="width=device-width, initial-scale=1">','<meta name="responsive" content="yes">','<meta name="screen" content="mobile">'],
+    opts_en:['<meta name="mobile" content="true">','<meta name="viewport" content="width=device-width, initial-scale=1">','<meta name="responsive" content="yes">','<meta name="screen" content="mobile">'],
+    ans:1,
+    exp_hi:'Viewport meta tag bina mobile browser page ko desktop ke jaisa render karta hai aur zoom out kar deta hai. Yeh tag responsive design ka sabse pehla step hai.',
+    exp_en:'Without the viewport meta tag, mobile browsers render the page like a desktop and zoom it out. This tag is the very first step to responsive web design.'
+  },
+  {
+    cat_hi:'Tables', cat_en:'Tables',
+    q_hi:'HTML table mein <th> aur <td> mein kya fark hai?',
+    q_en:'What is the difference between <th> and <td> in an HTML table?',
+    opts_hi:['Koi fark nahi — dono table cell hain','<th> header cell hai (bold, centered, semantic), <td> data cell hai','<td> header ke liye hai, <th> data ke liye','<th> sirf pehli row mein aa sakta hai'],
+    opts_en:['No difference — both are table cells','<th> is a header cell (bold, centered, semantic), <td> is a data cell','<td> is for headers, <th> is for data','<th> can only appear in the first row'],
+    ans:1,
+    exp_hi:'<th> (table header) automatically bold aur center align hota hai. Semantic meaning bhi hai — screen readers column/row ko header se associate karte hain. <td> sirf data cell hai.',
+    exp_en:'<th> (table header) is automatically bold and center-aligned. It also has semantic meaning — screen readers associate columns/rows with their headers. <td> is just a data cell.'
+  },
+  {
+    cat_hi:'HTML5 APIs', cat_en:'HTML5 APIs',
+    q_hi:'HTML5 mein <canvas> element ka kya use hai?',
+    q_en:'What is the use of the <canvas> element in HTML5?',
+    opts_hi:['Sirf images display karne ke liye','JavaScript se 2D/3D graphics, animations aur games banane ke liye','CSS animations ke liye','Video embed karne ke liye'],
+    opts_en:['Only for displaying images','For drawing 2D/3D graphics, animations and games using JavaScript','For CSS animations','For embedding videos'],
+    ans:1,
+    exp_hi:'<canvas> ek drawing surface hai. JavaScript (Canvas API ya WebGL) use karke tum graphs, animations, image editors, aur poore games bana sakte ho. Yahi is page pe certificate banta hai!',
+    exp_en:'<canvas> is a drawing surface. Using JavaScript (Canvas API or WebGL) you can draw graphs, animations, image editors, and even full games. That\'s how this page generates the certificate!'
+  },
+  {
+    cat_hi:'Final Boss &#128293;', cat_en:'Final Boss &#128293;',
+    q_hi:'Yeh code browser mein kaisa render hoga?',
+    q_en:'How will this code render in the browser?',
+    code:'<p>1 &lt; 2 &amp;&amp; 3 &gt; 2</p>',
+    opts_hi:['1 < 2 && 3 > 2 (actual symbols dikhenge)','Error aayega kyunki < aur > HTML mein allowed nahi','Blank page dikhega','1 &lt; 2 &amp;&amp; 3 &gt; 2 literally dikhega'],
+    opts_en:['1 < 2 && 3 > 2 (actual symbols will appear)','Error because < and > are not allowed in HTML','A blank page will appear','1 &lt; 2 &amp;&amp; 3 &gt; 2 will show literally'],
+    ans:0,
+    exp_hi:'HTML character entities browser mein actual characters mein convert hote hain. &amp;lt; → <, &amp;gt; → >, &amp;amp; → &. Toh output hoga: 1 < 2 && 3 > 2',
+    exp_en:'HTML character entities are converted to actual characters by the browser. &amp;lt; → <, &amp;gt; → >, &amp;amp; → &. So the output will be: 1 < 2 && 3 > 2'
+  }
+];
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//  LANG SYSTEM
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+var LANG = 'hi';
+
+function setLang(l) {
+  LANG = l;
+  localStorage.setItem('ciweb_lang', l);
+  var t = T[l];
+
+  // Update all static UI text
+  document.getElementById('nav-all').innerHTML  = t.navAll;
+  document.getElementById('back-lnk').innerHTML = t.back;
+  document.getElementById('pg-title').innerHTML  = t.pgTitle;
+  document.getElementById('pg-sub').innerHTML    = t.pgSub;
+  document.getElementById('ic-title').innerHTML  = t.icTitle;
+  document.getElementById('ic-desc').innerHTML   = t.icDesc;
+  document.getElementById('ib-q').innerHTML      = t.ibQ;
+  document.getElementById('ib-t').innerHTML      = t.ibT;
+  document.getElementById('ib-s').innerHTML      = t.ibS;
+  document.getElementById('ib-c').innerHTML      = t.ibC;
+  document.getElementById('start-btn').innerHTML = t.startBtn;
+  document.getElementById('tb-q').innerHTML      = t.tbQ;
+  document.getElementById('next-lbl').innerHTML  = t.nextLbl;
+  document.getElementById('sc-lbl').innerHTML    = t.scLbl;
+  document.getElementById('cert-lbl').innerHTML  = t.certLbl;
+  document.getElementById('retry-lbl').innerHTML = t.retryLbl;
+  document.getElementById('save-title').innerHTML= t.saveTitle;
+  document.getElementById('save-desc').innerHTML = t.saveDesc;
+  document.getElementById('save-lbl').innerHTML  = t.saveLbl;
+  document.getElementById('lb-sub').innerHTML    = t.lbSub;
+  document.getElementById('th-r').innerHTML      = t.thR;
+  document.getElementById('th-n').innerHTML      = t.thN;
+  document.getElementById('th-s').innerHTML      = t.thS;
+  document.getElementById('th-p').innerHTML      = t.thP;
+  document.getElementById('th-d').innerHTML      = t.thD;
+  document.getElementById('ft-copy').innerHTML   = t.ftCopy;
+  document.getElementById('ft-love').innerHTML   = t.ftLove;
+
+  // placeholder
+  var inp = document.getElementById('lb-name');
+  if (inp) inp.placeholder = t.placeholder;
+
+  // toggle buttons
+  document.getElementById('btn-hi').classList.toggle('on', l === 'hi');
+  document.getElementById('btn-en').classList.toggle('on', l === 'en');
+
+  // If quiz is active, re-render current question
+  if (document.getElementById('quiz-card').classList.contains('show') && QS[cur]) {
+    renderQ(cur, true); // re-render without resetting timer
+  }
+}
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//  QUIZ LOGIC
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+var cur = 0, score = 0, answered = false, tmr = null, timeLeft = 30, finalScore = 0;
+
+function startQuiz() {
+  cur = 0; score = 0; answered = false;
+  document.getElementById('intro-card').style.display = 'none';
+  document.getElementById('result-card').classList.remove('show');
+  document.getElementById('quiz-card').classList.add('show');
+  loadQ(0);
+}
+
+function loadQ(idx) {
+  answered = false;
+  timeLeft  = 30;
+  renderQ(idx, false);
+  clearInterval(tmr);
+  updateTimer();
+  tmr = setInterval(function() {
+    timeLeft--;
+    updateTimer();
+    if (timeLeft <= 0) { clearInterval(tmr); if (!answered) timeUp(); }
+  }, 1000);
+}
+
+function renderQ(idx, keepAnswered) {
+  var q  = QS[idx];
+  var t  = T[LANG];
+  var q_text = LANG === 'en' ? q.q_en : q.q_hi;
+  var opts   = LANG === 'en' ? q.opts_en : q.opts_hi;
+  var cat    = LANG === 'en' ? q.cat_en : q.cat_hi;
+
+  document.getElementById('q-num').textContent = idx + 1;
+  document.getElementById('prog').style.width  = ((idx + 1) / 10 * 100) + '%';
+  document.getElementById('q-cat').textContent  = cat;
+  document.getElementById('q-text').textContent = q_text;
+
+  // code block
+  var cEl = document.getElementById('q-code');
+  if (q.code) {
+    cEl.style.display = 'block';
+    // decode &amp; back for display
+    cEl.textContent = q.code.replace(/&amp;/g, '&');
+  } else {
+    cEl.style.display = 'none';
+  }
+
+  // options
+  var keys = ['A','B','C','D'];
+  var html = '';
+  for (var i = 0; i < opts.length; i++) {
+    html += '<button class="opt" onclick="pick(' + i + ')" id="opt-' + i + '">'
+          + '<span class="opt-key">' + keys[i] + '</span>'
+          + '<span class="opt-text">' + opts[i] + '</span>'
+          + '</button>';
+  }
+  document.getElementById('opts').innerHTML = html;
+
+  // explanation
+  var exEl = document.getElementById('explain');
+  exEl.className = 'explain';
+  exEl.innerHTML  = '';
+
+  // footer
+  document.getElementById('live-sc').textContent  = score;
+  document.getElementById('live-tot').textContent = idx;
+  document.getElementById('next-btn').classList.remove('show');
+
+  // If lang changed mid-question after answering, restore state
+  if (keepAnswered && answered) {
+    var btns = document.querySelectorAll('.opt');
+    btns.forEach(function(b) { b.disabled = true; });
+    if (lastPick !== undefined && lastPick !== q.ans) {
+      btns[lastPick].classList.add('wrong');
+    }
+    btns[q.ans].classList.add(lastPick === q.ans ? 'correct' : 'show-ans');
+    showExplain(idx);
+    document.getElementById('next-btn').classList.add('show');
+  }
+}
+
+var lastPick;
+
+function pick(idx) {
+  if (answered) return;
+  answered = true;
+  lastPick = idx;
+  clearInterval(tmr);
+
+  var q    = QS[cur];
+  var btns = document.querySelectorAll('.opt');
+  btns.forEach(function(b) { b.disabled = true; });
+
+  if (idx === q.ans) {
+    btns[idx].classList.add('correct');
+    score++;
+  } else {
+    btns[idx].classList.add('wrong');
+    btns[q.ans].classList.add('show-ans');
+  }
+
+  showExplain(cur);
+  document.getElementById('live-sc').textContent  = score;
+  document.getElementById('live-tot').textContent = cur + 1;
+  document.getElementById('next-btn').classList.add('show');
+}
+
+function timeUp() {
+  answered = true;
+  lastPick = -1;
+  var btns = document.querySelectorAll('.opt');
+  btns.forEach(function(b) { b.disabled = true; });
+  btns[QS[cur].ans].classList.add('show-ans');
+  showExplain(cur, true);
+  document.getElementById('live-tot').textContent = cur + 1;
+  document.getElementById('next-btn').classList.add('show');
+}
+
+function showExplain(idx, isTimeUp) {
+  var q    = QS[idx];
+  var t    = T[LANG];
+  var exp  = LANG === 'en' ? q.exp_en : q.exp_hi;
+  var prefix = isTimeUp ? t.timeUp : (lastPick === q.ans ? t.correct : t.wrong);
+  var exEl = document.getElementById('explain');
+  exEl.innerHTML = '<strong>' + prefix + '</strong>' + exp;
+  exEl.classList.add('show');
+}
+
+function updateTimer() {
+  var el = document.getElementById('timer');
+  el.textContent = '\u23F1 ' + timeLeft + 's';
+  if (timeLeft <= 10) el.classList.add('hot'); else el.classList.remove('hot');
+}
+
+function nextQ() {
+  cur++;
+  if (cur >= QS.length) showResult(); else loadQ(cur);
+}
+
+function showResult() {
+  clearInterval(tmr);
+  document.getElementById('quiz-card').classList.remove('show');
+  var rc = document.getElementById('result-card');
+  rc.classList.add('show');
+  finalScore = score;
+
+  var t   = T[LANG];
+  var pct = score / 10;
+  var emoji, gIdx, mIdx;
+  if (score >= 9)      { emoji='&#127942;'; gIdx=0; mIdx=0; }
+  else if (score >= 7) { emoji='&#129352;'; gIdx=1; mIdx=1; }
+  else if (score >= 5) { emoji='&#129353;'; gIdx=2; mIdx=2; }
+  else                 { emoji='&#128218;'; gIdx=3; mIdx=3; }
+
+  document.getElementById('r-emoji').innerHTML = emoji;
+  document.getElementById('r-title').textContent = score >= 9 ? (LANG==='en'?'HTML Expert!':'HTML Expert!') : score >= 7 ? (LANG==='en'?'Great Job!':'Bahut Acha!') : score >= 5 ? (LANG==='en'?'Good Effort!':'Achha Kiya!') : (LANG==='en'?'Keep Practicing!':'Aur Practice Karo!');
+  document.getElementById('r-sc').textContent    = score;
+  document.getElementById('r-grade').innerHTML   = t.grades[gIdx];
+  document.getElementById('r-grade').className   = 'res-grade ' + ['g-gold','g-silver','g-bronze','g-try'][gIdx];
+  document.getElementById('r-msg').textContent   = t.msgs[mIdx];
+  document.getElementById('cert-btn').style.display = score >= 5 ? 'inline-block' : 'none';
+
+  // Reset save box
+  document.getElementById('save-msg').className = 'save-msg';
+  document.getElementById('lb-name').value = '';
+  var sb = document.getElementById('save-btn');
+  sb.disabled = false;
+  sb.innerHTML = '<span id="save-lbl">' + t.saveLbl + '</span> &#128200;';
+  setLang(LANG);
+}
+
+function retry() {
+  cur = 0; score = 0; answered = false; lastPick = undefined;
+  document.getElementById('result-card').classList.remove('show');
+  document.getElementById('intro-card').style.display = 'block';
+}
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//  CERTIFICATE
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+function dlCert() {
+  var cv  = document.getElementById('cert-cv');
+  var ctx = cv.getContext('2d');
+  var W = 1200, H = 850;
+  ctx.clearRect(0, 0, W, H);
+
+  // BG
+  ctx.fillStyle = '#fdfaf5'; ctx.fillRect(0,0,W,H);
+  // Borders
+  ctx.strokeStyle='#e8401c'; ctx.lineWidth=10; ctx.strokeRect(24,24,W-48,H-48);
+  ctx.strokeStyle='#1a1814'; ctx.lineWidth=2;  ctx.strokeRect(40,40,W-80,H-80);
+  // Corner dots
+  [[60,60],[W-60,60],[60,H-60],[W-60,H-60]].forEach(function(p){
+    ctx.fillStyle='#e8401c'; ctx.beginPath(); ctx.arc(p[0],p[1],7,0,Math.PI*2); ctx.fill();
+  });
+
+  ctx.textAlign = 'center';
+  // Logo
+  ctx.font='bold 46px serif'; ctx.fillStyle='#1a1814'; ctx.fillText('CI',W/2-26,138);
+  ctx.fillStyle='#e8401c'; ctx.fillText('Web',W/2+40,138);
+  // Subtitle
+  ctx.fillStyle='#7a7570'; ctx.font='500 14px sans-serif';
+  ctx.fillText('C E R T I F I C A T E   O F   A C H I E V E M E N T',W/2,176);
+  // Line
+  ctx.strokeStyle='#e8401c'; ctx.lineWidth=1.5;
+  ctx.beginPath(); ctx.moveTo(W/2-220,194); ctx.lineTo(W/2+220,194); ctx.stroke();
+  // This certifies
+  ctx.fillStyle='#7a7570'; ctx.font='300 20px sans-serif';
+  ctx.fillText('This certifies that',W/2,252);
+  // Name
+  var name = document.getElementById('lb-name').value.trim() || 'HTML Champion';
+  ctx.fillStyle='#1a1814'; ctx.font='bold 54px serif'; ctx.fillText(name,W/2,338);
+  var nw = ctx.measureText(name).width;
+  ctx.strokeStyle='#e8401c'; ctx.lineWidth=2;
+  ctx.beginPath(); ctx.moveTo(W/2-nw/2,354); ctx.lineTo(W/2+nw/2,354); ctx.stroke();
+  // Body
+  ctx.fillStyle='#7a7570'; ctx.font='300 20px sans-serif';
+  ctx.fillText('has successfully completed the',W/2,406);
+  ctx.fillStyle='#1a1814'; ctx.font='bold 30px serif';
+  ctx.fillText('HTML Knowledge Quiz Challenge',W/2,448);
+  ctx.fillStyle='#7a7570'; ctx.font='300 17px sans-serif';
+  ctx.fillText('conducted by Coding Infinite \u00D7 CIWeb',W/2,480);
+  // Score pill
+  ctx.fillStyle='#e8401c';
+  ctx.beginPath(); ctx.roundRect(W/2-110,504,220,62,31); ctx.fill();
+  ctx.fillStyle='#fff'; ctx.font='bold 26px sans-serif';
+  ctx.fillText('Score: '+finalScore+' / 10',W/2,543);
+  // Date
+  var today=new Date().toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'});
+  ctx.fillStyle='#7a7570'; ctx.font='300 15px sans-serif';
+  ctx.fillText('Date: '+today,W/2,608);
+  // Signature
+  ctx.strokeStyle='#1a1814'; ctx.lineWidth=1.2;
+  ctx.beginPath(); ctx.moveTo(W/2-120,712); ctx.lineTo(W/2+120,712); ctx.stroke();
+  ctx.fillStyle='#1a1814'; ctx.font='bold 18px sans-serif'; ctx.fillText('Coding Infinite',W/2,736);
+  ctx.fillStyle='#7a7570'; ctx.font='300 13px sans-serif'; ctx.fillText('Founder, CIWeb',W/2,756);
+  // Watermark
+  ctx.save(); ctx.globalAlpha=0.04; ctx.font='bold 140px serif'; ctx.fillStyle='#e8401c';
+  ctx.translate(W/2,H/2); ctx.rotate(-0.3); ctx.fillText('CIWeb',0,0); ctx.restore();
+
+  var link=document.createElement('a');
+  link.download='CIWeb_HTML_Certificate_'+name.replace(/\s+/g,'_')+'.png';
+  link.href=cv.toDataURL('image/png');
+  link.click();
+}
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//  FIREBASE SAVE + LEADERBOARD
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+function saveScore() {
+  var name  = document.getElementById('lb-name').value.trim();
+  var msgEl = document.getElementById('save-msg');
+  var sBtn  = document.getElementById('save-btn');
+  var t     = T[LANG];
+  msgEl.className = 'save-msg';
+  if (!name || name.length < 2) {
+    msgEl.className = 'save-msg err';
+    msgEl.textContent = t.nameErr;
+    return;
+  }
+  sBtn.disabled  = true;
+  sBtn.innerHTML = t.saving;
+  fetch(DB_URL, {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({name:name, score:finalScore, total:10, percent:Math.round(finalScore/10*100), timestamp:new Date().toISOString()})
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(){
+    msgEl.className   = 'save-msg ok';
+    msgEl.textContent = t.saveOk;
+    sBtn.innerHTML    = t.saved;
+    loadLB();
+  })
+  .catch(function(){
+    msgEl.className   = 'save-msg err';
+    msgEl.textContent = t.saveErr;
+    sBtn.disabled     = false;
+    sBtn.innerHTML    = '<span id="save-lbl">'+t.saveLbl+'</span> &#128200;';
+  });
+}
+
+function loadLB() {
+  var tbody = document.getElementById('lb-body');
+  fetch(DB_URL + '?orderBy="score"&limitToLast=50')
+  .then(function(r){ return r.json(); })
+  .then(function(data){
+    if (!data || typeof data !== 'object' || !Object.keys(data).length) {
+      tbody.innerHTML = '<tr><td colspan="5"><div class="lb-empty">' + T[LANG].noData + '</div></td></tr>';
+      return;
+    }
+    var rows = Object.values(data);
+    rows.sort(function(a,b){ return b.score !== a.score ? b.score - a.score : new Date(b.timestamp)-new Date(a.timestamp); });
+    var html = '';
+    rows.slice(0,20).forEach(function(e,i){
+      var r = i+1;
+      var badge = r===1 ? '<span class="medal m1">&#129351;</span>'
+                : r===2 ? '<span class="medal m2">&#129352;</span>'
+                : r===3 ? '<span class="medal m3">&#129353;</span>'
+                : '<span class="medal mn">'+r+'</span>';
+      var pct = Math.round((e.score/(e.total||10))*100);
+      var cls = r===1?'top1':r===2?'top2':r===3?'top3':'';
+      var dt  = '';
+      try{ dt=new Date(e.timestamp).toLocaleDateString('en-IN',{day:'numeric',month:'short'}); }catch(x){}
+      html += '<tr class="'+cls+'">'
+        +'<td>'+badge+'</td>'
+        +'<td><strong>'+esc(e.name)+'</strong></td>'
+        +'<td><strong style="color:var(--accent)">'+e.score+'</strong>/'+(e.total||10)+'</td>'
+        +'<td><div class="sbar"><div class="sbar-track"><div class="sbar-fill" style="width:'+pct+'%"></div></div><small style="color:var(--muted);min-width:32px;font-size:.78rem">'+pct+'%</small></div></td>'
+        +'<td style="color:var(--muted);font-size:.8rem">'+dt+'</td>'
+        +'</tr>';
+    });
+    tbody.innerHTML = html;
+  })
+  .catch(function(){
+    tbody.innerHTML='<tr><td colspan="5"><div class="lb-empty">'+T[LANG].loadErr+'</div></td></tr>';
+  });
+}
+
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//  INIT
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+document.addEventListener('DOMContentLoaded', function(){
+  LANG = localStorage.getItem('ciweb_lang') || 'hi';
+  setLang(LANG);
+  loadLB();
+});
+</script>
+</body>
+</html>
