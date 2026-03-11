@@ -236,19 +236,17 @@
     <div class="res-score"><span id="r-sc">0</span> <span>/10</span></div>
     <div class="res-grade" id="r-grade"></div>
     <p class="res-msg" id="r-msg"></p>
+    <div class="save-box">
+      <h4>&#128100; <span id="save-title">Apna Naam Daalo</span></h4>
+      <p id="save-desc">Certificate aur Leaderboard dono mein yahi naam aayega!</p>
+      <input type="text" class="name-inp" id="lb-name" maxlength="40" placeholder="Apna naam likho..." style="width:100%;margin-bottom:.5rem"/>
+    </div>
     <div class="res-btns">
       <button class="btn-dl" id="cert-btn" onclick="dlCert()">&#127942; <span id="cert-lbl">Certificate Download Karo</span></button>
+      <button class="save-btn" id="save-btn" onclick="saveScore()"><span id="save-lbl">Leaderboard mein Save Karo</span> &#128200;</button>
       <button class="btn-retry" onclick="retry()">&#128260; <span id="retry-lbl">Dobara Try Karo</span></button>
     </div>
-    <div class="save-box">
-      <h4>&#127942; <span id="save-title">Apna Score Save Karo!</span></h4>
-      <p id="save-desc">Leaderboard mein apna naam daalo — sirf naam chahiye, koi email nahi.</p>
-      <div class="save-row">
-        <input type="text" class="name-inp" id="lb-name" maxlength="40" placeholder="Apna naam likho..."/>
-        <button class="save-btn" id="save-btn" onclick="saveScore()"><span id="save-lbl">Save &amp; Ranking Dekho</span> &#128200;</button>
-      </div>
-      <div class="save-msg" id="save-msg"></div>
-    </div>
+    <div class="save-msg" id="save-msg"></div>
   </div>
 
   <!-- LEADERBOARD -->
@@ -306,8 +304,8 @@ var T = {
     startBtn:'Quiz Shuru Karo &#9654;',
     tbQ:'Sawaal', nextLbl:'Agla Sawaal', scLbl:'Score:',
     certLbl:'Certificate Download Karo', retryLbl:'Dobara Try Karo',
-    saveTitle:'Apna Score Save Karo!',
-    saveDesc:'Leaderboard mein apna naam daalo — sirf naam chahiye, koi email nahi.',
+    saveTitle:'Apna Naam Daalo',
+    saveDesc:'Certificate aur Leaderboard dono mein yahi naam aayega!',
     saveLbl:'Save &amp; Ranking Dekho',
     placeholder:'Apna naam likho...',
     lbSub:'Top Scorers — Coding Infinite HTML Quiz',
@@ -340,8 +338,8 @@ var T = {
     startBtn:'Start Quiz &#9654;',
     tbQ:'Q', nextLbl:'Next Question', scLbl:'Score:',
     certLbl:'Download Certificate', retryLbl:'Try Again',
-    saveTitle:'Save Your Score!',
-    saveDesc:'Add your name to the leaderboard — only your name needed, no email.',
+    saveTitle:'Enter Your Name',
+    saveDesc:'This name will appear on your certificate and leaderboard!',
     saveLbl:'Save &amp; Show Ranking',
     placeholder:'Enter your name...',
     lbSub:'Top Scorers — Coding Infinite HTML Quiz',
@@ -721,197 +719,240 @@ function retry() {
 //  CERTIFICATE
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 function dlCert() {
+  var name = (document.getElementById('lb-name').value || '').trim();
+  if (!name || name.length < 2) {
+    var msgEl = document.getElementById('save-msg');
+    msgEl.className = 'save-msg err';
+    msgEl.textContent = (LANG==='en') ? 'Please enter your name first!' : 'Pehle apna naam daalo!';
+    document.getElementById('lb-name').focus();
+    return;
+  }
+
+  var SIGN_URL = 'https://i.ibb.co/FkSg7chp/1000016058-removebg-preview-1.png';
+  var signImg  = new Image();
+  signImg.crossOrigin = 'anonymous';
+  signImg.onload  = function(){ drawCert(name, signImg); };
+  signImg.onerror = function(){ drawCert(name, null); };
+  signImg.src = SIGN_URL;
+}
+
+function drawCert(name, signImg) {
   var cv  = document.getElementById('cert-cv');
   var ctx = cv.getContext('2d');
-  var W = 1400, H = 900;
+  var W = 1600, H = 1100;
   cv.width = W; cv.height = H;
   ctx.clearRect(0,0,W,H);
 
-  // === BACKGROUND GRADIENT ===
-  var bgGrad = ctx.createLinearGradient(0,0,W,H);
-  bgGrad.addColorStop(0,'#0f0c29');
-  bgGrad.addColorStop(0.5,'#302b63');
-  bgGrad.addColorStop(1,'#24243e');
-  ctx.fillStyle = bgGrad;
+  // ── BACKGROUND: Cream/Ivory light ──
+  ctx.fillStyle = '#fffdf7';
   ctx.fillRect(0,0,W,H);
 
-  // === DECORATIVE CIRCLES (background) ===
+  // ── SUBTLE TEXTURE (dots pattern) ──
   ctx.save();
-  ctx.globalAlpha = 0.08;
-  ctx.fillStyle = '#e8401c';
-  ctx.beginPath(); ctx.arc(-80, -80, 300, 0, Math.PI*2); ctx.fill();
-  ctx.beginPath(); ctx.arc(W+80, H+80, 300, 0, Math.PI*2); ctx.fill();
-  ctx.globalAlpha = 0.05;
-  ctx.fillStyle = '#fff';
-  ctx.beginPath(); ctx.arc(W+50, 50, 250, 0, Math.PI*2); ctx.fill();
+  ctx.fillStyle = 'rgba(232,64,28,0.03)';
+  for(var xi=0; xi<W; xi+=40) {
+    for(var yi=0; yi<H; yi+=40) {
+      ctx.beginPath(); ctx.arc(xi,yi,1.5,0,Math.PI*2); ctx.fill();
+    }
+  }
   ctx.restore();
 
-  // === GLOWING BORDER ===
-  ctx.save();
-  ctx.shadowColor = '#e8401c';
-  ctx.shadowBlur = 30;
+  // ── OUTER BORDER (thick accent) ──
   ctx.strokeStyle = '#e8401c';
-  ctx.lineWidth = 3;
-  ctx.strokeRect(30,30,W-60,H-60);
-  ctx.shadowBlur = 0;
-  ctx.strokeStyle = 'rgba(255,255,255,0.15)';
-  ctx.lineWidth = 1;
-  ctx.strokeRect(44,44,W-88,H-88);
-  ctx.restore();
+  ctx.lineWidth   = 18;
+  ctx.strokeRect(20,20,W-40,H-40);
 
-  // === CORNER ACCENTS ===
-  var corners = [[50,50],[W-50,50],[50,H-50],[W-50,H-50]];
-  var cAngles = [[0,Math.PI/2],[Math.PI/2,Math.PI],[Math.PI*1.5,Math.PI*2],[Math.PI,Math.PI*1.5]];
-  corners.forEach(function(p,i){
+  // ── INNER BORDER (thin dark) ──
+  ctx.strokeStyle = '#1a1814';
+  ctx.lineWidth   = 2;
+  ctx.strokeRect(44,44,W-88,H-88);
+
+  // ── CORNER ORNAMENTS ──
+  function corner(x,y,sx,sy) {
     ctx.save();
     ctx.strokeStyle = '#e8401c';
-    ctx.lineWidth = 4;
-    ctx.lineCap = 'round';
+    ctx.lineWidth   = 3;
+    ctx.lineCap     = 'round';
     ctx.beginPath();
-    ctx.arc(p[0],p[1],22,cAngles[i][0],cAngles[i][1]);
+    ctx.moveTo(x,y+sy*40); ctx.lineTo(x,y); ctx.lineTo(x+sx*40,y);
     ctx.stroke();
+    ctx.fillStyle = '#e8401c';
+    ctx.beginPath(); ctx.arc(x,y,6,0,Math.PI*2); ctx.fill();
     ctx.restore();
-  });
+  }
+  corner(60,60, 1, 1);  corner(W-60,60, -1, 1);
+  corner(60,H-60, 1,-1); corner(W-60,H-60,-1,-1);
 
-  ctx.textAlign = 'center';
-  ctx.fillStyle = '#fff';
-
-  // === TOP BADGE ===
+  // ── TOP RIBBON ──
   ctx.save();
-  var badgeGrad = ctx.createLinearGradient(W/2-80,60,W/2+80,100);
-  badgeGrad.addColorStop(0,'#e8401c');
-  badgeGrad.addColorStop(1,'#ff6b3d');
-  ctx.fillStyle = badgeGrad;
-  ctx.shadowColor = '#e8401c';
-  ctx.shadowBlur = 20;
-  ctx.beginPath(); ctx.roundRect(W/2-100,58,200,42,21); ctx.fill();
+  var ribGrad = ctx.createLinearGradient(W/2-200,0,W/2+200,0);
+  ribGrad.addColorStop(0,'transparent');
+  ribGrad.addColorStop(0.2,'#e8401c');
+  ribGrad.addColorStop(0.8,'#e8401c');
+  ribGrad.addColorStop(1,'transparent');
+  ctx.fillStyle = ribGrad;
+  ctx.fillRect(0,80,W,52);
   ctx.restore();
-  ctx.fillStyle = '#fff';
-  ctx.font = 'bold 14px sans-serif';
-  ctx.fillText('CERTIFICATE OF ACHIEVEMENT', W/2, 84);
+  ctx.textAlign  = 'center';
+  ctx.fillStyle  = '#fff';
+  ctx.font       = '600 17px sans-serif';
+  ctx.letterSpacing = '4px';
+  ctx.fillText('C E R T I F I C A T E   O F   A C H I E V E M E N T', W/2, 113);
+  ctx.letterSpacing = '0px';
 
-  // === LOGO ===
-  ctx.font = 'bold 52px serif';
-  ctx.fillStyle = '#fff';
-  ctx.fillText('CI', W/2-28, 158);
+  // ── LOGO ──
+  ctx.font      = 'bold 60px serif';
+  ctx.fillStyle = '#1a1814';
+  ctx.fillText('CI', W/2-34,190);
   ctx.fillStyle = '#e8401c';
-  ctx.fillText('Web', W/2+42, 158);
+  ctx.fillText('Web', W/2+52,190);
 
-  // === DIVIDER LINE WITH DOTS ===
-  ctx.save();
-  ctx.strokeStyle = 'rgba(255,255,255,0.2)';
-  ctx.lineWidth = 1;
-  ctx.setLineDash([4,6]);
-  ctx.beginPath(); ctx.moveTo(W/2-260,178); ctx.lineTo(W/2+260,178); ctx.stroke();
-  ctx.setLineDash([]);
-  ctx.restore();
+  // ── TAGLINE ──
+  ctx.font      = '300 16px sans-serif';
+  ctx.fillStyle = '#7a7570';
+  ctx.fillText('Coding Infinite × CIWeb', W/2, 218);
+
+  // ── DIVIDER WITH ORNAMENT ──
+  ctx.strokeStyle = '#e2ddd6';
+  ctx.lineWidth   = 1;
+  ctx.beginPath(); ctx.moveTo(W/2-320,242); ctx.lineTo(W/2+320,242); ctx.stroke();
   ctx.fillStyle = '#e8401c';
-  ctx.beginPath(); ctx.arc(W/2-270,178,5,0,Math.PI*2); ctx.fill();
-  ctx.beginPath(); ctx.arc(W/2+270,178,5,0,Math.PI*2); ctx.fill();
+  ctx.font = '20px sans-serif';
+  ctx.fillText('✦', W/2, 248);
 
-  // === THIS CERTIFIES ===
-  ctx.fillStyle = 'rgba(255,255,255,0.5)';
-  ctx.font = '300 18px sans-serif';
-  ctx.fillText('This certifies that', W/2, 224);
+  // ── PRESENTED TO ──
+  ctx.font      = '300 20px sans-serif';
+  ctx.fillStyle = '#7a7570';
+  ctx.fillText('This certificate is proudly presented to', W/2, 304);
 
-  // === NAME ===
-  var name = document.getElementById('lb-name').value.trim() || 'HTML Champion';
+  // ── NAME (Big, elegant) ──
   ctx.save();
-  ctx.shadowColor = 'rgba(232,64,28,0.6)';
-  ctx.shadowBlur = 24;
-  ctx.font = 'bold 62px serif';
-  ctx.fillStyle = '#ffffff';
-  ctx.fillText(name, W/2, 310);
+  ctx.font      = 'bold 80px serif';
+  ctx.fillStyle = '#1a1814';
+  ctx.shadowColor = 'rgba(0,0,0,0.08)';
+  ctx.shadowBlur  = 12;
+  ctx.fillText(name, W/2, 410);
   ctx.restore();
 
-  // Name underline — gradient
-  var ulGrad = ctx.createLinearGradient(W/2-200,0,W/2+200,0);
-  ulGrad.addColorStop(0,'transparent');
-  ulGrad.addColorStop(0.3,'#e8401c');
-  ulGrad.addColorStop(0.7,'#ff6b3d');
-  ulGrad.addColorStop(1,'transparent');
-  ctx.fillStyle = ulGrad;
-  ctx.fillRect(W/2-200,322,400,3);
-
-  // === HAS COMPLETED ===
-  ctx.fillStyle = 'rgba(255,255,255,0.5)';
-  ctx.font = '300 18px sans-serif';
-  ctx.fillText('has successfully completed the', W/2, 372);
-
-  // === QUIZ NAME ===
-  ctx.font = 'bold 32px serif';
-  ctx.fillStyle = '#fff';
-  ctx.fillText('HTML Knowledge Quiz Challenge', W/2, 412);
-  ctx.font = '300 16px sans-serif';
-  ctx.fillStyle = 'rgba(255,255,255,0.45)';
-  ctx.fillText('conducted by Coding Infinite \u00D7 CIWeb', W/2, 442);
-
-  // === SCORE CARD ===
+  // Name underline — double line elegant
+  var nw = ctx.measureText(name).width * 0.72; // approx at 80px
+  // measure properly
   ctx.save();
-  var scGrad = ctx.createLinearGradient(W/2-130,468,W/2+130,528);
-  scGrad.addColorStop(0,'#e8401c');
-  scGrad.addColorStop(1,'#ff6b3d');
-  ctx.fillStyle = scGrad;
-  ctx.shadowColor = 'rgba(232,64,28,0.5)';
-  ctx.shadowBlur = 28;
-  ctx.beginPath(); ctx.roundRect(W/2-130,468,260,68,34); ctx.fill();
+  ctx.font = 'bold 80px serif';
+  nw = ctx.measureText(name).width;
   ctx.restore();
-  ctx.font = 'bold 28px sans-serif';
-  ctx.fillStyle = '#fff';
-  ctx.fillText('Score  ' + finalScore + ' / 10', W/2, 511);
+  ctx.strokeStyle = '#e8401c';
+  ctx.lineWidth   = 3;
+  ctx.beginPath(); ctx.moveTo(W/2-nw/2,428); ctx.lineTo(W/2+nw/2,428); ctx.stroke();
+  ctx.strokeStyle = 'rgba(232,64,28,0.25)';
+  ctx.lineWidth   = 1;
+  ctx.beginPath(); ctx.moveTo(W/2-nw/2,434); ctx.lineTo(W/2+nw/2,434); ctx.stroke();
 
-  // === STARS DECORATION ===
-  var stars = [
-    [W/2-280,490],[W/2-240,460],[W/2+240,460],[W/2+280,490]
-  ];
-  stars.forEach(function(s,i){
+  // ── BODY TEXT ──
+  ctx.font      = '300 22px sans-serif';
+  ctx.fillStyle = '#7a7570';
+  ctx.fillText('has successfully completed', W/2, 492);
+
+  ctx.font      = 'bold 34px serif';
+  ctx.fillStyle = '#1a1814';
+  ctx.fillText('HTML Knowledge Quiz Challenge', W/2, 540);
+
+  // ── SCORE BADGE ──
+  ctx.save();
+  ctx.shadowColor = 'rgba(232,64,28,0.25)';
+  ctx.shadowBlur  = 20;
+  ctx.fillStyle   = '#e8401c';
+  ctx.beginPath(); ctx.roundRect(W/2-140,576,280,70,35); ctx.fill();
+  ctx.restore();
+  ctx.font      = 'bold 30px sans-serif';
+  ctx.fillStyle = '#fff';
+  ctx.fillText('Score: ' + finalScore + ' / 10', W/2, 619);
+
+  // ── GRADE BADGE ──
+  var grade, gradeColor;
+  if(finalScore>=9){grade='🏆 Gold — HTML Master';gradeColor='#b45309';}
+  else if(finalScore>=7){grade='🥈 Silver — HTML Pro';gradeColor='#1e40af';}
+  else if(finalScore>=5){grade='🥉 Bronze — HTML Learner';gradeColor='#c05621';}
+  else{grade='📚 Keep Learning';gradeColor='#374151';}
+  ctx.save();
+  ctx.fillStyle = 'rgba(0,0,0,0.06)';
+  ctx.beginPath(); ctx.roundRect(W/2-110,660,220,40,20); ctx.fill();
+  ctx.restore();
+  ctx.font      = '600 17px sans-serif';
+  ctx.fillStyle = gradeColor;
+  ctx.fillText(grade, W/2, 686);
+
+  // ── DATE ──
+  var today = new Date().toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'});
+  ctx.font      = '300 17px sans-serif';
+  ctx.fillStyle = '#aaa';
+  ctx.fillText(today, W/2, 730);
+
+  // ── BOTTOM DIVIDER ──
+  ctx.strokeStyle = '#e2ddd6';
+  ctx.lineWidth   = 1;
+  ctx.beginPath(); ctx.moveTo(200,776); ctx.lineTo(W-200,776); ctx.stroke();
+
+  // ── SIGNATURE SECTION ──
+  // Left: Signature image
+  var sigX = W/2 - 220, sigW = 280, sigH = 110;
+  if (signImg) {
+    // Draw signature image
     ctx.save();
-    ctx.globalAlpha = 0.6 - i*0.05;
-    ctx.fillStyle = '#fbbf24';
-    ctx.font = (20-i*2)+'px sans-serif';
-    ctx.fillText('\u2605',s[0],s[1]);
+    ctx.drawImage(signImg, sigX, 790, sigW, sigH);
     ctx.restore();
-  });
+  }
+  // Signature line
+  ctx.strokeStyle = '#1a1814';
+  ctx.lineWidth   = 1.5;
+  ctx.beginPath();
+  ctx.moveTo(sigX-20, 912); ctx.lineTo(sigX+sigW+20, 912);
+  ctx.stroke();
+  ctx.font      = 'bold 20px sans-serif';
+  ctx.fillStyle = '#1a1814';
+  ctx.textAlign = 'left';
+  ctx.fillText('Coding Infinite', sigX + sigW/2 - 60, 938);
+  ctx.font      = '300 14px sans-serif';
+  ctx.fillStyle = '#7a7570';
+  ctx.fillText('Founder, CIWeb', sigX + sigW/2 - 50, 958);
 
-  // === DATE ===
-  var today=new Date().toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'});
-  ctx.fillStyle = 'rgba(255,255,255,0.4)';
-  ctx.font = '300 15px sans-serif';
-  ctx.fillText(today, W/2, 578);
-
-  // === BOTTOM SIGNATURE AREA ===
+  // Right: Issued by / QR-look box
+  var rx = W/2 + 80;
   ctx.save();
-  ctx.fillStyle = 'rgba(255,255,255,0.06)';
-  ctx.beginPath(); ctx.roundRect(W/2-200,620,400,120,16); ctx.fill();
+  ctx.fillStyle = '#fff8f5';
+  ctx.strokeStyle = '#e8401c';
+  ctx.lineWidth = 1.5;
+  ctx.beginPath(); ctx.roundRect(rx, 800, 220, 100, 10); ctx.fill(); ctx.stroke();
   ctx.restore();
+  ctx.textAlign  = 'center';
+  ctx.font      = '600 13px sans-serif';
+  ctx.fillStyle = '#e8401c';
+  ctx.fillText('ISSUED BY', rx+110, 828);
+  ctx.font      = 'bold 18px serif';
+  ctx.fillStyle = '#1a1814';
+  ctx.fillText('CIWeb', rx+110, 854);
+  ctx.font      = '300 12px sans-serif';
+  ctx.fillStyle = '#7a7570';
+  ctx.fillText('ciweb.in', rx+110, 874);
+  ctx.font      = '300 11px sans-serif';
+  ctx.fillText('Coding Infinite', rx+110, 892);
 
+  // ── WATERMARK ──
   ctx.save();
-  ctx.strokeStyle = 'rgba(255,255,255,0.3)';
-  ctx.lineWidth = 1;
-  ctx.beginPath(); ctx.moveTo(W/2-110,698); ctx.lineTo(W/2+110,698); ctx.stroke();
-  ctx.restore();
-
-  ctx.fillStyle = '#fff';
-  ctx.font = 'bold 18px sans-serif';
-  ctx.fillText('Coding Infinite', W/2, 722);
-  ctx.fillStyle = 'rgba(255,255,255,0.4)';
-  ctx.font = '300 13px sans-serif';
-  ctx.fillText('Founder, CIWeb', W/2, 742);
-
-  // === WATERMARK ===
-  ctx.save();
-  ctx.globalAlpha = 0.04;
-  ctx.font = 'bold 160px serif';
-  ctx.fillStyle = '#fff';
-  ctx.translate(W/2, H/2);
-  ctx.rotate(-0.25);
+  ctx.globalAlpha = 0.035;
+  ctx.font        = 'bold 200px serif';
+  ctx.fillStyle   = '#e8401c';
+  ctx.textAlign   = 'center';
+  ctx.translate(W/2, H/2+60);
+  ctx.rotate(-0.2);
   ctx.fillText('CIWeb', 0, 0);
   ctx.restore();
 
-  // Download
-  var link=document.createElement('a');
-  link.download='CIWeb_HTML_Certificate_'+name.replace(/\s+/g,'_')+'.png';
-  link.href=cv.toDataURL('image/png');
+  // ── DOWNLOAD ──
+  ctx.textAlign = 'center';
+  var link = document.createElement('a');
+  link.download = 'CIWeb_HTML_Certificate_' + name.replace(/\s+/g,'_') + '.png';
+  link.href = cv.toDataURL('image/png', 1.0);
   link.click();
 }
 
