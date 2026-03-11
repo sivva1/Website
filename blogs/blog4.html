@@ -291,7 +291,7 @@
 var DB_URL = 'https://testingdata-2ae22-default-rtdb.firebaseio.com/quiz_scores/html.json';
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-//  BILINGUAL STRINGS
+//  BILINGUAL STRINGS  (double quotes for strings with apostrophes)
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 var T = {
   hi: {
@@ -306,7 +306,7 @@ var T = {
     certLbl:'Certificate Download Karo', retryLbl:'Dobara Try Karo',
     saveTitle:'Apna Naam Daalo',
     saveDesc:'Certificate aur Leaderboard dono mein yahi naam aayega!',
-    saveLbl:'Save &amp; Ranking Dekho',
+    saveLbl:'Save & Ranking Dekho',
     placeholder:'Apna naam likho...',
     lbSub:'Top Scorers — Coding Infinite HTML Quiz',
     thR:'Rank', thN:'Naam', thS:'Score', thP:'Progress', thD:'Tarikh',
@@ -340,7 +340,7 @@ var T = {
     certLbl:'Download Certificate', retryLbl:'Try Again',
     saveTitle:'Enter Your Name',
     saveDesc:'This name will appear on your certificate and leaderboard!',
-    saveLbl:'Save &amp; Show Ranking',
+    saveLbl:'Save & Show Ranking',
     placeholder:'Enter your name...',
     lbSub:'Top Scorers — Coding Infinite HTML Quiz',
     thR:'Rank', thN:'Name', thS:'Score', thP:'Progress', thD:'Date',
@@ -357,71 +357,71 @@ var T = {
     grades:['&#129351; Gold — HTML Master','&#129352; Silver — HTML Pro','&#129353; Bronze — HTML Learner','&#128218; Keep Learning'],
     msgs:[
       'Amazing! You are a true HTML expert. Coding Infinite is proud of you!',
-      'Great job! Solid HTML knowledge. A little more practice and you\'ll be an expert!',
+      "Great job! Solid HTML knowledge. A little more practice and you'll be an expert!",
       'Good effort! Basics are clear. Focus on weak areas and try again.',
-      'No worries — HTML takes time to learn. Read the blogs and try again!'
+      "No worries — HTML takes time to learn. Read the blogs and try again!"
     ]
   }
 };
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-//  10 HTML QUESTIONS (bilingual)
+//  10 HTML QUESTIONS
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 var QS = [
   {
     cat_hi:'HTML Basics', cat_en:'HTML Basics',
-    q_hi:'HTML mein <div> aur <span> ka main fark kya hai?',
-    q_en:'What is the main difference between <div> and <span> in HTML?',
-    opts_hi:['<div> block element hai, <span> inline element hai','Dono same hain — sirf naam alag hai','<span> block element hai, <div> inline element hai','<div> sirf CSS ke liye hai'],
-    opts_en:['<div> is block element, <span> is inline element','Both are the same — just different names','<span> is block, <div> is inline','<div> is only for CSS'],
+    q_hi:'HTML mein div aur span ka main fark kya hai?',
+    q_en:'What is the main difference between div and span in HTML?',
+    opts_hi:['div block element hai, span inline element hai','Dono same hain — sirf naam alag hai','span block element hai, div inline element hai','div sirf CSS ke liye hai'],
+    opts_en:['div is block element, span is inline element','Both are the same — just different names','span is block, div is inline','div is only for CSS'],
     ans:0,
-    exp_hi:'<div> block-level element hai — full width leta hai. <span> inline element hai — sirf content ki width leta hai, same line pe rehta hai.',
-    exp_en:'<div> is block-level — takes full width. <span> is inline — takes only content width and stays on the same line.'
+    exp_hi:'div block-level element hai — full width leta hai. span inline element hai — sirf content ki width leta hai, same line pe rehta hai.',
+    exp_en:'div is a block-level element — starts on a new line and takes full width. span is inline — takes only content width and stays on the same line.'
   },
   {
     cat_hi:'HTML5 Features', cat_en:'HTML5 Features',
-    q_hi:'HTML5 mein naya <article> tag kyun introduce kiya gaya?',
-    q_en:'Why was the <article> tag introduced in HTML5?',
-    opts_hi:['CSS styling ko aasaan karne ke liye','Content ko semantically independent section batane ke liye','JavaScript ke liye ek naya container provide karne ke liye','Images ko wrap karne ke liye'],
+    q_hi:'HTML5 mein naya article tag kyun introduce kiya gaya?',
+    q_en:'Why was the article tag introduced in HTML5?',
+    opts_hi:['CSS styling ko aasaan karne ke liye','Content ko semantically independent section batane ke liye','JavaScript ke liye container provide karne ke liye','Images ko wrap karne ke liye'],
     opts_en:['To make CSS styling easier','To mark content as a semantically independent section','To provide a new container for JavaScript','To wrap images'],
     ans:1,
-    exp_hi:'<article> screen readers aur search engines ko batata hai ki yeh ek independent, self-contained content hai — jaise blog post ya news article. Yeh SEO improve karta hai.',
-    exp_en:'<article> tells screen readers and search engines this is independent, self-contained content — like a blog post or news article. It improves SEO and accessibility.'
+    exp_hi:'article screen readers aur search engines ko batata hai ki yeh ek independent, self-contained content hai jaise blog post ya news article. Yeh SEO improve karta hai.',
+    exp_en:'The article tag tells search engines this is independent content like a blog post. It improves SEO and accessibility.'
   },
   {
     cat_hi:'Forms', cat_en:'Forms',
     q_hi:'Form submit hone se rokne ke liye konsa sahi tarika hai?',
     q_en:'What is the correct way to prevent a form from submitting?',
-    opts_hi:['<form action="none"> use karo','event.preventDefault() use karo form ke submit event mein','<form type="stop"> use karo','CSS se form hide kar do'],
-    opts_en:['Use <form action="none">','Use event.preventDefault() in the form submit event','Use <form type="stop">','Hide the form with CSS'],
+    opts_hi:['form action=none use karo','event.preventDefault() use karo submit event mein','form type=stop use karo','CSS se form hide kar do'],
+    opts_en:['Use form action=none','Use event.preventDefault() in the submit event','Use form type=stop','Hide the form with CSS'],
     ans:1,
     exp_hi:'event.preventDefault() browser ke default submit behavior ko rok deta hai. Yeh method form validation ya AJAX submit ke liye use hota hai.',
-    exp_en:'event.preventDefault() stops the browser's default submit behavior. It is used for form validation or AJAX submission.'
+    exp_en:"event.preventDefault() stops the browser default submit behavior. It is used for form validation or AJAX submission."
   },
   {
     cat_hi:'Tricky Code', cat_en:'Tricky Code',
-    q_hi:'Is code ka kya output hoga? <p hidden>Hello</p>',
-    q_en:'What is the output of this code? <p hidden>Hello</p>',
+    q_hi:'Is code ka kya output hoga?   p hidden > Hello < /p',
+    q_en:'What is the output of this code?   p hidden > Hello < /p',
     opts_hi:['Hello dikh jayega','Kuch nahi dikhega — paragraph hidden rahega','Error aayega','Hello grey color mein dikhega'],
     opts_en:['Hello will be visible','Nothing will show — paragraph stays hidden','An error will occur','Hello will appear in grey color'],
     ans:1,
-    exp_hi:'HTML5 ka hidden attribute element ko visually hide karta hai aur screen readers se bhi chhupata hai. Yeh CSS ke display:none jaisa kaam karta hai.',
-    exp_en:'HTML5's hidden attribute visually hides the element and also hides it from screen readers. It works like CSS display:none.'
+    exp_hi:"HTML5 ka hidden attribute element ko visually hide karta hai aur screen readers se bhi chhupata hai. Yeh CSS ke display:none jaisa kaam karta hai.",
+    exp_en:"The HTML5 hidden attribute visually hides the element and hides it from screen readers too. It works like CSS display:none."
   },
   {
     cat_hi:'SEO & Meta', cat_en:'SEO & Meta',
     q_hi:'Google search result mein page ka description kahan se aata hai?',
     q_en:'Where does Google get the page description shown in search results?',
-    opts_hi:['Pehle <p> tag se','<meta name="description" content="..."> se','<title> tag se','<h1> tag se'],
-    opts_en:['From the first <p> tag','From <meta name="description" content="...">','From the <title> tag','From the <h1> tag'],
+    opts_hi:['Pehle p tag se','meta name=description content=... se','title tag se','h1 tag se'],
+    opts_en:['From the first p tag','From meta name=description content=...','From the title tag','From the h1 tag'],
     ans:1,
-    exp_hi:'<meta name="description"> tag search engines ko page ka summary batata hai. Yeh Google ke search results mein snippet ke roop mein dikhta hai aur CTR improve karta hai.',
-    exp_en:'The <meta name="description"> tag gives search engines a summary of the page. It appears as the snippet in Google results and improves click-through rate.'
+    exp_hi:'meta name=description tag search engines ko page ka summary batata hai. Yeh Google ke search results mein snippet ke roop mein dikhta hai aur CTR improve karta hai.',
+    exp_en:'The meta description tag gives search engines a summary of the page. It appears as the snippet in Google results and improves click-through rate.'
   },
   {
     cat_hi:'Tricky Bug', cat_en:'Tricky Bug',
-    q_hi:'Is code mein kya galat hai? <img src="photo.jpg" width="300">',
-    q_en:'What is wrong with this code? <img src="photo.jpg" width="300">',
+    q_hi:'Is code mein kya galat hai?   img src=photo.jpg width=300',
+    q_en:'What is wrong with this code?   img src=photo.jpg width=300',
     opts_hi:['Kuch galat nahi — bilkul sahi hai','alt attribute missing hai — accessibility aur SEO ke liye zaroori hai','width attribute galat jagah hai','src ko href hona chahiye'],
     opts_en:['Nothing wrong — it is perfectly correct','alt attribute is missing — required for accessibility and SEO','The width attribute is in the wrong place','src should be href'],
     ans:1,
@@ -429,47 +429,46 @@ var QS = [
     exp_en:'The alt attribute is missing! Google ranks images using alt text and screen readers read alt for visually impaired users. Always include alt.'
   },
   {
-    cat_hi:'Advanced Nesting', cat_en:'Advanced Nesting',
+    cat_hi:'Nesting', cat_en:'Nesting',
     q_hi:'Kaunsa nesting HTML mein VALID hai?',
     q_en:'Which nesting is VALID in HTML?',
-    opts_hi:['<button><a href="#">Link</a></button>','<p><div>Text</div></p>','<ul><li><span>Item</span></li></ul>','<a href="#"><button>Click</button></a>'],
-    opts_en:['<button><a href="#">Link</a></button>','<p><div>Text</div></p>','<ul><li><span>Item</span></li></ul>','<a href="#"><button>Click</button></a>'],
+    opts_hi:['button ke andar a tag','p ke andar div tag','ul ke andar li ke andar span tag','a ke andar button tag'],
+    opts_en:['a tag inside button','div tag inside p','span inside li inside ul','button inside a'],
     ans:2,
-    exp_hi:'<ul><li><span> bilkul valid hai — list item ke andar inline element allowed hai. Baaki teeno invalid hain: <p> ke andar block element, aur interactive elements ek doosre ke andar nahi aa sakte.',
-    exp_en:'<ul><li><span> is perfectly valid — inline elements are allowed inside list items. The other three are invalid: block inside <p>, and interactive elements cannot nest inside each other.'
+    exp_hi:'ul > li > span bilkul valid hai — list item ke andar inline element allowed hai. Baaki teeno invalid hain: p ke andar block element, aur interactive elements ek doosre ke andar nahi aa sakte.',
+    exp_en:'ul > li > span is perfectly valid — inline elements are allowed inside list items. The other three are invalid: block inside p, and interactive elements cannot nest inside each other.'
   },
   {
-    cat_hi:'HTML5 APIs', cat_en:'HTML5 APIs',
+    cat_hi:'HTML5 Storage', cat_en:'HTML5 Storage',
     q_hi:'localStorage aur sessionStorage mein main fark kya hai?',
     q_en:'What is the main difference between localStorage and sessionStorage?',
     opts_hi:['Koi fark nahi — dono same hain','localStorage data permanently save karta hai, sessionStorage tab band hone pe delete ho jaata hai','sessionStorage zyada secure hai','localStorage sirf numbers store kar sakta hai'],
-    opts_en:['No difference — both are the same','localStorage saves data permanently, sessionStorage deletes data when tab closes','sessionStorage is more secure','localStorage can only store numbers'],
+    opts_en:['No difference — both are the same','localStorage saves data permanently, sessionStorage deletes when tab closes','sessionStorage is more secure','localStorage can only store numbers'],
     ans:1,
-    exp_hi:'localStorage ka data tab/browser band karne ke baad bhi rehta hai. sessionStorage ka data sirf current tab session tak rehta hai — tab band ki toh data gone!',
-    exp_en:'localStorage data persists even after closing the tab/browser. sessionStorage data lasts only for the current tab session — close the tab and the data is gone!'
+    exp_hi:'localStorage ka data tab band karne ke baad bhi rehta hai. sessionStorage ka data sirf current tab session tak rehta hai — tab band ki toh data gone!',
+    exp_en:'localStorage data persists even after closing the tab. sessionStorage data lasts only for the current tab session — close the tab and the data is gone!'
   },
   {
     cat_hi:'Semantic HTML', cat_en:'Semantic HTML',
-    q_hi:'<header> tag page mein kitni baar use ho sakta hai?',
-    q_en:'How many times can the <header> tag be used on a page?',
-    opts_hi:['Sirf ek baar — page ke top pe only','Ek se zyada baar — har section ka apna header ho sakta hai','Sirf <body> ke direct child ke roop mein','Maximum teen baar'],
-    opts_en:['Only once — at the top of the page only','Multiple times — each section can have its own header','Only as a direct child of <body>','Maximum three times'],
+    q_hi:'header tag page mein kitni baar use ho sakta hai?',
+    q_en:'How many times can the header tag be used on a page?',
+    opts_hi:['Sirf ek baar — page ke top pe only','Ek se zyada baar — har section ka apna header ho sakta hai','Sirf body ke direct child ke roop mein','Maximum teen baar'],
+    opts_en:['Only once — at the top of the page only','Multiple times — each section can have its own header','Only as a direct child of body','Maximum three times'],
     ans:1,
-    exp_hi:'<header> element ek page pe multiple baar use ho sakta hai — page ka main header bhi, aur har <article> ya <section> ka apna <header> bhi ho sakta hai. Yeh semantic HTML hai.',
-    exp_en:'The <header> element can be used multiple times — the page can have a main header, and each <article> or <section> can also have its own <header>. This is semantic HTML.'
+    exp_hi:'header element ek page pe multiple baar use ho sakta hai — page ka main header bhi, aur har article ya section ka apna header bhi ho sakta hai.',
+    exp_en:'The header element can be used multiple times — the main page header plus each article or section can have its own header.'
   },
   {
-    cat_hi:'Final Boss 🔥', cat_en:'Final Boss 🔥',
+    cat_hi:'Final Boss &#128293;', cat_en:'Final Boss &#128293;',
     q_hi:'DOCTYPE declaration ka kya kaam hai?',
     q_en:'What is the purpose of the DOCTYPE declaration?',
-    opts_hi:['HTML file ka title set karta hai','Browser ko batata hai ki konsa HTML version use karna hai aur standards mode mein render karo','CSS reset karta hai','JavaScript enable karta hai page mein'],
-    opts_en:['Sets the title of the HTML file','Tells the browser which HTML version to use and to render in standards mode','Resets CSS','Enables JavaScript on the page'],
+    opts_hi:['HTML file ka title set karta hai','Browser ko batata hai ki HTML5 standards mode mein render karo','CSS reset karta hai','JavaScript enable karta hai'],
+    opts_en:['Sets the title of the HTML file','Tells the browser to render in HTML5 standards mode','Resets CSS','Enables JavaScript on the page'],
     ans:1,
-    exp_hi:'<!DOCTYPE html> browser ko HTML5 standards mode mein render karne ko kehta hai. Iske bina browser "quirks mode" mein jaata hai jahan old IE bugs replicate hote hain — layout bigad jaata hai!',
-    exp_en:'<!DOCTYPE html> tells the browser to render in HTML5 standards mode. Without it, the browser enters "quirks mode" which replicates old IE bugs — layouts break!'
+    exp_hi:'DOCTYPE html browser ko HTML5 standards mode mein render karne ko kehta hai. Iske bina browser quirks mode mein jaata hai jahan layout bigad jaata hai!',
+    exp_en:'DOCTYPE html tells the browser to render in HTML5 standards mode. Without it the browser enters quirks mode which replicates old bugs and breaks layouts!'
   }
 ];
-
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 //  LANG SYSTEM
@@ -480,10 +479,8 @@ function setLang(l) {
   LANG = l;
   localStorage.setItem('ciweb_lang', l);
   var t = T[l];
-
-  // Update all static UI text
-  document.getElementById('nav-all').innerHTML  = t.navAll;
-  document.getElementById('back-lnk').innerHTML = t.back;
+  document.getElementById('nav-all').innerHTML   = t.navAll;
+  document.getElementById('back-lnk').innerHTML  = t.back;
   document.getElementById('pg-title').innerHTML  = t.pgTitle;
   document.getElementById('pg-sub').innerHTML    = t.pgSub;
   document.getElementById('ic-title').innerHTML  = t.icTitle;
@@ -500,7 +497,6 @@ function setLang(l) {
   document.getElementById('retry-lbl').innerHTML = t.retryLbl;
   document.getElementById('save-title').innerHTML= t.saveTitle;
   document.getElementById('save-desc').innerHTML = t.saveDesc;
-  document.getElementById('save-lbl').innerHTML  = t.saveLbl;
   document.getElementById('lb-sub').innerHTML    = t.lbSub;
   document.getElementById('th-r').innerHTML      = t.thR;
   document.getElementById('th-n').innerHTML      = t.thN;
@@ -509,18 +505,12 @@ function setLang(l) {
   document.getElementById('th-d').innerHTML      = t.thD;
   document.getElementById('ft-copy').innerHTML   = t.ftCopy;
   document.getElementById('ft-love').innerHTML   = t.ftLove;
-
-  // placeholder
   var inp = document.getElementById('lb-name');
   if (inp) inp.placeholder = t.placeholder;
-
-  // toggle buttons
   document.getElementById('btn-hi').classList.toggle('on', l === 'hi');
   document.getElementById('btn-en').classList.toggle('on', l === 'en');
-
-  // If quiz is active, re-render current question
   if (document.getElementById('quiz-card').classList.contains('show') && QS[cur]) {
-    renderQ(cur, true); // re-render without resetting timer
+    renderQ(cur, true);
   }
 }
 
@@ -528,7 +518,7 @@ function setLang(l) {
 //  QUIZ LOGIC
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 var cur = 0, score = 0, answered = false, tmr = null, timeLeft = 30, finalScore = 0;
-var quizStartTime = 0, quizTimeTaken = 0;
+var quizStartTime = 0, quizTimeTaken = 0, lastPick;
 
 function startQuiz() {
   cur = 0; score = 0; answered = false; quizStartTime = Date.now();
@@ -552,101 +542,62 @@ function loadQ(idx) {
 }
 
 function renderQ(idx, keepAnswered) {
-  var q  = QS[idx];
-  var t  = T[LANG];
-  var q_text = LANG === 'en' ? q.q_en : q.q_hi;
-  var opts   = LANG === 'en' ? q.opts_en : q.opts_hi;
-  var cat    = LANG === 'en' ? q.cat_en : q.cat_hi;
-
-  document.getElementById('q-num').textContent = idx + 1;
-  document.getElementById('prog').style.width  = ((idx + 1) / 10 * 100) + '%';
+  var q    = QS[idx];
+  var opts = LANG === 'en' ? q.opts_en : q.opts_hi;
+  var cat  = LANG === 'en' ? q.cat_en  : q.cat_hi;
+  var qtxt = LANG === 'en' ? q.q_en    : q.q_hi;
+  document.getElementById('q-num').textContent  = idx + 1;
+  document.getElementById('prog').style.width   = ((idx + 1) / 10 * 100) + '%';
   document.getElementById('q-cat').textContent  = cat;
-  document.getElementById('q-text').textContent = q_text;
-
-  // code block
+  document.getElementById('q-text').textContent = qtxt;
   var cEl = document.getElementById('q-code');
-  if (q.code) {
-    cEl.style.display = 'block';
-    // decode &amp; back for display
-    cEl.textContent = q.code.replace(/&amp;/g, '&');
-  } else {
-    cEl.style.display = 'none';
-  }
-
-  // options — textContent use karo taaki <div> jaisi strings plain text mein dikhein
-  var keys = ['A','B','C','D'];
+  if (q.code) { cEl.style.display = 'block'; cEl.textContent = q.code.replace(/&amp;/g,'&'); }
+  else { cEl.style.display = 'none'; }
+  var keys   = ['A','B','C','D'];
   var optsEl = document.getElementById('opts');
   optsEl.innerHTML = '';
   for (var i = 0; i < opts.length; i++) {
-    (function(idx) {
+    (function(idx2) {
       var btn = document.createElement('button');
-      btn.className = 'opt';
-      btn.id = 'opt-' + idx;
-      btn.addEventListener('click', function(){ pick(idx); });
-      var keySpan = document.createElement('span');
-      keySpan.className = 'opt-key';
-      keySpan.textContent = keys[idx];
-      var txtSpan = document.createElement('span');
-      txtSpan.className = 'opt-text';
-      txtSpan.textContent = opts[idx];
-      btn.appendChild(keySpan);
-      btn.appendChild(txtSpan);
-      optsEl.appendChild(btn);
+      btn.className = 'opt'; btn.id = 'opt-' + idx2;
+      btn.addEventListener('click', function(){ pick(idx2); });
+      var ks = document.createElement('span'); ks.className = 'opt-key'; ks.textContent = keys[idx2];
+      var ts = document.createElement('span'); ts.className = 'opt-text'; ts.textContent = opts[idx2];
+      btn.appendChild(ks); btn.appendChild(ts); optsEl.appendChild(btn);
     })(i);
   }
-
-  // explanation
   var exEl = document.getElementById('explain');
-  exEl.className = 'explain';
-  exEl.innerHTML  = '';
-
-  // footer
+  exEl.className = 'explain'; exEl.innerHTML = '';
   document.getElementById('live-sc').textContent  = score;
   document.getElementById('live-tot').textContent = idx;
   document.getElementById('next-btn').classList.remove('show');
-
-  // If lang changed mid-question after answering, restore state
   if (keepAnswered && answered) {
     var btns = document.querySelectorAll('.opt');
     btns.forEach(function(b) { b.disabled = true; });
-    if (lastPick !== undefined && lastPick !== q.ans) {
-      btns[lastPick].classList.add('wrong');
-    }
+    if (lastPick !== undefined && lastPick !== q.ans) btns[lastPick].classList.add('wrong');
     btns[q.ans].classList.add(lastPick === q.ans ? 'correct' : 'show-ans');
-    showExplain(idx);
+    showExplain(idx, false);
     document.getElementById('next-btn').classList.add('show');
   }
 }
 
-var lastPick;
-
 function pick(idx) {
   if (answered) return;
-  answered = true;
-  lastPick = idx;
+  answered = true; lastPick = idx;
   clearInterval(tmr);
-
-  var q    = QS[cur];
+  var q = QS[cur];
   var btns = document.querySelectorAll('.opt');
   btns.forEach(function(b) { b.disabled = true; });
-
-  if (idx === q.ans) {
-    btns[idx].classList.add('correct');
-    score++;
-  } else {
-    btns[idx].classList.add('wrong');
-    btns[q.ans].classList.add('show-ans');
-  }
-
-  showExplain(cur);
+  if (idx === q.ans) { btns[idx].classList.add('correct'); score++; }
+  else { btns[idx].classList.add('wrong'); btns[q.ans].classList.add('show-ans'); }
+  showExplain(cur, false);
   document.getElementById('live-sc').textContent  = score;
   document.getElementById('live-tot').textContent = cur + 1;
   document.getElementById('next-btn').classList.add('show');
 }
 
 function timeUp() {
-  answered = true;
-  lastPick = -1;
+  answered = true; lastPick = -1;
   var btns = document.querySelectorAll('.opt');
   btns.forEach(function(b) { b.disabled = true; });
   btns[QS[cur].ans].classList.add('show-ans');
@@ -659,15 +610,15 @@ function showExplain(idx, isTimeUp) {
   var q    = QS[idx];
   var t    = T[LANG];
   var exp  = LANG === 'en' ? q.exp_en : q.exp_hi;
-  var prefix = isTimeUp ? t.timeUp : (lastPick === q.ans ? t.correct : t.wrong);
+  var pre  = isTimeUp ? t.timeUp : (lastPick === q.ans ? t.correct : t.wrong);
   var exEl = document.getElementById('explain');
-  exEl.innerHTML = '<strong>' + prefix + '</strong>' + exp;
+  exEl.innerHTML = '<strong>' + pre + '</strong>' + exp;
   exEl.classList.add('show');
 }
 
 function updateTimer() {
   var el = document.getElementById('timer');
-  el.textContent = '\u23F1 ' + timeLeft + 's';
+  el.textContent = '⏱ ' + timeLeft + 's';
   if (timeLeft <= 10) el.classList.add('hot'); else el.classList.remove('hot');
 }
 
@@ -678,35 +629,28 @@ function nextQ() {
 
 function showResult() {
   clearInterval(tmr);
+  quizTimeTaken = Math.round((Date.now() - quizStartTime) / 1000);
   document.getElementById('quiz-card').classList.remove('show');
   var rc = document.getElementById('result-card');
   rc.classList.add('show');
   finalScore = score;
-  quizTimeTaken = Math.round((Date.now() - quizStartTime)/1000);
-
-  var t   = T[LANG];
-  var pct = score / 10;
-  var emoji, gIdx, mIdx;
-  if (score >= 9)      { emoji='&#127942;'; gIdx=0; mIdx=0; }
-  else if (score >= 7) { emoji='&#129352;'; gIdx=1; mIdx=1; }
-  else if (score >= 5) { emoji='&#129353;'; gIdx=2; mIdx=2; }
-  else                 { emoji='&#128218;'; gIdx=3; mIdx=3; }
-
-  document.getElementById('r-emoji').innerHTML = emoji;
-  document.getElementById('r-title').textContent = score >= 9 ? (LANG==='en'?'HTML Expert!':'HTML Expert!') : score >= 7 ? (LANG==='en'?'Great Job!':'Bahut Acha!') : score >= 5 ? (LANG==='en'?'Good Effort!':'Achha Kiya!') : (LANG==='en'?'Keep Practicing!':'Aur Practice Karo!');
+  var t = T[LANG];
+  var gIdx = score >= 9 ? 0 : score >= 7 ? 1 : score >= 5 ? 2 : 3;
+  var emojis = ['&#127942;','&#129352;','&#129353;','&#128218;'];
+  var titles_hi = ['HTML Expert!','Bahut Acha!','Achha Kiya!','Aur Practice Karo!'];
+  var titles_en = ['HTML Expert!','Great Job!','Good Effort!','Keep Practicing!'];
+  document.getElementById('r-emoji').innerHTML   = emojis[gIdx];
+  document.getElementById('r-title').textContent = LANG === 'en' ? titles_en[gIdx] : titles_hi[gIdx];
   document.getElementById('r-sc').textContent    = score;
   document.getElementById('r-grade').innerHTML   = t.grades[gIdx];
   document.getElementById('r-grade').className   = 'res-grade ' + ['g-gold','g-silver','g-bronze','g-try'][gIdx];
-  document.getElementById('r-msg').textContent   = t.msgs[mIdx];
+  document.getElementById('r-msg').textContent   = t.msgs[gIdx];
   document.getElementById('cert-btn').style.display = score >= 5 ? 'inline-block' : 'none';
-
-  // Reset save box
-  document.getElementById('save-msg').className = 'save-msg';
-  document.getElementById('lb-name').value = '';
+  document.getElementById('save-msg').className  = 'save-msg';
+  document.getElementById('lb-name').value       = '';
   var sb = document.getElementById('save-btn');
-  sb.disabled = false;
+  sb.disabled  = false;
   sb.innerHTML = '<span id="save-lbl">' + t.saveLbl + '</span> &#128200;';
-  setLang(LANG);
 }
 
 function retry() {
@@ -723,7 +667,7 @@ function dlCert() {
   if (!name || name.length < 2) {
     var msgEl = document.getElementById('save-msg');
     msgEl.className = 'save-msg err';
-    msgEl.textContent = (LANG==='en') ? 'Please enter your name first!' : 'Pehle apna naam daalo!';
+    msgEl.textContent = LANG === 'en' ? 'Please enter your name first!' : 'Pehle apna naam daalo!';
     document.getElementById('lb-name').focus();
     return;
   }
@@ -737,202 +681,185 @@ function dlCert() {
 function drawCert(name, signImg) {
   var cv  = document.getElementById('cert-cv');
   var ctx = cv.getContext('2d');
-  var W = 2000, H = 1414; // A4 landscape ratio, HD
+  var W = 2000, H = 1414;
   cv.width = W; cv.height = H;
   ctx.clearRect(0,0,W,H);
 
-  // ── WHITE BACKGROUND ──
+  // White background
   ctx.fillStyle = '#ffffff';
   ctx.fillRect(0,0,W,H);
+  ctx.fillStyle = '#fffbf7';
+  ctx.fillRect(70,70,W-140,H-140);
 
-  // ── OUTER GOLD BORDER (triple lines like image) ──
-  var golds = ['#c8a84b','#e8d48a','#c8a84b'];
-  var offsets = [12, 22, 32];
-  golds.forEach(function(color, i) {
-    ctx.strokeStyle = color;
-    ctx.lineWidth = i===1 ? 6 : 3;
-    var o = offsets[i];
+  // Gold triple border
+  var golds = ['#c8a84b','#f0e4a0','#c8a84b'];
+  var lwidths = [4, 8, 3];
+  var offsets = [14, 24, 34];
+  for (var bi = 0; bi < 3; bi++) {
+    ctx.strokeStyle = golds[bi];
+    ctx.lineWidth   = lwidths[bi];
+    var o = offsets[bi];
     ctx.strokeRect(o, o, W-o*2, H-o*2);
-  });
+  }
 
-  // ── CORNER ORNAMENTS (L-brackets, gold) ──
+  // Corner L-brackets
   function goldCorner(x, y, dx, dy) {
     ctx.save();
-    ctx.strokeStyle = '#c8a84b';
-    ctx.lineWidth = 3;
     ctx.lineCap = 'round';
-    var len = 90;
-    // outer L
-    ctx.beginPath();
-    ctx.moveTo(x+dx*len, y+dy*8); ctx.lineTo(x+dx*8, y+dy*8); ctx.lineTo(x+dx*8, y+dy*len);
-    ctx.stroke();
-    // inner L
-    ctx.lineWidth = 1.5;
-    ctx.beginPath();
-    ctx.moveTo(x+dx*len, y+dy*18); ctx.lineTo(x+dx*18, y+dy*18); ctx.lineTo(x+dx*18, y+dy*len);
-    ctx.stroke();
-    // third L
-    ctx.beginPath();
-    ctx.moveTo(x+dx*len, y+dy*26); ctx.lineTo(x+dx*26, y+dy*26); ctx.lineTo(x+dx*26, y+dy*len);
-    ctx.stroke();
+    var lens = [100, 80, 60];
+    var lws  = [4, 2.5, 1.5];
+    for (var ci = 0; ci < 3; ci++) {
+      ctx.strokeStyle = '#c8a84b';
+      ctx.lineWidth   = lws[ci];
+      var pad = ci * 12 + (dx > 0 ? 14 : 14);
+      var xp  = dx > 0 ? x + pad : x - pad;
+      var yp  = dy > 0 ? y + pad : y - pad;
+      ctx.beginPath();
+      ctx.moveTo(xp + dx * lens[ci], yp);
+      ctx.lineTo(xp, yp);
+      ctx.lineTo(xp, yp + dy * lens[ci]);
+      ctx.stroke();
+    }
     ctx.restore();
   }
   goldCorner(50, 50,  1,  1);
   goldCorner(W-50, 50, -1,  1);
   goldCorner(50, H-50,  1, -1);
-  goldCorner(W-50, H-50,-1, -1);
+  goldCorner(W-50, H-50, -1, -1);
 
-  // ── BOTTOM GREEN + GOLD WAVES (like image) ──
-  // Green wave left
+  // Bottom green waves
   ctx.save();
   ctx.beginPath();
   ctx.moveTo(0, H);
-  ctx.lineTo(0, H*0.72);
-  ctx.bezierCurveTo(W*0.08, H*0.62, W*0.18, H*0.68, W*0.28, H*0.72);
-  ctx.bezierCurveTo(W*0.38, H*0.76, W*0.42, H*0.78, W*0.48, H*0.82);
-  ctx.lineTo(W*0.48, H);
+  ctx.lineTo(0, H*0.74);
+  ctx.bezierCurveTo(W*0.06, H*0.64, W*0.16, H*0.70, W*0.26, H*0.74);
+  ctx.bezierCurveTo(W*0.36, H*0.78, W*0.42, H*0.80, W*0.46, H*0.84);
+  ctx.lineTo(W*0.46, H);
   ctx.closePath();
   ctx.fillStyle = '#1a5c3a';
   ctx.fill();
   ctx.restore();
 
-  // Gold diagonal stripe over green (left)
-  ctx.save();
-  ctx.beginPath();
-  ctx.moveTo(0, H*0.86);
-  ctx.lineTo(W*0.32, H*0.68);
-  ctx.lineTo(W*0.36, H*0.72);
-  ctx.lineTo(0, H*0.92);
-  ctx.closePath();
-  var goldGrad = ctx.createLinearGradient(0, H*0.8, W*0.36, H*0.7);
-  goldGrad.addColorStop(0, '#e8d48a');
-  goldGrad.addColorStop(0.5, '#c8a84b');
-  goldGrad.addColorStop(1, '#f0e4a0');
-  ctx.fillStyle = goldGrad;
-  ctx.fill();
-  ctx.restore();
-
-  // Green wave right
   ctx.save();
   ctx.beginPath();
   ctx.moveTo(W, H);
-  ctx.lineTo(W, H*0.72);
-  ctx.bezierCurveTo(W*0.92, H*0.62, W*0.82, H*0.68, W*0.72, H*0.72);
-  ctx.bezierCurveTo(W*0.62, H*0.76, W*0.58, H*0.78, W*0.52, H*0.82);
-  ctx.lineTo(W*0.52, H);
+  ctx.lineTo(W, H*0.74);
+  ctx.bezierCurveTo(W*0.94, H*0.64, W*0.84, H*0.70, W*0.74, H*0.74);
+  ctx.bezierCurveTo(W*0.64, H*0.78, W*0.58, H*0.80, W*0.54, H*0.84);
+  ctx.lineTo(W*0.54, H);
   ctx.closePath();
   ctx.fillStyle = '#1a5c3a';
   ctx.fill();
   ctx.restore();
 
-  // Gold diagonal stripe over green (right)
+  // Gold diagonal stripes over green
+  var gg = ctx.createLinearGradient(0, H*0.85, W*0.36, H*0.68);
+  gg.addColorStop(0, '#f0e4a0'); gg.addColorStop(0.5, '#c8a84b'); gg.addColorStop(1, '#f0e4a0');
   ctx.save();
   ctx.beginPath();
-  ctx.moveTo(W, H*0.86);
-  ctx.lineTo(W*0.68, H*0.68);
-  ctx.lineTo(W*0.64, H*0.72);
-  ctx.lineTo(W, H*0.92);
-  ctx.closePath();
-  ctx.fillStyle = goldGrad;
-  ctx.fill();
+  ctx.moveTo(0, H*0.88); ctx.lineTo(W*0.30, H*0.70); ctx.lineTo(W*0.34, H*0.74); ctx.lineTo(0, H*0.94);
+  ctx.closePath(); ctx.fillStyle = gg; ctx.fill();
+  ctx.restore();
+  ctx.save();
+  ctx.beginPath();
+  ctx.moveTo(W, H*0.88); ctx.lineTo(W*0.70, H*0.70); ctx.lineTo(W*0.66, H*0.74); ctx.lineTo(W, H*0.94);
+  ctx.closePath(); ctx.fillStyle = gg; ctx.fill();
   ctx.restore();
 
   ctx.textAlign = 'center';
 
-  // ── TOP: CODING INFINITE ──
-  ctx.font = '600 26px sans-serif';
+  // CODING INFINITE
+  ctx.font = '600 28px sans-serif';
   ctx.fillStyle = '#5c4a1e';
-  ctx.letterSpacing = '6px';
-  ctx.fillText('CODING INFINITE', W/2, 110);
-  ctx.letterSpacing = '0px';
+  ctx.fillText('CODING INFINITE', W/2, 120);
 
-  // ── CERTIFICATE (Big serif) ──
-  ctx.font = '900 148px serif';
-  ctx.fillStyle = '#3a3020';
-  ctx.fillText('CERTIFICATE', W/2, 300);
-
-  // ── OF APPRECIATION ──
-  ctx.font = '300 52px sans-serif';
-  ctx.fillStyle = '#6b5a2e';
-  ctx.letterSpacing = '10px';
-  ctx.fillText('OF   APPRECIATION', W/2, 368);
-  ctx.letterSpacing = '0px';
-
-  // ── GOLD DIVIDER LINE ──
-  var divGrad = ctx.createLinearGradient(W/2-500,0,W/2+500,0);
-  divGrad.addColorStop(0,'transparent'); divGrad.addColorStop(0.2,'#c8a84b');
-  divGrad.addColorStop(0.8,'#c8a84b'); divGrad.addColorStop(1,'transparent');
-  ctx.strokeStyle = divGrad;
-  ctx.lineWidth = 2;
-  ctx.beginPath(); ctx.moveTo(W/2-500,408); ctx.lineTo(W/2+500,408); ctx.stroke();
-
-  // ── THIS CERTIFICATE IS PROUDLY PRESENTED TO ──
-  ctx.font = '400 28px sans-serif';
-  ctx.fillStyle = '#8a7a5a';
-  ctx.letterSpacing = '5px';
-  ctx.fillText('THIS CERTIFICATE IS PROUDLY PRESENTED TO', W/2, 480);
-  ctx.letterSpacing = '0px';
-
-  // ── NAME (big elegant) ──
-  ctx.font = 'bold 110px serif';
+  // CERTIFICATE
+  ctx.font = '900 156px serif';
   ctx.fillStyle = '#2a2010';
-  ctx.fillText(name, W/2, 610);
+  ctx.fillText('CERTIFICATE', W/2, 308);
 
-  // ── DIVIDER UNDER NAME ──
-  ctx.strokeStyle = divGrad;
-  ctx.lineWidth = 1.5;
-  ctx.beginPath(); ctx.moveTo(W/2-400,642); ctx.lineTo(W/2+400,642); ctx.stroke();
-
-  // ── HAS SUCCESSFULLY COMPLETED ──
-  ctx.font = '300 32px serif';
+  // OF APPRECIATION
+  ctx.font = '300 50px sans-serif';
   ctx.fillStyle = '#6b5a2e';
-  ctx.fillText('has successfully completed', W/2, 710);
+  ctx.fillText('OF  APPRECIATION', W/2, 374);
 
-  // ── QUIZ NAME ──
+  // Gold divider
+  var dg = ctx.createLinearGradient(W/2-500,0,W/2+500,0);
+  dg.addColorStop(0,'rgba(200,168,75,0)'); dg.addColorStop(0.2,'#c8a84b');
+  dg.addColorStop(0.8,'#c8a84b'); dg.addColorStop(1,'rgba(200,168,75,0)');
+  ctx.strokeStyle = dg; ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(W/2-500,414); ctx.lineTo(W/2+500,414); ctx.stroke();
+
+  // THIS CERTIFICATE IS PROUDLY PRESENTED TO
+  ctx.font = '400 26px sans-serif';
+  ctx.fillStyle = '#8a7a5a';
+  ctx.fillText('THIS CERTIFICATE IS PROUDLY PRESENTED TO', W/2, 490);
+
+  // NAME
+  ctx.font = 'bold 108px serif';
+  ctx.fillStyle = '#1a1410';
+  ctx.fillText(name, W/2, 614);
+
+  // Name underline
+  ctx.save();
+  ctx.font = 'bold 108px serif';
+  var nw = ctx.measureText(name).width;
+  ctx.restore();
+  ctx.strokeStyle = '#c8a84b'; ctx.lineWidth = 3;
+  ctx.beginPath(); ctx.moveTo(W/2-nw/2, 634); ctx.lineTo(W/2+nw/2, 634); ctx.stroke();
+  ctx.strokeStyle = 'rgba(200,168,75,0.3)'; ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(W/2-nw/2, 641); ctx.lineTo(W/2+nw/2, 641); ctx.stroke();
+
+  // has successfully completed
+  ctx.font = '300 30px serif';
+  ctx.fillStyle = '#6b5a2e';
+  ctx.fillText('has successfully completed', W/2, 706);
+
+  // HTML Knowledge Quiz Challenge
   ctx.font = 'bold 44px serif';
-  ctx.fillStyle = '#2a2010';
-  ctx.fillText('HTML Knowledge Quiz Challenge', W/2, 768);
+  ctx.fillStyle = '#1a1410';
+  ctx.fillText('HTML Knowledge Quiz Challenge', W/2, 760);
 
-  // ── SCORE ──
-  ctx.font = '400 28px sans-serif';
+  // Score
+  ctx.font = '400 26px sans-serif';
   ctx.fillStyle = '#8a7a5a';
-  ctx.fillText('with a score of  ' + finalScore + ' / 10', W/2, 820);
+  ctx.fillText('with a score of  ' + finalScore + ' / 10', W/2, 808);
 
-  // ── SIGNATURE SECTION ──
-  var sigCX = W/2;
+  // Signature image
   if (signImg) {
-    var sh = 140, sw = sh * (signImg.width/signImg.height);
-    ctx.drawImage(signImg, sigCX - sw/2, 860, sw, sh);
+    var sh = 130;
+    var sw = sh * (signImg.width / signImg.height);
+    ctx.drawImage(signImg, W/2 - sw/2, 838, sw, sh);
   }
 
   // Signature line
-  ctx.strokeStyle = '#5c4a1e';
-  ctx.lineWidth = 1.5;
-  ctx.beginPath(); ctx.moveTo(sigCX-180,1020); ctx.lineTo(sigCX+180,1020); ctx.stroke();
+  ctx.strokeStyle = '#5c4a1e'; ctx.lineWidth = 1.5;
+  ctx.beginPath(); ctx.moveTo(W/2-180, 988); ctx.lineTo(W/2+180, 988); ctx.stroke();
 
-  // Name below line
-  ctx.font = 'bold 30px sans-serif';
-  ctx.fillStyle = '#2a2010';
-  ctx.letterSpacing = '3px';
-  ctx.fillText('SHIVA', W/2, 1054);
-  ctx.letterSpacing = '0px';
-  ctx.font = '300 24px sans-serif';
-  ctx.fillStyle = '#8a7a5a';
-  ctx.fillText('Creator of Coding Infinite', W/2, 1086);
-
-  // ── DATE (bottom center) ──
-  var today = new Date().toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'});
+  // SHIVA + title
+  ctx.font = 'bold 28px sans-serif';
+  ctx.fillStyle = '#1a1410';
+  ctx.fillText('SHIVA', W/2, 1018);
   ctx.font = '300 22px sans-serif';
-  ctx.fillStyle = 'rgba(255,255,255,0.9)';
-  ctx.fillText(today, W/2, H-40);
+  ctx.fillStyle = '#8a7a5a';
+  ctx.fillText('Creator of Coding Infinite', W/2, 1046);
 
-  // ── DOWNLOAD ──
+  // Date at bottom
+  var today = new Date().toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'});
+  ctx.font = '300 20px sans-serif';
+  ctx.fillStyle = '#c8a84b';
+  ctx.fillText(today, W/2, H - 48);
+
+  // Download
   var link = document.createElement('a');
   link.download = 'CIWeb_Certificate_' + name.replace(/\s+/g,'_') + '.png';
   link.href = cv.toDataURL('image/png', 1.0);
   link.click();
 }
 
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//  SAVE SCORE + LEADERBOARD
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 function saveScore() {
   var name  = document.getElementById('lb-name').value.trim();
   var msgEl = document.getElementById('save-msg');
@@ -952,7 +879,7 @@ function saveScore() {
     body:JSON.stringify({name:name, score:finalScore, total:10,
       percent:Math.round(finalScore/10*100),
       timestamp:new Date().toISOString(),
-      timeTaken: quizTimeTaken})
+      timeTaken:quizTimeTaken})
   })
   .then(function(r){ return r.json(); })
   .then(function(){
@@ -965,7 +892,7 @@ function saveScore() {
     msgEl.className   = 'save-msg err';
     msgEl.textContent = t.saveErr;
     sBtn.disabled     = false;
-    sBtn.innerHTML    = '<span id="save-lbl">'+t.saveLbl+'</span> &#128200;';
+    sBtn.innerHTML    = '<span id="save-lbl">' + t.saveLbl + '</span> &#128200;';
   });
 }
 
@@ -979,7 +906,6 @@ function loadLB() {
       return;
     }
     var rows = Object.values(data);
-    // Same score = jo PEHLE kiya uska rank upar (timestamp ascending)
     rows.sort(function(a,b){
       if (b.score !== a.score) return b.score - a.score;
       return new Date(a.timestamp) - new Date(b.timestamp);
@@ -992,21 +918,22 @@ function loadLB() {
                 : r===3 ? '<span class="medal m3">&#129353;</span>'
                 : '<span class="medal mn">'+r+'</span>';
       var pct = Math.round((e.score/(e.total||10))*100);
-      var cls = r===1?'top1':r===2?'top2':r===3?'top3':'';
+      var cls = r<=3 ? 'top'+r : '';
       var dt  = '';
-      try{ dt=new Date(e.timestamp).toLocaleDateString('en-IN',{day:'numeric',month:'short'}); }catch(x){}
+      try { dt = new Date(e.timestamp).toLocaleDateString('en-IN',{day:'numeric',month:'short'}); } catch(x){}
       html += '<tr class="'+cls+'">'
         +'<td>'+badge+'</td>'
         +'<td><strong>'+esc(e.name)+'</strong></td>'
         +'<td><strong style="color:var(--accent)">'+e.score+'</strong>/'+(e.total||10)+'</td>'
-        +'<td><div class="sbar"><div class="sbar-track"><div class="sbar-fill" style="width:'+pct+'%"></div></div><small style="color:var(--muted);min-width:32px;font-size:.78rem">'+pct+'%</small></div></td>'
+        +'<td><div class="sbar"><div class="sbar-track"><div class="sbar-fill" style="width:'+pct+'%"></div></div>'
+        +'<small style="color:var(--muted);min-width:32px;font-size:.78rem">'+pct+'%</small></div></td>'
         +'<td style="color:var(--muted);font-size:.8rem">'+dt+'</td>'
         +'</tr>';
     });
     tbody.innerHTML = html;
   })
   .catch(function(){
-    tbody.innerHTML='<tr><td colspan="5"><div class="lb-empty">'+T[LANG].loadErr+'</div></td></tr>';
+    tbody.innerHTML = '<tr><td colspan="5"><div class="lb-empty">'+T[LANG].loadErr+'</div></td></tr>';
   });
 }
 
