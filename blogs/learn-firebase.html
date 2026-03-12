@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Learn Firebase Database — Complete Guide 2026 | CIWeb</title>
+  <meta name="description" content="Learn how to create a Firebase Realtime Database step by step. Free tier, security rules, REST API, SDK, queries, auth rules — complete guide 2026."/>
+  <meta name="keywords" content="firebase tutorial, firebase database tutorial, learn firebase, firebase for beginners, firebase guide, firebase setup tutorial, firebase project tutorial, firebase web development, firebase backend tutorial, firebase hosting tutorial, firebase authentication tutorial, firebase realtime database tutorial, cloud firestore tutorial, firebase database setup, firebase database example, firebase javascript tutorial, firebase web app tutorial, firebase configuration tutorial, firebase project setup, firebase database structure, firebase collections and documents, firebase add data tutorial, firebase read data tutorial, firebase update data tutorial, firebase delete data tutorial, firebase security rules tutorial, firebase authentication login tutorial, firebase email password login tutorial, firebase google login tutorial, firebase sign up tutorial, firebase login system tutorial, firebase logout tutorial, firebase storage tutorial, firebase file upload tutorial, firebase image upload tutorial, firebase hosting free tutorial, firebase deploy website tutorial, firebase hosting setup, firebase analytics tutorial, firebase cloud messaging tutorial, firebase push notification tutorial, firebase functions tutorial, firebase serverless backend tutorial, firebase web development guide, firebase coding tutorial, firebase app development tutorial, firebase project ideas, firebase beginner project tutorial, firebase javascript example, firebase html css javascript integration, firebase backend for website, firebase database for website, firebase api tutorial, firebase config keys tutorial, firebase env variables tutorial, firebase security tutorial, firebase performance monitoring tutorial, firebase database best practices, firebase data structure tutorial, firebase database design tutorial, firebase firestore vs realtime database, firebase realtime database example, firebase cloud firestore example, firebase beginner guide, firebase developer tutorial, firebase coding guide, firebase hosting free website, firebase database connection tutorial, firebase web project tutorial, firebase beginner coding tutorial, firebase simple project tutorial, firebase authentication example, firebase database queries tutorial, firebase add collection tutorial, firebase document tutorial, firebase update document tutorial, firebase delete document tutorial, firebase read collection tutorial, firebase coding example, firebase beginner programming tutorial, firebase tutorial step by step, firebase web backend tutorial, firebase cloud platform tutorial, firebase integration tutorial, firebase coding projects, firebase web apps tutorial, firebase login signup tutorial, firebase tutorial hindi, firebase tutorial english, firebase coding blog tutorial, firebase database learning guide, firebase beginner learning tutorial">
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://ciweb.in/blogs/learn-firebase.html"/>
+  <meta property="og:title" content="Learn Firebase Database — Complete Guide 2026 | CIWeb"/>
+  <meta property="og:url" content="https://ciweb.in/blogs/learn-firebase.html"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+html{scroll-behavior:smooth}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#f5f3ee;--ink:#1a1814;--muted:#7a7570;--accent:#e8401c;--card:#fff;--border:#e2ddd6;--green:#16a34a;--blue:#2563eb;--fb:#f5820d}
+body{font-family:"Outfit",sans-serif;background:var(--bg);color:var(--ink);line-height:1.75}
+nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:"Playfair Display",serif;font-size:1.4rem;font-weight:900;text-decoration:none;color:var(--ink)}
+.logo span{color:var(--accent)}
+.wrap{max-width:860px;margin:0 auto;padding:0 5% 80px}
+.hero{padding:40px 0 20px}
+.hero-tags{display:flex;gap:.5rem;margin-bottom:.8rem}
+.tag{padding:3px 12px;border-radius:100px;font-size:.68rem;font-weight:700;text-transform:uppercase}
+.t1{background:#fff4e6;color:#b45309}
+.t2{background:#fefce8;color:#854d0e}
+.t3{background:#f0fff4;color:#16a34a}
+h1{font-family:"Playfair Display",serif;font-size:clamp(1.7rem,4vw,2.5rem);font-weight:900;line-height:1.12;margin-bottom:.8rem}
+.meta{display:flex;gap:1rem;flex-wrap:wrap;font-size:.8rem;color:var(--muted);margin-bottom:.8rem}
+.sub{font-size:.95rem;color:var(--muted);line-height:1.8;max-width:680px}
+/* TOC */
+.toc{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.3rem 1.6rem;margin:1.8rem 0}
+.toc h4{font-size:.8rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:.8rem}
+.toc ol{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:.3rem .8rem;counter-reset:tc}
+@media(max-width:500px){.toc ol{grid-template-columns:1fr}}
+.toc li{counter-increment:tc;display:flex;align-items:center;gap:.4rem;font-size:.82rem}
+.toc li::before{content:counter(tc);min-width:20px;height:20px;background:var(--fb);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;flex-shrink:0}
+.toc a{color:var(--ink);text-decoration:none;font-weight:500;padding:2px 0;display:inline-block}
+.toc a:hover{color:var(--fb);text-decoration:underline}
+.toc a:hover{color:var(--fb)}
+/* FREE TIER */
+.sec-title{font-family:"Playfair Display",serif;font-size:1.4rem;font-weight:900;margin:2.5rem 0 1rem;padding-bottom:.4rem;border-bottom:2px solid var(--border);scroll-margin-top:80px}
+.tbl-wrap{overflow-x:auto;margin:1rem 0}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;font-size:.83rem}
+th{background:var(--ink);color:#fff;padding:.75rem 1rem;text-align:left;font-size:.72rem;font-weight:600}
+td{padding:.72rem 1rem;border-bottom:1px solid var(--border);vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tr.hl td{background:#fff8f0}
+.chk{color:var(--green);font-weight:700}
+.badge{background:#f0fff4;color:var(--green);padding:2px 8px;border-radius:100px;font-size:.68rem;font-weight:700}
+/* STEP */
+.step{background:var(--card);border:1px solid var(--border);border-radius:18px;margin:1.5rem 0;overflow:hidden}
+.step-hd{display:flex;align-items:center;gap:.9rem;padding:1.2rem 1.6rem;border-bottom:1px solid var(--border);background:linear-gradient(135deg,#faf9f7,#fff)}
+.snum{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.95rem;flex-shrink:0;color:#fff}
+.so{background:var(--fb)}.sb{background:var(--blue)}.sg{background:var(--green)}.sp{background:#7c3aed}.sr{background:var(--accent)}.sd{background:var(--ink)}
+.step-hd h3{font-family:"Playfair Display",serif;font-size:1rem;font-weight:900}
+.step-hd small{font-size:.73rem;color:var(--muted)}
+.step-bd{padding:1.4rem 1.6rem;overflow:hidden}
+.step-bd p{font-size:.9rem;line-height:1.8;margin-bottom:.9rem}
+.step-bd b{color:var(--fb)}
+.cl{list-style:none;display:flex;flex-direction:column;gap:.5rem;margin:.8rem 0}
+.cl li{display:flex;align-items:flex-start;gap:.6rem;font-size:.88rem}
+.cl li::before{content:"✓";color:var(--green);font-weight:900;flex-shrink:0;margin-top:2px}
+/* CODE */
+.cb{background:#1e1c18;border-radius:12px;margin:1rem 0;overflow-x:auto;overflow-y:hidden;max-width:100%}
+.ch{display:flex;align-items:center;justify-content:space-between;padding:.5rem 1.1rem;background:#2a2820;border-bottom:1px solid #3a3830;position:sticky;top:0;z-index:1}
+.cl2{font-size:.68rem;color:#8a8070;font-weight:600;text-transform:uppercase;letter-spacing:1px}
+@media(max-width:600px){
+  .step-bd{padding:1.2rem 1rem}
+  .wrap{padding:0 3% 80px}
+  .step{border-radius:14px}
+  .step-hd{padding:1rem 1.2rem}
+  .cb{margin-left:-1rem;margin-right:-1rem;border-radius:0;overflow-x:auto}
+  pre{font-size:.72rem;padding:.9rem 1rem}
+  .toc ol{grid-template-columns:1fr}
+  h1{font-size:1.6rem}
+}
+.cp{background:transparent;border:1px solid #3a3830;color:#8a8070;padding:2px 10px;border-radius:5px;font-size:.67rem;cursor:pointer;font-family:"Outfit",sans-serif;transition:all .2s}
+.cp:hover{border-color:var(--fb);color:var(--fb)}
+.cp.ok{border-color:var(--green);color:var(--green)}
+
+
+/* Text selection color — visible on dark code background */
+pre::selection, pre *::selection{background:#f5820d;color:#fff}
+pre::-moz-selection, pre *::-moz-selection{background:#f5820d;color:#fff}
+
+/* Custom scrollbar for code blocks */
+pre::-webkit-scrollbar{height:4px}
+pre::-webkit-scrollbar-track{background:#2a2820}
+pre::-webkit-scrollbar-thumb{background:#f5820d;border-radius:2px}
+pre{padding:1.2rem 1.4rem;overflow-x:auto;font-size:.8rem;line-height:1.75;font-family:"Courier New",Courier,monospace;white-space:pre;-webkit-overflow-scrolling:touch;color:#e0d8c8;display:block;min-width:max-content}
+
+/* BOXES */
+.tip{background:#fffbeb;border-left:4px solid #f59e0b;border-radius:0 10px 10px 0;padding:.9rem 1.2rem;margin:1rem 0;font-size:.86rem;line-height:1.75}
+.tip strong{color:#92400e}
+.warn{background:#fff8f6;border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:.9rem 1.2rem;margin:1rem 0;font-size:.86rem;line-height:1.75}
+.warn strong{color:#9b1c1c}
+.info{background:#eff6ff;border-left:4px solid var(--blue);border-radius:0 10px 10px 0;padding:.9rem 1.2rem;margin:1rem 0;font-size:.86rem;line-height:1.75}
+.info strong{color:#1e40af}
+/* RULES GRID */
+.rg{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:1rem 0}
+@media(max-width:500px){.rg{grid-template-columns:1fr}}
+.rc{border-radius:12px;padding:1rem;border:1px solid var(--border)}
+.rc h5{font-size:.8rem;font-weight:700;margin-bottom:.4rem}
+.rc p{font-size:.78rem;color:var(--muted);line-height:1.55}
+.rc-open{background:#fff0f0;border-color:#fca5a5}.rc-open h5{color:#dc2626}
+.rc-sec{background:#f0fff4;border-color:#86efac}.rc-sec h5{color:var(--green)}
+.rc-auth{background:#eff6ff;border-color:#93c5fd}.rc-auth h5{color:var(--blue)}
+.rc-val{background:#faf5ff;border-color:#d8b4fe}.rc-val h5{color:#7c3aed}
+/* QUIZ */
+.qw{background:var(--ink);border-radius:22px;padding:1.8rem;margin:2.5rem 0}
+.qw h2{font-family:"Playfair Display",serif;color:#fff;font-size:1.4rem;font-weight:900;text-align:center;margin-bottom:.3rem}
+.qw p.qs{color:rgba(255,255,255,.45);font-size:.82rem;text-align:center;margin-bottom:1.2rem}
+.qpb{background:rgba(255,255,255,.1);border-radius:100px;height:4px;margin-bottom:1.2rem;overflow:hidden}
+.qpf{height:100%;background:var(--fb);border-radius:100px;transition:width .4s}
+.qcard{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:1.2rem;display:none}
+.qcard.on{display:block;animation:fu .3s ease}
+@keyframes fu{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.qn{font-size:.68rem;color:rgba(255,255,255,.35);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:.5rem}
+.qt{color:#fff;font-size:.94rem;font-weight:600;line-height:1.5;margin-bottom:1rem}
+.qopts{display:flex;flex-direction:column;gap:.5rem}
+.qo{background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.1);border-radius:8px;padding:.75rem 1rem;color:rgba(255,255,255,.8);font-size:.85rem;cursor:pointer;text-align:left;font-family:"Outfit",sans-serif;transition:all .2s;display:flex;align-items:center;gap:.6rem}
+.qo:hover:not([disabled]){border-color:var(--fb);background:rgba(245,130,13,.15)}
+.qo.cor{border-color:#4ade80;background:rgba(74,222,128,.15);color:#4ade80}
+.qo.wrg{border-color:#f87171;background:rgba(248,113,113,.15);color:#f87171}
+.qo.rev{border-color:#4ade80;background:rgba(74,222,128,.08);color:rgba(255,255,255,.5)}
+.qo[disabled]{cursor:not-allowed}
+.ok{width:21px;height:21px;border-radius:5px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:800;flex-shrink:0}
+.qo.cor .ok{background:#4ade80;color:#1a1814}
+.qo.wrg .ok{background:#f87171;color:#fff}
+.qexp{background:rgba(255,255,255,.05);border-radius:8px;padding:.75rem 1rem;margin-top:.7rem;font-size:.8rem;color:rgba(255,255,255,.65);line-height:1.65;display:none;border-left:3px solid var(--fb)}
+.qexp.on{display:block}
+.qnxt{background:var(--fb);color:#fff;border:none;padding:8px 22px;border-radius:100px;font-size:.83rem;font-weight:700;cursor:pointer;font-family:"Outfit",sans-serif;margin-top:.9rem;display:none}
+.qnxt.on{display:inline-block}
+.qnxt:hover{background:#e07200}
+.qres{display:none;text-align:center;padding:.5rem 0}
+.qres.on{display:block;animation:fu .4s ease}
+.qrs{font-family:"Playfair Display",serif;font-size:2.6rem;font-weight:900;color:var(--fb)}
+.qrt{color:#fff;font-size:1rem;font-weight:700;margin:.4rem 0 .2rem}
+.qrm{color:rgba(255,255,255,.4);font-size:.82rem;margin-bottom:.9rem}
+.qrr{background:transparent;border:1.5px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);padding:7px 18px;border-radius:100px;font-size:.8rem;font-weight:600;cursor:pointer;font-family:"Outfit",sans-serif}
+/* CTA */
+.cta{background:linear-gradient(135deg,#fff8f0,#fff);border:2px solid var(--fb);border-radius:22px;padding:2rem;margin:2.5rem 0;text-align:center}
+.cta h3{font-family:"Playfair Display",serif;font-size:1.3rem;font-weight:900;margin-bottom:.6rem}
+.cta p{color:var(--muted);font-size:.88rem;line-height:1.75;max-width:480px;margin:0 auto 1.2rem}
+.btns{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap}
+.bp{background:var(--fb);color:#fff;text-decoration:none;padding:10px 26px;border-radius:100px;font-weight:700;font-size:.88rem}
+.bp:hover{background:#e07200}
+.bs{background:var(--card);color:var(--ink);text-decoration:none;padding:10px 26px;border-radius:100px;font-weight:600;font-size:.88rem;border:2px solid var(--border)}
+footer{border-top:1px solid var(--border);padding:1.2rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.8rem}
+footer p{font-size:.78rem;color:var(--muted)}
+#lgtgl{position:fixed;bottom:20px;right:20px;z-index:999;display:flex;background:rgba(20,18,15,.92);border-radius:100px;padding:4px;box-shadow:0 4px 20px rgba(0,0,0,.25)}
+.lo{padding:7px 14px;border-radius:100px;font-size:.7rem;font-weight:700;cursor:pointer;border:none;background:transparent;color:rgba(255,255,255,.35);font-family:"Outfit",sans-serif;transition:all .2s}
+.lo.on{background:linear-gradient(135deg,#f5820d,#e07200);color:#fff}
+
+.kw{color:#c792ea}
+.st{color:#c3e88d}
+.cm{color:#637777;font-style:italic}
+.at{color:#ffcb6b}
+.fn{color:#82aaff}
+.nm{color:#f78c6c}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="logo">CI<span>Web</span></a>
+</nav>
+
+<div class="wrap">
+<div class="hero">
+  <div class="hero-tags">
+    <span class="tag t1">Firebase</span>
+    <span class="tag t2">JavaScript</span>
+    <span class="tag t3">Free</span>
+  </div>
+  <h1 id="h1">How to Create a Database in Firebase &#128293; &mdash; Complete Guide 2026</h1>
+  <div class="meta">
+    <span>&#128100; <b>Coding Infinite</b></span>
+    <span>&#128197; <b>12 March 2026</b></span>
+    <span>&#9200; <b>12 min read</b></span>
+  </div>
+  <p class="sub" id="sub">Firebase gives you a powerful real-time database &mdash; completely free. This guide covers everything: project setup, free tier limits, Realtime DB vs Firestore, security rules, REST API, SDK, queries, auth rules, domain restriction, and common mistakes.</p>
+</div>
+
+<!-- TOC -->
+<div class="toc">
+  <h4>&#128203; What We Cover</h4>
+  <ol>
+    <li><a href="#s-free">Firebase Free Tier Limits</a></li>
+    <li><a href="#s-cmp">Realtime DB vs Firestore</a></li>
+    <li><a href="#s-proj">Create Firebase Project</a></li>
+    <li><a href="#s-enbl">Enable Realtime Database</a></li>
+    <li><a href="#s-rules">Security Rules</a></li>
+    <li><a href="#s-cfg">Connect to Website</a></li>
+    <li><a href="#s-write">Write Data (REST)</a></li>
+    <li><a href="#s-read">Read Data (REST)</a></li>
+    <li><a href="#s-upd">Update &amp; Delete</a></li>
+    <li><a href="#s-patch">PATCH vs PUT vs POST</a></li>
+    <li><a href="#s-sdk">Firebase JS SDK</a></li>
+    <li><a href="#s-qry">Queries &mdash; orderBy</a></li>
+    <li><a href="#s-auth">Auth Rules</a></li>
+    <li><a href="#s-fs">Firestore Intro</a></li>
+    <li><a href="#s-dom">Domain Restriction</a></li>
+    <li><a href="#s-form">Contact Form Example</a></li>
+    <li><a href="#s-err">Common Mistakes</a></li>
+    <li><a href="#s-quiz">Quick Quiz</a></li>
+  </ol>
+</div>
+
+<!-- FREE TIER -->
+<div class="sec-title" id="s-free">&#127873; Firebase Free Tier &mdash; What You Get</div>
+<div class="tbl-wrap"><table>
+  <thead><tr><th>Feature</th><th>Realtime Database</th><th>Firestore</th></tr></thead>
+  <tbody>
+    <tr><td>Storage</td><td>1 GB</td><td>1 GB</td></tr>
+    <tr class="hl"><td>Downloads / month</td><td><span class="chk">10 GB bandwidth</span></td><td>10 GB egress</td></tr>
+    <tr><td>Reads / day</td><td>Unlimited*</td><td><span class="chk">50,000 reads</span></td></tr>
+    <tr><td>Writes / day</td><td>Unlimited*</td><td><span class="chk">20,000 writes</span></td></tr>
+    <tr><td>Simultaneous Connections</td><td><span class="chk">100</span></td><td>Unlimited</td></tr>
+    <tr><td>Credit Card Required</td><td><span class="chk">No</span></td><td><span class="chk">No</span></td></tr>
+  </tbody>
+</table></div>
+<div class="tip"><strong>&#128161; Free is Enough:</strong> For contact forms, leaderboards, quiz scores, small apps &mdash; the free Spark plan is more than enough. Upgrade only for high-traffic production apps.</div>
+
+<!-- COMPARISON -->
+<div class="sec-title" id="s-cmp">&#128200; Realtime Database vs Firestore</div>
+<div class="tbl-wrap"><table>
+  <thead><tr><th>Feature</th><th>Realtime Database</th><th>Firestore</th></tr></thead>
+  <tbody>
+    <tr><td>Data Structure</td><td>JSON tree (flat)</td><td>Collections + Documents</td></tr>
+    <tr><td>Speed</td><td><span class="chk">Very Fast (WebSocket)</span></td><td>Fast (HTTP)</td></tr>
+    <tr><td>Queries</td><td>Basic &mdash; orderBy, limitTo</td><td><span class="chk">Advanced &mdash; where, compound</span></td></tr>
+    <tr class="hl"><td>Free Tier</td><td><span class="badge">1 GB, 10 GB/mo</span></td><td><span class="badge">1 GB, 50K reads/day</span></td></tr>
+    <tr><td>Real-time Updates</td><td><span class="chk">Built-in</span></td><td><span class="chk">Built-in</span></td></tr>
+    <tr><td>Best For</td><td>Chat, live scores, forms</td><td>Complex apps, e-commerce</td></tr>
+  </tbody>
+</table></div>
+<div class="tip"><strong>&#128161; Recommendation:</strong> Beginner? Start with <b>Realtime Database</b> &mdash; simpler JSON, easy REST API. This entire tutorial uses Realtime Database.</div>
+
+<!-- CREATE PROJECT -->
+<div class="sec-title" id="s-proj">&#9881; Step 1 &mdash; Create a Firebase Project</div>
+<div class="step">
+  <div class="step-hd"><div class="snum so">1</div><div><h3>&#9881; Step 1 &mdash; Go to Firebase Console</h3><small>&#9200; 5 minutes</small></div></div>
+  <div class="step-bd">
+    <p>Open <b>console.firebase.google.com</b>. Sign in with your Google account.</p>
+    <ul class="cl">
+      <li>Click <b>"Add project"</b></li>
+      <li>Enter project name &mdash; example: <b>my-first-db</b></li>
+      <li>Google Analytics &mdash; <b>disable it</b> for now, click Continue</li>
+      <li>Click <b>"Create project"</b> &mdash; wait 10-15 seconds</li>
+      <li>Click <b>"Continue"</b> &mdash; dashboard opens!</li>
+    </ul>
+    <div class="tip"><strong>&#128161; Project ID:</strong> Firebase auto-generates a unique ID like <b>my-first-db-a3f9c</b>. This appears in your database URL.</div>
+  </div>
+</div>
+
+<!-- ENABLE DB -->
+<div class="sec-title" id="s-enbl">&#128200; Step 2 &mdash; Enable Realtime Database</div>
+<div class="step">
+  <div class="step-hd"><div class="snum sb">2</div><div><h3>&#128200; Step 2 &mdash; Enable the Database</h3><small>&#9200; 3 minutes</small></div></div>
+  <div class="step-bd">
+    <ul class="cl">
+      <li>In left sidebar click <b>"Build"</b> to expand</li>
+      <li>Click <b>"Realtime Database"</b></li>
+      <li>Click <b>"Create Database"</b></li>
+      <li>Location: pick <b>asia-southeast1 (Singapore)</b> for India &mdash; lowest latency!</li>
+      <li>Security: select <b>"Start in test mode"</b></li>
+      <li>Click <b>"Enable"</b> &mdash; database is live!</li>
+    </ul>
+    <div class="info"><strong>&#128279; Your Database URL:</strong><br/><code>https://your-project-rtdb.asia-southeast1.firebasedatabase.app</code><br/>Save this &mdash; you will use it in all fetch() calls.</div>
+  </div>
+</div>
+
+<!-- SECURITY RULES -->
+<div class="sec-title" id="s-rules">&#128274; Step 3 &mdash; Security Rules</div>
+<div class="step">
+  <div class="step-hd"><div class="snum sr">3</div><div><h3>&#128274; Step 3 &mdash; Configure Security Rules</h3><small>&#9200; Very Important!</small></div></div>
+  <div class="step-bd">
+    <p>Go to <b>Realtime Database &rarr; Rules</b> tab. Default test mode rule:</p>
+    <div class="cb">
+      <div class="ch"><span class="cl2">JSON &mdash; Test Mode</span><button class="cp" onclick="cc(this,'c1')">Copy</button></div>
+      <pre id="c1"><span class="cm">// WARNING: expires in 30 days!</span>
+{
+  <span class="at">"rules"</span>: {
+    <span class="at">".read"</span>:  <span class="st">"now &lt; 1748649600000"</span>,
+    <span class="at">".write"</span>: <span class="st">"now &lt; 1748649600000"</span>
+  }
+}</pre>
+    </div>
+    <div class="warn"><strong>&#9888; Warning:</strong> Test mode expires in 30 days. Anyone can read/write your data. Always set proper rules before going live.</div>
+    <div class="rg">
+      <div class="rc rc-open"><h5>&#128513; Open (Dangerous)</h5><p>".read": true, ".write": true &mdash; anyone can access. Testing only.</p></div>
+      <div class="rc rc-sec"><h5>&#128274; Write Only (Forms)</h5><p>".read": false, ".write": true &mdash; submit but cannot read others' data.</p></div>
+      <div class="rc rc-auth"><h5>&#128100; Auth Required</h5><p>".read": "auth != null" &mdash; only logged-in users can access.</p></div>
+      <div class="rc rc-val"><h5>&#128203; With Validation</h5><p>.validate: checks type, length, required fields. Prevents bad data.</p></div>
+    </div>
+    <div class="cb">
+      <div class="ch"><span class="cl2">JSON &mdash; Recommended Rules</span><button class="cp" onclick="cc(this,'c2')">Copy</button></div>
+      <pre id="c2">{
+  <span class="at">"rules"</span>: {
+    <span class="at">"scores"</span>: {
+      <span class="at">".read"</span>:  <span class="kw">true</span>,
+      <span class="at">".write"</span>: <span class="kw">true</span>,
+      <span class="at">"$id"</span>: {
+        <span class="at">".validate"</span>: <span class="st">"newData.hasChildren(['name','score','timestamp'])"</span>,
+        <span class="at">"name"</span>:  { <span class="at">".validate"</span>: <span class="st">"newData.isString() &amp;&amp; newData.val().length &lt;= 50"</span> },
+        <span class="at">"score"</span>: { <span class="at">".validate"</span>: <span class="st">"newData.isNumber() &amp;&amp; newData.val() &gt;= 0"</span> }
+      }
+    }
+  }
+}</pre>
+    </div>
+  </div>
+</div>
+
+<!-- CONNECT CONFIG -->
+<div class="sec-title" id="s-cfg">&#128279; Step 4 &mdash; Connect Firebase to Your Website</div>
+<div class="step">
+  <div class="step-hd"><div class="snum sp">4</div><div><h3>&#128279; Step 4 &mdash; Get Your Firebase Config</h3><small>&#9200; 5 minutes</small></div></div>
+  <div class="step-bd">
+    <ul class="cl">
+      <li>Click <b>gear icon &#9881;</b> next to "Project Overview"</li>
+      <li>Click <b>"Project settings"</b></li>
+      <li>Scroll to <b>"Your apps"</b> &rarr; click <b>&lt;/&gt; Web</b> icon</li>
+      <li>Give it a nickname &rarr; click <b>"Register app"</b></li>
+      <li>Copy the <b>firebaseConfig</b> object shown</li>
+    </ul>
+    <div class="cb">
+      <div class="ch"><span class="cl2">JavaScript &mdash; Firebase Config</span><button class="cp" onclick="cc(this,'c3')">Copy</button></div>
+      <pre id="c3"><span class="kw">const</span> firebaseConfig = {
+  apiKey:            <span class="st">"AIzaSy-YOUR-KEY"</span>,
+  authDomain:        <span class="st">"your-project.firebaseapp.com"</span>,
+  databaseURL:       <span class="st">"https://your-project-rtdb.firebasedatabase.app"</span>,
+  projectId:         <span class="st">"your-project-id"</span>,
+  storageBucket:     <span class="st">"your-project.appspot.com"</span>,
+  messagingSenderId: <span class="st">"123456789"</span>,
+  appId:             <span class="st">"1:123:web:abc"</span>
+};</pre>
+    </div>
+  </div>
+</div>
+
+<!-- WRITE REST -->
+<div class="sec-title" id="s-write">&#9997; Step 5 &mdash; Write Data (REST API)</div>
+<div class="step">
+  <div class="step-hd"><div class="snum sg">5</div><div><h3>&#9997; Step 5 &mdash; Save Data (REST API)</h3><small>No library needed</small></div></div>
+  <div class="step-bd">
+    <div class="cb">
+      <div class="ch"><span class="cl2">JavaScript &mdash; POST (create)</span><button class="cp" onclick="cc(this,'c4')">Copy</button></div>
+      <pre id="c4"><span class="kw">const</span> DB_URL = <span class="st">"https://your-project-rtdb.firebasedatabase.app"</span>;
+
+<span class="kw">async function</span> saveScore(name, score) {
+  <span class="kw">const</span> res = <span class="kw">await</span> fetch(DB_URL + <span class="st">"/scores.json"</span>, {
+    method:  <span class="st">"POST"</span>,
+    headers: { <span class="st">"Content-Type"</span>: <span class="st">"application/json"</span> },
+    body:    JSON.stringify({
+      name, score,
+      timestamp: <span class="kw">new</span> Date().toISOString()
+    })
+  });
+  <span class="kw">const</span> result = <span class="kw">await</span> res.json();
+  console.log(<span class="st">"Saved! ID:"</span>, result.name);
+}
+
+saveScore(<span class="st">"Rahul"</span>, 95);</pre>
+    </div>
+  </div>
+</div>
+
+<!-- READ REST -->
+<div class="sec-title" id="s-read">&#128214; Step 6 &mdash; Read Data (REST API)</div>
+<div class="step">
+  <div class="step-hd"><div class="snum sb">6</div><div><h3>&#128214; Step 6 &mdash; Fetch &amp; Display Data</h3><small>GET request</small></div></div>
+  <div class="step-bd">
+    <div class="cb">
+      <div class="ch"><span class="cl2">JavaScript &mdash; GET</span><button class="cp" onclick="cc(this,'c5')">Copy</button></div>
+      <pre id="c5"><span class="kw">async function</span> loadScores() {
+  <span class="kw">const</span> res  = <span class="kw">await</span> fetch(DB_URL + <span class="st">"/scores.json"</span>);
+  <span class="kw">const</span> data = <span class="kw">await</span> res.json();
+
+  <span class="kw">if</span> (!data) { console.log(<span class="st">"No data"</span>); <span class="kw">return</span>; }
+
+  <span class="kw">const</span> scores = Object.values(data);
+  scores.sort((a, b) => b.score - a.score);
+  scores.forEach(e => console.log(e.name, e.score));
+}
+
+loadScores();</pre>
+    </div>
+    <div class="tip"><strong>&#9889; Real-time:</strong> Use SDK's <b>.on("value")</b> listener instead of fetch() to auto-update UI whenever data changes &mdash; perfect for chat and live scores!</div>
+  </div>
+</div>
+
+<!-- UPDATE DELETE -->
+<div class="sec-title" id="s-upd">&#9999; Step 7 &mdash; Update &amp; Delete</div>
+<div class="step">
+  <div class="step-hd"><div class="snum sd">7</div><div><h3>&#9999; Step 7 &mdash; Update &amp; Delete Data</h3></div></div>
+  <div class="step-bd">
+    <div class="cb">
+      <div class="ch"><span class="cl2">JavaScript &mdash; PATCH / DELETE</span><button class="cp" onclick="cc(this,'c6')">Copy</button></div>
+      <pre id="c6"><span class="cm">// Update specific fields only</span>
+<span class="kw">async function</span> updateScore(id, newScore) {
+  <span class="kw">await</span> fetch(DB_URL + <span class="st">`/scores/${id}.json`</span>, {
+    method:  <span class="st">"PATCH"</span>,
+    headers: { <span class="st">"Content-Type"</span>: <span class="st">"application/json"</span> },
+    body:    JSON.stringify({ score: newScore })
+  });
+}
+
+<span class="cm">// Delete one entry</span>
+<span class="kw">async function</span> deleteEntry(id) {
+  <span class="kw">await</span> fetch(DB_URL + <span class="st">`/scores/${id}.json`</span>, {
+    method: <span class="st">"DELETE"</span>
+  });
+}</pre>
+    </div>
+  </div>
+</div>
+
+<!-- PATCH vs PUT TABLE -->
+<div class="sec-title" id="s-patch">&#128260; PATCH vs PUT vs POST &mdash; Quick Reference</div>
+<div class="tbl-wrap"><table>
+  <thead><tr><th>Method</th><th>What it Does</th><th>SDK Equal</th><th>Use Case</th></tr></thead>
+  <tbody>
+    <tr><td><b style="color:var(--accent)">POST</b></td><td>Create with auto ID</td><td>push()</td><td>Add to list</td></tr>
+    <tr class="hl"><td><b style="color:var(--blue)">PUT</b></td><td>Overwrite entire path</td><td>set()</td><td>Replace record</td></tr>
+    <tr><td><b style="color:var(--green)">PATCH</b></td><td>Update specific fields only</td><td>update()</td><td>Partial update</td></tr>
+    <tr><td><b style="color:#7c3aed">GET</b></td><td>Read data</td><td>once("value")</td><td>Fetch data</td></tr>
+    <tr><td><b style="color:#dc2626">DELETE</b></td><td>Remove path</td><td>remove()</td><td>Delete record</td></tr>
+  </tbody>
+</table></div>
+<div class="warn"><strong>&#9888; PUT Danger:</strong> If you use PUT and forget a field &mdash; that field gets <b>deleted permanently</b>! Always use PATCH for partial updates.</div>
+
+<!-- SDK -->
+<div class="sec-title" id="s-sdk">&#128230; Firebase JavaScript SDK</div>
+<div class="step">
+  <div class="step-hd"><div class="snum sp">SDK</div><div><h3>&#128230; SDK &mdash; Full Setup &amp; Usage</h3><small>Real-time listeners included</small></div></div>
+  <div class="step-bd">
+    <div class="cb">
+      <div class="ch"><span class="cl2">HTML &mdash; Add SDK Scripts</span><button class="cp" onclick="cc(this,'c7')">Copy</button></div>
+      <pre id="c7"><span class="cm">&lt;!-- Firebase App (always first) --&gt;</span>
+&lt;script src=<span class="st">"https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"</span>&gt;&lt;/script&gt;
+
+<span class="cm">&lt;!-- Realtime Database --&gt;</span>
+&lt;script src=<span class="st">"https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"</span>&gt;&lt;/script&gt;</pre>
+    </div>
+    <div class="cb">
+      <div class="ch"><span class="cl2">JavaScript &mdash; SDK Init + CRUD</span><button class="cp" onclick="cc(this,'c8')">Copy</button></div>
+      <pre id="c8">firebase.initializeApp(firebaseConfig);
+<span class="kw">const</span> db = firebase.database();
+
+<span class="cm">// Write</span>
+db.ref(<span class="st">"scores"</span>).push({ name: <span class="st">"Rahul"</span>, score: 95 });
+
+<span class="cm">// Read once</span>
+db.ref(<span class="st">"scores"</span>).once(<span class="st">"value"</span>, snap => console.log(snap.val()));
+
+<span class="cm">// Real-time listener (auto-updates!)</span>
+db.ref(<span class="st">"scores"</span>).on(<span class="st">"value"</span>, snap => render(snap.val()));
+
+<span class="cm">// Update partial fields</span>
+db.ref(<span class="st">`scores/${entryId}`</span>).update({ score: 100 });
+
+<span class="cm">// Delete</span>
+db.ref(<span class="st">`scores/${entryId}`</span>).remove();
+
+<span class="cm">// Stop listener</span>
+db.ref(<span class="st">"scores"</span>).off();</pre>
+    </div>
+  </div>
+</div>
+
+<!-- QUERIES -->
+<div class="sec-title" id="s-qry">&#128269; Querying &mdash; orderBy, limitTo, equalTo</div>
+<div class="step">
+  <div class="step-hd"><div class="snum sb">Q</div><div><h3>&#128269; Queries &mdash; orderBy, limitTo, equalTo</h3></div></div>
+  <div class="step-bd">
+    <div class="cb">
+      <div class="ch"><span class="cl2">JavaScript &mdash; Queries (SDK)</span><button class="cp" onclick="cc(this,'c9')">Copy</button></div>
+      <pre id="c9"><span class="cm">// Top 10 scores (SDK)</span>
+db.ref(<span class="st">"scores"</span>)
+  .orderByChild(<span class="st">"score"</span>)
+  .limitToLast(10)
+  .once(<span class="st">"value"</span>, snap => {
+    <span class="kw">const</span> arr = [];
+    snap.forEach(c => arr.push(c.val()));
+    console.log(arr.reverse());
+  });
+
+<span class="cm">// REST API query params</span>
+<span class="kw">const</span> url = DB_URL + <span class="st">'/scores.json?orderBy="score"&amp;limitToLast=10'</span>;
+<span class="kw">const</span> data = <span class="kw">await</span> (<span class="kw">await</span> fetch(url)).json();</pre>
+    </div>
+    <div class="warn"><strong>&#9888; Add .indexOn:</strong> Add <code>".indexOn": ["score"]</code> in Firebase Rules when using orderByChild, otherwise queries may be slow.</div>
+  </div>
+</div>
+
+<!-- AUTH RULES -->
+<div class="sec-title" id="s-auth">&#128100; Auth-Based Security Rules</div>
+<div class="step">
+  <div class="step-hd"><div class="snum sd">&#128274;</div><div><h3>&#128100; Auth Rules &mdash; Per-User Protection</h3></div></div>
+  <div class="step-bd">
+    <div class="cb">
+      <div class="ch"><span class="cl2">JSON &mdash; Auth Rules</span><button class="cp" onclick="cc(this,'ca')">Copy</button></div>
+      <pre id="ca">{
+  <span class="at">"rules"</span>: {
+
+    <span class="cm">// Only logged-in users</span>
+    <span class="at">"posts"</span>: {
+      <span class="at">".read"</span>:  <span class="st">"auth != null"</span>,
+      <span class="at">".write"</span>: <span class="st">"auth != null"</span>
+    },
+
+    <span class="cm">// Users can only read/write THEIR OWN data</span>
+    <span class="at">"users"</span>: {
+      <span class="at">"$uid"</span>: {
+        <span class="at">".read"</span>:  <span class="st">"auth.uid == $uid"</span>,
+        <span class="at">".write"</span>: <span class="st">"auth.uid == $uid"</span>
+      }
+    }
+  }
+}</pre>
+    </div>
+  </div>
+</div>
+
+<!-- FIRESTORE -->
+<div class="sec-title" id="s-fs">&#128196; Firestore &mdash; Quick Intro</div>
+<div class="step">
+  <div class="step-hd"><div class="snum so">FS</div><div><h3>&#128196; Firestore &mdash; Collections &amp; Documents</h3></div></div>
+  <div class="step-bd">
+    <div class="cb">
+      <div class="ch"><span class="cl2">JavaScript &mdash; Firestore SDK</span><button class="cp" onclick="cc(this,'cf')">Copy</button></div>
+      <pre id="cf"><span class="kw">const</span> db = firebase.firestore();
+
+<span class="cm">// Add document (auto ID)</span>
+db.collection(<span class="st">"scores"</span>).add({ name: <span class="st">"Rahul"</span>, score: 95 });
+
+<span class="cm">// Advanced query</span>
+db.collection(<span class="st">"scores"</span>)
+  .where(<span class="st">"score"</span>, <span class="st">"&gt;="</span>, 50)
+  .orderBy(<span class="st">"score"</span>, <span class="st">"desc"</span>)
+  .limit(10)
+  .get().then(snap =>
+    snap.forEach(d => console.log(d.data()))
+  );
+
+<span class="cm">// Real-time</span>
+db.collection(<span class="st">"scores"</span>).onSnapshot(snap =>
+  snap.forEach(d => console.log(d.data()))
+);</pre>
+    </div>
+  </div>
+</div>
+
+<!-- DOMAIN RESTRICTION -->
+<div class="sec-title" id="s-dom">&#128274; Restrict Firebase to Your Domain</div>
+<div class="step">
+  <div class="step-hd"><div class="snum sr">&#128737;</div><div><h3>&#128737; Domain Restriction &mdash; Secure API Key</h3><small>Prevent unauthorized usage</small></div></div>
+  <div class="step-bd">
+    <ul class="cl">
+      <li>Go to <b>console.cloud.google.com</b></li>
+      <li>Select your Firebase project</li>
+      <li>Go to <b>APIs &amp; Services &rarr; Credentials</b></li>
+      <li>Click your <b>Browser key</b></li>
+      <li>Under <b>"Application restrictions"</b> &rarr; select <b>"HTTP referrers"</b></li>
+      <li>Add: <code>https://ciweb.in/*</code> and <code>http://localhost/*</code></li>
+      <li>Click <b>Save</b></li>
+    </ul>
+    <div class="info"><strong>&#128161; Remember:</strong> Domain restriction + Firebase Security Rules = two layers of protection. Both together = strong security.</div>
+  </div>
+</div>
+
+<!-- CONTACT FORM -->
+<div class="sec-title" id="s-form">&#128187; Complete Contact Form Example</div>
+<div class="step">
+  <div class="step-hd"><div class="snum so">&#9733;</div><div><h3>&#9733; Complete Contact Form Example</h3></div></div>
+  <div class="step-bd">
+    <div class="cb">
+      <div class="ch"><span class="cl2">HTML &mdash; Full Contact Form</span><button class="cp" onclick="cc(this,'cform')">Copy</button></div>
+      <pre id="cform">&lt;input  id=<span class="st">"name"</span>    placeholder=<span class="st">"Your Name"</span>/&gt;
+&lt;input  id=<span class="st">"email"</span>   placeholder=<span class="st">"Email"</span>/&gt;
+&lt;textarea id=<span class="st">"msg"</span>  placeholder=<span class="st">"Message..."</span> rows=<span class="st">"4"</span>&gt;&lt;/textarea&gt;
+&lt;button onclick=<span class="st">"send()"</span>&gt;Send&lt;/button&gt;
+&lt;div id=<span class="st">"status"</span>&gt;&lt;/div&gt;
+
+&lt;script&gt;
+<span class="kw">const</span> DB = <span class="st">"https://YOUR-PROJECT-rtdb.firebasedatabase.app"</span>;
+
+<span class="kw">async function</span> send() {
+  <span class="kw">const</span> name    = document.getElementById(<span class="st">"name"</span>).value.trim();
+  <span class="kw">const</span> email   = document.getElementById(<span class="st">"email"</span>).value.trim();
+  <span class="kw">const</span> message = document.getElementById(<span class="st">"msg"</span>).value.trim();
+  <span class="kw">const</span> status  = document.getElementById(<span class="st">"status"</span>);
+
+  <span class="kw">if</span> (!name || !email || !message) {
+    status.style.color  = <span class="st">"red"</span>;
+    status.textContent  = <span class="st">"Please fill all fields!"</span>;
+    <span class="kw">return</span>;
+  }
+  <span class="kw">try</span> {
+    <span class="kw">await</span> fetch(DB + <span class="st">"/contacts.json"</span>, {
+      method:  <span class="st">"POST"</span>,
+      headers: { <span class="st">"Content-Type"</span>: <span class="st">"application/json"</span> },
+      body:    JSON.stringify({ name, email, message,
+        timestamp: <span class="kw">new</span> Date().toISOString() })
+    });
+    status.style.color  = <span class="st">"green"</span>;
+    status.textContent  = <span class="st">"Message sent!"</span>;
+  } <span class="kw">catch</span> (err) {
+    status.style.color  = <span class="st">"red"</span>;
+    status.textContent  = <span class="st">"Error! Try again."</span>;
+  }
+}
+&lt;/script&gt;</pre>
+    </div>
+    <div class="tip"><strong>&#128274; Rules for this form:</strong> Set <b>".read": false, ".write": true</b> on /contacts path.</div>
+  </div>
+</div>
+
+<!-- COMMON MISTAKES -->
+<div class="sec-title" id="s-err">&#128683; Common Mistakes to Avoid</div>
+<div class="step">
+  <div class="step-hd"><div class="snum sr">!</div><div><h3>&#128683; 7 Common Beginner Mistakes</h3><small>Save yourself hours of debugging</small></div></div>
+  <div class="step-bd">
+    <ul class="cl">
+      <li><b>Leaving test mode rules in production</b> &mdash; anyone can delete your entire database!</li>
+      <li><b>Wrong DB URL</b> &mdash; must end in <b>.firebasedatabase.app</b>. Double-check the region.</li>
+      <li><b>Forgetting .json in REST URLs</b> &mdash; Firebase needs <b>/scores.json</b> not just <b>/scores</b>.</li>
+      <li><b>Using PUT instead of POST for lists</b> &mdash; PUT overwrites! Use POST to add new items.</li>
+      <li><b>Not handling errors</b> &mdash; always wrap fetch() in try/catch.</li>
+      <li><b>Panicking about API key being public</b> &mdash; Firebase keys are safe to expose. Security comes from Rules.</li>
+      <li><b>No .indexOn in rules</b> &mdash; add index for any field you use in orderByChild().</li>
+    </ul>
+  </div>
+</div>
+
+<!-- QUIZ -->
+<div class="sec-title" id="s-quiz">&#9889; Quick Quiz &mdash; Test Your Knowledge</div>
+<div class="qw">
+  <h2>Firebase Database Quiz</h2>
+  <p class="qs">6 questions &mdash; let's go!</p>
+  <div class="qpb"><div class="qpf" id="qp" style="width:0%"></div></div>
+
+  <div class="qcard on" id="q0">
+    <div class="qn">Question 1 / 6</div>
+    <div class="qt">What HTTP method creates a new entry with an auto-generated ID in Firebase REST API?</div>
+    <div class="qopts">
+      <button class="qo" onclick="pick(0,0)"><span class="ok">A</span> GET</button>
+      <button class="qo" onclick="pick(0,1)"><span class="ok">B</span> PUT</button>
+      <button class="qo" onclick="pick(0,2)"><span class="ok">C</span> POST</button>
+      <button class="qo" onclick="pick(0,3)"><span class="ok">D</span> PATCH</button>
+    </div>
+    <div class="qexp" id="e0">&#10003; POST creates a new entry with a Firebase auto-generated unique ID. PUT overwrites a specific path. Use POST for adding to lists.</div>
+    <button class="qnxt" id="n0" onclick="nxt(1)">Next &#8594;</button>
+  </div>
+
+  <div class="qcard" id="q1">
+    <div class="qn">Question 2 / 6</div>
+    <div class="qt">What must you add at the end of Firebase REST API URLs?</div>
+    <div class="qopts">
+      <button class="qo" onclick="pick(1,0)"><span class="ok">A</span> .html</button>
+      <button class="qo" onclick="pick(1,1)"><span class="ok">B</span> .json</button>
+      <button class="qo" onclick="pick(1,2)"><span class="ok">C</span> .data</button>
+      <button class="qo" onclick="pick(1,3)"><span class="ok">D</span> .db</button>
+    </div>
+    <div class="qexp" id="e1">&#10003; Firebase REST API requires .json at the end of every URL. Example: /scores.json</div>
+    <button class="qnxt" id="n1" onclick="nxt(2)">Next &#8594;</button>
+  </div>
+
+  <div class="qcard" id="q2">
+    <div class="qn">Question 3 / 6</div>
+    <div class="qt">Which rule is correct for a contact form where users can submit but NOT read others' messages?</div>
+    <div class="qopts">
+      <button class="qo" onclick="pick(2,0)"><span class="ok">A</span> ".read": true, ".write": true</button>
+      <button class="qo" onclick="pick(2,1)"><span class="ok">B</span> ".read": false, ".write": true</button>
+      <button class="qo" onclick="pick(2,2)"><span class="ok">C</span> ".read": true, ".write": false</button>
+      <button class="qo" onclick="pick(2,3)"><span class="ok">D</span> ".read": false, ".write": false</button>
+    </div>
+    <div class="qexp" id="e2">&#10003; ".read": false, ".write": true &mdash; users can submit (write) but cannot read others' data.</div>
+    <button class="qnxt" id="n2" onclick="nxt(3)">Next &#8594;</button>
+  </div>
+
+  <div class="qcard" id="q3">
+    <div class="qn">Question 4 / 6</div>
+    <div class="qt">What does the Firebase SDK's .on("value") do that fetch() does not?</div>
+    <div class="qopts">
+      <button class="qo" onclick="pick(3,0)"><span class="ok">A</span> It is faster</button>
+      <button class="qo" onclick="pick(3,1)"><span class="ok">B</span> It updates in real-time whenever data changes</button>
+      <button class="qo" onclick="pick(3,2)"><span class="ok">C</span> It encrypts data</button>
+      <button class="qo" onclick="pick(3,3)"><span class="ok">D</span> It requires authentication</button>
+    </div>
+    <div class="qexp" id="e3">&#10003; .on("value") auto-runs your callback whenever data changes &mdash; no refresh needed. Perfect for chat and live dashboards.</div>
+    <button class="qnxt" id="n3" onclick="nxt(4)">Next &#8594;</button>
+  </div>
+
+  <div class="qcard" id="q4">
+    <div class="qn">Question 5 / 6</div>
+    <div class="qt">Is it safe to expose your Firebase API key in frontend JavaScript?</div>
+    <div class="qopts">
+      <button class="qo" onclick="pick(4,0)"><span class="ok">A</span> Yes &mdash; security comes from Firebase Rules, not the key</button>
+      <button class="qo" onclick="pick(4,1)"><span class="ok">B</span> No &mdash; always hide it</button>
+      <button class="qo" onclick="pick(4,2)"><span class="ok">C</span> Only if encrypted</button>
+      <button class="qo" onclick="pick(4,3)"><span class="ok">D</span> Only on localhost</button>
+    </div>
+    <div class="qexp" id="e4">&#10003; Firebase API keys are designed to be public. Your real security is Firebase Security Rules &mdash; they control who can read/write.</div>
+    <button class="qnxt" id="n4" onclick="nxt(5)">Next &#8594;</button>
+  </div>
+
+  <div class="qcard" id="q5">
+    <div class="qn">Question 6 / 6</div>
+    <div class="qt">What is the difference between PATCH and PUT in Firebase REST API?</div>
+    <div class="qopts">
+      <button class="qo" onclick="pick(5,0)"><span class="ok">A</span> They are the same</button>
+      <button class="qo" onclick="pick(5,1)"><span class="ok">B</span> PATCH deletes, PUT saves</button>
+      <button class="qo" onclick="pick(5,2)"><span class="ok">C</span> PATCH updates specific fields, PUT overwrites entire entry</button>
+      <button class="qo" onclick="pick(5,3)"><span class="ok">D</span> PUT reads, PATCH writes</button>
+    </div>
+    <div class="qexp" id="e5">&#10003; PATCH updates only fields you send (others stay). PUT overwrites everything &mdash; missing fields get deleted!</div>
+    <button class="qnxt" id="n5" onclick="showRes()">See Result &#127942;</button>
+  </div>
+
+  <div class="qres" id="qres">
+    <span id="re" style="font-size:2.6rem;display:block;margin-bottom:.5rem">&#127942;</span>
+    <div class="qrs" id="rs">0/6</div>
+    <div class="qrt" id="rt">Great!</div>
+    <div class="qrm" id="rm">Now build with Firebase!</div>
+    <button class="qrr" onclick="retry()">&#128260; Try Again</button>
+  </div>
+</div>
+
+<div class="cta">
+  <h3>&#128293; Ready to Build with Firebase?</h3>
+  <p>You now know everything &mdash; free tier, database setup, security rules, REST API, SDK, queries, auth rules, and how to avoid mistakes. Go build something!</p>
+  <div class="btns">
+    <a href="Build-Your-First-Website.html" class="bp">Build Your Website First &#8594;</a>
+    <a href="blog4.html" class="bs">HTML Quiz &#9889;</a>
+  </div>
+</div>
+
+</div><!-- .wrap -->
+
+<footer>
+  <a href="../index.html" class="logo">CI<span>Web</span></a>
+  <p>&#169; 2026 CIWeb. All rights reserved.</p>
+  <p>Made with &#10084; for Tech Lovers</p>
+</footer>
+
+<div id="lgtgl">
+  <button class="lo on" id="ben" onclick="setLang('en')">&#127468;&#127463; EN</button>
+  <button class="lo"    id="bhi" onclick="setLang('hi')">&#127470;&#127475; HI</button>
+</div>
+
+<script>
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//  TOC SMOOTH SCROLL (accounts for sticky nav height)
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+document.querySelectorAll('.toc a[href^="#"]').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    var targetId = this.getAttribute('href').slice(1);
+    var target   = document.getElementById(targetId);
+    if (!target) return;
+    var navHeight = 72;
+    var targetTop = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 12;
+    window.scrollTo({ top: targetTop, behavior: 'smooth' });
+  });
+});
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//  COPY CODE BUTTON
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+function cc(btn, codeId) {
+  var codeEl = document.getElementById(codeId);
+  var text   = codeEl.innerText || codeEl.textContent;
+
+  navigator.clipboard.writeText(text).then(function() {
+    btn.textContent = 'Copied!';
+    btn.classList.add('ok');
+    setTimeout(function() {
+      btn.textContent = 'Copy';
+      btn.classList.remove('ok');
+    }, 2000);
+  });
+}
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//  QUIZ
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+var quizScore   = 0;
+var answered    = [false, false, false, false, false, false];
+var CORRECT_ANS = [2, 1, 1, 1, 0, 2]; // index of correct option for each question
+
+function pick(qIdx, chosenIdx) {
+  if (answered[qIdx]) return;
+  answered[qIdx] = true;
+
+  var card    = document.getElementById('q' + qIdx);
+  var options = card.querySelectorAll('.qo');
+
+  // Disable all options
+  options.forEach(function(opt) { opt.disabled = true; });
+
+  // Highlight correct / wrong
+  if (chosenIdx === CORRECT_ANS[qIdx]) {
+    options[chosenIdx].classList.add('cor');
+    quizScore++;
+  } else {
+    options[chosenIdx].classList.add('wrg');
+    options[CORRECT_ANS[qIdx]].classList.add('rev'); // show correct answer
+  }
+
+  // Show explanation and next button
+  document.getElementById('e' + qIdx).classList.add('on');
+  document.getElementById('n' + qIdx).classList.add('on');
+
+  // Update progress bar
+  document.getElementById('qp').style.width = ((qIdx + 1) / 6 * 100) + '%';
+}
+
+function nxt(nextIdx) {
+  document.getElementById('q' + (nextIdx - 1)).classList.remove('on');
+  document.getElementById('q' + nextIdx).classList.add('on');
+}
+
+function showRes() {
+  document.getElementById('q5').classList.remove('on');
+  document.getElementById('qp').style.width = '100%';
+  document.getElementById('qres').classList.add('on');
+
+  var emoji = quizScore >= 5 ? '&#127942;' : quizScore >= 3 ? '&#127881;' : '&#128218;';
+  var title = quizScore >= 5 ? 'Firebase Expert!'  : quizScore >= 3 ? 'Good Job!'   : 'Keep Learning!';
+  var msg   = quizScore >= 5 ? 'You are ready to build real apps!' :
+              quizScore >= 3 ? 'Review the sections you missed.'   : 'Read the guide again carefully.';
+
+  document.getElementById('re').innerHTML    = emoji;
+  document.getElementById('rs').textContent  = quizScore + '/6';
+  document.getElementById('rt').textContent  = title;
+  document.getElementById('rm').textContent  = msg;
+}
+
+function retry() {
+  quizScore = 0;
+  answered  = [false, false, false, false, false, false];
+
+  document.getElementById('qres').classList.remove('on');
+  document.getElementById('qp').style.width = '0%';
+
+  for (var i = 0; i < 6; i++) {
+    var card = document.getElementById('q' + i);
+    card.classList.toggle('on', i === 0);
+
+    card.querySelectorAll('.qo').forEach(function(opt) {
+      opt.classList.remove('cor', 'wrg', 'rev');
+      opt.disabled = false;
+    });
+
+    document.getElementById('e' + i).classList.remove('on');
+    document.getElementById('n' + i).classList.remove('on');
+  }
+}
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//  LANGUAGE TOGGLE (English default, Hindi option)
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+var TRANSLATIONS = {
+  hi: {
+    h1:  'Firebase Mein Database Kaise Banaye &#128293; &mdash; Poori Guide 2026',
+    sub: 'Firebase ek powerful real-time database deta hai &mdash; bilkul free. ' +
+         'Is guide mein sab kuch cover hai: free tier limits, Realtime DB vs Firestore, ' +
+         'security rules, REST API, SDK, queries, auth rules, domain restriction aur common galtiyan.'
+  },
+  en: {
+    h1:  'How to Create a Database in Firebase &#128293; &mdash; Complete Guide 2026',
+    sub: 'Firebase gives you a powerful real-time database &mdash; completely free. ' +
+         'This guide covers everything: free tier limits, Realtime DB vs Firestore, ' +
+         'security rules, REST API, SDK, queries, auth rules, domain restriction and common mistakes.'
+  }
+};
+
+function setLang(lang) {
+  localStorage.setItem('ciweb_lang', lang);
+
+  var t = TRANSLATIONS[lang];
+  document.getElementById('h1').innerHTML  = t.h1;
+  document.getElementById('sub').innerHTML = t.sub;
+
+  document.getElementById('ben').classList.toggle('on', lang === 'en');
+  document.getElementById('bhi').classList.toggle('on', lang === 'hi');
+
+  document.documentElement.lang = lang;
+}
+
+// Initialize on page load — default: English
+var savedLang = localStorage.getItem('ciweb_lang') || 'en';
+document.addEventListener('DOMContentLoaded', function() {
+  setLang(savedLang);
+});
+</script>
+</body>
+</html>
