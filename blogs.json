@@ -1,5 +1,14 @@
 [
   {
+  "title_hi": "Firebase Mein Database Kaise Banaye — Poori Guide 2026",
+  "title_en": "How to Create a Firebase Database — Complete Guide 2026",
+  "desc_hi": "Free tier, Realtime DB vs Firestore, rules, REST API, SDK, queries, auth — sab kuch ek jagah. Quiz bhi!",
+  "desc_en": "Free tier limits, Realtime DB vs Firestore, security rules, REST API, SDK, queries, auth rules — everything covered!",
+  "tag": "Firebase",
+  "date": "12 March 2026",
+  "link": "blogs/learn-firebase.html"
+},
+  {
   "title_hi": "Apna Pehla Website 1 Ghante Mein Banao — GitHub Pages Pe Free Host Karo!",
   "title_en": "Build Your First Website in 1 Hour — Host FREE on GitHub Pages!",
   "desc_hi": "Coding nahi aati? Koi baat nahi! Step-by-step guide se HTML website banao aur GitHub Pages pe bilkul free mein host karo. Quiz bhi hai!",
