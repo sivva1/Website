@@ -1,1 +1,836 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apna Pehla Website 1 Ghante Mein Banao — GitHub Pages Pe Free Host Karo | CIWeb</title>
+  <meta name="description" content="Bilkul beginner ho? Koi baat nahi! Is step-by-step guide mein seekho kaise HTML se website banate hain aur GitHub Pages pe bilkul free mein host karte hain — sirf 1 ghante mein!"/>
+  <meta name="keywords" content="website kaise banaye Hindi, GitHub Pages tutorial Hindi, free website hosting India, HTML website beginner Hindi, apna website banao 2026"/>
+  <meta name="author" content="CIWeb — Coding Infinite"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://ciweb.in/blog/blog7.html"/>
+  <meta property="og:title" content="Apna Pehla Website 1 Ghante Mein Banao — GitHub Pages Pe Free Host Karo"/>
+  <meta property="og:description" content="Step-by-step guide: HTML se website banao aur GitHub Pages pe free mein host karo. Beginners ke liye Hindi mein!"/>
+  <meta property="og:url" content="https://ciweb.in/blog/blog7.html"/>
+  <meta property="og:type" content="article"/>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"Apna Pehla Website 1 Ghante Mein Banao","author":{"@type":"Organization","name":"CIWeb"},"datePublished":"2026-03-12","url":"https://ciweb.in/blog/blog7.html"}
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#f5f3ee;--ink:#1a1814;--muted:#7a7570;--accent:#e8401c;--card:#fff;--border:#e2ddd6;--tag-bg:#fff0ec;--green:#16a34a;--green-bg:#f0fff4;--blue:#2563eb;--blue-bg:#eff6ff}
+    body{font-family:"Outfit",sans-serif;background:var(--bg);color:var(--ink);line-height:1.75}
+    nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);padding:0 6%;display:flex;align-items:center;justify-content:space-between;height:64px}
+    .logo{font-family:"Playfair Display",serif;font-size:1.5rem;font-weight:900;color:var(--ink);text-decoration:none}
+    .logo span{color:var(--accent)}
+    .nav-links{display:flex;gap:1.4rem;list-style:none;align-items:center}
+    .nav-links a{color:var(--muted);text-decoration:none;font-size:.88rem;font-weight:500}
+    .nav-links a:hover{color:var(--ink)}
+    .nav-cta{background:var(--ink)!important;color:var(--bg)!important;padding:8px 18px;border-radius:100px;font-weight:600!important}
+    @media(max-width:768px){.nav-links{display:none}}
 
+    .blog-hero{max-width:860px;margin:0 auto;padding:44px 5% 20px}
+    .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:.85rem;text-decoration:none;font-weight:500;margin-bottom:1.2rem}
+    .back-link:hover{color:var(--ink)}
+    .hero-tags{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1rem}
+    .tag{padding:4px 14px;border-radius:100px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+    .tag-html{background:var(--tag-bg);color:var(--accent)}
+    .tag-github{background:#f0f0ff;color:#5b21b6}
+    .tag-free{background:var(--green-bg);color:var(--green)}
+    .blog-hero h1{font-family:"Playfair Display",serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:900;line-height:1.12;margin-bottom:.9rem}
+    .hero-meta{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:.8rem}
+    .hero-meta span{font-size:.8rem;color:var(--muted)}
+    .hero-meta b{color:var(--ink)}
+    .blog-hero .sub{font-size:1rem;color:var(--muted);line-height:1.75;max-width:640px}
+
+    .blog-content{max-width:860px;margin:0 auto;padding:0 5% 100px}
+
+    /* TIME STRIP */
+    .time-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;margin:2rem 0}
+    @media(max-width:500px){.time-strip{grid-template-columns:repeat(2,1fr)}}
+    .tbox{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1rem;text-align:center}
+    .tbox-icon{font-size:1.4rem;display:block;margin-bottom:.3rem}
+    .tbox-time{font-family:"Playfair Display",serif;font-size:1.1rem;font-weight:900;color:var(--accent)}
+    .tbox-lbl{font-size:.7rem;color:var(--muted);margin-top:3px}
+
+    /* STEPS */
+    .step-block{background:var(--card);border:1px solid var(--border);border-radius:20px;margin:2rem 0;overflow:hidden}
+    .step-header{display:flex;align-items:center;gap:1rem;padding:1.4rem 1.8rem;border-bottom:1px solid var(--border);background:linear-gradient(135deg,#faf9f7,#fff)}
+    .step-num{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1rem;flex-shrink:0}
+    .step-num.blue{background:var(--blue)}
+    .step-num.green{background:var(--green)}
+    .step-num.purple{background:#7c3aed}
+    .step-num.orange{background:#f59e0b}
+    .step-title-wrap h3{font-family:"Playfair Display",serif;font-size:1.1rem;font-weight:900}
+    .step-title-wrap .step-time{font-size:.75rem;color:var(--muted);margin-top:2px}
+    .step-body{padding:1.6rem 1.8rem}
+    .step-body p{font-size:.92rem;line-height:1.8;margin-bottom:1rem;color:var(--ink)}
+    .step-body p:last-child{margin-bottom:0}
+    .step-body b{color:var(--accent)}
+
+    /* CODE BLOCK */
+    .code-block{background:#1e1c18;border-radius:14px;margin:1.2rem 0;overflow:hidden}
+    .code-header{display:flex;align-items:center;justify-content:space-between;padding:.7rem 1.2rem;background:#2a2820;border-bottom:1px solid #3a3830}
+    .code-lang{font-size:.72rem;color:#8a8070;font-weight:600;text-transform:uppercase;letter-spacing:1px}
+    .copy-btn{background:transparent;border:1px solid #3a3830;color:#8a8070;padding:4px 12px;border-radius:6px;font-size:.7rem;cursor:pointer;font-family:"Outfit",sans-serif;transition:all .2s}
+    .copy-btn:hover{border-color:#c8a84b;color:#c8a84b}
+    .copy-btn.copied{border-color:var(--green);color:var(--green)}
+    pre{padding:1.2rem 1.4rem;overflow-x:auto;font-size:.82rem;line-height:1.7;font-family:"Courier New",monospace}
+    .kw{color:#c792ea}
+    .tag-c{color:#f07178}
+    .attr{color:#ffcb6b}
+    .val{color:#c3e88d}
+    .cm{color:#546e7a;font-style:italic}
+    .tx{color:#e8d5a8}
+
+    /* CHECKLIST */
+    .checklist{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin:1rem 0}
+    .checklist li{display:flex;align-items:flex-start;gap:.7rem;font-size:.9rem;line-height:1.6}
+    .checklist li::before{content:"✓";color:var(--green);font-weight:900;flex-shrink:0;margin-top:2px;width:18px}
+
+    /* TOOL CARDS */
+    .tools-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin:1.2rem 0}
+    @media(max-width:500px){.tools-grid{grid-template-columns:1fr}}
+    .tool-card{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:1rem 1.1rem;display:flex;align-items:flex-start;gap:.8rem}
+    .tool-icon{font-size:1.6rem;flex-shrink:0}
+    .tool-name{font-weight:700;font-size:.88rem;margin-bottom:.2rem}
+    .tool-desc{font-size:.78rem;color:var(--muted);line-height:1.5}
+
+    /* TIP BOX */
+    .tip-box{background:linear-gradient(135deg,#fffbeb,#fff);border:1px solid #fcd34d;border-left:4px solid #f59e0b;border-radius:0 14px 14px 0;padding:1.1rem 1.4rem;margin:1.2rem 0}
+    .tip-box p{font-size:.88rem;line-height:1.75}
+    .tip-box strong{color:#92400e}
+
+    /* WARNING BOX */
+    .warn-box{background:#fff8f6;border:1px solid #fca5a5;border-left:4px solid var(--accent);border-radius:0 14px 14px 0;padding:1.1rem 1.4rem;margin:1.2rem 0}
+    .warn-box p{font-size:.88rem;line-height:1.75;color:var(--ink)}
+
+    /* SECTION TITLE */
+    .section-title{font-family:"Playfair Display",serif;font-size:1.5rem;font-weight:900;margin:3rem 0 1.2rem;padding-bottom:.5rem;border-bottom:2px solid var(--border)}
+
+    /* QUIZ SECTION */
+    .quiz-wrap{background:var(--ink);border-radius:24px;padding:2rem 1.8rem;margin:3rem 0}
+    .quiz-header{text-align:center;margin-bottom:2rem}
+    .quiz-header h2{font-family:"Playfair Display",serif;color:#fff;font-size:1.6rem;font-weight:900;margin-bottom:.4rem}
+    .quiz-header p{color:rgba(255,255,255,.5);font-size:.85rem}
+    .quiz-progress{background:rgba(255,255,255,.1);border-radius:100px;height:5px;margin-bottom:1.5rem;overflow:hidden}
+    .quiz-prog-fill{height:100%;background:var(--accent);border-radius:100px;transition:width .4s}
+    .q-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:1.4rem;display:none}
+    .q-card.active{display:block;animation:fadeUp .3s ease}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+    .q-num{font-size:.72rem;color:rgba(255,255,255,.4);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:.6rem}
+    .q-text{color:#fff;font-size:1rem;font-weight:600;line-height:1.5;margin-bottom:1.2rem}
+    .q-opts{display:flex;flex-direction:column;gap:.6rem}
+    .q-opt{background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.12);border-radius:10px;padding:.85rem 1.1rem;color:rgba(255,255,255,.85);font-size:.88rem;cursor:pointer;text-align:left;font-family:"Outfit",sans-serif;transition:all .2s;display:flex;align-items:center;gap:.7rem}
+    .q-opt:hover:not([disabled]){border-color:var(--accent);background:rgba(232,64,28,.15)}
+    .q-opt.correct{border-color:#4ade80;background:rgba(74,222,128,.15);color:#4ade80}
+    .q-opt.wrong{border-color:#f87171;background:rgba(248,113,113,.15);color:#f87171}
+    .q-opt.show{border-color:#4ade80;background:rgba(74,222,128,.1);color:rgba(255,255,255,.6)}
+    .q-opt[disabled]{cursor:not-allowed}
+    .opt-key{width:24px;height:24px;border-radius:6px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800;flex-shrink:0;transition:all .2s}
+    .q-opt.correct .opt-key{background:#4ade80;color:#1a1814}
+    .q-opt.wrong .opt-key{background:#f87171;color:#fff}
+    .q-explain{background:rgba(255,255,255,.05);border-radius:10px;padding:.9rem 1rem;margin-top:.9rem;font-size:.83rem;color:rgba(255,255,255,.7);line-height:1.7;display:none;border-left:3px solid var(--accent)}
+    .q-explain.show{display:block}
+    .q-next{background:var(--accent);color:#fff;border:none;padding:10px 26px;border-radius:100px;font-size:.86rem;font-weight:700;cursor:pointer;font-family:"Outfit",sans-serif;margin-top:1.1rem;display:none;transition:all .2s}
+    .q-next.show{display:inline-flex;align-items:center;gap:.5rem}
+    .q-next:hover{background:#c73516}
+
+    /* QUIZ RESULT */
+    .quiz-result{display:none;text-align:center;padding:1rem 0}
+    .quiz-result.show{display:block;animation:fadeUp .4s ease}
+    .qr-emoji{font-size:3rem;display:block;margin-bottom:.8rem}
+    .qr-score{font-family:"Playfair Display",serif;font-size:3rem;font-weight:900;color:var(--accent);line-height:1}
+    .qr-title{color:#fff;font-size:1.1rem;font-weight:700;margin:.5rem 0 .3rem}
+    .qr-msg{color:rgba(255,255,255,.5);font-size:.85rem;margin-bottom:1.2rem}
+    .qr-retry{background:transparent;border:1.5px solid rgba(255,255,255,.2);color:rgba(255,255,255,.7);padding:9px 22px;border-radius:100px;font-size:.84rem;font-weight:600;cursor:pointer;font-family:"Outfit",sans-serif;transition:all .2s}
+    .qr-retry:hover{border-color:#fff;color:#fff}
+
+    /* FINAL CTA */
+    .final-cta{background:linear-gradient(135deg,#fff8f6,#fff);border:2px solid var(--accent);border-radius:24px;padding:2.2rem 2rem;margin:3rem 0;text-align:center}
+    .final-cta h3{font-family:"Playfair Display",serif;font-size:1.4rem;font-weight:900;margin-bottom:.7rem}
+    .final-cta p{color:var(--muted);font-size:.9rem;line-height:1.75;max-width:500px;margin:0 auto 1.4rem}
+    .cta-btns{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+    .cta-p{background:var(--accent);color:#fff;text-decoration:none;padding:11px 28px;border-radius:100px;font-weight:700;font-size:.9rem;transition:all .2s}
+    .cta-p:hover{background:#c73516;transform:translateY(-2px)}
+    .cta-s{background:var(--card);color:var(--ink);text-decoration:none;padding:11px 28px;border-radius:100px;font-weight:600;font-size:.9rem;border:2px solid var(--border)}
+    .cta-s:hover{border-color:var(--ink)}
+
+    footer{border-top:1px solid var(--border);padding:1.5rem 6%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    footer p{font-size:.8rem;color:var(--muted)}
+
+    #cw-toggle{position:fixed;bottom:22px;right:22px;z-index:9999;display:flex;align-items:center;background:rgba(20,18,15,.94);border-radius:100px;padding:4px;box-shadow:0 6px 28px rgba(0,0,0,.28)}
+    .cw-opt{padding:8px 16px;border-radius:100px;font-size:.72rem;font-weight:700;cursor:pointer;border:none;background:transparent;color:rgba(255,255,255,.35);font-family:"Outfit",sans-serif;transition:all .25s}
+    .cw-opt.on{background:linear-gradient(135deg,#e8401c,#c73516);color:#fff}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="logo">CI<span>Web</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html" id="nav-home">Home</a></li>
+    <li><a href="../blogs.html" id="nav-blogs">Blogs</a></li>
+    <li><a href="../about.html" id="nav-about">About</a></li>
+    <li><a href="../contact.html" id="nav-contact">Contact</a></li>
+    <li><a href="../blogs.html" class="nav-cta" id="nav-all">Saare Blogs</a></li>
+  </ul>
+</nav>
+
+<div class="blog-hero">
+  <a href="../blogs.html" class="back-link" id="back-lnk">&#8592; Blogs pe wapas</a>
+  <div class="hero-tags">
+    <span class="tag tag-html">HTML</span>
+    <span class="tag tag-github">GitHub</span>
+    <span class="tag tag-free">Free Hosting</span>
+  </div>
+  <h1 id="pg-h1">Apna Pehla Website 1 Ghante Mein Banao &#128187; — GitHub Pages Pe Free Host Karo!</h1>
+  <div class="hero-meta">
+    <span>&#128100; <b>Coding Infinite</b></span>
+    <span>&#128197; <b>12 March 2026</b></span>
+    <span>&#9200; <b id="read-time">10 min padhai</b></span>
+  </div>
+  <p class="sub" id="pg-sub">Coding bilkul nahi aati? Koi baat nahi! Is tutorial ke baad tumhara khud ka website live hoga — internet pe — bilkul free mein. Sirf ek ghanta do.</p>
+</div>
+
+<div class="blog-content">
+
+  <!-- TIME STRIP -->
+  <div class="time-strip">
+    <div class="tbox"><span class="tbox-icon">&#9999;</span><div class="tbox-time" id="t1">15 min</div><div class="tbox-lbl" id="tl1">HTML likhna</div></div>
+    <div class="tbox"><span class="tbox-icon">&#128202;</span><div class="tbox-time" id="t2">10 min</div><div class="tbox-lbl" id="tl2">CSS banana</div></div>
+    <div class="tbox"><span class="tbox-icon">&#128196;</span><div class="tbox-time" id="t3">15 min</div><div class="tbox-lbl" id="tl3">GitHub setup</div></div>
+    <div class="tbox"><span class="tbox-icon">&#127760;</span><div class="tbox-time" id="t4">5 min</div><div class="tbox-lbl" id="tl4">Live ho jaana</div></div>
+  </div>
+
+  <!-- TOOLS NEEDED -->
+  <div class="step-block">
+    <div class="step-header">
+      <div class="step-num orange">0</div>
+      <div class="step-title-wrap">
+        <h3 id="s0-title">Shuru Karne Se Pehle — Yeh Chahiye</h3>
+        <div class="step-time" id="s0-time">&#9200; 2 minute setup</div>
+      </div>
+    </div>
+    <div class="step-body">
+      <div class="tools-grid">
+        <div class="tool-card">
+          <div class="tool-icon">&#128187;</div>
+          <div><div class="tool-name">VS Code</div><div class="tool-desc" id="td1">Free code editor — code.visualstudio.com se download karo</div></div>
+        </div>
+        <div class="tool-card">
+          <div class="tool-icon">&#128024;</div>
+          <div><div class="tool-name">GitHub Account</div><div class="tool-desc" id="td2">github.com pe free account banao — email se</div></div>
+        </div>
+        <div class="tool-card">
+          <div class="tool-icon">&#127760;</div>
+          <div><div class="tool-name">Browser</div><div class="tool-desc" id="td3">Chrome ya Firefox — already hai tumhare paas!</div></div>
+        </div>
+        <div class="tool-card">
+          <div class="tool-icon">&#9749;</div>
+          <div><div class="tool-name">1 Ghanta</div><div class="tool-desc" id="td4">Aur thoda patience — pehli baar thoda time lagta hai!</div></div>
+        </div>
+      </div>
+      <div class="tip-box" style="margin-top:1rem">
+        <p><strong>&#128161; Pro Tip:</strong> <span id="tip0">VS Code install nahi karna toh <b>replit.com</b> ya <b>codepen.io</b> use karo — browser mein hi code hoga!</span></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1 -->
+  <div class="step-block">
+    <div class="step-header">
+      <div class="step-num">1</div>
+      <div class="step-title-wrap">
+        <h3 id="s1-title">HTML File Banao — index.html</h3>
+        <div class="step-time" id="s1-time">&#9200; 15 minute</div>
+      </div>
+    </div>
+    <div class="step-body">
+      <p id="s1-p1">VS Code kholo → <b>File → New File</b> → naam rakho <b>index.html</b> — yeh bahut zaruri hai! GitHub Pages sirf <b>index.html</b> ko homepage maanta hai.</p>
+      <p id="s1-p2">Neeche wala code copy karo aur apni file mein paste karo. <b>Apna naam, title aur bio badlo!</b></p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">HTML — index.html</span>
+          <button class="copy-btn" onclick="copyCode(this,'code1')">Copy</button>
+        </div>
+        <pre id="code1"><span class="cm">&lt;!-- Yeh tumhara pehla website hai! --&gt;</span>
+<span class="tag-c">&lt;!DOCTYPE html&gt;</span>
+<span class="tag-c">&lt;html</span> <span class="attr">lang</span>=<span class="val">"hi"</span><span class="tag-c">&gt;</span>
+<span class="tag-c">&lt;head&gt;</span>
+  <span class="tag-c">&lt;meta</span> <span class="attr">charset</span>=<span class="val">"UTF-8"</span><span class="tag-c">/&gt;</span>
+  <span class="tag-c">&lt;meta</span> <span class="attr">name</span>=<span class="val">"viewport"</span> <span class="attr">content</span>=<span class="val">"width=device-width"</span><span class="tag-c">/&gt;</span>
+  <span class="tag-c">&lt;title&gt;</span><span class="tx">Mera Pehla Website</span><span class="tag-c">&lt;/title&gt;</span>
+  <span class="tag-c">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"style.css"</span><span class="tag-c">/&gt;</span>
+<span class="tag-c">&lt;/head&gt;</span>
+<span class="tag-c">&lt;body&gt;</span>
+
+  <span class="tag-c">&lt;header&gt;</span>
+    <span class="tag-c">&lt;h1&gt;</span><span class="tx">Namaste! Main [Apna Naam] Hoon 👋</span><span class="tag-c">&lt;/h1&gt;</span>
+    <span class="tag-c">&lt;p&gt;</span><span class="tx">Coding seekh raha hoon | CIWeb ka fan</span><span class="tag-c">&lt;/p&gt;</span>
+  <span class="tag-c">&lt;/header&gt;</span>
+
+  <span class="tag-c">&lt;main&gt;</span>
+    <span class="tag-c">&lt;section&gt;</span>
+      <span class="tag-c">&lt;h2&gt;</span><span class="tx">Mere Baare Mein</span><span class="tag-c">&lt;/h2&gt;</span>
+      <span class="tag-c">&lt;p&gt;</span><span class="tx">Main [City] se hoon. Mujhe coding
+      aur technology pasand hai.</span><span class="tag-c">&lt;/p&gt;</span>
+    <span class="tag-c">&lt;/section&gt;</span>
+
+    <span class="tag-c">&lt;section&gt;</span>
+      <span class="tag-c">&lt;h2&gt;</span><span class="tx">Meri Skills</span><span class="tag-c">&lt;/h2&gt;</span>
+      <span class="tag-c">&lt;ul&gt;</span>
+        <span class="tag-c">&lt;li&gt;</span><span class="tx">HTML — Seekh raha hoon</span><span class="tag-c">&lt;/li&gt;</span>
+        <span class="tag-c">&lt;li&gt;</span><span class="tx">CSS — Shuru kiya hai</span><span class="tag-c">&lt;/li&gt;</span>
+        <span class="tag-c">&lt;li&gt;</span><span class="tx">JavaScript — Aage sikhna hai</span><span class="tag-c">&lt;/li&gt;</span>
+      <span class="tag-c">&lt;/ul&gt;</span>
+    <span class="tag-c">&lt;/section&gt;</span>
+  <span class="tag-c">&lt;/main&gt;</span>
+
+  <span class="tag-c">&lt;footer&gt;</span>
+    <span class="tag-c">&lt;p&gt;</span><span class="tx">© 2026 Mera Naam. CIWeb se seekha.</span><span class="tag-c">&lt;/p&gt;</span>
+  <span class="tag-c">&lt;/footer&gt;</span>
+
+<span class="tag-c">&lt;/body&gt;</span>
+<span class="tag-c">&lt;/html&gt;</span></pre>
+      </div>
+
+      <div class="warn-box">
+        <p><strong>&#9888; Zaruri:</strong> <span id="warn1">File ka naam hamesha <b>index.html</b> hi rakho — <b>Index.html</b> ya <b>INDEX.HTML</b> nahi! GitHub case-sensitive hai.</span></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step-block">
+    <div class="step-header">
+      <div class="step-num blue">2</div>
+      <div class="step-title-wrap">
+        <h3 id="s2-title">CSS Se Sundar Banao — style.css</h3>
+        <div class="step-time" id="s2-time">&#9200; 10 minute</div>
+      </div>
+    </div>
+    <div class="step-body">
+      <p id="s2-p1">Usi folder mein ek aur file banao — naam rakho <b>style.css</b>. Neeche wala CSS paste karo — yeh tumhare website ko clean aur modern look dega:</p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">CSS — style.css</span>
+          <button class="copy-btn" onclick="copyCode(this,'code2')">Copy</button>
+        </div>
+        <pre id="code2"><span class="cm">/* Basic Reset */</span>
+<span class="kw">*</span> { <span class="attr">margin</span>: <span class="val">0</span>; <span class="attr">padding</span>: <span class="val">0</span>; <span class="attr">box-sizing</span>: <span class="val">border-box</span>; }
+
+<span class="kw">body</span> {
+  <span class="attr">font-family</span>: <span class="val">'Segoe UI', sans-serif</span>;
+  <span class="attr">background</span>: <span class="val">#f5f5f5</span>;
+  <span class="attr">color</span>: <span class="val">#1a1a1a</span>;
+  <span class="attr">line-height</span>: <span class="val">1.7</span>;
+}
+
+<span class="kw">header</span> {
+  <span class="attr">background</span>: <span class="val">linear-gradient(135deg, #e8401c, #c73516)</span>;
+  <span class="attr">color</span>: <span class="val">white</span>;
+  <span class="attr">padding</span>: <span class="val">3rem 2rem</span>;
+  <span class="attr">text-align</span>: <span class="val">center</span>;
+}
+
+<span class="kw">header h1</span> { <span class="attr">font-size</span>: <span class="val">2rem</span>; <span class="attr">margin-bottom</span>: <span class="val">.5rem</span>; }
+<span class="kw">header p</span>  { <span class="attr">opacity</span>: <span class="val">.8</span>; }
+
+<span class="kw">main</span> {
+  <span class="attr">max-width</span>: <span class="val">700px</span>;
+  <span class="attr">margin</span>: <span class="val">2rem auto</span>;
+  <span class="attr">padding</span>: <span class="val">0 1.5rem</span>;
+}
+
+<span class="kw">section</span> {
+  <span class="attr">background</span>: <span class="val">white</span>;
+  <span class="attr">border-radius</span>: <span class="val">16px</span>;
+  <span class="attr">padding</span>: <span class="val">1.5rem</span>;
+  <span class="attr">margin-bottom</span>: <span class="val">1.5rem</span>;
+  <span class="attr">box-shadow</span>: <span class="val">0 2px 12px rgba(0,0,0,.06)</span>;
+}
+
+<span class="kw">h2</span> { <span class="attr">color</span>: <span class="val">#e8401c</span>; <span class="attr">margin-bottom</span>: <span class="val">.8rem</span>; }
+
+<span class="kw">ul</span> { <span class="attr">list-style</span>: <span class="val">none</span>; }
+<span class="kw">ul li</span> { <span class="attr">padding</span>: <span class="val">.4rem 0</span>; <span class="attr">border-bottom</span>: <span class="val">1px solid #f0f0f0</span>; }
+<span class="kw">ul li::before</span> { <span class="attr">content</span>: <span class="val">"→ "</span>; <span class="attr">color</span>: <span class="val">#e8401c</span>; }
+
+<span class="kw">footer</span> {
+  <span class="attr">text-align</span>: <span class="val">center</span>;
+  <span class="attr">padding</span>: <span class="val">1.5rem</span>;
+  <span class="attr">color</span>: <span class="val">#888</span>;
+  <span class="attr">font-size</span>: <span class="val">.85rem</span>;
+}</pre>
+      </div>
+
+      <div class="tip-box">
+        <p><strong>&#128161; Check karo:</strong> <span id="tip2">VS Code mein index.html pe right-click karo → "Open with Live Server" — tumhara website browser mein dikhega!</span></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step-block">
+    <div class="step-header">
+      <div class="step-num purple">3</div>
+      <div class="step-title-wrap">
+        <h3 id="s3-title">GitHub Pe Repository Banao</h3>
+        <div class="step-time" id="s3-time">&#9200; 10 minute</div>
+      </div>
+    </div>
+    <div class="step-body">
+      <p id="s3-p1"><b>github.com</b> pe login karo aur yeh steps follow karo:</p>
+      <ul class="checklist" id="checklist3">
+        <li>Top-right mein <b>"+" icon</b> pe click karo → <b>"New repository"</b></li>
+        <li>Repository naam <b>kuch bhi</b> rakh sakte ho — jaise <b>my-website</b>, <b>portfolio</b>, <b>blog</b></li>
+        <li><b>Public</b> select karo — Private nahi!</li>
+        <li><b>"Add a README file"</b> pe tick karo</li>
+        <li>Green button <b>"Create repository"</b> pe click karo</li>
+      </ul>
+      <div class="warn-box" style="margin-top:1rem">
+        <p><strong>&#128161; Custom Domain Use Karo:</strong> <span id="warn3">Repository naam kuch bhi rakho — <b>my-blog</b>, <b>portfolio</b>, kuch bhi! Bas GitHub Pages enable karo aur apna <b>custom domain</b> (jaise ciweb.in) Settings → Pages mein daalo.</span></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step-block">
+    <div class="step-header">
+      <div class="step-num green">4</div>
+      <div class="step-title-wrap">
+        <h3 id="s4-title">Files Upload Karo GitHub Pe</h3>
+        <div class="step-time" id="s4-time">&#9200; 5 minute</div>
+      </div>
+    </div>
+    <div class="step-body">
+      <p id="s4-p1">Repository create hone ke baad files upload karo:</p>
+      <ul class="checklist" id="checklist4">
+        <li>Repository page pe <b>"Add file"</b> → <b>"Upload files"</b> pe click karo</li>
+        <li>Apni <b>index.html</b> aur <b>style.css</b> dono files drag karo ya choose karo</li>
+        <li>Neeche <b>"Commit changes"</b> pe click karo</li>
+        <li>Wait karo — 1-2 minute mein website live ho jaayegi!</li>
+      </ul>
+      <div class="tip-box">
+        <p><strong>&#127760; Website ka URL:</strong> <span id="tip4">Custom domain ho toh URL hoga <b>https://tumharadomain.com</b> — repository naam matter nahi karta! Bina domain ke URL hoga <b>https://username.github.io/repo-naam</b></span></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step-block">
+    <div class="step-header">
+      <div class="step-num">5</div>
+      <div class="step-title-wrap">
+        <h3 id="s5-title">GitHub Pages Enable Karo</h3>
+        <div class="step-time" id="s5-time">&#9200; 3 minute</div>
+      </div>
+    </div>
+    <div class="step-body">
+      <p id="s5-p1">Agar website abhi bhi nahi dikh rahi toh manually Pages enable karo:</p>
+      <ul class="checklist" id="checklist5">
+        <li>Repository mein <b>Settings</b> tab pe jao</li>
+        <li>Left menu mein <b>"Pages"</b> pe click karo</li>
+        <li><b>Source</b> mein <b>"Deploy from a branch"</b> select karo</li>
+        <li>Branch: <b>main</b>, Folder: <b>/ (root)</b> select karo</li>
+        <li><b>Save</b> karo — 2-3 minute mein live ho jaayegi!</li>
+      </ul>
+      <div class="tip-box">
+        <p><strong>&#9989; Done!</strong> <span id="tip5">Congratulations! Tumhara website ab poori duniya dekh sakti hai — aur tumne iske liye ek rupaya nahi diya!</span></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEXT STEPS -->
+  <div class="section-title" id="sec-next">&#128640; Aage Kya Karo?</div>
+  <div class="step-block">
+    <div class="step-header">
+      <div class="step-num orange">+</div>
+      <div class="step-title-wrap">
+        <h3 id="sn-title">Website Aur Behtar Banao</h3>
+        <div class="step-time" id="sn-time">Apni speed se</div>
+      </div>
+    </div>
+    <div class="step-body">
+      <ul class="checklist">
+        <li id="nx1">Apni photo add karo — <b>&lt;img src="photo.jpg"&gt;</b></li>
+        <li id="nx2">Contact section banao — email link se</li>
+        <li id="nx3">Social media links add karo</li>
+        <li id="nx4">JavaScript seekho — buttons aur animations ke liye</li>
+        <li id="nx5">Custom domain lagao — jaise <b>tumhanaam.com</b> (yearly ~500-1000 rupaye)</li>
+        <li id="nx6">Google Analytics lagao — visitors track karo</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       MINI QUIZ
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <div class="section-title" id="sec-quiz">&#9889; Quick Quiz — Kitna Samjha?</div>
+
+  <div class="quiz-wrap">
+    <div class="quiz-header">
+      <h2 id="qh-title">GitHub Pages Quiz</h2>
+      <p id="qh-sub">5 sawaal — test karo apna knowledge!</p>
+    </div>
+    <div class="quiz-progress"><div class="quiz-prog-fill" id="qprog" style="width:0%"></div></div>
+
+    <!-- Q1 -->
+    <div class="q-card active" id="qc-0">
+      <div class="q-num" id="qn-0">Sawaal 1 / 5</div>
+      <div class="q-text" id="qt-0">GitHub Pages pe website host karne ke liye homepage file ka naam kya hona chahiye?</div>
+      <div class="q-opts">
+        <button class="q-opt" onclick="pick(0,0,1)"><span class="opt-key">A</span> home.html</button>
+        <button class="q-opt" onclick="pick(0,1,1)"><span class="opt-key">B</span> index.html</button>
+        <button class="q-opt" onclick="pick(0,2,1)"><span class="opt-key">C</span> main.html</button>
+        <button class="q-opt" onclick="pick(0,3,1)"><span class="opt-key">D</span> website.html</button>
+      </div>
+      <div class="q-explain" id="qe-0">✅ index.html — yeh default homepage file hai. GitHub Pages (aur saare web servers) isi file ko seedha URL pe serve karte hain.</div>
+      <button class="q-next" id="qnxt-0" onclick="nextQ(1)">Agla Sawaal &#8594;</button>
+    </div>
+
+    <!-- Q2 -->
+    <div class="q-card" id="qc-1">
+      <div class="q-num" id="qn-1">Sawaal 2 / 5</div>
+      <div class="q-text" id="qt-1">GitHub Pages mein website live hone ke baad update karne ke liye kya karna hota hai?</div>
+      <div class="q-opts">
+        <button class="q-opt" onclick="pick(1,0,0)"><span class="opt-key">A</span> Poori website dobara banao</button>
+        <button class="q-opt" onclick="pick(1,1,1)"><span class="opt-key">B</span> File update karo aur Commit karo</button>
+        <button class="q-opt" onclick="pick(1,2,0)"><span class="opt-key">C</span> GitHub account delete karo</button>
+        <button class="q-opt" onclick="pick(1,3,0)"><span class="opt-key">D</span> Naya repository banao</button>
+      </div>
+      <div class="q-explain" id="qe-1">✅ Sirf file update karo aur Commit karo — GitHub Pages automatically 1-2 minute mein live update ho jaata hai!</div>
+      <button class="q-next" id="qnxt-1" onclick="nextQ(2)">Agla Sawaal &#8594;</button>
+    </div>
+
+    <!-- Q3 -->
+    <div class="q-card" id="qc-2">
+      <div class="q-num" id="qn-2">Sawaal 3 / 5</div>
+      <div class="q-text" id="qt-2">CSS file ko HTML mein kaise link karte hain?</div>
+      <div class="q-opts">
+        <button class="q-opt" onclick="pick(2,0,0)"><span class="opt-key">A</span> &lt;css src="style.css"&gt;</button>
+        <button class="q-opt" onclick="pick(2,1,0)"><span class="opt-key">B</span> &lt;script href="style.css"&gt;</button>
+        <button class="q-opt" onclick="pick(2,2,1)"><span class="opt-key">C</span> &lt;link rel="stylesheet" href="style.css"&gt;</button>
+        <button class="q-opt" onclick="pick(2,3,0)"><span class="opt-key">D</span> &lt;style link="style.css"&gt;</button>
+      </div>
+      <div class="q-explain" id="qe-2">✅ &lt;link rel="stylesheet" href="style.css"&gt; — yeh tag &lt;head&gt; ke andar lagta hai aur CSS file ko connect karta hai.</div>
+      <button class="q-next" id="qnxt-2" onclick="nextQ(3)">Agla Sawaal &#8594;</button>
+    </div>
+
+    <!-- Q4 -->
+    <div class="q-card" id="qc-3">
+      <div class="q-num" id="qn-3">Sawaal 4 / 5</div>
+      <div class="q-text" id="qt-3">GitHub Pages mein repository Public hona chahiye ya Private?</div>
+      <div class="q-opts">
+        <button class="q-opt" onclick="pick(3,0,1)"><span class="opt-key">A</span> Public — free mein</button>
+        <button class="q-opt" onclick="pick(3,1,0)"><span class="opt-key">B</span> Private — zyada secure hai</button>
+        <button class="q-opt" onclick="pick(3,2,0)"><span class="opt-key">C</span> Koi bhi chalega</button>
+        <button class="q-opt" onclick="pick(3,3,0)"><span class="opt-key">D</span> Internal select karo</button>
+      </div>
+      <div class="q-explain" id="qe-3">✅ Public — free GitHub account mein Pages sirf public repos pe kaam karta hai. Private repos ke liye paid plan chahiye.</div>
+      <button class="q-next" id="qnxt-3" onclick="nextQ(4)">Agla Sawaal &#8594;</button>
+    </div>
+
+    <!-- Q5 -->
+    <div class="q-card" id="qc-4">
+      <div class="q-num" id="qn-4">Sawaal 5 / 5</div>
+      <div class="q-text" id="qt-4">Website ki styling ke liye kaun si language use hoti hai?</div>
+      <div class="q-opts">
+        <button class="q-opt" onclick="pick(4,0,0)"><span class="opt-key">A</span> HTML</button>
+        <button class="q-opt" onclick="pick(4,1,1)"><span class="opt-key">B</span> CSS</button>
+        <button class="q-opt" onclick="pick(4,2,0)"><span class="opt-key">C</span> Python</button>
+        <button class="q-opt" onclick="pick(4,3,0)"><span class="opt-key">D</span> SQL</button>
+      </div>
+      <div class="q-explain" id="qe-4">✅ CSS (Cascading Style Sheets) — yeh colors, fonts, layout sab kuch control karta hai. HTML structure hai, CSS uski dressing!</div>
+      <button class="q-next" id="qnxt-4" onclick="showResult()">Result Dekho &#127942;</button>
+    </div>
+
+    <!-- RESULT -->
+    <div class="quiz-result" id="quiz-result">
+      <span class="qr-emoji" id="qr-emoji">🎉</span>
+      <div class="qr-score" id="qr-score">0/5</div>
+      <div class="qr-title" id="qr-title">Zabardast!</div>
+      <div class="qr-msg" id="qr-msg">Ab website banao!</div>
+      <button class="qr-retry" onclick="retryQuiz()">&#128260; Dobara Try Karo</button>
+    </div>
+  </div>
+
+  <!-- FINAL CTA -->
+  <div class="final-cta">
+    <h3 id="fc-h">&#127942; Ab Teri Baari Hai!</h3>
+    <p id="fc-p">Website bana li? Apna link comment mein share karo ya hamara HTML Quiz try karo — certificate bhi milega!</p>
+    <div class="cta-btns">
+      <a href="blog4.html" class="cta-p" id="fc-btn1">HTML Quiz Try Karo &#9889;</a>
+      <a href="blog5.html" class="cta-s" id="fc-btn2">Free Coding Sites Dekho &#8594;</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <a href="../index.html" class="logo">CI<span>Web</span></a>
+  <p id="ft-copy">&#169; 2026 CIWeb. Sare adhikar surakshit.</p>
+  <p id="ft-love">Tech Lovers ke liye &#10084; se banaya</p>
+</footer>
+
+<div id="cw-toggle">
+  <button class="cw-opt on" id="btn-hi" onclick="setLang('hi')">&#127470;&#127475; Hindi</button>
+  <button class="cw-opt" id="btn-en" onclick="setLang('en')">&#127468;&#127463; English</button>
+</div>
+
+<script>
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//  COPY CODE
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+function copyCode(btn, id) {
+  var el = document.getElementById(id);
+  var text = el.innerText || el.textContent;
+  navigator.clipboard.writeText(text).then(function() {
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(function() { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//  QUIZ
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+var qScore = 0;
+var qAnswered = [false,false,false,false,false];
+
+function pick(qIdx, optIdx, correct) {
+  if (qAnswered[qIdx]) return;
+  qAnswered[qIdx] = true;
+  var card = document.getElementById('qc-' + qIdx);
+  var opts = card.querySelectorAll('.q-opt');
+  opts.forEach(function(o) { o.disabled = true; });
+  // Find correct answer index
+  var correctIdx = [1,2,2,0,1][qIdx];
+  if (optIdx === correctIdx) {
+    opts[optIdx].classList.add('correct');
+    qScore++;
+  } else {
+    opts[optIdx].classList.add('wrong');
+    opts[correctIdx].classList.add('show');
+  }
+  document.getElementById('qe-' + qIdx).classList.add('show');
+  document.getElementById('qnxt-' + qIdx).classList.add('show');
+  document.getElementById('qprog').style.width = ((qIdx + 1) / 5 * 100) + '%';
+}
+
+function nextQ(next) {
+  document.getElementById('qc-' + (next-1)).classList.remove('active');
+  document.getElementById('qc-' + next).classList.add('active');
+}
+
+function showResult() {
+  document.getElementById('qc-4').classList.remove('active');
+  document.getElementById('qprog').style.width = '100%';
+  var res = document.getElementById('quiz-result');
+  res.classList.add('show');
+  var emoji = qScore === 5 ? '🏆' : qScore >= 3 ? '🎉' : '📚';
+  var LANG = localStorage.getItem('ciweb_lang') || 'hi';
+  var titles_hi = ['Aur Padho!','Aur Padho!','Theek Hai!','Bahut Acha!','Expert Ho Tum!','Expert Ho Tum!'];
+  var titles_en = ['Keep Reading!','Keep Reading!','Not Bad!','Great Job!','You\'re an Expert!','You\'re an Expert!'];
+  var msgs_hi = ['Ek baar dobara padho tutorial','Kuch steps miss kiye shayad','Accha tha! Practice karo','Almost perfect!','Ab seedha website banao!'];
+  var msgs_en = ['Read the tutorial again','Maybe missed some steps','Good effort! Keep practicing','Almost perfect!','Go build your website now!'];
+  document.getElementById('qr-emoji').textContent = emoji;
+  document.getElementById('qr-score').textContent = qScore + '/5';
+  document.getElementById('qr-title').textContent = LANG === 'en' ? titles_en[qScore] : titles_hi[qScore];
+  document.getElementById('qr-msg').textContent   = LANG === 'en' ? msgs_en[qScore-1] || msgs_en[0] : msgs_hi[qScore-1] || msgs_hi[0];
+}
+
+function retryQuiz() {
+  qScore = 0; qAnswered = [false,false,false,false,false];
+  document.getElementById('quiz-result').classList.remove('show');
+  document.getElementById('qprog').style.width = '0%';
+  for (var i = 0; i < 5; i++) {
+    var card = document.getElementById('qc-' + i);
+    card.classList.toggle('active', i === 0);
+    card.querySelectorAll('.q-opt').forEach(function(o) {
+      o.classList.remove('correct','wrong','show'); o.disabled = false;
+    });
+    document.getElementById('qe-' + i).classList.remove('show');
+    document.getElementById('qnxt-' + i).classList.remove('show');
+  }
+}
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//  LANG SYSTEM
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+var T = {
+  hi:{
+    navHome:'Home', navBlogs:'Blogs', navAbout:'About', navContact:'Contact', navAll:'Saare Blogs',
+    back:'&#8592; Blogs pe wapas',
+    h1:'Apna Pehla Website 1 Ghante Mein Banao &#128187; — GitHub Pages Pe Free Host Karo!',
+    sub:'Coding bilkul nahi aati? Koi baat nahi! Is tutorial ke baad tumhara khud ka website live hoga — internet pe — bilkul free mein. Sirf ek ghanta do.',
+    readTime:'10 min padhai',
+    t1:'15 min', tl1:'HTML likhna', t2:'10 min', tl2:'CSS banana', t3:'15 min', tl3:'GitHub setup', t4:'5 min', tl4:'Live ho jaana',
+    s0title:'Shuru Karne Se Pehle — Yeh Chahiye', s0time:'&#9200; 2 minute setup',
+    td1:'Free code editor — code.visualstudio.com se download karo',
+    td2:'github.com pe free account banao — email se',
+    td3:'Chrome ya Firefox — already hai tumhare paas!',
+    td4:'Aur thoda patience — pehli baar thoda time lagta hai!',
+    tip0:'VS Code install nahi karna toh <b>replit.com</b> ya <b>codepen.io</b> use karo — browser mein hi code hoga!',
+    s1title:'HTML File Banao — index.html', s1time:'&#9200; 15 minute',
+    s1p1:'VS Code kholo → <b>File → New File</b> → naam rakho <b>index.html</b> — yeh bahut zaruri hai! GitHub Pages sirf <b>index.html</b> ko homepage maanta hai.',
+    s1p2:'Neeche wala code copy karo aur apni file mein paste karo. <b>Apna naam, title aur bio badlo!</b>',
+    warn1:'File ka naam hamesha <b>index.html</b> hi rakho — <b>Index.html</b> ya <b>INDEX.HTML</b> nahi! GitHub case-sensitive hai.',
+    s2title:'CSS Se Sundar Banao — style.css', s2time:'&#9200; 10 minute',
+    s2p1:'Usi folder mein ek aur file banao — naam rakho <b>style.css</b>. Neeche wala CSS paste karo — yeh tumhare website ko clean aur modern look dega:',
+    tip2:'VS Code mein index.html pe right-click karo → "Open with Live Server" — tumhara website browser mein dikhega!',
+    s3title:'GitHub Pe Repository Banao', s3time:'&#9200; 10 minute',
+    s3p1:'<b>github.com</b> pe login karo aur yeh steps follow karo:',
+    cl3:['Top-right mein <b>"+" icon</b> pe click karo → <b>"New repository"</b>','Repository naam <b>kuch bhi</b> rakh sakte ho — jaise <b>my-website</b>, <b>portfolio</b>','<b>Public</b> select karo — Private nahi!','<b>"Add a README file"</b> pe tick karo','Green button <b>"Create repository"</b> pe click karo'],
+    warn3:'Repository naam kuch bhi rakho! Custom domain (jaise <b>ciweb.in</b>) use karo toh URL wahi rahega. Bina domain ke URL hoga: <b>username.github.io/repo-naam</b>',
+    s4title:'Files Upload Karo GitHub Pe', s4time:'&#9200; 5 minute',
+    s4p1:'Repository create hone ke baad files upload karo:',
+    cl4:['Repository page pe <b>"Add file"</b> → <b>"Upload files"</b> pe click karo','Apni <b>index.html</b> aur <b>style.css</b> dono files drag karo ya choose karo','Neeche <b>"Commit changes"</b> pe click karo','Wait karo — 1-2 minute mein website live ho jaayegi!'],
+    tip4:'Custom domain ho toh URL hoga <b>https://tumharadomain.com</b>! Bina domain ke: <b>https://username.github.io/repo-naam</b> — dono free hain!',
+    s5title:'GitHub Pages Enable Karo', s5time:'&#9200; 3 minute',
+    s5p1:'Agar website abhi bhi nahi dikh rahi toh manually Pages enable karo:',
+    cl5:['Repository mein <b>Settings</b> tab pe jao','Left menu mein <b>"Pages"</b> pe click karo','<b>Source</b> mein <b>"Deploy from a branch"</b> select karo','Branch: <b>main</b>, Folder: <b>/ (root)</b> select karo','<b>Save</b> karo — 2-3 minute mein live ho jaayegi!'],
+    tip5:'Congratulations! Tumhara website ab poori duniya dekh sakti hai — aur tumne iske liye ek rupaya nahi diya!',
+    secNext:'&#128640; Aage Kya Karo?',
+    sntitle:'Website Aur Behtar Banao', sntime:'Apni speed se',
+    nx:['Apni photo add karo — <b>&lt;img src="photo.jpg"&gt;</b>','Contact section banao — email link se','Social media links add karo','JavaScript seekho — buttons aur animations ke liye','Custom domain lagao — jaise <b>tumhanaam.com</b> (yearly ~500-1000 rupaye)','Google Analytics lagao — visitors track karo'],
+    secQuiz:'&#9889; Quick Quiz — Kitna Samjha?',
+    qhTitle:'GitHub Pages Quiz', qhSub:'5 sawaal — test karo apna knowledge!',
+    qNums:['Sawaal 1 / 5','Sawaal 2 / 5','Sawaal 3 / 5','Sawaal 4 / 5','Sawaal 5 / 5'],
+    qTexts:['GitHub Pages pe website host karne ke liye homepage file ka naam kya hona chahiye?','GitHub Pages mein website live hone ke baad update karne ke liye kya karna hota hai?','CSS file ko HTML mein kaise link karte hain?','GitHub Pages mein repository Public hona chahiye ya Private?','Website ki styling ke liye kaun si language use hoti hai?'],
+    qOpts:[['home.html','index.html','main.html','website.html'],['Poori website dobara banao','File update karo aur Commit karo','GitHub account delete karo','Naya repository banao'],['<css src="style.css">','<script href="style.css">','<link rel="stylesheet" href="style.css">','<style link="style.css">'],['Public — free mein','Private — zyada secure hai','Koi bhi chalega','Internal select karo'],['HTML','CSS','Python','SQL']],
+    qExpls:['✅ index.html — yeh default homepage file hai. GitHub Pages (aur saare web servers) isi file ko seedha URL pe serve karte hain.','✅ Sirf file update karo aur Commit karo — GitHub Pages automatically 1-2 minute mein live update ho jaata hai!','✅ &lt;link rel="stylesheet" href="style.css"&gt; — yeh tag &lt;head&gt; ke andar lagta hai aur CSS file ko connect karta hai.','✅ Public — free GitHub account mein Pages sirf public repos pe kaam karta hai. Private repos ke liye paid plan chahiye.','✅ CSS (Cascading Style Sheets) — yeh colors, fonts, layout sab kuch control karta hai. HTML structure hai, CSS uski dressing!'],
+    qNext:['Agla Sawaal &#8594;','Agla Sawaal &#8594;','Agla Sawaal &#8594;','Agla Sawaal &#8594;','Result Dekho &#127942;'],
+    fcH:'&#127942; Ab Teri Baari Hai!',
+    fcP:'Website bana li? Apna link share karo ya hamara HTML Quiz try karo — certificate bhi milega!',
+    fcBtn1:'HTML Quiz Try Karo &#9889;', fcBtn2:'Free Coding Sites Dekho &#8594;',
+    ftCopy:'&#169; 2026 CIWeb. Sare adhikar surakshit.', ftLove:'Tech Lovers ke liye &#10084; se banaya'
+  },
+  en:{
+    navHome:'Home', navBlogs:'Blogs', navAbout:'About', navContact:'Contact', navAll:'All Blogs',
+    back:'&#8592; Back to Blogs',
+    h1:'Build Your First Website in 1 Hour &#128187; — Host FREE on GitHub Pages!',
+    sub:'Complete beginner? No problem! After this tutorial, your own website will be live on the internet — completely free. Just give it one hour.',
+    readTime:'10 min read',
+    t1:'15 min', tl1:'Write HTML', t2:'10 min', tl2:'Add CSS', t3:'15 min', tl3:'GitHub setup', t4:'5 min', tl4:'Go Live',
+    s0title:'Before You Start — What You Need', s0time:'&#9200; 2 minute setup',
+    td1:'Free code editor — download from code.visualstudio.com',
+    td2:'Create a free account at github.com with your email',
+    td3:'Chrome or Firefox — you already have this!',
+    td4:'And a little patience — first time always takes a bit longer!',
+    tip0:'Don\'t want to install VS Code? Use <b>replit.com</b> or <b>codepen.io</b> — code right in the browser!',
+    s1title:'Create HTML File — index.html', s1time:'&#9200; 15 minutes',
+    s1p1:'Open VS Code → <b>File → New File</b> → name it <b>index.html</b> — this is crucial! GitHub Pages only recognizes <b>index.html</b> as the homepage.',
+    s1p2:'Copy the code below and paste it into your file. <b>Change your name, title and bio!</b>',
+    warn1:'Always name the file exactly <b>index.html</b> — not <b>Index.html</b> or <b>INDEX.HTML</b>! GitHub is case-sensitive.',
+    s2title:'Make It Beautiful — style.css', s2time:'&#9200; 10 minutes',
+    s2p1:'Create another file in the same folder — name it <b>style.css</b>. Paste the CSS below — it will give your website a clean and modern look:',
+    tip2:'Right-click on index.html in VS Code → "Open with Live Server" — your website will appear in the browser!',
+    s3title:'Create a Repository on GitHub', s3time:'&#9200; 10 minutes',
+    s3p1:'Login to <b>github.com</b> and follow these steps:',
+    cl3:['Click the <b>"+" icon</b> in the top-right → <b>"New repository"</b>','Repository name can be <b>anything</b> — like <b>my-website</b>, <b>portfolio</b>','Select <b>Public</b> — not Private!','Check <b>"Add a README file"</b>','Click the green button <b>"Create repository"</b>'],
+    warn3:'Repository name can be anything! If you use a custom domain (like <b>ciweb.in</b>), the URL stays the same. Without a domain: <b>username.github.io/repo-name</b>',
+    s4title:'Upload Files to GitHub', s4time:'&#9200; 5 minutes',
+    s4p1:'After the repository is created, upload your files:',
+    cl4:['Click <b>"Add file"</b> → <b>"Upload files"</b> on the repository page','Drag or choose both your <b>index.html</b> and <b>style.css</b> files','Click <b>"Commit changes"</b> at the bottom','Wait — your website will be live in 1-2 minutes!'],
+    tip4:'With a custom domain your URL will be <b>https://yourdomain.com</b>! Without domain: <b>https://username.github.io/repo-name</b> — both are free!',
+    s5title:'Enable GitHub Pages', s5time:'&#9200; 3 minutes',
+    s5p1:'If the website is still not showing, enable Pages manually:',
+    cl5:['Go to the <b>Settings</b> tab in your repository','Click <b>"Pages"</b> in the left menu','Select <b>"Deploy from a branch"</b> under Source','Choose Branch: <b>main</b>, Folder: <b>/ (root)</b>','Click <b>Save</b> — it will go live in 2-3 minutes!'],
+    tip5:'Congratulations! Your website can now be seen by the whole world — and you didn\'t pay a single rupee!',
+    secNext:'&#128640; What Next?',
+    sntitle:'Make Your Website Even Better', sntime:'At your own pace',
+    nx:['Add your photo — <b>&lt;img src="photo.jpg"&gt;</b>','Create a contact section with email link','Add social media links','Learn JavaScript — for buttons and animations','Add a custom domain like <b>yourname.com</b> (~500-1000 Rs/year)','Add Google Analytics — track your visitors'],
+    secQuiz:'&#9889; Quick Quiz — How Much Did You Learn?',
+    qhTitle:'GitHub Pages Quiz', qhSub:'5 questions — test your knowledge!',
+    qNums:['Question 1 / 5','Question 2 / 5','Question 3 / 5','Question 4 / 5','Question 5 / 5'],
+    qTexts:['What should the homepage file be named to host on GitHub Pages?','What should the repository be named to host a free website on GitHub Pages?','How do you link a CSS file in HTML?','Should the GitHub Pages repository be Public or Private?','Which language is used for styling a website?'],
+    qOpts:[['home.html','index.html','main.html','website.html'],['Rebuild the whole website','Update the file and Commit','Delete GitHub account','Create a new repository'],['<css src="style.css">','<script href="style.css">','<link rel="stylesheet" href="style.css">','<style link="style.css">'],['Public — free of charge','Private — more secure','Either works','Select Internal'],['HTML','CSS','Python','SQL']],
+    qExpls:['✅ index.html — this is the default homepage file. GitHub Pages (and all web servers) serve this file directly at the root URL.','✅ Just update the file and Commit — GitHub Pages automatically goes live within 1-2 minutes!','✅ &lt;link rel="stylesheet" href="style.css"&gt; — this tag goes inside &lt;head&gt; and connects the CSS file.','✅ Public — on a free GitHub account, Pages only works on public repos. Paid plan needed for private repos.','✅ CSS (Cascading Style Sheets) — it controls colors, fonts, layout. HTML is the structure, CSS is the styling!'],
+    qNext:['Next Question &#8594;','Next Question &#8594;','Next Question &#8594;','Next Question &#8594;','See Result &#127942;'],
+    fcH:'&#127942; Now It\'s Your Turn!',
+    fcP:'Built your website? Share your link or try our HTML Quiz — you can get a certificate too!',
+    fcBtn1:'Try HTML Quiz &#9889;', fcBtn2:'See Free Coding Sites &#8594;',
+    ftCopy:'&#169; 2026 CIWeb. All rights reserved.', ftLove:'Made with &#10084; for Tech Lovers'
+  }
+};
+
+var LANG = localStorage.getItem('ciweb_lang') || 'hi';
+
+function setLang(l) {
+  LANG = l;
+  localStorage.setItem('ciweb_lang', l);
+  var t = T[l];
+  document.getElementById('nav-home').innerHTML    = t.navHome;
+  document.getElementById('nav-blogs').innerHTML   = t.navBlogs;
+  document.getElementById('nav-about').innerHTML   = t.navAbout;
+  document.getElementById('nav-contact').innerHTML = t.navContact;
+  document.getElementById('nav-all').innerHTML     = t.navAll;
+  document.getElementById('back-lnk').innerHTML    = t.back;
+  document.getElementById('pg-h1').innerHTML       = t.h1;
+  document.getElementById('pg-sub').innerHTML      = t.sub;
+  document.getElementById('read-time').innerHTML   = t.readTime;
+  ['t1','t2','t3','t4'].forEach(function(id,i){ document.getElementById(id).innerHTML = [t.t1,t.t2,t.t3,t.t4][i]; });
+  ['tl1','tl2','tl3','tl4'].forEach(function(id,i){ document.getElementById(id).innerHTML = [t.tl1,t.tl2,t.tl3,t.tl4][i]; });
+  document.getElementById('s0-title').innerHTML = t.s0title;
+  document.getElementById('s0-time').innerHTML  = t.s0time;
+  document.getElementById('td1').innerHTML = t.td1; document.getElementById('td2').innerHTML = t.td2;
+  document.getElementById('td3').innerHTML = t.td3; document.getElementById('td4').innerHTML = t.td4;
+  document.getElementById('tip0').innerHTML = t.tip0;
+  document.getElementById('s1-title').innerHTML = t.s1title; document.getElementById('s1-time').innerHTML = t.s1time;
+  document.getElementById('s1-p1').innerHTML = t.s1p1; document.getElementById('s1-p2').innerHTML = t.s1p2;
+  document.getElementById('warn1').innerHTML = t.warn1;
+  document.getElementById('s2-title').innerHTML = t.s2title; document.getElementById('s2-time').innerHTML = t.s2time;
+  document.getElementById('s2-p1').innerHTML = t.s2p1;
+  document.getElementById('tip2').innerHTML = t.tip2;
+  document.getElementById('s3-title').innerHTML = t.s3title; document.getElementById('s3-time').innerHTML = t.s3time;
+  document.getElementById('s3-p1').innerHTML = t.s3p1;
+  var cl3 = document.getElementById('checklist3'); cl3.innerHTML = '';
+  t.cl3.forEach(function(item){ var li=document.createElement('li'); li.innerHTML=item; cl3.appendChild(li); });
+  document.getElementById('warn3').innerHTML = t.warn3;
+  document.getElementById('s4-title').innerHTML = t.s4title; document.getElementById('s4-time').innerHTML = t.s4time;
+  document.getElementById('s4-p1').innerHTML = t.s4p1;
+  var cl4 = document.getElementById('checklist4'); cl4.innerHTML = '';
+  t.cl4.forEach(function(item){ var li=document.createElement('li'); li.innerHTML=item; cl4.appendChild(li); });
+  document.getElementById('tip4').innerHTML = t.tip4;
+  document.getElementById('s5-title').innerHTML = t.s5title; document.getElementById('s5-time').innerHTML = t.s5time;
+  document.getElementById('s5-p1').innerHTML = t.s5p1;
+  var cl5 = document.getElementById('checklist5'); cl5.innerHTML = '';
+  t.cl5.forEach(function(item){ var li=document.createElement('li'); li.innerHTML=item; cl5.appendChild(li); });
+  document.getElementById('tip5').innerHTML = t.tip5;
+  document.getElementById('sec-next').innerHTML = t.secNext;
+  document.getElementById('sn-title').innerHTML = t.sntitle; document.getElementById('sn-time').innerHTML = t.sntime;
+  var nxList = document.querySelectorAll('[id^="nx"]');
+  nxList.forEach(function(el,i){ if(t.nx[i]) el.innerHTML = t.nx[i]; });
+  document.getElementById('sec-quiz').innerHTML = t.secQuiz;
+  document.getElementById('qh-title').innerHTML = t.qhTitle;
+  document.getElementById('qh-sub').innerHTML   = t.qhSub;
+  // Update quiz questions and options
+  for (var i = 0; i < 5; i++) {
+    document.getElementById('qn-' + i).innerHTML = t.qNums[i];
+    document.getElementById('qt-' + i).innerHTML = t.qTexts[i];
+    document.getElementById('qe-' + i).innerHTML = t.qExpls[i];
+    document.getElementById('qnxt-' + i).innerHTML = t.qNext[i];
+    var opts = document.getElementById('qc-' + i).querySelectorAll('.q-opt');
+    opts.forEach(function(opt, j) {
+      opt.innerHTML = '<span class="opt-key">' + ['A','B','C','D'][j] + '</span> ' + t.qOpts[i][j];
+    });
+  }
+  document.getElementById('fc-h').innerHTML    = t.fcH;
+  document.getElementById('fc-p').innerHTML    = t.fcP;
+  document.getElementById('fc-btn1').innerHTML = t.fcBtn1;
+  document.getElementById('fc-btn2').innerHTML = t.fcBtn2;
+  document.getElementById('ft-copy').innerHTML = t.ftCopy;
+  document.getElementById('ft-love').innerHTML = t.ftLove;
+  document.getElementById('btn-hi').classList.toggle('on', l === 'hi');
+  document.getElementById('btn-en').classList.toggle('on', l === 'en');
+}
+
+document.addEventListener('DOMContentLoaded', function() { setLang(LANG); });
+</script>
+</body>
+</html>
