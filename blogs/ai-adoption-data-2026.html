@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>84% Duniya Ne Kabhi AI Use Nahi Kiya — 2026 Ka Sach | CIWeb</title>
+  <meta name="description" content="Duniya mein sirf 16% log AI use karte hain. 8.1 billion mein se 6.8 billion ne kabhi ChatGPT ya koi AI tool nahi chhua. Yeh shocking data kya kehta hai? Poori story Hindi mein."/>
+  <meta name="keywords" content="AI adoption 2026 statistics, kitne log AI use karte hain, ChatGPT users India, global AI usage Hindi, artificial intelligence adoption data"/>
+  <meta name="author" content="CIWeb — Coding Infinite"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://ciweb.in/blog/blog6.html"/>
+  <meta property="og:title" content="84% Duniya Ne Kabhi AI Use Nahi Kiya — 2026 Ka Sach | CIWeb"/>
+  <meta property="og:description" content="8.1 billion mein sirf 1.3 billion log AI use karte hain. Shocking data aur poori analysis Hindi mein."/>
+  <meta property="og:url" content="https://ciweb.in/blog/blog6.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:site_name" content="CIWeb"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"84% Duniya Ne Kabhi AI Use Nahi Kiya — 2026 Ka Sach","description":"Duniya mein sirf 16% log AI use karte hain. 8.1 billion mein se 6.8 billion ne kabhi ChatGPT ya koi AI tool nahi chhua.","author":{"@type":"Organization","name":"CIWeb — Coding Infinite"},"publisher":{"@type":"Organization","name":"CIWeb","url":"https://ciweb.in"},"datePublished":"2026-03-12","url":"https://ciweb.in/blog/blog6.html","inLanguage":"hi"}
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#f5f3ee;--ink:#1a1814;--muted:#7a7570;--accent:#e8401c;--card:#fff;--border:#e2ddd6;--tag-bg:#fff0ec;--green:#16a34a;--blue:#2563eb}
+    body{font-family:"Outfit",sans-serif;background:var(--bg);color:var(--ink);line-height:1.75}
+
+    nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);padding:0 6%;display:flex;align-items:center;justify-content:space-between;height:64px}
+    .logo{font-family:"Playfair Display",serif;font-size:1.5rem;font-weight:900;color:var(--ink);text-decoration:none}
+    .logo span{color:var(--accent)}
+    .nav-links{display:flex;gap:1.4rem;list-style:none;align-items:center}
+    .nav-links a{color:var(--muted);text-decoration:none;font-size:.88rem;font-weight:500;transition:color .2s}
+    .nav-links a:hover{color:var(--ink)}
+    .nav-cta{background:var(--ink)!important;color:var(--bg)!important;padding:8px 18px;border-radius:100px;font-weight:600!important}
+    @media(max-width:768px){.nav-links{display:none}}
+
+    .blog-hero{max-width:860px;margin:0 auto;padding:44px 5% 20px}
+    .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:.85rem;text-decoration:none;font-weight:500;margin-bottom:1.2rem}
+    .back-link:hover{color:var(--ink)}
+    .hero-tags{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1rem}
+    .tag{padding:4px 14px;border-radius:100px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+    .tag-ai{background:#eff6ff;color:#1d4ed8}
+    .tag-data{background:#f0fff4;color:#16a34a}
+    .tag-2026{background:var(--tag-bg);color:var(--accent)}
+    .blog-hero h1{font-family:"Playfair Display",serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:900;line-height:1.12;margin-bottom:.9rem}
+    .hero-meta{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:.8rem}
+    .hero-meta span{font-size:.8rem;color:var(--muted)}
+    .hero-meta b{color:var(--ink)}
+    .blog-hero .sub{font-size:1rem;color:var(--muted);line-height:1.75;max-width:640px}
+
+    .blog-content{max-width:860px;margin:0 auto;padding:0 5% 100px}
+
+    /* DOT VISUALIZATION */
+    .viz-section{background:var(--ink);border-radius:24px;padding:2rem 1.5rem;margin:2.5rem 0;position:relative;overflow:hidden}
+    .viz-title{color:#fff;font-family:"Playfair Display",serif;font-size:1.1rem;font-weight:700;text-align:center;margin-bottom:.3rem}
+    .viz-sub{color:rgba(255,255,255,.5);font-size:.72rem;text-align:center;margin-bottom:1.4rem;font-family:monospace}
+    .dot-canvas-wrap{position:relative;width:100%;cursor:pointer}
+    canvas#dotCanvas{width:100%;height:auto;display:block;border-radius:8px}
+    .viz-legend{display:flex;flex-wrap:wrap;gap:.8rem 1.4rem;justify-content:center;margin-top:1.2rem}
+    .leg-item{display:flex;align-items:center;gap:.45rem;font-size:.75rem;color:rgba(255,255,255,.75)}
+    .leg-dot{width:12px;height:12px;border-radius:3px;flex-shrink:0}
+    .viz-note{text-align:center;font-size:.68rem;color:rgba(255,255,255,.3);margin-top:.8rem;font-family:monospace}
+    .viz-cta{text-align:center;font-size:.78rem;color:rgba(255,255,255,.4);margin-top:.6rem}
+    .counter-strip{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1.2rem}
+    @media(max-width:480px){.counter-strip{grid-template-columns:1fr 1fr}}
+    .counter-box{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:1rem;text-align:center}
+    .counter-num{font-family:"Playfair Display",serif;font-size:1.8rem;font-weight:900;line-height:1}
+    .counter-lbl{font-size:.7rem;color:rgba(255,255,255,.45);margin-top:5px;font-weight:500}
+
+    /* INSIGHT CARDS */
+    .insight-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;margin:2rem 0}
+    @media(max-width:560px){.insight-grid{grid-template-columns:1fr}}
+    .insight-card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:1.4rem;transition:transform .2s,box-shadow .2s}
+    .insight-card:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.08)}
+    .ic-icon{font-size:1.8rem;margin-bottom:.6rem;display:block}
+    .ic-stat{font-family:"Playfair Display",serif;font-size:2rem;font-weight:900;color:var(--accent);line-height:1;margin-bottom:.3rem}
+    .ic-title{font-weight:700;font-size:.88rem;margin-bottom:.4rem}
+    .ic-desc{font-size:.82rem;color:var(--muted);line-height:1.65}
+
+    /* SECTION TITLE */
+    .section-title{font-family:"Playfair Display",serif;font-size:1.5rem;font-weight:900;margin:3rem 0 1.2rem;padding-bottom:.5rem;border-bottom:2px solid var(--border)}
+
+    /* COMPARISON BAR */
+    .bar-section{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:1.8rem;margin:2rem 0}
+    .bar-title{font-family:"Playfair Display",serif;font-size:1rem;font-weight:700;margin-bottom:1.4rem}
+    .bar-row{margin-bottom:1.1rem}
+    .bar-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem}
+    .bar-name{font-size:.85rem;font-weight:600}
+    .bar-pct{font-size:.85rem;color:var(--muted);font-weight:500}
+    .bar-track{background:var(--bg);border-radius:100px;height:10px;overflow:hidden}
+    .bar-fill{height:100%;border-radius:100px;transition:width 1.5s cubic-bezier(.16,1,.3,1)}
+
+    /* COUNTRY TABLE */
+    .ctable-wrap{overflow-x:auto;margin:1.5rem 0}
+    .ctable{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;font-size:.84rem}
+    .ctable th{background:var(--ink);color:#fff;padding:.85rem 1rem;text-align:left;font-size:.74rem;font-weight:600}
+    .ctable td{padding:.8rem 1rem;border-bottom:1px solid var(--border);vertical-align:middle}
+    .ctable tr:last-child td{border-bottom:none}
+    .ctable tr:hover td{background:#faf9f7}
+    .flag{font-size:1.1rem;margin-right:.4rem}
+
+    /* INDIA SPECIAL */
+    .india-box{background:linear-gradient(135deg,#fff8f0,#fff);border:2px solid #ff9933;border-radius:20px;padding:1.8rem;margin:2rem 0;position:relative;overflow:hidden}
+    .india-box::before{content:"🇮🇳";position:absolute;right:1.5rem;top:1rem;font-size:3rem;opacity:.15}
+    .india-box h3{font-family:"Playfair Display",serif;font-size:1.2rem;font-weight:900;margin-bottom:1rem;color:#92400e}
+    .india-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}
+    @media(max-width:500px){.india-stats{grid-template-columns:1fr 1fr}}
+    .india-stat{text-align:center;background:rgba(255,255,255,.7);border-radius:12px;padding:.9rem .5rem}
+    .india-stat .num{font-family:"Playfair Display",serif;font-size:1.6rem;font-weight:900;color:#92400e;display:block}
+    .india-stat .lbl{font-size:.68rem;color:var(--muted);margin-top:3px}
+
+    /* WHAT IT MEANS */
+    .meaning-list{display:flex;flex-direction:column;gap:1rem;margin:1.5rem 0}
+    .meaning-item{display:flex;gap:1rem;align-items:flex-start;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.1rem 1.2rem}
+    .meaning-icon{font-size:1.5rem;flex-shrink:0}
+    .meaning-body h5{font-weight:700;font-size:.9rem;margin-bottom:.25rem}
+    .meaning-body p{font-size:.83rem;color:var(--muted);line-height:1.65}
+
+    /* CALL TO ACTION */
+    .cta-box{background:linear-gradient(135deg,#1a1814,#2a2420);border-radius:24px;padding:2.5rem 2rem;text-align:center;color:#fff;margin:3rem 0}
+    .cta-box h3{font-family:"Playfair Display",serif;font-size:1.5rem;font-weight:900;margin-bottom:.7rem}
+    .cta-box p{color:rgba(255,255,255,.6);font-size:.9rem;line-height:1.7;max-width:480px;margin:0 auto 1.5rem}
+    .cta-btns{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+    .cta-primary{background:var(--accent);color:#fff;text-decoration:none;padding:12px 28px;border-radius:100px;font-weight:700;font-size:.9rem;transition:all .2s}
+    .cta-primary:hover{background:#c73516;transform:translateY(-2px)}
+    .cta-sec{background:rgba(255,255,255,.1);color:#fff;text-decoration:none;padding:12px 28px;border-radius:100px;font-weight:600;font-size:.9rem;transition:all .2s;border:1px solid rgba(255,255,255,.2)}
+    .cta-sec:hover{background:rgba(255,255,255,.18)}
+
+    .prose{font-size:.95rem;color:var(--ink);line-height:1.8;margin-bottom:1rem}
+    .prose b{color:var(--accent)}
+    .highlight{background:linear-gradient(135deg,#fff8f6,#fff);border-left:4px solid var(--accent);border-radius:0 12px 12px 0;padding:1rem 1.4rem;margin:1.5rem 0;font-size:.93rem;line-height:1.75}
+    .highlight strong{color:var(--accent)}
+
+    footer{border-top:1px solid var(--border);padding:1.5rem 6%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    footer p{font-size:.8rem;color:var(--muted)}
+
+    #cw-toggle{position:fixed;bottom:22px;right:22px;z-index:9999;display:flex;align-items:center;background:rgba(20,18,15,.94);border-radius:100px;padding:4px;box-shadow:0 6px 28px rgba(0,0,0,.28)}
+    .cw-opt{padding:8px 16px;border-radius:100px;font-size:.72rem;font-weight:700;cursor:pointer;border:none;background:transparent;color:rgba(255,255,255,.35);font-family:"Outfit",sans-serif;transition:all .25s}
+    .cw-opt.on{background:linear-gradient(135deg,#e8401c,#c73516);color:#fff}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    .insight-card{animation:fadeUp .5s ease both}
+    .insight-card:nth-child(1){animation-delay:.05s}
+    .insight-card:nth-child(2){animation-delay:.1s}
+    .insight-card:nth-child(3){animation-delay:.15s}
+    .insight-card:nth-child(4){animation-delay:.2s}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="logo">CI<span>Web</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html" id="nav-home">Home</a></li>
+    <li><a href="../blogs.html" id="nav-blogs">Blogs</a></li>
+    <li><a href="../about.html" id="nav-about">About</a></li>
+    <li><a href="../contact.html" id="nav-contact">Contact</a></li>
+    <li><a href="../blogs.html" class="nav-cta" id="nav-all">Saare Blogs</a></li>
+  </ul>
+</nav>
+
+<div class="blog-hero">
+  <a href="../blogs.html" class="back-link" id="back-lnk">&#8592; Blogs pe wapas</a>
+  <div class="hero-tags">
+    <span class="tag tag-ai">AI</span>
+    <span class="tag tag-data">Data</span>
+    <span class="tag tag-2026">2026</span>
+  </div>
+  <h1 id="pg-h1">84% Duniya Ne Kabhi AI Use Nahi Kiya — 2026 Ka Shocking Sach &#128200;</h1>
+  <div class="hero-meta">
+    <span>&#128100; <b>Coding Infinite</b></span>
+    <span>&#128197; <b>12 March 2026</b></span>
+    <span>&#9200; <b id="read-time">6 min padhai</b></span>
+  </div>
+  <p class="sub" id="pg-sub">8.1 billion log hain duniya mein. Sirf 1.3 billion ne AI kabhi touch kiya hai. Baaki 6.8 billion? Unke liye AI abhi bhi ek ajnabi word hai. Yeh data aapko sochne pe majboor kar dega.</p>
+</div>
+
+<div class="blog-content">
+
+  <!-- DOT VISUALIZATION -->
+  <div class="viz-section">
+    <div class="viz-title" id="viz-title">Har Dot = ~3.2 Million Log</div>
+    <div class="viz-sub" id="viz-sub">2,500 dots = 8.1 Billion Humans &nbsp;·&nbsp; Color = AI Usage Level &nbsp;·&nbsp; Feb 2026</div>
+    <div class="dot-canvas-wrap">
+      <canvas id="dotCanvas"></canvas>
+    </div>
+    <div class="viz-legend">
+      <div class="leg-item"><div class="leg-dot" style="background:#d1d5db"></div><span id="leg1">Kabhi AI use nahi kiya &nbsp;·&nbsp; ~6.8B (84%)</span></div>
+      <div class="leg-item"><div class="leg-dot" style="background:#4ade80"></div><span id="leg2">Free chatbot user &nbsp;·&nbsp; ~1.3B (16%)</span></div>
+      <div class="leg-item"><div class="leg-dot" style="background:#fbbf24"></div><span id="leg3">Paid AI user ($20/mo) &nbsp;·&nbsp; ~15-25M (0.3%)</span></div>
+      <div class="leg-item"><div class="leg-dot" style="background:#ef4444"></div><span id="leg4">AI coding scaffold &nbsp;·&nbsp; ~2-5M (0.04%)</span></div>
+    </div>
+    <div class="viz-note" id="viz-note">Dot pe tap karo — zoom hoga &#128269;</div>
+    <div class="counter-strip">
+      <div class="counter-box">
+        <div class="counter-num" style="color:#4ade80" id="cnt1">1.3B</div>
+        <div class="counter-lbl" id="cntl1">AI Users</div>
+      </div>
+      <div class="counter-box">
+        <div class="counter-num" style="color:#d1d5db" id="cnt2">6.8B</div>
+        <div class="counter-lbl" id="cntl2">Never Used AI</div>
+      </div>
+      <div class="counter-box">
+        <div class="counter-num" style="color:#fbbf24" id="cnt3">~20M</div>
+        <div class="counter-lbl" id="cntl3">Paid Subscribers</div>
+      </div>
+      <div class="counter-box">
+        <div class="counter-num" style="color:#ef4444" id="cnt4">~3M</div>
+        <div class="counter-lbl" id="cntl4">Power Users</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INSIGHT CARDS -->
+  <div class="insight-grid">
+    <div class="insight-card">
+      <span class="ic-icon">&#128200;</span>
+      <div class="ic-stat" id="ic1-stat">84%</div>
+      <div class="ic-title" id="ic1-title">Duniya AI se anjaan hai</div>
+      <div class="ic-desc" id="ic1-desc">8.1 billion mein se 6.8 billion log hain jo ChatGPT ka naam toh sun chuke hain lekin kabhi use nahi kiya.</div>
+    </div>
+    <div class="insight-card">
+      <span class="ic-icon">&#127775;</span>
+      <div class="ic-stat" id="ic2-stat">16%</div>
+      <div class="ic-title" id="ic2-title">Sirf ek chhotaa sa hissa</div>
+      <div class="ic-desc" id="ic2-desc">~1.3 billion log free AI chatbots use karte hain — ChatGPT, Gemini, Claude. Yeh 16% hi hain poori duniya ke.</div>
+    </div>
+    <div class="insight-card">
+      <span class="ic-icon">&#128181;</span>
+      <div class="ic-stat" id="ic3-stat">0.3%</div>
+      <div class="ic-title" id="ic3-title">Paid users — bahut kam</div>
+      <div class="ic-desc" id="ic3-desc">Sirf 15-25 million log AI ke liye paise dete hain. Yeh poori duniya ka sirf 0.3% hai.</div>
+    </div>
+    <div class="insight-card">
+      <span class="ic-icon">&#128187;</span>
+      <div class="ic-stat" id="ic4-stat">0.04%</div>
+      <div class="ic-title" id="ic4-title">Real power users</div>
+      <div class="ic-desc" id="ic4-desc">2-5 million log coding scaffold aur advanced AI tools use karte hain professionally. Yeh waale sach mein AI ka power jaante hain.</div>
+    </div>
+  </div>
+
+  <!-- CONTEXT -->
+  <div class="highlight">
+    <strong>Yeh sochne wali baat hai:</strong> <span id="hl-text">Agar aap AI use karte ho toh aap duniya ke <b>top 16%</b> mein ho. Agar aap AI ke liye paise dete ho toh <b>top 0.3%</b> mein. Aur agar aap coding mein AI use kar rahe ho toh aap <b>0.04%</b> elite club mein hain — 8 billion mein sirf 3 million log!</span>
+  </div>
+
+  <!-- BAR CHART - AI by country -->
+  <div class="section-title" id="sec-country">&#127758; Desh Ke Hisaab Se AI Adoption</div>
+  <div class="bar-section">
+    <div class="bar-title" id="bar-title">Working age population mein AI users ka % — H2 2025</div>
+    <div id="bars-container"></div>
+  </div>
+
+  <!-- COUNTRY TABLE -->
+  <div class="section-title" id="sec-table">&#128202; Top Countries — Detailed Data</div>
+  <div class="ctable-wrap">
+    <table class="ctable">
+      <thead><tr>
+        <th id="th-rank">Rank</th>
+        <th id="th-country">Desh</th>
+        <th id="th-pct">AI Adoption %</th>
+        <th id="th-note">Reason</th>
+      </tr></thead>
+      <tbody id="ctable-body"></tbody>
+    </table>
+  </div>
+
+  <!-- INDIA BOX -->
+  <div class="india-box">
+    <h3 id="india-h">&#127470;&#127475; India Ki Kahani — Opportunity Ya Challenge?</h3>
+    <div class="india-stats">
+      <div class="india-stat">
+        <span class="num">14%</span>
+        <div class="lbl" id="india-l1">AI Adoption Rate</div>
+      </div>
+      <div class="india-stat">
+        <span class="num">200M+</span>
+        <div class="lbl" id="india-l2">Potential AI Users</div>
+      </div>
+      <div class="india-stat">
+        <span class="num">#2</span>
+        <div class="lbl" id="india-l3">Global Internet Users</div>
+      </div>
+    </div>
+    <p class="prose" style="margin-top:1.2rem;margin-bottom:0" id="india-desc">India ke paas <b>duniya ka doosra sabse bada internet user base</b> hai — 800 million+. Lekin AI adoption abhi Global South average (14%) ke aas paas hai. Kyu? Language barrier, awareness ki kami, aur yeh belief ki "AI sirf English mein kaam karta hai." Lekin ab Hindi mein AI available hai — <b>yeh sab badalne wala hai.</b></p>
+  </div>
+
+  <!-- WHAT DOES THIS MEAN -->
+  <div class="section-title" id="sec-mean">&#129300; Yeh Data Kya Kehta Hai?</div>
+  <div class="meaning-list">
+    <div class="meaning-item">
+      <div class="meaning-icon">&#127919;</div>
+      <div class="meaning-body">
+        <h5 id="m1-h">Opportunity bahut badi hai</h5>
+        <p id="m1-p">6.8 billion log abhi AI se bahar hain. Jaise 2010 mein smartphone ka boom aaya — waise 2026-2030 mein AI boom aane wala hai. Jo log aaj seekh rahe hain woh aage rahenge.</p>
+      </div>
+    </div>
+    <div class="meaning-item">
+      <div class="meaning-icon">&#128161;</div>
+      <div class="meaning-body">
+        <h5 id="m2-h">Language ek badi barrier hai</h5>
+        <p id="m2-p">Zyada AI tools English mein hain. Jaise hi Hindi, Tamil, Telugu mein AI better hoga — India ka AI adoption rate rocket ki tarah uthega. Khan Academy ka Hindi content iska ek example hai.</p>
+      </div>
+    </div>
+    <div class="meaning-item">
+      <div class="meaning-icon">&#128188;</div>
+      <div class="meaning-body">
+        <h5 id="m3-h">Job market badal raha hai</h5>
+        <p id="m3-p">Jo 0.04% log AI se coding kar rahe hain — unka kaam 10x fast hai. 5 saal mein AI skills jo aaj "extra" hain woh "basic requirement" ban jaayengi.</p>
+      </div>
+    </div>
+    <div class="meaning-item">
+      <div class="meaning-icon">&#127760;</div>
+      <div class="meaning-body">
+        <h5 id="m4-h">Digital divide barhega?</h5>
+        <p id="m4-p">Global North mein 24.7% log AI use karte hain, Global South mein sirf 14.1%. Yeh gap agar badhta raha toh countries ke beech inequality aur barhegi. Isliye India mein AI education zaruri hai.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <h3 id="cta-h">Tum Us 16% Mein Ho? &#128293;</h3>
+    <p id="cta-p">Agar AI use kar rahe ho — acha hai. Agar nahi karte — aaj shuru karo. Free hai. Simple hai. Aur yeh tumhari zindagi genuinely change kar sakta hai. Coding bhi seekhna chahte ho? Hamare HTML Quiz se shuru karo!</p>
+    <div class="cta-btns">
+      <a href="blog4.html" class="cta-primary" id="cta-btn1">HTML Quiz Try Karo &#9889;</a>
+      <a href="blog5.html" class="cta-sec" id="cta-btn2">Free Coding Sites Dekho &#8594;</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <a href="../index.html" class="logo">CI<span>Web</span></a>
+  <p id="ft-copy">&#169; 2026 CIWeb. Sare adhikar surakshit.</p>
+  <p id="ft-love">Tech Lovers ke liye &#10084; se banaya</p>
+</footer>
+
+<div id="cw-toggle">
+  <button class="cw-opt on" id="btn-hi" onclick="setLang('hi')">&#127470;&#127475; Hindi</button>
+  <button class="cw-opt" id="btn-en" onclick="setLang('en')">&#127468;&#127463; English</button>
+</div>
+
+<script>
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//  DOT VISUALIZATION
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+var DOT_COLS = 50;
+var DOT_ROWS = 50;
+var TOTAL_DOTS = DOT_COLS * DOT_ROWS; // 2500
+
+// Dot colors based on category
+// 84% = 2100 grey (never used)
+// 15.66% = 391 green (free chatbot)
+// 0.3% = 7 yellow (paid)
+// 0.04% = 2 red (power user)
+var NEVER = Math.round(TOTAL_DOTS * 0.84);   // 2100
+var FREE  = Math.round(TOTAL_DOTS * 0.156);  // 390
+var PAID  = Math.round(TOTAL_DOTS * 0.003);  // 7
+var POWER = TOTAL_DOTS - NEVER - FREE - PAID; // 3
+
+var dotColors = [];
+// Fill array — power users and paid first (bottom-right), then green, then grey
+for (var i = 0; i < TOTAL_DOTS; i++) dotColors.push('#d1d5db');
+// Place green in last rows
+for (var i = TOTAL_DOTS - FREE - PAID - POWER; i < TOTAL_DOTS - PAID - POWER; i++) dotColors[i] = '#4ade80';
+for (var i = TOTAL_DOTS - PAID - POWER; i < TOTAL_DOTS - POWER; i++) dotColors[i] = '#fbbf24';
+for (var i = TOTAL_DOTS - POWER; i < TOTAL_DOTS; i++) dotColors[i] = '#ef4444';
+
+var animFrame = 0;
+var animDone = false;
+
+function drawDots(progress) {
+  var cv = document.getElementById('dotCanvas');
+  var wrap = cv.parentElement;
+  var W = wrap.clientWidth || 600;
+  var gap = 2;
+  var dotSize = Math.floor((W - gap * (DOT_COLS + 1)) / DOT_COLS);
+  var H = dotSize * DOT_ROWS + gap * (DOT_ROWS + 1);
+  cv.width  = W;
+  cv.height = H;
+  var ctx = cv.getContext('2d');
+  ctx.clearRect(0, 0, W, H);
+
+  var shown = Math.floor(progress * TOTAL_DOTS);
+
+  for (var row = 0; row < DOT_ROWS; row++) {
+    for (var col = 0; col < DOT_COLS; col++) {
+      var idx = row * DOT_COLS + col;
+      if (idx >= shown) break;
+      var x = gap + col * (dotSize + gap);
+      var y = gap + row * (dotSize + gap);
+      ctx.fillStyle = dotColors[idx];
+      ctx.globalAlpha = 1;
+      roundRect(ctx, x, y, dotSize, dotSize, Math.max(2, dotSize * 0.18));
+    }
+  }
+}
+
+function roundRect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.arcTo(x + w, y, x + w, y + r, r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.arcTo(x + w, y + h, x + w - r, y + h, r);
+  ctx.lineTo(x + r, y + h);
+  ctx.arcTo(x, y + h, x, y + h - r, r);
+  ctx.lineTo(x, y + r);
+  ctx.arcTo(x, y, x + r, y, r);
+  ctx.closePath();
+  ctx.fill();
+}
+
+var progress = 0;
+function animateDots() {
+  if (progress < 1) {
+    progress = Math.min(progress + 0.018, 1);
+    drawDots(progress);
+    requestAnimationFrame(animateDots);
+  } else {
+    animDone = true;
+    drawDots(1);
+  }
+}
+
+// Intersection Observer — animate when visible
+var vizObs = new IntersectionObserver(function(entries) {
+  if (entries[0].isIntersecting && progress === 0) {
+    setTimeout(animateDots, 200);
+    vizObs.disconnect();
+  }
+}, { threshold: 0.3 });
+
+// Tap to zoom effect on canvas
+document.getElementById('dotCanvas').addEventListener('click', function() {
+  if (!animDone) return;
+  progress = 0;
+  animDone = false;
+  animateDots();
+});
+
+window.addEventListener('resize', function() {
+  if (animDone) drawDots(1);
+});
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//  BAR CHART DATA
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+var COUNTRIES_HI = [
+  { flag:'🇦🇪', name:'UAE', pct:64.0, color:'#e8401c' },
+  { flag:'🇸🇬', name:'Singapore', pct:60.9, color:'#e8401c' },
+  { flag:'🇳🇴', name:'Norway', pct:46.4, color:'#2563eb' },
+  { flag:'🇮🇪', name:'Ireland', pct:44.6, color:'#2563eb' },
+  { flag:'🇫🇷', name:'France', pct:44.0, color:'#2563eb' },
+  { flag:'🇺🇸', name:'USA', pct:28.3, color:'#16a34a' },
+  { flag:'🇮🇳', name:'India (Global South avg)', pct:14.1, color:'#f59e0b' },
+  { flag:'🌍', name:'Global Average', pct:16.1, color:'#7c3aed' },
+];
+
+var TABLE_HI = [
+  { flag:'🇦🇪', name:'UAE', pct:'64.0%', note:'Govt ne AI mein invest kiya' },
+  { flag:'🇸🇬', name:'Singapore', pct:'60.9%', note:'Digital infrastructure best hai' },
+  { flag:'🇳🇴', name:'Norway', pct:'46.4%', note:'High digital literacy' },
+  { flag:'🇺🇸', name:'USA', pct:'28.3%', note:'Innovation leader lekin adoption mein 24th' },
+  { flag:'🇧🇷', name:'Brazil', pct:'20.5%', note:'Latin America mein fastest growth' },
+  { flag:'🇮🇳', name:'India', pct:'~14%', note:'Language barrier, par grow ho raha hai' },
+  { flag:'🇰🇭', name:'Cambodia', pct:'5.1%', note:'Infrastructure ki kami' },
+];
+
+var TABLE_EN = [
+  { flag:'🇦🇪', name:'UAE', pct:'64.0%', note:'Govt invested heavily in AI' },
+  { flag:'🇸🇬', name:'Singapore', pct:'60.9%', note:'Best digital infrastructure' },
+  { flag:'🇳🇴', name:'Norway', pct:'46.4%', note:'High digital literacy' },
+  { flag:'🇺🇸', name:'USA', pct:'28.3%', note:'Innovation leader but 24th in usage' },
+  { flag:'🇧🇷', name:'Brazil', pct:'20.5%', note:'Fastest growth in Latin America' },
+  { flag:'🇮🇳', name:'India', pct:'~14%', note:'Language barrier, but growing fast' },
+  { flag:'🇰🇭', name:'Cambodia', pct:'5.1%', note:'Lack of infrastructure' },
+];
+
+function renderBars(data) {
+  var html = '';
+  data.forEach(function(d) {
+    html += '<div class="bar-row">' +
+      '<div class="bar-label"><span class="bar-name">' + d.flag + ' ' + d.name + '</span><span class="bar-pct">' + d.pct + '%</span></div>' +
+      '<div class="bar-track"><div class="bar-fill" style="width:0%;background:' + d.color + '" data-w="' + d.pct + '"></div></div>' +
+      '</div>';
+  });
+  document.getElementById('bars-container').innerHTML = html;
+  // Animate bars
+  setTimeout(function() {
+    document.querySelectorAll('.bar-fill').forEach(function(el) {
+      el.style.width = (parseFloat(el.dataset.w) / 70 * 100) + '%';
+    });
+  }, 100);
+}
+
+function renderTable(data) {
+  var html = '';
+  data.forEach(function(d, i) {
+    html += '<tr><td><b>' + (i+1) + '</b></td><td>' + d.flag + ' ' + d.name + '</td><td><b style="color:var(--accent)">' + d.pct + '</b></td><td style="color:var(--muted);font-size:.8rem">' + d.note + '</td></tr>';
+  });
+  document.getElementById('ctable-body').innerHTML = html;
+}
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//  LANG SYSTEM
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+var T = {
+  hi:{
+    navHome:'Home', navBlogs:'Blogs', navAbout:'About', navContact:'Contact', navAll:'Saare Blogs',
+    back:'&#8592; Blogs pe wapas',
+    h1:'84% Duniya Ne Kabhi AI Use Nahi Kiya — 2026 Ka Shocking Sach &#128200;',
+    sub:'8.1 billion log hain duniya mein. Sirf 1.3 billion ne AI kabhi touch kiya hai. Baaki 6.8 billion? Unke liye AI abhi bhi ek ajnabi word hai. Yeh data aapko sochne pe majboor kar dega.',
+    readTime:'6 min padhai',
+    vizTitle:'Har Dot = ~3.2 Million Log',
+    vizSub:'2,500 dots = 8.1 Billion Humans &nbsp;·&nbsp; Color = AI Usage Level &nbsp;·&nbsp; Feb 2026',
+    leg1:'Kabhi AI use nahi kiya &nbsp;·&nbsp; ~6.8B (84%)',
+    leg2:'Free chatbot user &nbsp;·&nbsp; ~1.3B (16%)',
+    leg3:'Paid AI user ($20/mo) &nbsp;·&nbsp; ~15-25M (0.3%)',
+    leg4:'AI coding scaffold &nbsp;·&nbsp; ~2-5M (0.04%)',
+    vizNote:'Dot pe tap karo — dobara animate hoga &#128269;',
+    cntl1:'AI Users', cntl2:'Kabhi Use Nahi Kiya', cntl3:'Paid Users', cntl4:'Power Users',
+    ic1stat:'84%', ic1title:'Duniya AI se anjaan hai', ic1desc:'8.1 billion mein se 6.8 billion log hain jo ChatGPT ka naam toh sun chuke hain lekin kabhi use nahi kiya.',
+    ic2stat:'16%', ic2title:'Sirf ek chhotaa sa hissa', ic2desc:'~1.3 billion log free AI chatbots use karte hain — ChatGPT, Gemini, Claude. Yeh 16% hi hain poori duniya ke.',
+    ic3stat:'0.3%', ic3title:'Paid users — bahut kam', ic3desc:'Sirf 15-25 million log AI ke liye paise dete hain. Yeh poori duniya ka sirf 0.3% hai.',
+    ic4stat:'0.04%', ic4title:'Real power users', ic4desc:'2-5 million log coding scaffold aur advanced AI tools use karte hain professionally.',
+    hlText:'Agar aap AI use karte ho toh aap duniya ke <b>top 16%</b> mein ho. Agar AI ke liye paise dete ho toh <b>top 0.3%</b> mein. Coding mein AI use kar rahe ho? Toh aap <b>0.04%</b> elite club mein hain — 8 billion mein sirf 3 million log!',
+    secCountry:'&#127758; Desh Ke Hisaab Se AI Adoption',
+    barTitle:'Working age population mein AI users ka % — H2 2025',
+    secTable:'&#128202; Top Countries — Detailed Data',
+    thRank:'Rank', thCountry:'Desh', thPct:'AI Adoption %', thNote:'Reason',
+    indiaH:'&#127470;&#127475; India Ki Kahani — Opportunity Ya Challenge?',
+    indiaL1:'AI Adoption Rate', indiaL2:'Potential AI Users', indiaL3:'Global Internet Users',
+    indiaDesc:'India ke paas <b>duniya ka doosra sabse bada internet user base</b> hai — 800 million+. Lekin AI adoption abhi Global South average (14%) ke aas paas hai. Kyu? Language barrier, awareness ki kami. Lekin ab Hindi mein AI available hai — <b>yeh sab badalne wala hai.</b>',
+    secMean:'&#129300; Yeh Data Kya Kehta Hai?',
+    m1h:'Opportunity bahut badi hai', m1p:'6.8 billion log abhi AI se bahar hain. Jaise 2010 mein smartphone ka boom aaya — waise 2026-2030 mein AI boom aane wala hai.',
+    m2h:'Language ek badi barrier hai', m2p:'Zyada AI tools English mein hain. Jaise hi Hindi, Tamil, Telugu mein AI better hoga — India ka AI adoption rate rocket ki tarah uthega.',
+    m3h:'Job market badal raha hai', m3p:'Jo 0.04% log AI se coding kar rahe hain — unka kaam 10x fast hai. 5 saal mein AI skills "basic requirement" ban jaayengi.',
+    m4h:'Digital divide barhega?', m4p:'Global North mein 24.7% log AI use karte hain, Global South mein sirf 14.1%. Yeh gap agar badhta raha toh countries ke beech inequality aur barhegi.',
+    ctaH:'Tum Us 16% Mein Ho? &#128293;',
+    ctaP:'Agar AI use kar rahe ho — acha hai. Agar nahi karte — aaj shuru karo. Free hai. Simple hai. Aur yeh tumhari zindagi genuinely change kar sakta hai.',
+    ctaBtn1:'HTML Quiz Try Karo &#9889;', ctaBtn2:'Free Coding Sites Dekho &#8594;',
+    ftCopy:'&#169; 2026 CIWeb. Sare adhikar surakshit.', ftLove:'Tech Lovers ke liye &#10084; se banaya',
+    table: TABLE_HI
+  },
+  en:{
+    navHome:'Home', navBlogs:'Blogs', navAbout:'About', navContact:'Contact', navAll:'All Blogs',
+    back:'&#8592; Back to Blogs',
+    h1:'84% of the World Has Never Used AI — The Shocking Truth of 2026 &#128200;',
+    sub:'There are 8.1 billion people on Earth. Only 1.3 billion have ever touched AI. The other 6.8 billion? AI is still a foreign word for them. This data will make you think.',
+    readTime:'6 min read',
+    vizTitle:'Each Dot = ~3.2 Million People',
+    vizSub:'2,500 dots = 8.1 Billion Humans &nbsp;·&nbsp; Color = AI Usage Level &nbsp;·&nbsp; Feb 2026',
+    leg1:'Never used AI &nbsp;·&nbsp; ~6.8B (84%)',
+    leg2:'Free chatbot user &nbsp;·&nbsp; ~1.3B (16%)',
+    leg3:'Paid AI user ($20/mo) &nbsp;·&nbsp; ~15-25M (0.3%)',
+    leg4:'AI coding scaffold &nbsp;·&nbsp; ~2-5M (0.04%)',
+    vizNote:'Tap the dots to replay animation &#128269;',
+    cntl1:'AI Users', cntl2:'Never Used AI', cntl3:'Paid Users', cntl4:'Power Users',
+    ic1stat:'84%', ic1title:'World is unaware of AI', ic1desc:'Out of 8.1 billion people, 6.8 billion may have heard of ChatGPT but have never used it.',
+    ic2stat:'16%', ic2title:'Only a tiny fraction', ic2desc:'~1.3 billion people use free AI chatbots — ChatGPT, Gemini, Claude. That\'s just 16% of the entire world.',
+    ic3stat:'0.3%', ic3title:'Paid users — very few', ic3desc:'Only 15-25 million people pay for AI. That\'s just 0.3% of the entire world population.',
+    ic4stat:'0.04%', ic4title:'Real power users', ic4desc:'2-5 million people use AI coding scaffolds and advanced AI tools professionally.',
+    hlText:'If you use AI, you are in the <b>top 16%</b> of the world. If you pay for AI, you\'re in the <b>top 0.3%</b>. Using AI for coding? Then you are in the <b>0.04%</b> elite club — just 3 million out of 8 billion!',
+    secCountry:'&#127758; AI Adoption by Country',
+    barTitle:'% of working age population using AI — H2 2025',
+    secTable:'&#128202; Top Countries — Detailed Data',
+    thRank:'Rank', thCountry:'Country', thPct:'AI Adoption %', thNote:'Reason',
+    indiaH:'&#127470;&#127475; India\'s Story — Opportunity or Challenge?',
+    indiaL1:'AI Adoption Rate', indiaL2:'Potential AI Users', indiaL3:'Global Internet Users',
+    indiaDesc:'India has the <b>world\'s second largest internet user base</b> — 800 million+. But AI adoption is still around the Global South average (14%). Why? Language barriers and awareness gaps. But now AI is available in Hindi — <b>all of this is about to change.</b>',
+    secMean:'&#129300; What Does This Data Tell Us?',
+    m1h:'The opportunity is massive', m1p:'6.8 billion people are still outside of AI. Just like the smartphone boom of 2010 — an AI boom is coming between 2026-2030.',
+    m2h:'Language is a big barrier', m2p:'Most AI tools are in English. As Hindi, Tamil, Telugu AI improves — India\'s AI adoption rate will skyrocket.',
+    m3h:'Job market is changing', m3p:'The 0.04% using AI for coding work 10x faster. In 5 years, AI skills that are "extra" today will be "basic requirements".',
+    m4h:'Will the digital divide widen?', m4p:'24.7% in the Global North use AI, only 14.1% in the Global South. If this gap grows, inequality between nations will deepen.',
+    ctaH:'Are You In That 16%? &#128293;',
+    ctaP:'If you use AI — great. If not — start today. It\'s free. It\'s simple. And it can genuinely change your life. Want to learn coding too? Start with our HTML Quiz!',
+    ctaBtn1:'Try HTML Quiz &#9889;', ctaBtn2:'See Free Coding Sites &#8594;',
+    ftCopy:'&#169; 2026 CIWeb. All rights reserved.', ftLove:'Made with &#10084; for Tech Lovers',
+    table: TABLE_EN
+  }
+};
+
+var LANG = localStorage.getItem('ciweb_lang') || 'hi';
+
+function setLang(l) {
+  LANG = l;
+  localStorage.setItem('ciweb_lang', l);
+  var t = T[l];
+  document.getElementById('nav-home').innerHTML    = t.navHome;
+  document.getElementById('nav-blogs').innerHTML   = t.navBlogs;
+  document.getElementById('nav-about').innerHTML   = t.navAbout;
+  document.getElementById('nav-contact').innerHTML = t.navContact;
+  document.getElementById('nav-all').innerHTML     = t.navAll;
+  document.getElementById('back-lnk').innerHTML    = t.back;
+  document.getElementById('pg-h1').innerHTML       = t.h1;
+  document.getElementById('pg-sub').innerHTML      = t.sub;
+  document.getElementById('read-time').innerHTML   = t.readTime;
+  document.getElementById('viz-title').innerHTML   = t.vizTitle;
+  document.getElementById('viz-sub').innerHTML     = t.vizSub;
+  document.getElementById('leg1').innerHTML = t.leg1;
+  document.getElementById('leg2').innerHTML = t.leg2;
+  document.getElementById('leg3').innerHTML = t.leg3;
+  document.getElementById('leg4').innerHTML = t.leg4;
+  document.getElementById('viz-note').innerHTML = t.vizNote;
+  document.getElementById('cntl1').innerHTML = t.cntl1;
+  document.getElementById('cntl2').innerHTML = t.cntl2;
+  document.getElementById('cntl3').innerHTML = t.cntl3;
+  document.getElementById('cntl4').innerHTML = t.cntl4;
+  document.getElementById('ic1-stat').innerHTML  = t.ic1stat;
+  document.getElementById('ic1-title').innerHTML = t.ic1title;
+  document.getElementById('ic1-desc').innerHTML  = t.ic1desc;
+  document.getElementById('ic2-stat').innerHTML  = t.ic2stat;
+  document.getElementById('ic2-title').innerHTML = t.ic2title;
+  document.getElementById('ic2-desc').innerHTML  = t.ic2desc;
+  document.getElementById('ic3-stat').innerHTML  = t.ic3stat;
+  document.getElementById('ic3-title').innerHTML = t.ic3title;
+  document.getElementById('ic3-desc').innerHTML  = t.ic3desc;
+  document.getElementById('ic4-stat').innerHTML  = t.ic4stat;
+  document.getElementById('ic4-title').innerHTML = t.ic4title;
+  document.getElementById('ic4-desc').innerHTML  = t.ic4desc;
+  document.getElementById('hl-text').innerHTML   = t.hlText;
+  document.getElementById('sec-country').innerHTML = t.secCountry;
+  document.getElementById('bar-title').innerHTML   = t.barTitle;
+  document.getElementById('sec-table').innerHTML   = t.secTable;
+  document.getElementById('th-rank').innerHTML    = t.thRank;
+  document.getElementById('th-country').innerHTML = t.thCountry;
+  document.getElementById('th-pct').innerHTML     = t.thPct;
+  document.getElementById('th-note').innerHTML    = t.thNote;
+  document.getElementById('india-h').innerHTML    = t.indiaH;
+  document.getElementById('india-l1').innerHTML   = t.indiaL1;
+  document.getElementById('india-l2').innerHTML   = t.indiaL2;
+  document.getElementById('india-l3').innerHTML   = t.indiaL3;
+  document.getElementById('india-desc').innerHTML = t.indiaDesc;
+  document.getElementById('sec-mean').innerHTML   = t.secMean;
+  document.getElementById('m1-h').innerHTML = t.m1h; document.getElementById('m1-p').innerHTML = t.m1p;
+  document.getElementById('m2-h').innerHTML = t.m2h; document.getElementById('m2-p').innerHTML = t.m2p;
+  document.getElementById('m3-h').innerHTML = t.m3h; document.getElementById('m3-p').innerHTML = t.m3p;
+  document.getElementById('m4-h').innerHTML = t.m4h; document.getElementById('m4-p').innerHTML = t.m4p;
+  document.getElementById('cta-h').innerHTML    = t.ctaH;
+  document.getElementById('cta-p').innerHTML    = t.ctaP;
+  document.getElementById('cta-btn1').innerHTML = t.ctaBtn1;
+  document.getElementById('cta-btn2').innerHTML = t.ctaBtn2;
+  document.getElementById('ft-copy').innerHTML  = t.ftCopy;
+  document.getElementById('ft-love').innerHTML  = t.ftLove;
+  document.getElementById('btn-hi').classList.toggle('on', l === 'hi');
+  document.getElementById('btn-en').classList.toggle('on', l === 'en');
+  renderBars(COUNTRIES_HI);
+  renderTable(t.table);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  setLang(LANG);
+  vizObs.observe(document.querySelector('.viz-section'));
+});
+</script>
+</body>
+</html>
