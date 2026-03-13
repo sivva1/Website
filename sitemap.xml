@@ -1,14 +1,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<!--  Main Pages  -->
+<!--  ═══════════════════════════════════  -->
+<!--   MAIN PAGES                          -->
+<!--  ═══════════════════════════════════  -->
 <url>
 <loc>https://ciweb.in/</loc>
-<lastmod>2026-03-12</lastmod>
+<lastmod>2026-03-13</lastmod>
 <changefreq>weekly</changefreq>
 <priority>1.0</priority>
 </url>
 <url>
 <loc>https://ciweb.in/blogs.html</loc>
-<lastmod>2026-03-12</lastmod>
+<lastmod>2026-03-13</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.9</priority>
 </url>
@@ -24,41 +26,69 @@
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
-<!--  Blog Posts  -->
+<url>
+<loc>https://ciweb.in/terms.html</loc>
+<lastmod>2026-03-10</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.3</priority>
+</url>
+<!--  ═══════════════════════════════════  -->
+<!--   BLOG POSTS (newest first)           -->
+<!--  ═══════════════════════════════════  -->
+<!--  Blog 8 — Learn Firebase Database  -->
+<url>
+<loc>https://ciweb.in/blogs/learn-firebase.html</loc>
+<lastmod>2026-03-13</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<!--  Blog 7 — Build Your First Website / GitHub Pages  -->
+<url>
+<loc>https://ciweb.in/blogs/Build-Your-First-Website.html</loc>
+<lastmod>2026-03-12</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<!--  Blog 6 — AI Adoption Data 2026  -->
 <url>
 <loc>https://ciweb.in/blogs/ai-adoption-data-2026.html</loc>
 <lastmod>2026-03-12</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.9</priority>
 </url>
+<!--  Blog 5 — 7 Free Coding Websites  -->
 <url>
 <loc>https://ciweb.in/blogs/blog5.html</loc>
 <lastmod>2026-03-12</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.9</priority>
+<priority>0.8</priority>
 </url>
+<!--  Blog 4 — HTML Quiz  -->
 <url>
 <loc>https://ciweb.in/blogs/blog4.html</loc>
 <lastmod>2026-03-12</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.8</priority>
 </url>
+<!--  Blog 3  -->
 <url>
 <loc>https://ciweb.in/blogs/blog3.html</loc>
 <lastmod>2026-03-10</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.8</priority>
+<priority>0.7</priority>
 </url>
+<!--  Blog 2  -->
 <url>
 <loc>https://ciweb.in/blogs/blog2.html</loc>
 <lastmod>2026-03-10</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.8</priority>
+<priority>0.7</priority>
 </url>
+<!--  Blog 1  -->
 <url>
 <loc>https://ciweb.in/blogs/blog1.html</loc>
 <lastmod>2026-03-10</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.8</priority>
+<priority>0.7</priority>
 </url>
-</urlset>
+</urlset
