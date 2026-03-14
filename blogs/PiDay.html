@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pi Day — The Most Mysterious Number in the Universe | CIWeb</title>
   <meta name="description" content="Pi (π) = 3.14159... The most mysterious, infinite, irrational number ever discovered. Hidden patterns, coincidences, and mind-blowing facts about π on Pi Day March 14."/>
-  <meta name="keywords" content="Pi Day March 14, pi number facts, pi mysterious, 3.14159, mathematics pi, pi infinite digits"/>
-  <meta name="keywords" content=" pi day,
+  <meta name="keywords" content="
+pi day,
 pi day facts,
 pi day mysterious facts,
 pi day hidden facts,
@@ -101,6 +101,7 @@ pi day research facts,
 pi day logic facts,
 pi day number theory facts
 ">
+  <meta name="keywords" content="Pi Day March 14, pi number facts, pi mysterious, 3.14159, mathematics pi, pi infinite digits"/>
   <meta name="author" content="CIWeb — Coding Infinite"/>
   <meta name="robots" content="index, follow"/>
   <link rel="canonical" href="https://ciweb.in/blogs/pi-day.html"/>
@@ -248,34 +249,55 @@ nav{position:sticky;top:0;z-index:100;background:rgba(245,243,238,.96);backdrop-
 
 /* LIKE + COMMENTS */
 .engage-wrap{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:2rem 1.8rem;margin:3rem 0}
-.like-section{text-align:center;padding-bottom:1.8rem;border-bottom:1px solid var(--border);margin-bottom:1.8rem}
-.like-section p{font-size:.88rem;color:var(--muted);margin-bottom:1rem}
-.like-btn{display:inline-flex;align-items:center;gap:.7rem;background:var(--bg);border:2px solid var(--border);border-radius:100px;padding:12px 28px;font-family:"Outfit",sans-serif;font-size:1rem;font-weight:700;cursor:pointer;transition:all .3s;color:var(--ink)}
-.like-btn:hover{border-color:var(--accent);color:var(--accent)}
-.like-btn.liked{background:#fff0ec;border-color:var(--accent);color:var(--accent)}
-.like-count{font-size:.82rem;color:var(--muted);margin-top:.7rem}
-.comments-section h3{font-family:"Playfair Display",serif;font-size:1.2rem;font-weight:900;margin-bottom:1.2rem}
-.comment-form{background:var(--bg);border-radius:16px;padding:1.3rem;margin-bottom:1.5rem}
+.like-section{text-align:center;padding-bottom:2rem;border-bottom:2px dashed var(--border);margin-bottom:2rem}
+.like-section p{font-size:.9rem;color:var(--muted);margin-bottom:1.2rem;font-weight:500}
+.like-btn{display:inline-flex;align-items:center;gap:.8rem;background:var(--bg);border:2px solid var(--border);border-radius:100px;padding:14px 32px;font-family:"Outfit",sans-serif;font-size:1rem;font-weight:700;cursor:pointer;transition:all .3s;color:var(--ink);box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.like-btn:hover{border-color:var(--accent);color:var(--accent);transform:scale(1.04);box-shadow:0 4px 20px rgba(232,64,28,.15)}
+.like-btn.liked{background:linear-gradient(135deg,#fff0ec,#ffe4dc);border-color:var(--accent);color:var(--accent)}
+.like-btn .heart{font-size:1.4rem;transition:transform .3s}
+.like-btn.liked .heart{animation:heartBeat .4s ease}
+@keyframes heartBeat{0%{transform:scale(1)}30%{transform:scale(1.5)}60%{transform:scale(.9)}100%{transform:scale(1)}}
+.like-count{font-size:.82rem;color:var(--muted);margin-top:.8rem;display:block}
+.cmt-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:.5rem}
+.cmt-header h3{font-family:"Playfair Display",serif;font-size:1.3rem;font-weight:900;margin:0}
+.cmt-live-badge{display:inline-flex;align-items:center;gap:.4rem;background:#f0fff4;border:1px solid #86efac;border-radius:100px;padding:4px 12px;font-size:.7rem;font-weight:700;color:#16a34a}
+.cmt-live-dot{width:6px;height:6px;border-radius:50%;background:#16a34a;animation:livePulse 1.5s infinite}
+@keyframes livePulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.7)}}
+.comment-form{background:linear-gradient(135deg,#faf9f6,#fff);border:1.5px solid var(--border);border-radius:20px;padding:1.6rem;margin-bottom:1.8rem;position:relative;overflow:hidden}
+.comment-form::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--pi),var(--accent))}
+.cmt-form-title{font-family:"Playfair Display",serif;font-size:1rem;font-weight:700;margin-bottom:.8rem;display:flex;align-items:center;gap:.5rem}
+.pi-prompts{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
+.pi-prompt-chip{background:var(--bg);border:1px solid var(--border);border-radius:100px;padding:5px 14px;font-size:.75rem;font-weight:500;cursor:pointer;transition:all .2s;color:var(--muted)}
+.pi-prompt-chip:hover{border-color:var(--pi);color:var(--pi);background:var(--pi-light)}
 .cf-row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:.8rem}
 @media(max-width:500px){.cf-row{grid-template-columns:1fr}}
-.cf-input{width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:10px;font-family:"Outfit",sans-serif;font-size:.88rem;background:var(--card);color:var(--ink);transition:border-color .2s;outline:none}
-.cf-input:focus{border-color:var(--pi)}
-.cf-textarea{width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:10px;font-family:"Outfit",sans-serif;font-size:.88rem;background:var(--card);color:var(--ink);resize:vertical;min-height:80px;transition:border-color .2s;outline:none;margin-bottom:.8rem}
-.cf-textarea:focus{border-color:var(--pi)}
-.cf-submit{background:var(--ink);color:#fff;border:none;padding:10px 26px;border-radius:100px;font-family:"Outfit",sans-serif;font-size:.88rem;font-weight:700;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:.5rem}
-.cf-submit:hover{background:var(--pi);transform:translateY(-1px)}
-.cf-msg{font-size:.82rem;margin-left:.8rem;font-weight:600}
-.cf-msg.ok{color:var(--green)}
-.cf-msg.err{color:var(--accent)}
+.cf-input{width:100%;padding:11px 16px;border:1.5px solid var(--border);border-radius:12px;font-family:"Outfit",sans-serif;font-size:.88rem;background:var(--card);color:var(--ink);transition:all .25s;outline:none}
+.cf-input:focus{border-color:var(--pi);box-shadow:0 0 0 3px rgba(37,99,235,.1)}
+.cf-textarea{width:100%;padding:11px 16px;border:1.5px solid var(--border);border-radius:12px;font-family:"Outfit",sans-serif;font-size:.88rem;background:var(--card);color:var(--ink);resize:vertical;min-height:90px;transition:all .25s;outline:none;margin-bottom:.8rem}
+.cf-textarea:focus{border-color:var(--pi);box-shadow:0 0 0 3px rgba(37,99,235,.1)}
+.cf-bottom{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.cf-char{font-size:.72rem;color:var(--muted);margin-left:auto}
+.cf-submit{background:var(--ink);color:#fff;border:none;padding:11px 28px;border-radius:100px;font-family:"Outfit",sans-serif;font-size:.9rem;font-weight:700;cursor:pointer;transition:all .25s;display:inline-flex;align-items:center;gap:.5rem}
+.cf-submit:hover:not(:disabled){background:var(--pi);transform:translateY(-2px);box-shadow:0 6px 20px rgba(37,99,235,.25)}
+.cf-submit:disabled{opacity:.6;cursor:not-allowed}
+.cf-msg{font-size:.84rem;font-weight:600;padding:.5rem 1rem;border-radius:8px}
+.cf-msg.success,.cf-msg.cw-ok{color:#16a34a;background:#f0fff4;border:1px solid #86efac;display:inline-block}
+.cf-msg.error,.cf-msg.cw-err{color:#dc2626;background:#fff0f0;border:1px solid #fca5a5;display:inline-block}
+.cmt-empty{text-align:center;padding:2.5rem 1rem;color:var(--muted)}
+.cmt-empty-icon{font-size:3rem;margin-bottom:.8rem;display:block;animation:floatAnim 3s ease-in-out infinite}
+@keyframes floatAnim{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.cmt-empty h4{font-family:"Playfair Display",serif;font-size:1.1rem;font-weight:700;margin-bottom:.4rem;color:var(--ink)}
+.cmt-empty p{font-size:.85rem;line-height:1.6}
 .comment-list{display:flex;flex-direction:column;gap:1rem}
-.comment-item{background:var(--bg);border-radius:14px;padding:1.1rem 1.3rem;animation:fadeUp .3s ease}
-@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-.ci-header{display:flex;align-items:center;gap:.7rem;margin-bottom:.5rem}
-.ci-avatar{width:36px;height:36px;border-radius:50%;background:var(--pi);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0}
-.ci-name{font-weight:700;font-size:.88rem}
-.ci-date{font-size:.72rem;color:var(--muted)}
-.ci-text{font-size:.87rem;line-height:1.7}
-.no-comments{text-align:center;padding:2rem 0;color:var(--muted);font-size:.88rem}
+.comment-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.3rem 1.5rem;animation:slideIn .35s cubic-bezier(.34,1.56,.64,1);transition:all .2s}
+.comment-card:hover{border-color:var(--pi);box-shadow:0 4px 20px rgba(37,99,235,.08);transform:translateY(-1px)}
+@keyframes slideIn{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.comment-header{display:flex;align-items:center;gap:.8rem;margin-bottom:.5rem}
+.ci-avatar{width:40px;height:40px;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1rem;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.comment-meta{flex:1;min-width:0}
+.comment-name{font-weight:700;font-size:.9rem;display:block}
+.comment-date{font-size:.72rem;color:var(--muted)}
+.comment-text{font-size:.9rem;color:var(--ink);line-height:1.7;margin-top:.3rem;padding-left:3rem}
 
 /* LANG TOGGLE + ANALYTICS */
 #cw-toggle{position:fixed;bottom:28px;right:28px;z-index:10000;display:flex;align-items:center;background:rgba(20,18,15,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-radius:100px;padding:5px;box-shadow:0 8px 32px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);transition:all 0.3s}
@@ -710,8 +732,10 @@ Circumference: C <span class="eq">=</span> 2<span class="pi-sym">π</span>r</div
 
   <!-- LIKE + COMMENTS -->
   <div class="engage-wrap">
+
+    <!-- LIKE SECTION -->
     <div class="like-section">
-      <p id="like-q">Did you enjoy this? Give π a like! &#960;</p>
+      <p id="like-q">Did you enjoy this? Give π a like!</p>
       <span id="ana-likes" style="display:none">0</span>
       <button class="like-btn" id="like-btn" onclick="toggleLike()">
         <span class="heart">🤍</span>
@@ -719,24 +743,59 @@ Circumference: C <span class="eq">=</span> 2<span class="pi-sym">π</span>r</div
       </button>
       <span class="like-count" id="like-count">0 likes</span>
     </div>
+
+    <!-- COMMENTS SECTION -->
     <div class="comments-section">
-      <h3 id="comments-title">&#128172; Comments (0)</h3>
+
+      <!-- Header with live badge -->
+      <div class="cmt-header">
+        <h3 id="comments-title">💬 Comments (<span id="cmt-count">0</span>)</h3>
+        <span class="cmt-live-badge">
+          <span class="cmt-live-dot"></span>
+          <span id="cmt-live-text">Live</span>
+        </span>
+      </div>
+
+      <!-- Comment Form -->
       <div class="comment-form">
+        <div class="cmt-form-title">
+          <span>✏️</span>
+          <span id="cmt-form-title-text">Share your thoughts on π</span>
+        </div>
+
+        <!-- Quick prompt chips -->
+        <div class="pi-prompts" id="pi-prompts">
+          <span class="pi-prompt-chip" onclick="setPrompt(this)">🎂 My birthday in π</span>
+          <span class="pi-prompt-chip" onclick="setPrompt(this)">🤯 Most mind-blowing fact</span>
+          <span class="pi-prompt-chip" onclick="setPrompt(this)">🥧 Happy Pi Day!</span>
+          <span class="pi-prompt-chip" onclick="setPrompt(this)">📐 π in my subject</span>
+        </div>
+
         <div class="cf-row">
-          <input class="cf-input" id="c-name" placeholder="Your name *" data-placeholder-en="Your name *" data-placeholder-hi="Aapka naam *" maxlength="50"/>
+          <input class="cf-input" id="c-name" placeholder="Your name *"
+            data-placeholder-en="Your name *"
+            data-placeholder-hi="Aapka naam *" maxlength="50"/>
           <input class="cf-input" id="c-email" placeholder="Email (optional)" type="email"/>
         </div>
-        <textarea class="cf-textarea" id="c-text" placeholder="What's your favourite fact about π? 🥧" data-placeholder-en="What's your favourite fact about π? 🥧" data-placeholder-hi="π ke baare mein kya lagta hai? 🥧" maxlength="500"></textarea>
-        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:.5rem">
+        <textarea class="cf-textarea" id="c-text"
+          placeholder="What's your favourite fact about π? 🥧"
+          data-placeholder-en="What's your favourite fact about π? 🥧"
+          data-placeholder-hi="π ke baare mein kya lagta hai? 🥧"
+          maxlength="500" oninput="updateCharCount(this)"></textarea>
+
+        <div class="cf-bottom">
           <button class="cf-submit" id="cf-btn" onclick="postComment()">
-            <span>&#128172;</span>Post Comment →
+            <span>💬</span>
+            <span id="cf-btn-text">Post Comment</span>
           </button>
+          <span class="cf-char" id="cf-char">0 / 500</span>
           <span class="cf-msg" id="cf-msg"></span>
         </div>
       </div>
-      <div id="comments-list" class="comment-list">
-        
-      </div>
+
+      <!-- Comments List -->
+      <div id="comments-list" class="comment-list"></div>
+
     </div>
   </div>
 
@@ -803,9 +862,27 @@ Circumference: C <span class="eq">=</span> 2<span class="pi-sym">π</span>r</div
   window._toggleLike=async function(){liked=!liked;localStorage.setItem('liked_'+BID,liked);await runTransaction(lRef,c=>({count:Math.max(0,(c?.count||0)+(liked?1:-1))}));};
   onValue(cRef,snap=>{
     const list=document.getElementById('comments-list'),title=document.getElementById('comments-title'),lang=localStorage.getItem('ciweb_lang')||'en',data=snap.val();
-    if(!data){list.innerHTML='<div class="comments-empty">'+(lang==='en'?'No comments yet. Be the first! 😊':'Abhi koi comment nahi. Pehle comment karo! 😊')+'</div>';title.textContent='💬 Comments (0)';return;}
-    const cs=Object.values(data).reverse();title.textContent='💬 Comments ('+cs.length+')';
-    list.innerHTML=cs.map(c=>'<div class="comment-card"><div class="comment-header"><span class="comment-name">👤 '+esc(c.name)+'</span><span class="comment-date">'+fmt(c.timestamp)+'</span></div><p class="comment-text">'+esc(c.comment||c.text||'')+'</p></div>').join('');
+    if(!data){list.innerHTML='<div class="cmt-empty">'+
+      '<span class="cmt-empty-icon">💬</span>'+
+      '<h4>'+(lang==='hi'?'Pehla comment tum karo!':'Be the first to comment!')+'</h4>'+
+      '<p>'+(lang==='hi'?'Yahan apna thought share karo — π ke baare mein kya lagta hai tumhe?':'Share your thoughts about π here — what fascinates you most?')+'</p>'+
+    '</div>';title.innerHTML='💬 Comments (<span id="cmt-count">0</span>)';return;}
+    const cs=Object.values(data).reverse();title.innerHTML='💬 Comments (<span id="cmt-count">'+cs.length+'</span>)';
+    list.innerHTML=cs.map((cm,i)=>{
+      const colors=['#e8401c','#2563eb','#16a34a','#7c3aed','#d97706','#0891b2'];
+      const col=colors[cm.name.charCodeAt(0)%colors.length];
+      const initial=esc(cm.name).charAt(0).toUpperCase();
+      return '<div class="comment-card" style="animation-delay:'+(i*0.05)+'s">'+
+        '<div class="comment-header">'+
+          '<div class="ci-avatar" style="background:'+col+'">'+initial+'</div>'+
+          '<div class="comment-meta">'+
+            '<span class="comment-name">'+esc(cm.name)+'</span>'+
+            '<span class="comment-date">'+fmt(cm.timestamp)+'</span>'+
+          '</div>'+
+        '</div>'+
+        '<p class="comment-text">'+esc(cm.comment||cm.text||'')+'</p>'+
+      '</div>';
+    }).join('');
   });
   window._postComment=async function(){
     const n=document.getElementById('c-name').value.trim(),cm=document.getElementById('c-text').value.trim(),btn=document.getElementById('cf-btn'),msg=document.getElementById('cf-msg'),lang=localStorage.getItem('ciweb_lang')||'en';
@@ -1035,6 +1112,34 @@ window._piT = {
     if (al) al.textContent = l === 'en' ? 'English' : 'Hinglish';
   }
 
+  // ── Extra UI functions ──
+  function updateCharCount(el){
+    var cnt = document.getElementById('cf-char');
+    if(cnt) cnt.textContent = el.value.length + ' / 500';
+    if(el.value.length > 450){
+      cnt.style.color = '#dc2626';
+    } else {
+      cnt.style.color = '';
+    }
+  }
+
+  function setPrompt(chip){
+    var ta = document.getElementById('c-text');
+    if(ta){
+      ta.value = chip.textContent.trim();
+      ta.focus();
+      updateCharCount(ta);
+    }
+  }
+
+  // Update T.hi/en for new elements
+  if(window._piT){
+    window._piT.en['cmt-live-text'] = 'Live';
+    window._piT.en['cmt-form-title-text'] = 'Share your thoughts on π';
+    window._piT.hi['cmt-live-text'] = 'Live';
+    window._piT.hi['cmt-form-title-text'] = 'π ke baare mein apna thought share karo';
+  }
+
   // ── Analytics ──
   (function() {
     var pg = location.pathname.split('/').pop() || 'pi-day.html';
@@ -1078,4 +1183,3 @@ window._piT = {
 
 </body>
 </html>
-
