@@ -1,0 +1,38 @@
+[
+  {
+    "id": "p1",
+    "title_hi": "Animated CSS Loaders",
+    "title_en": "Animated CSS Loaders",
+    "desc_hi": "10 beautiful CSS-only loading animations — spinner, dots, pulse. Koi JavaScript nahi!",
+    "desc_en": "10 beautiful CSS-only loading animations — spinner, dots, pulse. No JavaScript needed!",
+    "tag": "CSS",
+    "date": "14 March 2026",
+    "image": "https://images.unsplash.com/photo-1555066931-4365d14431b9?w=600&q=75",
+    "github": "https://github.com/codinginfinite",
+    "demo_iframe": ""
+  },
+  {
+    "id": "p2",
+    "title_hi": "Dark Mode Toggle",
+    "title_en": "Dark Mode Toggle",
+    "desc_hi": "Smooth dark/light mode toggle with localStorage memory. Sirf 20 lines mein!",
+    "desc_en": "Smooth dark/light mode toggle with localStorage memory. Done in just 20 lines!",
+    "tag": "JavaScript",
+    "date": "13 March 2026",
+    "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&q=75",
+    "github": "https://github.com/codinginfinite",
+    "demo_iframe": ""
+  },
+  {
+    "id": "p3",
+    "title_hi": "Glassmorphism Card UI",
+    "title_en": "Glassmorphism Card UI",
+    "desc_hi": "Trendy glass effect card — backdrop-filter aur gradient background ke saath.",
+    "desc_en": "Trendy glass effect card using backdrop-filter and gradient background.",
+    "tag": "CSS",
+    "date": "12 March 2026",
+    "image": "https://images.unsplash.com/photo-1545665277-5937489579f2?w=600&q=75",
+    "github": "https://github.com/codinginfinite",
+    "demo_iframe": ""
+  }
+]
