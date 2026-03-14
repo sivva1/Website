@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="CIWeb Code Projects — HTML, CSS, JavaScript mini projects with source code and live demos."/>
+  <meta name="author" content="CIWeb — Coding Infinite"/>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KMMH6KDM6V"></script>
+  <script>
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js',new Date()); gtag('config','G-KMMH6KDM6V');
+  </script>
+
+  <title>Projects — CIWeb</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+
+  <style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f5f3ee;--ink:#1a1814;--muted:#7a7570;--accent:#e8401c;
+  --card:#fff;--border:#e2ddd6;--tag-bg:#fff0ec;
+  --dark:#0f0f18;--dark2:#16161f;--dark3:#1e1e2e;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--dark);color:#fff;min-height:100vh}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:200;background:rgba(15,15,24,.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.08);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:#fff;text-decoration:none;letter-spacing:-.5px}
+.logo em{color:var(--accent);font-style:normal}
+.nav-links{display:flex;gap:1.2rem;list-style:none;align-items:center}
+.nav-links a{color:rgba(255,255,255,.45);text-decoration:none;font-size:.85rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+.nav-cta{background:var(--accent)!important;color:#fff!important;padding:7px 18px;border-radius:10px;font-weight:600!important}
+@media(max-width:768px){.nav-links{display:none}}
+
+/* PAGE HERO */
+.page-hero{
+  max-width:1300px;margin:0 auto;padding:64px 5% 48px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  position:relative;overflow:hidden;
+}
+.page-hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 600px 400px at 70% 50%,rgba(232,64,28,.08),transparent);
+  pointer-events:none;
+}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(232,64,28,.15);border:1px solid rgba(232,64,28,.3);border-radius:100px;padding:5px 16px;font-size:.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#f87171;margin-bottom:1.2rem;position:relative}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.6rem);font-weight:900;line-height:1.1;margin-bottom:.8rem;position:relative}
+.page-hero h1 span{color:var(--accent)}
+.page-hero p{font-size:.95rem;color:rgba(255,255,255,.45);max-width:560px;line-height:1.75;position:relative}
+
+/* CONTROLS */
+.controls{max-width:1300px;margin:0 auto;padding:2rem 5%;display:flex;gap:1rem;align-items:flex-start;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.06)}
+.search-wrap{position:relative;flex:1;min-width:240px;max-width:400px}
+.search-wrap input{
+  width:100%;padding:11px 16px 11px 42px;
+  border:1.5px solid rgba(255,255,255,.1);border-radius:12px;
+  background:rgba(255,255,255,.05);color:#fff;
+  font-family:'Outfit',sans-serif;font-size:.88rem;outline:none;
+  transition:border-color .2s;
+}
+.search-wrap input::placeholder{color:rgba(255,255,255,.3)}
+.search-wrap input:focus{border-color:rgba(232,64,28,.5)}
+.search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.3);font-size:.9rem;pointer-events:none}
+.tag-filters{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;flex:1}
+.tag-btn{padding:7px 16px;border-radius:100px;font-size:.75rem;font-weight:700;cursor:pointer;border:1.5px solid rgba(255,255,255,.12);background:transparent;color:rgba(255,255,255,.45);font-family:'Outfit',sans-serif;transition:all .2s;white-space:nowrap}
+.tag-btn:hover{border-color:rgba(255,255,255,.3);color:#fff}
+.tag-btn.active{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 3px 12px rgba(232,64,28,.35)}
+.results-info{font-size:.78rem;color:rgba(255,255,255,.3);align-self:center;white-space:nowrap}
+
+/* GRID */
+.proj-section{max-width:1300px;margin:0 auto;padding:2.5rem 5% 5rem}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem}
+
+/* PROJECT CARD */
+.proj-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;transition:all .25s;display:flex;flex-direction:column}
+.proj-card:hover{border-color:rgba(232,64,28,.4);transform:translateY(-3px);box-shadow:0 16px 48px rgba(232,64,28,.1)}
+.proj-thumb{position:relative;height:200px;overflow:hidden;background:var(--dark3);flex-shrink:0}
+.proj-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+.proj-card:hover .proj-thumb img{transform:scale(1.05)}
+.proj-thumb-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3.5rem;background:linear-gradient(135deg,#1e1e2e,#16161f)}
+.proj-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,15,24,.85),transparent 55%);opacity:0;transition:opacity .3s}
+.proj-card:hover .proj-overlay{opacity:1}
+.proj-demo-hover{
+  position:absolute;bottom:1rem;left:50%;
+  transform:translateX(-50%) translateY(12px);
+  background:var(--accent);color:#fff;
+  padding:8px 22px;border-radius:100px;
+  font-size:.76rem;font-weight:700;
+  opacity:0;transition:all .3s;
+  cursor:pointer;border:none;font-family:'Outfit',sans-serif;
+  white-space:nowrap;
+}
+.proj-card:hover .proj-demo-hover{opacity:1;transform:translateX(-50%) translateY(0)}
+
+.proj-body{padding:1.4rem;flex:1;display:flex;flex-direction:column}
+.proj-tag{display:inline-block;background:rgba(232,64,28,.14);border:1px solid rgba(232,64,28,.25);color:#f87171;font-size:.65rem;font-weight:700;padding:3px 10px;border-radius:100px;text-transform:uppercase;letter-spacing:.4px;margin-bottom:.6rem}
+.proj-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:.4rem;line-height:1.3}
+.proj-desc{font-size:.8rem;color:rgba(255,255,255,.42);line-height:1.65;margin-bottom:1rem;flex:1}
+.proj-actions{display:flex;gap:.5rem;flex-wrap:wrap}
+.proj-btn{display:inline-flex;align-items:center;gap:.4rem;padding:7px 14px;border-radius:8px;font-size:.74rem;font-weight:700;text-decoration:none;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.55);transition:all .2s;font-family:'Outfit',sans-serif;background:transparent;cursor:pointer;white-space:nowrap}
+.proj-btn:hover{border-color:var(--accent);color:var(--accent);background:rgba(232,64,28,.08)}
+.proj-btn.gh:hover{border-color:#fff;color:#fff;background:rgba(255,255,255,.06)}
+.proj-date{font-size:.68rem;color:rgba(255,255,255,.22);margin-top:.8rem}
+
+/* EMPTY */
+.empty-state{text-align:center;padding:5rem 2rem;grid-column:1/-1;color:rgba(255,255,255,.25)}
+.empty-state span{font-size:3rem;display:block;margin-bottom:1rem}
+.empty-state p{font-size:.9rem}
+
+/* DEMO MODAL */
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.88);backdrop-filter:blur(14px);z-index:9000;display:none;align-items:center;justify-content:center;padding:1rem}
+.modal-bg.open{display:flex}
+.demo-modal{background:var(--dark2);border:1px solid rgba(255,255,255,.1);border-radius:20px;width:100%;max-width:960px;max-height:92vh;overflow:hidden;display:flex;flex-direction:column;animation:modalPop .22s cubic-bezier(.34,1.56,.64,1)}
+@keyframes modalPop{from{opacity:0;transform:scale(.88)}to{opacity:1;transform:scale(1)}}
+.modal-hd{display:flex;align-items:center;gap:.8rem;padding:1rem 1.4rem;background:rgba(255,255,255,.03);border-bottom:1px solid rgba(255,255,255,.06);flex-shrink:0}
+.modal-hd h4{font-family:'Playfair Display',serif;color:#fff;font-size:.95rem;font-weight:700;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.modal-gh-link{color:rgba(255,255,255,.45);font-size:.75rem;text-decoration:none;display:inline-flex;align-items:center;gap:.3rem;border:1px solid rgba(255,255,255,.12);padding:5px 12px;border-radius:8px;transition:all .2s;white-space:nowrap;flex-shrink:0}
+.modal-gh-link:hover{border-color:#fff;color:#fff}
+.modal-close{background:none;border:none;color:rgba(255,255,255,.35);font-size:1.2rem;cursor:pointer;padding:4px 8px;border-radius:6px;transition:all .2s;flex-shrink:0;line-height:1}
+.modal-close:hover{background:rgba(255,255,255,.08);color:#fff}
+.demo-frame-wrap{flex:1;overflow:hidden;background:#fff;min-height:480px}
+.demo-frame-wrap iframe{width:100%;height:100%;min-height:480px;border:none;display:block}
+.no-demo{display:flex;flex-direction:column;align-items:center;justify-content:center;height:400px;gap:1rem;color:rgba(255,255,255,.3);text-align:center;padding:2rem}
+.no-demo span{font-size:3rem}
+.no-demo p{font-size:.85rem;line-height:1.6;max-width:320px}
+.no-demo a{color:var(--accent);font-weight:700;text-decoration:none;font-size:.85rem}
+
+/* LANG TOGGLE */
+#cw-toggle{position:fixed;bottom:26px;right:26px;z-index:10000;display:flex;align-items:center;background:rgba(15,15,24,.94);backdrop-filter:blur(16px);border-radius:100px;padding:4px;box-shadow:0 8px 32px rgba(0,0,0,.3),0 0 0 1px rgba(255,255,255,.07)}
+.cw-opt{padding:8px 18px;border-radius:100px;font-size:.72rem;font-weight:700;cursor:pointer;border:none;background:transparent;color:rgba(255,255,255,.35);font-family:'Outfit',sans-serif;letter-spacing:.6px;transition:all .25s}
+.cw-opt.on{background:linear-gradient(135deg,#e8401c,#c73516);color:#fff;box-shadow:0 3px 12px rgba(232,64,28,.4)}
+.cw-sep{width:1px;height:14px;background:rgba(255,255,255,.1)}
+
+footer{border-top:1px solid rgba(255,255,255,.06);padding:1.8rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;max-width:1300px;margin:0 auto}
+footer p{font-size:.78rem;color:rgba(255,255,255,.25)}
+
+@media(max-width:900px){.proj-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){
+  .proj-grid{grid-template-columns:1fr}
+  .controls{flex-direction:column}
+  .search-wrap{max-width:100%}
+  .demo-modal{max-width:100%;margin:.5rem;border-radius:14px}
+}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">CI<em>Web</em></a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-en="Home" data-hi="Home">Home</a></li>
+    <li><a href="blogs.html" data-en="Blogs" data-hi="Blogs">Blogs</a></li>
+    <li><a href="projects.html" class="active" data-en="Projects" data-hi="Projects">Projects</a></li>
+    <li><a href="about.html" data-en="About" data-hi="About">About</a></li>
+    <li><a href="contact.html" data-en="Contact" data-hi="Contact">Contact</a></li>
+    <li><a href="blogs.html" class="nav-cta" data-en="Read Blogs" data-hi="Blogs Padho">Blogs Padho</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="hero-badge">&#128187; <span data-en="Open Source Projects" data-hi="Open Source Projects">Open Source Projects</span></div>
+  <h1 data-en="My Code <span style='color:var(--accent)'>Projects</span>" data-hi="Mere Code <span style='color:var(--accent)'>Projects</span>">Mere Code <span>Projects</span></h1>
+  <p data-en="Mini projects built with HTML, CSS &amp; JavaScript. Click any project to view source code on GitHub or see a live demo." data-hi="HTML, CSS &amp; JavaScript se banaye gaye mini projects. Kisi bhi project pe click karo source code GitHub pe dekhne ke liye ya live demo ke liye.">HTML, CSS &amp; JavaScript se banaye gaye mini projects. Kisi bhi project pe click karo source code GitHub pe dekhne ke liye ya live demo ke liye.</p>
+</div>
+
+<!-- CONTROLS -->
+<div class="controls">
+  <div class="search-wrap">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" id="search-input" placeholder="Search projects..."
+      data-placeholder-en="Search projects..."
+      data-placeholder-hi="Projects search karo..."
+      oninput="applyFilters()"/>
+  </div>
+  <div class="tag-filters" id="tag-filters">
+    <button class="tag-btn active" id="tag-all" data-en="All" data-hi="Sab" onclick="setTag('all')">All</button>
+  </div>
+  <span class="results-info" id="results-info"></span>
+</div>
+
+<!-- PROJECTS GRID -->
+<div class="proj-section">
+  <div class="proj-grid" id="proj-grid">
+    <div style="grid-column:1/-1;text-align:center;padding:4rem;color:rgba(255,255,255,.2)">
+      &#9203; Load ho raha hai...
+    </div>
+  </div>
+</div>
+
+<!-- DEMO MODAL -->
+<div class="modal-bg" id="demoModal" onclick="closeDemoOuter(event)">
+  <div class="demo-modal">
+    <div class="modal-hd">
+      <h4 id="modal-title">Live Demo</h4>
+      <a id="modal-gh" href="#" target="_blank" rel="noopener" class="modal-gh-link">&#128279; GitHub</a>
+      <button class="modal-close" onclick="closeDemo()">&#10005;</button>
+    </div>
+    <div class="demo-frame-wrap" id="demo-frame-wrap">
+      <div class="no-demo" id="no-demo">
+        <span>&#128187;</span>
+        <p id="no-demo-text">Demo URL set nahi hai abhi.<br/>
+          <a id="no-demo-gh" href="#" target="_blank">GitHub pe source code dekho →</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html" class="logo" style="font-size:1.1rem">CI<em>Web</em></a>
+  <p data-en="&copy; 2026 CIWeb. All rights reserved." data-hi="&copy; 2026 CIWeb. Sare adhikar surakshit.">&copy; 2026 CIWeb. Sare adhikar surakshit.</p>
+  <p data-en="Made with &#10084; for Tech Lovers" data-hi="Tech Lovers ke liye &#10084; se banaya">Tech Lovers ke liye &#10084; se banaya</p>
+</footer>
+
+<div id="cw-toggle">
+  <button class="cw-opt" id="cw-hi" onclick="setLang('hi')">&#127470;&#127475; Hinglish</button>
+  <div class="cw-sep"></div>
+  <button class="cw-opt on" id="cw-en" onclick="setLang('en')">&#127468;&#127463; English</button>
+</div>
+
+<script>
+  var _all = [], _tag = 'all';
+
+  // ── LANG ──
+  function setLang(l) {
+    localStorage.setItem('ciweb_lang', l);
+    document.querySelectorAll('[data-en][data-hi]').forEach(function(el) {
+      el.innerHTML = l === 'en' ? el.dataset.en : el.dataset.hi;
+    });
+    document.querySelectorAll('[data-placeholder-en]').forEach(function(el) {
+      el.placeholder = l === 'en' ? el.dataset.placeholderEn : el.dataset.placeholderHi;
+    });
+    document.getElementById('cw-hi').classList.toggle('on', l === 'hi');
+    document.getElementById('cw-en').classList.toggle('on', l === 'en');
+    document.documentElement.lang = l;
+    // Re-render with new lang
+    applyFilters();
+  }
+
+  // ── FETCH PROJECTS ──
+  function loadProjects() {
+    fetch('projects.json?v=' + Date.now())
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        _all = data;
+        buildTags(data);
+        renderProjects(data);
+      })
+      .catch(function() {
+        document.getElementById('proj-grid').innerHTML =
+          '<div class="empty-state"><span>&#128187;</span><p>projects.json load nahi hua.</p></div>';
+      });
+  }
+
+  // ── BUILD TAG BUTTONS ──
+  function buildTags(projects) {
+    var seen = {}, tags = [];
+    projects.forEach(function(p) {
+      var t = p.tag || 'Code';
+      if (!seen[t]) { seen[t] = true; tags.push(t); }
+    });
+    var container = document.getElementById('tag-filters');
+    if (!container) return;
+    // Remove dynamic tags
+    container.querySelectorAll('[data-dyn]').forEach(function(b) { b.remove(); });
+    tags.forEach(function(tag) {
+      var btn = document.createElement('button');
+      btn.className = 'tag-btn';
+      btn.textContent = tag;
+      btn.setAttribute('data-dyn', '1');
+      btn.setAttribute('data-tag', tag);
+      btn.onclick = function() { setTag(tag); };
+      container.appendChild(btn);
+    });
+  }
+
+  function setTag(tag) {
+    _tag = tag;
+    document.querySelectorAll('.tag-btn').forEach(function(b) {
+      var isActive = (tag === 'all' && b.id === 'tag-all') || b.dataset.tag === tag;
+      b.classList.toggle('active', isActive);
+    });
+    applyFilters();
+  }
+
+  function applyFilters() {
+    var q = (document.getElementById('search-input') || { value: '' }).value.trim().toLowerCase();
+    var lang = localStorage.getItem('ciweb_lang') || 'en';
+    var filtered = _all.slice();
+    if (_tag !== 'all') {
+      filtered = filtered.filter(function(p) { return (p.tag || 'Code') === _tag; });
+    }
+    if (q) {
+      filtered = filtered.filter(function(p) {
+        var t = lang === 'en' ? p.title_en : p.title_hi;
+        var d = lang === 'en' ? p.desc_en  : p.desc_hi;
+        return t.toLowerCase().indexOf(q) > -1
+            || d.toLowerCase().indexOf(q) > -1
+            || (p.tag || '').toLowerCase().indexOf(q) > -1;
+      });
+    }
+    renderProjects(filtered);
+  }
+
+  // ── RENDER ──
+  function renderProjects(projects) {
+    var grid = document.getElementById('proj-grid');
+    var info = document.getElementById('results-info');
+    var lang = localStorage.getItem('ciweb_lang') || 'en';
+
+    if (info) info.textContent = projects.length + (lang === 'hi' ? ' projects' : ' projects');
+
+    if (!projects.length) {
+      grid.innerHTML = '<div class="empty-state"><span>&#128269;</span><p>' +
+        (lang === 'hi' ? 'Koi project nahi mila. Doosra keyword try karo.' : 'No projects found. Try a different search.') +
+        '</p></div>';
+      return;
+    }
+
+    grid.innerHTML = projects.map(function(p) {
+      var title = lang === 'en' ? p.title_en : p.title_hi;
+      var desc  = lang === 'en' ? p.desc_en  : p.desc_hi;
+      var imgHtml = p.image
+        ? '<img src="' + p.image + '" alt="' + escHtml(title) + '" loading="lazy"/>'
+        : '<div class="proj-thumb-ph">&#128187;</div>';
+      var demoTxt = 'Live Demo';
+      var hasdemo = p.demo_iframe && p.demo_iframe.trim() !== '';
+
+      return '<div class="proj-card">' +
+        '<div class="proj-thumb">' +
+          imgHtml +
+          '<div class="proj-overlay"></div>' +
+          '<button class="proj-demo-hover" onclick="openDemo(\'' + p.id + '\')">' +
+            '&#128064; ' + demoTxt +
+          '</button>' +
+        '</div>' +
+        '<div class="proj-body">' +
+          '<span class="proj-tag">' + (p.tag || 'Code') + '</span>' +
+          '<div class="proj-title">' + escHtml(title) + '</div>' +
+          '<div class="proj-desc">' + escHtml(desc) + '</div>' +
+          '<div class="proj-actions">' +
+            (hasdemo
+              ? '<button class="proj-btn" onclick="openDemo(\'' + p.id + '\')">&#128064; ' + demoTxt + '</button>'
+              : '') +
+            (p.github
+              ? '<a class="proj-btn gh" href="' + p.github + '" target="_blank" rel="noopener">&#128279; GitHub</a>'
+              : '') +
+          '</div>' +
+          '<div class="proj-date">&#128197; ' + (p.date || '') + '</div>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+  }
+
+  function escHtml(s) {
+    return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  // ── DEMO MODAL ──
+  function openDemo(id) {
+    var p = _all.find(function(x) { return x.id === id; });
+    if (!p) return;
+    var lang = localStorage.getItem('ciweb_lang') || 'en';
+    var title = lang === 'en' ? p.title_en : p.title_hi;
+
+    document.getElementById('modal-title').textContent = title;
+
+    var ghLink = document.getElementById('modal-gh');
+    if (p.github) { ghLink.href = p.github; ghLink.style.display = 'inline-flex'; }
+    else { ghLink.style.display = 'none'; }
+
+    var wrap   = document.getElementById('demo-frame-wrap');
+    var noDemo = document.getElementById('no-demo');
+    var noDemoGh = document.getElementById('no-demo-gh');
+    if (noDemoGh && p.github) noDemoGh.href = p.github;
+
+    // Remove old iframe
+    var old = wrap.querySelector('iframe');
+    if (old) old.remove();
+
+    if (p.demo_iframe && p.demo_iframe.trim() !== '') {
+      noDemo.style.display = 'none';
+      var iframe = document.createElement('iframe');
+      iframe.src = p.demo_iframe;
+      iframe.title = title;
+      iframe.allow = 'fullscreen';
+      wrap.appendChild(iframe);
+    } else {
+      noDemo.style.display = 'flex';
+      var noTxt = document.getElementById('no-demo-text');
+      // Keep the anchor, just update the message
+      if (noTxt) {
+        noTxt.innerHTML = (lang === 'hi'
+          ? 'Demo abhi available nahi hai.<br/>'
+          : 'No live demo available yet.<br/>') +
+          '<a href="' + (p.github || '#') + '" target="_blank">&#128279; GitHub pe source code dekho →</a>';
+      }
+    }
+
+    document.getElementById('demoModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDemo() {
+    document.getElementById('demoModal').classList.remove('open');
+    document.body.style.overflow = '';
+    var wrap = document.getElementById('demo-frame-wrap');
+    var iframe = wrap.querySelector('iframe');
+    if (iframe) iframe.remove();
+  }
+
+  function closeDemoOuter(e) {
+    if (e.target === document.getElementById('demoModal')) closeDemo();
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeDemo();
+  });
+
+  // ── INIT ──
+  document.addEventListener('DOMContentLoaded', function() {
+    var saved = localStorage.getItem('ciweb_lang') || 'en';
+    setLang(saved);
+    loadProjects();
+  });
+</script>
+
+</body>
+</html>
