@@ -7,6 +7,7 @@
   <meta name="keywords" content="coding tutorial hindi, programming tutorial, learn coding online, web development hindi, HTML CSS JavaScript tutorial"/>
   <meta name="author" content="CIWeb — Coding Infinite"/>
   <meta name="google-adsense-account" content="ca-pub-1601519075440950"/>
+  
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-KMMH6KDM6V"></script>
   <script>
@@ -39,59 +40,75 @@ nav{position:sticky;top:0;z-index:200;background:rgba(245,243,238,.95);backdrop-
 .nav-cta:hover{background:var(--accent)!important;color:#fff!important}
 @media(max-width:768px){.nav-links{display:none}}
 
-/* ── HERO — EDITORIAL SPLIT ── */
+/* ── HERO ── */
 .hero{
   max-width:1300px;margin:0 auto;
   display:grid;grid-template-columns:1.1fr 1fr;
-  gap:0;min-height:88vh;align-items:stretch;
-  border-bottom:1px solid var(--border);
+  gap:0;min-height:82vh;align-items:stretch;
 }
 .hero-left{
-  padding:80px 5% 60px;display:flex;flex-direction:column;justify-content:center;
-  border-right:1px solid var(--border);animation:fadeUp .6s ease both;
+  padding:72px 5% 56px;display:flex;flex-direction:column;justify-content:center;
+  border-right:1px solid var(--border);animation:fadeUp .5s ease both;
 }
-.hero-eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:.72rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:2rem}
-.hero-eyebrow span{display:block;width:32px;height:1.5px;background:var(--accent)}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(3rem,5.5vw,5rem);font-weight:900;line-height:1.04;letter-spacing:-3px;margin-bottom:1.6rem}
-.hero h1 em{color:var(--accent);font-style:italic;display:block}
-.hero-sub{font-size:1.05rem;color:var(--muted);line-height:1.8;max-width:420px;margin-bottom:2.5rem;font-weight:300}
-.hero-btns{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center}
-.btn-primary{background:var(--accent);color:#fff;padding:13px 30px;border-radius:100px;font-weight:600;font-size:.9rem;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:.5rem}
-.btn-primary:hover{background:#c73516;transform:translateY(-1px);box-shadow:0 6px 20px rgba(232,64,28,.3)}
-.btn-outline{border:1.5px solid var(--border);color:var(--ink);padding:12px 28px;border-radius:100px;font-weight:500;font-size:.9rem;text-decoration:none;transition:all .2s}
-.btn-outline:hover{border-color:var(--ink)}
+/* Eyebrow — single line, no letter-spacing breaking */
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:.7rem;
+  font-size:.68rem;font-weight:700;letter-spacing:1.8px;
+  text-transform:uppercase;color:var(--accent);margin-bottom:1.6rem;
+  white-space:nowrap;
+}
+.hero-eyebrow::before{content:'';display:block;width:28px;height:1.5px;background:var(--accent);flex-shrink:0}
+/* H1 — Outfit font, not italic Playfair */
+.hero h1{
+  font-family:'Outfit',sans-serif;
+  font-size:clamp(2.6rem,5vw,4.2rem);
+  font-weight:800;line-height:1.06;
+  letter-spacing:-1.5px;margin-bottom:1.4rem;color:var(--ink);
+}
+.hero h1 .accent-line{
+  color:var(--accent);display:block;
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-weight:700;
+  font-size:clamp(2.8rem,5.5vw,4.6rem);
+}
+.hero-sub{font-size:.98rem;color:var(--muted);line-height:1.8;max-width:400px;margin-bottom:2.2rem;font-weight:400}
+.hero-btns{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center}
+.btn-primary{background:var(--accent);color:#fff;padding:12px 26px;border-radius:12px;font-weight:700;font-size:.88rem;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:.4rem}
+.btn-primary:hover{background:#c73516;transform:translateY(-2px);box-shadow:0 8px 24px rgba(232,64,28,.3)}
+.btn-outline{border:2px solid var(--border);color:var(--ink);padding:11px 24px;border-radius:12px;font-weight:600;font-size:.88rem;text-decoration:none;transition:all .2s}
+.btn-outline:hover{border-color:var(--ink);background:var(--ink);color:var(--bg)}
 
-/* HERO RIGHT — FEATURED POST */
+/* HERO RIGHT */
 .hero-right{
   background:var(--dark);color:#fff;
   display:flex;flex-direction:column;justify-content:flex-end;
-  padding:3rem 2.5rem 2.5rem;position:relative;overflow:hidden;
-  animation:fadeUp .6s .1s ease both;
+  padding:2.5rem 2rem 2rem;position:relative;overflow:hidden;
+  animation:fadeUp .5s .12s ease both;
 }
 .hero-bg-pattern{
   position:absolute;inset:0;
   background:
-    radial-gradient(ellipse 500px 400px at 80% 20%,rgba(232,64,28,.15),transparent),
-    radial-gradient(ellipse 400px 300px at 20% 80%,rgba(37,99,235,.1),transparent);
+    radial-gradient(ellipse 400px 350px at 80% 10%,rgba(232,64,28,.18),transparent),
+    radial-gradient(ellipse 350px 300px at 10% 90%,rgba(37,99,235,.1),transparent);
   pointer-events:none;
 }
 .hero-code-bg{
-  position:absolute;top:1.5rem;left:2.5rem;right:2.5rem;
-  font-family:'JetBrains Mono',monospace;font-size:.65rem;
-  color:rgba(255,255,255,.04);line-height:1.8;pointer-events:none;
-  overflow:hidden;max-height:200px;
+  position:absolute;top:1.5rem;left:2rem;right:2rem;
+  font-family:'JetBrains Mono',monospace;font-size:.6rem;
+  color:rgba(255,255,255,.045);line-height:1.9;pointer-events:none;
+  overflow:hidden;max-height:220px;
 }
-.featured-tag-pill{display:inline-block;background:rgba(232,64,28,.2);border:1px solid rgba(232,64,28,.4);color:#f87171;font-size:.68rem;font-weight:700;padding:3px 12px;border-radius:100px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:1rem;position:relative}
-.featured-label{font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,.35);margin-bottom:.7rem;position:relative}
-.featured-title{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;line-height:1.2;margin-bottom:.7rem;color:#fff;position:relative}
-.featured-desc{font-size:.84rem;color:rgba(255,255,255,.5);line-height:1.65;margin-bottom:1.3rem;position:relative}
+.featured-label{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,.3);margin-bottom:.6rem;position:relative}
+.featured-tag-pill{display:inline-block;background:rgba(232,64,28,.18);border:1px solid rgba(232,64,28,.35);color:#f87171;font-size:.65rem;font-weight:700;padding:3px 11px;border-radius:100px;text-transform:uppercase;letter-spacing:.4px;margin-bottom:.8rem;position:relative}
+.featured-title{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:900;line-height:1.25;margin-bottom:.6rem;color:#fff;position:relative}
+.featured-desc{font-size:.8rem;color:rgba(255,255,255,.45);line-height:1.65;margin-bottom:1.2rem;position:relative}
 .featured-bottom{display:flex;align-items:center;justify-content:space-between;position:relative}
-.featured-date{font-size:.75rem;color:rgba(255,255,255,.35)}
-.featured-read{background:var(--accent);color:#fff;padding:8px 20px;border-radius:100px;font-size:.8rem;font-weight:700;text-decoration:none;transition:all .2s}
-.featured-read:hover{background:#c73516;transform:translateY(-1px)}
-.hero-divider{height:1px;background:rgba(255,255,255,.08);margin:1.2rem 0;position:relative}
+.featured-date{font-size:.72rem;color:rgba(255,255,255,.3)}
+.featured-read{background:var(--accent);color:#fff;padding:8px 18px;border-radius:8px;font-size:.78rem;font-weight:700;text-decoration:none;transition:all .2s}
+.featured-read:hover{background:#c73516}
+.hero-divider{height:1px;background:rgba(255,255,255,.07);margin:1rem 0;position:relative}
 
-/* ── STATS BAR ── */
+/* ── STATS BAR ── *//* ── STATS BAR ── */
 .stats-bar{border-bottom:1px solid var(--border);max-width:1300px;margin:0 auto;display:flex}
 .stat-item{flex:1;text-align:center;padding:1.8rem 1rem;border-right:1px solid var(--border)}
 .stat-item:last-child{border-right:none}
@@ -217,13 +234,10 @@ footer p{font-size:.8rem;color:var(--muted)}
 
   <!-- LEFT -->
   <div class="hero-left">
-    <div class="hero-eyebrow">
-      <span></span>
-      <span data-en="Tech Knowledge Hub" data-hi="Tech Knowledge Hub">Tech Knowledge Hub</span>
-    </div>
+    <div class="hero-eyebrow" data-en="✦ Tech Knowledge Hub" data-hi="✦ Tech Knowledge Hub">✦ Tech Knowledge Hub</div>
     <h1>
       <span data-en="Learn Tech," data-hi="Seekho Tech,">Seekho Tech,</span>
-      <em data-en="Your Language." data-hi="Apni Bhasha Mein.">Apni Bhasha Mein.</em>
+      <span class="accent-line" data-en="Your Language." data-hi="Apni Bhasha Mein.">Apni Bhasha Mein.</span>
     </h1>
     <p class="hero-sub" data-en="AI, coding, and digital trends — all explained simply. New blogs every week, just for you." data-hi="AI, coding, aur digital trends — sab kuch simple Hindi mein. Har hafte naye blogs, sirf tumhare liye.">
       AI, coding, aur digital trends — sab kuch simple Hindi mein. Har hafte naye blogs, sirf tumhare liye.
@@ -278,7 +292,19 @@ footer p{font-size:.8rem;color:var(--muted)}
   <div class="projects-inner">
     <div class="sec-hd">
       <h2 data-en="&#128187; My Code Projects" data-hi="&#128187; Mere Code Projects">&#128187; Mere Code Projects</h2>
-      <span data-en="GitHub source + live demo" data-hi="GitHub source + live demo">GitHub source + live demo</span>
+      <a href="projects.html" style="font-size:.84rem;color:#f87171;text-decoration:none;font-weight:600" data-en="See all projects →" data-hi="Saare projects →">Saare projects →</a>
+    </div>
+    <!-- Project Search -->
+    <div style="margin-bottom:1.5rem;display:flex;gap:.8rem;align-items:center;flex-wrap:wrap">
+      <div style="position:relative;flex:1;min-width:220px;max-width:360px">
+        <input id="proj-search" type="text" placeholder="Search projects..."
+          style="width:100%;padding:10px 16px 10px 40px;border:1.5px solid rgba(255,255,255,.12);border-radius:10px;background:rgba(255,255,255,.06);color:#fff;font-family:'Outfit',sans-serif;font-size:.85rem;outline:none"
+          oninput="filterProjects()"
+          data-placeholder-en="Search projects..."
+          data-placeholder-hi="Projects search karo..."/>
+        <span style="position:absolute;left:13px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.3);font-size:.9rem">&#128269;</span>
+      </div>
+      <div id="proj-tags" style="display:flex;gap:.5rem;flex-wrap:wrap"></div>
     </div>
     <div class="proj-grid" id="proj-grid">
       <div style="text-align:center;padding:3rem;color:rgba(255,255,255,.25);grid-column:1/-1">&#9203; Load ho raha hai...</div>
@@ -351,7 +377,7 @@ footer p{font-size:.8rem;color:var(--muted)}
   function cwInitProjects() {
     fetch('projects.json?v=' + Date.now())
       .then(function(r) { return r.json(); })
-      .then(function(p) { renderProjects(p); })
+      .then(function(p) { _allProjects = p; buildProjTags(p); renderProjects(p); })
       .catch(function() {
         document.getElementById('proj-grid').innerHTML =
           '<p style="color:rgba(255,255,255,.3);grid-column:1/-1;text-align:center;padding:2rem">Koi project nahi mila.</p>';
